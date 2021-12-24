@@ -1,0 +1,7 @@
+# Preface {-}
+
+* This thesis was constructed under the supervision of prof. dr. Bart van Hoek, prof. Hein Putter, and dr. Andries E. Braat.
+* The research was conducted at the Leiden University Medical Center and the Eurotransplant International Foundation.
+* The thesis is published under Leiden University Press.
+
+This is the `html` version of the PhD thesis of BFJ Goudsmit. You can view and access the `pdf` version from the toolbar above.

@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Validation of the Model for End‐stage Liver Disease sodium (MELD‐Na) score in the Eurotransplant region | Improving survival prediction models for liver transplantation candidates</title>
+  <meta name="description" content="Chapter 2 Validation of the Model for End‐stage Liver Disease sodium (MELD‐Na) score in the Eurotransplant region | Improving survival prediction models for liver transplantation candidates" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Validation of the Model for End‐stage Liver Disease sodium (MELD‐Na) score in the Eurotransplant region | Improving survival prediction models for liver transplantation candidates" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Validation of the Model for End‐stage Liver Disease sodium (MELD‐Na) score in the Eurotransplant region | Improving survival prediction models for liver transplantation candidates" />
+  
+  
+  
+
+<meta name="author" content="Ben Felix Jacob Goudsmit" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="part-i-forms-of-meld.html"/>
+<link rel="next" href="chap-refit.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Thesis BFJ Goudsmit</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="general-introduction.html"><a href="general-introduction.html"><i class="fa fa-check"></i><b>1</b> General introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="general-introduction.html"><a href="general-introduction.html#research-in-context"><i class="fa fa-check"></i><b>1.1</b> Research in context</a>
+<ul>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#a-short-history-of-liver-transplantation"><i class="fa fa-check"></i>A short history of liver transplantation</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#the-start-of-liver-allocation"><i class="fa fa-check"></i>The start of liver allocation</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#survival-prediction"><i class="fa fa-check"></i>Survival prediction</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#measuring-model-prediction-performance"><i class="fa fa-check"></i>Measuring model prediction performance</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#the-meld-score"><i class="fa fa-check"></i>The MELD score</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="general-introduction.html"><a href="general-introduction.html#justifying-why-research-is-needed-central-argument"><i class="fa fa-check"></i><b>1.2</b> Justifying why research is needed: central argument</a></li>
+<li class="chapter" data-level="1.3" data-path="general-introduction.html"><a href="general-introduction.html#thesis-layout-research-questions-and-addressed-problems"><i class="fa fa-check"></i><b>1.3</b> Thesis layout: research questions and addressed problems</a>
+<ul>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#considering-sodium"><i class="fa fa-check"></i>Considering sodium</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#updating-coefficients"><i class="fa fa-check"></i>Updating coefficients</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#past-and-current-disease"><i class="fa fa-check"></i>Past and current disease</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#acute-on-chronic-liver-disease"><i class="fa fa-check"></i>Acute-on-chronic liver disease</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#benefit-of-transplantation-life-years-gained"><i class="fa fa-check"></i>Benefit of transplantation: life years gained</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="general-introduction.html"><a href="general-introduction.html#references"><i class="fa fa-check"></i><b>1.4</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-i-forms-of-meld.html"><a href="part-i-forms-of-meld.html"><i class="fa fa-check"></i>Part I: Forms of MELD</a></li>
+<li class="chapter" data-level="2" data-path="chap-meldna.html"><a href="chap-meldna.html"><i class="fa fa-check"></i><b>2</b> Validation of the Model for End‐stage Liver Disease sodium (MELD‐Na) score in the Eurotransplant region</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#methods"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#study-design-and-population"><i class="fa fa-check"></i>Study design and population</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#statistical-analysis"><i class="fa fa-check"></i>Statistical analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#results"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#study-population"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#meld-na-performance"><i class="fa fa-check"></i>MELD-Na performance</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#impact-on-the-waiting-list"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#discussion"><i class="fa fa-check"></i>Discussion</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#references-1"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-refit.html"><a href="chap-refit.html"><i class="fa fa-check"></i><b>3</b> Refitting the Model for End-stage Liver Disease for the Eurotransplant region</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#methods-1"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#patient-data"><i class="fa fa-check"></i>Patient data</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#statistical-methods"><i class="fa fa-check"></i>Statistical methods</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#results-1"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#model-development"><i class="fa fa-check"></i>Model development</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#model-performance"><i class="fa fa-check"></i>Model performance</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#impact-on-the-waiting-list-1"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#discussion-1"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#lower-bounds"><i class="fa fa-check"></i>Lower bounds</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#upper-bounds"><i class="fa fa-check"></i>Upper bounds</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#sodium-addition"><i class="fa fa-check"></i>Sodium addition</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#impact-on-the-wl"><i class="fa fa-check"></i>Impact on the WL</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#limitations-1"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#conclusion-1"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#references-2"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-ii-disease-over-time.html"><a href="part-ii-disease-over-time.html"><i class="fa fa-check"></i>Part II: Disease over time</a></li>
+<li class="chapter" data-level="4" data-path="chap-jm.html"><a href="chap-jm.html"><i class="fa fa-check"></i><b>4</b> Joint modelling of liver transplant candidates outperforms the model for end-stage liver disease: the effect of disease development over time on patient outcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#introduction-2"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#methods-2"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#study-population-1"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#statistical-analysis-1"><i class="fa fa-check"></i>Statistical analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#longitudinal-analysis"><i class="fa fa-check"></i>Longitudinal analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#combining-longitudinal-and-survival-analysis"><i class="fa fa-check"></i>Combining longitudinal and survival analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#prediction-performance"><i class="fa fa-check"></i>Prediction performance</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#impact-on-the-waiting-list-2"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#online-lt-jm-prediction-tool"><i class="fa fa-check"></i>Online LT-JM prediction tool</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#results-2"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#population-characteristics"><i class="fa fa-check"></i>Population characteristics</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#jm-properties"><i class="fa fa-check"></i>JM properties</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#jm-performance"><i class="fa fa-check"></i>JM performance</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#jm-impact-on-the-waiting-list"><i class="fa fa-check"></i>JM impact on the waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#online-prediction-tools"><i class="fa fa-check"></i>Online prediction tools</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#discussion-2"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#longitudinal-analysis-1"><i class="fa fa-check"></i>Longitudinal analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#prediction-performance-1"><i class="fa fa-check"></i>Prediction performance</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#impact-on-the-waiting-list-3"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#limitations-2"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#conclusion-2"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#references-3"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html"><i class="fa fa-check"></i><b>5</b> Development and validation of a dynamic survival prediction model for patients with acute-on-chronic liver failure</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#introduction-3"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#methods-3"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#study-population-2"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#identification-of-aclf"><i class="fa fa-check"></i>Identification of ACLF</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#development-of-the-aclf-jm"><i class="fa fa-check"></i>Development of the ACLF-JM</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#validation-of-the-aclf-jm"><i class="fa fa-check"></i>Validation of the ACLF-JM</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#aclf-jm-impact-on-the-transplantation-waiting-list"><i class="fa fa-check"></i>ACLF-JM impact on the transplantation waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#clinical-application-of-the-aclf-jm"><i class="fa fa-check"></i>Clinical application of the ACLF-JM</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#results-3"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#study-population-3"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#model-properties"><i class="fa fa-check"></i>Model properties</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#model-validation"><i class="fa fa-check"></i>Model validation</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#aclf-jm-impact-on-the-transplantation-waiting-list-1"><i class="fa fa-check"></i>ACLF-JM impact on the transplantation waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#clinical-application-of-the-aclf-jm-1"><i class="fa fa-check"></i>Clinical application of the ACLF-JM</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#discussion-3"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#disease-development-over-time"><i class="fa fa-check"></i>Disease development over time</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#aclf-jm-validation"><i class="fa fa-check"></i>ACLF-JM validation</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#clinical-application-of-the-aclf-jm-2"><i class="fa fa-check"></i>Clinical application of the ACLF-JM</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#limitations-3"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#conclusion-3"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#references-4"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-iii-survival-with-and-without-transplantation.html"><a href="part-iii-survival-with-and-without-transplantation.html"><i class="fa fa-check"></i>Part III: Survival with and without transplantation</a></li>
+<li class="chapter" data-level="6" data-path="chap-benefit.html"><a href="chap-benefit.html"><i class="fa fa-check"></i><b>6</b> Survival benefit from liver transplantation for patients with and without hepatocellular carcinoma</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#introduction-4"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#methods-4"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#patient-population"><i class="fa fa-check"></i>Patient population</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#benefit-definition"><i class="fa fa-check"></i>Benefit definition</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#statistical-analysis-2"><i class="fa fa-check"></i>Statistical analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#online-benefit-score-calculator"><i class="fa fa-check"></i>Online benefit score calculator</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#results-4"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#patient-characteristics-at-transplantation"><i class="fa fa-check"></i>Patient characteristics at transplantation</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#waiting-list-survival-model"><i class="fa fa-check"></i>Waiting list survival model</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#post-transplantation-survival-model"><i class="fa fa-check"></i>Post-transplantation survival model</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#survival-without-and-with-lt"><i class="fa fa-check"></i>Survival without and with LT</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#survival-benefit-life-years-gained-per-5-years"><i class="fa fa-check"></i>Survival benefit: life-years gained per 5 years</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#liver-transplant-benefit-scores"><i class="fa fa-check"></i>Liver transplant benefit scores</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#discussion-4"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#benefit-definition-1"><i class="fa fa-check"></i>Benefit definition</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#estimation-of-benefit"><i class="fa fa-check"></i>Estimation of benefit</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#non-hcc-and-hcc-benefit"><i class="fa fa-check"></i>Non-HCC and HCC benefit</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#using-benefit-scores"><i class="fa fa-check"></i>Using benefit scores</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#limitations-4"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#conclusion-4"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#references-5"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-disc.html"><a href="chap-disc.html"><i class="fa fa-check"></i><b>7</b> Summary, general discussion, and future perspectives</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-disc.html"><a href="chap-disc.html#summ"><i class="fa fa-check"></i><b>7.1</b> Summary</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-disc.html"><a href="chap-disc.html#gendisc"><i class="fa fa-check"></i><b>7.2</b> General discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#part-i-forms-of-meld-1"><i class="fa fa-check"></i>Part I: Forms of MELD</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#meld-3.0"><i class="fa fa-check"></i>MELD 3.0</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#part-ii-disease-over-time-1"><i class="fa fa-check"></i>Part II: Disease over time</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#joint-modeling-disease-and-survival-over-time"><i class="fa fa-check"></i>Joint modeling disease and survival over time</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#joint-modeling-acute-on-chronic-liver-failure"><i class="fa fa-check"></i>Joint modeling acute-on-chronic liver failure</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#part-iii-survival-with-and-without-transplantation-1"><i class="fa fa-check"></i>Part III: Survival with and without transplantation</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#benefit-from-liver-transplantation"><i class="fa fa-check"></i>Benefit from liver transplantation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="chap-disc.html"><a href="chap-disc.html#future-perspectives"><i class="fa fa-check"></i><b>7.3</b> Future perspectives</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#simulation"><i class="fa fa-check"></i>Simulation</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#new-model-implementation"><i class="fa fa-check"></i>New model implementation</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#from-urgency-to-benefit"><i class="fa fa-check"></i>From urgency to benefit</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="chap-disc.html"><a href="chap-disc.html#conclusion-5"><i class="fa fa-check"></i><b>7.4</b> Conclusion</a></li>
+<li class="chapter" data-level="7.5" data-path="chap-disc.html"><a href="chap-disc.html#references-6"><i class="fa fa-check"></i><b>7.5</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="appendix.html"><a href="appendix.html#chap-meld3"><i class="fa fa-check"></i><b>8.1</b> Supplement Chapter: The Model for End-stage Liver Disease 3.0: an update without proven accuracy</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="appendix.html"><a href="appendix.html#letter"><i class="fa fa-check"></i><b>8.1.1</b> Letter</a></li>
+<li class="chapter" data-level="8.1.2" data-path="appendix.html"><a href="appendix.html#references-7"><i class="fa fa-check"></i><b>8.1.2</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="appendix.html"><a href="appendix.html#chap-rolejm"><i class="fa fa-check"></i><b>8.2</b> Supplement Chapter: The role of the model for end-stage liver disease-sodium score and joint models for 90-day mortality prediction in patients with acute-on-chronic liver failure.</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="appendix.html"><a href="appendix.html#letter-1"><i class="fa fa-check"></i><b>8.2.1</b> Letter</a></li>
+<li class="chapter" data-level="8.2.2" data-path="appendix.html"><a href="appendix.html#references-8"><i class="fa fa-check"></i><b>8.2.2</b> References</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-nlsum.html"><a href="chap-nlsum.html"><i class="fa fa-check"></i><b>9</b> Nederlandse samenvatting (Summary in Dutch)</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-nlsum.html"><a href="chap-nlsum.html#deel-i"><i class="fa fa-check"></i>Deel I</a></li>
+<li class="chapter" data-level="" data-path="chap-nlsum.html"><a href="chap-nlsum.html#deel-ii"><i class="fa fa-check"></i>Deel II</a></li>
+<li class="chapter" data-level="" data-path="chap-nlsum.html"><a href="chap-nlsum.html#deel-iii"><i class="fa fa-check"></i>Deel III</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dankwoord.html"><a href="dankwoord.html"><i class="fa fa-check"></i>Dankwoord</a></li>
+<li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html"><i class="fa fa-check"></i>Curriculum vitae</a></li>
+<li class="chapter" data-level="" data-path="list-of-publications.html"><a href="list-of-publications.html"><i class="fa fa-check"></i>List of publications</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Improving survival prediction models for liver transplantation candidates</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap-meldna" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Validation of the Model for End‐stage Liver Disease sodium (MELD‐Na) score in the Eurotransplant region</h1>
+<p>Goudsmit BFJ, Putter H, Tushuizen ME, de Boer J, Vogelaar S, Alwayn IPJ, et al. <em>American Journal of Transplantation</em>. 2020; <a href="doi:10.1111/ajt.16142" class="uri">doi:10.1111/ajt.16142</a>.</p>
+<hr />
+<div style="page-break-after: always;"></div>
+<p></p>
+<p><strong>Abstract</strong></p>
+<p><strong>Background &amp; Aims</strong>: The MELD score is used in the Eurotransplant (ET) region to allocate liver grafts. Hyponatremia in cirrhotic patients is an important predictor of death but is not incorporated in MELD. This study investigated the performance of the MELD-Na score for the ET region.</p>
+<p><strong>Methods</strong>:All adult patients with chronic liver disease on the ET liver transplantation waiting list (WL) allocated through lab MELD scores were included. The MELD-corrected effect of serum sodium (Na) concentration at listing on the 90-day WL mortality was calculated using Cox regression. The MELD-Na performance was assessed with c-indices, calibration per decile and Brier scores. The reclassification from MELD to MELD-Na score was calculated to estimate the impact of MELD-Na-based allocation in the ET region.</p>
+<p><strong>Results</strong>: For the 5223 included patients, the risk of 90-day WL death was 2.9 times higher for hyponatremic patients. The MELD-Na had a significantly higher c-index of 0.847 (SE 0.007) and more accurate 90-day mortality prediction compared to MELD (Brier score of 0.059 versus 0.061). It was estimated that using MELD-Na would reduce WL mortality by 4.9%.</p>
+<p><strong>Conclusion</strong>: The MELD-Na score yielded improved prediction of 90-day WL mortality in the ET region and using MELD-Na for liver allocation will very likely reduce WL mortality.</p>
+<div style="page-break-after: always;"></div>
+<div id="introduction" class="section level2 unnumbered">
+<h2>Introduction</h2>
+<p>Liver transplantation (LT) is the treatment of choice for end-stage liver disease. However, the number of patients in need of LT exceeds the number of available donor grafts.<sup>1</sup> Over the past years the prevalence and disease load of end-stage liver disease has been increasing<sup>2-4</sup> and is estimated to triple in the next 10 years.<sup>5</sup> Therefore, the limited supply of donated livers should be carefully distributed.</p>
+<p>For optimal matching and use of donor livers in the Eurotransplant (ET) region, patients are placed on a waiting list (WL) for LT. Since 2006, the Model for End-stage Liver Disease (MELD) score has been used to rank and prioritize LT candidates in the Eurotransplant region.<sup>6</sup> The MELD score estimates disease severity in LT candidates based on serum creatinine, bilirubin, and the International Normalized Ratio (INR) of the prothrombin time.<sup>7</sup> Additionally, a high urgency (HU), i.e. United Network for Organ Sharing (UNOS) status 1, and exception point system are used for those patients in which MELD does not adequately reflect disease severity.<sup>6</sup></p>
+<p>To improve the survival prediction and allocation by the MELD score, the addition of the serum sodium (Na) concentration was proposed, as hyponatremia is an independent prognostic factor in patients with cirrhosis.<sup>8-12</sup> In cirrhosis, portal hypertension leads to systemic vasodilatation, secondary neurohormonal compensation and less renal excretion of solute-free water.<sup>13,14</sup> The severity of portal hypertension is inversely related to the serum Na concentration.<sup>15,16</sup> Clinically, Na levels influence the outcomes of LT candidates before and possibly even after LT.<sup>17-20</sup> Interestingly, in the UNOS regions, MELD-Na has been used for liver graft allocation since 2016.<sup>21</sup></p>
+<p>After the introduction of MELD-Na in the United States (US), recent evaluation showed a decline in WL mortality.<sup>22</sup> However, the populations of the US and Eurotransplant differ.<sup>1,23</sup> Recently, it was shown that differences in population characteristics influenced the predictive power of MELD and MELD-Na.<sup>24</sup> Therefore, MELD-Na-based allocation needs to be investigated in Eurotransplant before implementation. We hypothesized that the serum sodium levels at listing were similar between the Eurotransplant and US regions. If so, MELD-Na-based allocation could also lead to a reduction in WL mortality in the Eurotransplant region. Therefore, our aim was to validate the UNOS MELD-Na score for the Eurotransplant region. For this, the prediction of 90-day WL mortality by the MELD-Na score was investigated in the Eurotransplant population. In addition, the potential effect of MELD-Na-based liver allocation on the Eurotransplant waiting list mortality was estimated.</p>
+</div>
+<div id="methods" class="section level2 unnumbered">
+<h2>Methods</h2>
+<div id="study-design-and-population" class="section level3 unnumbered">
+<h3>Study design and population</h3>
+<p>The TRIPOD statement was used to report this study.<sup>25</sup> Data was retrospectively gathered from the Eurotransplant Network Information System (ENIS) and the Eurotransplant Liver Follow-up Registry (ELFR). All patients with chronic liver disease, at least 18 years old, and registered on the Eurotransplant waiting list for a first LT between January 1<sup>st</sup> 2007 and December 31<sup>st</sup> 2018 were included. Patients not allocated based on lab MELD, with HU status (i.e. UNOS status 1) or (non-)standard exception ((N)SE) points, listings for multiple organs (other than combined liver-kidney), grafts from outside Eurotransplant, or missing data at listing were excluded. The HU status is granted for acute liver failure. Exception points are given when lab MELD does not reflect disease severity or risk of dying on the waiting list (e.g. with HCC, hepatopulmonary syndrome, etc.). A detailed description of the Eurotransplant adult liver allocation is available elsewhere.<sup>6</sup> Patients were followed from first active listing to death, first delisting, or until 90 days. Reasons for delisting and censoring were transplantation, HU-status, (N)SE-points, and removal due to clinical condition (improvement or decline without 90-day death) or other reasons. The outcome for the prediction models was death within 90 days of listing. Removal within 90 days, due to being too sick for transplantation and subsequent death within 90 days, was also counted as 90-day mortality. Patients with a serum sodium above 150 mmol/L were excluded from the analysis, as the effects of hyponatremia were studied. The MELD score and serum Na level (mmol/L) at listing were used as predictors for the multivariate models. The sample size was set by the retrospective design of the study.</p>
+</div>
+<div id="statistical-analysis" class="section level3 unnumbered">
+<h3>Statistical analysis</h3>
+<p>For the complete-case analysis, continuous variables were reported as mean (SD) or median (IQR). Categorical variables were reported as counts (percentage). To investigate possible selection bias, complete cases were compared to eligible patient with missing Na at listing. The MELD score was calculated according to Wiesner et al.<sup>26</sup> Cumulative incidence plots, accounting for the competing risks of transplantation, removal and death, were plotted for the &lt;=130, 131-134 and &gt;=135 mmol/L sodium levels at listing. For these groups, 90-day Kaplan-Meier survival curves were also plotted. A multivariate Cox proportional hazards (PH) regression analyzed the relation between the MELD score, Na, and 90-day mortality. The PH assumptions were checked through Schoenfeld residuals methods. A generalized additive model (GAM) with smoothing splines and fitted Cox models were used to assess the linearity of the MELD-corrected effect of Na on 90-day mortality. The upper and lower Na limits were set between 125 and 140 mmol/L, in accordance to UNOS MELD-Na.<sup>9</sup> Within this range, PH models adjusted for MELD and Na assessed the interaction between the predictors and calculated the hazard ratio (HR) for 90-day mortality per unit increase in MELD or Na. Then, the MELD-Na score was calculated using the standard formula.<sup>9</sup> Concordance statistics (c-index) were used as a measurement of discrimination between death and survival. An analysis of c-index development over the years 2007-2018 was done to assess a possible decline in c-index value for MELD and MELD-Na.<sup>24</sup> For the MELD-Na, a calibration plot was made of the observed and expected risk estimate per decile, with detailed risks attached in a supplementary table. As a measure of prediction error reduction, Brier scores of MELD and MELD-Na were calculated. A heatmap was constructed of the gained MELD-Na points at listing and of the differences in predicted 90-day death risk between MELD and MELD-Na scores. Interactive versions of these heatmaps were published as online supplement using the R plotly package.<sup>27</sup> The reclassification rate from MELD to MELD-Na score at listing was calculated. To make comparison with UNOS data possible,<sup>9</sup> the reclassification per MELD and MELD-Na stratum was also calculated (supplement 3). All statistical analyses were performed using SPSS v25.0 (IBM Corp, Armonk, NY) and R v3.6.1(R Foundation for Statistical Computing, Vienna, Austria).</p>
+</div>
+</div>
+<div id="results" class="section level2 unnumbered">
+<h2>Results</h2>
+<div id="study-population" class="section level3 unnumbered">
+<h3>Study population</h3>
+<p>For this study, 14.396 patients were eligible. After excluding patients with missing serum Na at listing, 5223 patients were included. See Figure <a href="chap-meldna.html#fig:meldna-fig1">2.1</a>. The baseline characteristics of included patients at first active listing are shown in Table <a href="chap-meldna.html#tab:meldna-tab1">2.1</a>.</p>
+<table class="table lightable-classic" style="margin-left: auto; margin-right: auto; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption>
+<span id="tab:meldna-tab1">Table 2.1: </span>Demographics of the patients at first active listing
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Characteristics
+</th>
+<th style="text-align:left;">
+(n=5223)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Age at listing
+</td>
+<td style="text-align:left;">
+56 (49-62)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sex (Male)
+</td>
+<td style="text-align:left;">
+3565 (68.3)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Height (cm)
+</td>
+<td style="text-align:left;">
+174 (167-180)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Weight (kg)
+</td>
+<td style="text-align:left;">
+78 (67-90)
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="2" style="border-bottom: 0;">
+<strong>ABO</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+A
+</td>
+<td style="text-align:left;">
+2201 (42.1)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+O
+</td>
+<td style="text-align:left;">
+2081 (39.8)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+B
+</td>
+<td style="text-align:left;">
+702 (13.4)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+AB
+</td>
+<td style="text-align:left;">
+239 (4.6)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lab-MELD at listing
+</td>
+<td style="text-align:left;">
+16 (11-21)
+</td>
+</tr>
+<tr grouplength="3">
+<td colspan="2" style="border-bottom: 0;">
+<strong>MELD parameters</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Bilirubine
+</td>
+<td style="text-align:left;">
+2.75 (1.31-6.40)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Creatinin
+</td>
+<td style="text-align:left;">
+1.0 (1.00-1.27)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+INR
+</td>
+<td style="text-align:left;">
+1.39 (1.20-1.70)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Serum sodium at listing
+</td>
+<td style="text-align:left;">
+137 (134-140)
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="2" style="border-bottom: 0;">
+<strong>Grouped sodium</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+&lt;125
+</td>
+<td style="text-align:left;">
+136 (2.6)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+&lt;130
+</td>
+<td style="text-align:left;">
+460 (8.8)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+&lt;135
+</td>
+<td style="text-align:left;">
+1489 (28.5)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+&gt;=135
+</td>
+<td style="text-align:left;">
+3734 (71.5)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MELD-Na at listing
+</td>
+<td style="text-align:left;">
+18 (13-24)
+</td>
+</tr>
+<tr grouplength="5">
+<td colspan="2" style="border-bottom: 0;">
+<strong>Disease</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Alcoholic cirrhosis
+</td>
+<td style="text-align:left;">
+1873 (35.9)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Non-cholestatic cirrhosis
+</td>
+<td style="text-align:left;">
+1510 (28.9)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Cholestatic cirrhosis
+</td>
+<td style="text-align:left;">
+773 (14.8)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+HCC and cirrhosis
+</td>
+<td style="text-align:left;">
+709 (13.6)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Other
+</td>
+<td style="text-align:left;">
+355 (6.8)
+</td>
+</tr>
+<tr grouplength="6">
+<td colspan="2" style="border-bottom: 0;">
+<strong>Waiting list outcome (90 days)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Still on the waiting list
+</td>
+<td style="text-align:left;">
+2306 (44.2)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Transplanted
+</td>
+<td style="text-align:left;">
+1114 (21.3)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Removed clinical condition
+</td>
+<td style="text-align:left;">
+812 (15.6)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Removed other
+</td>
+<td style="text-align:left;">
+380 (7.3)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Deceased after removal, within 90d
+</td>
+<td style="text-align:left;">
+448 (8.6)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Deceased while listed
+</td>
+<td style="text-align:left;">
+147 (2.8)
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;">Note: </span>
+</td>
+</tr>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup></sup> Median (25th-75th percentile)
+</td>
+</tr>
+</tfoot>
+</table>
+<div class="figure"><span style="display:block;" id="fig:meldna-fig1"></span>
+<img src="figures/meldna/figure%201.%20in-%20exclusion.png" alt="The flowchart of in- and exclusion for this study" width="700" />
+<p class="caption">
+Figure 2.1: The flowchart of in- and exclusion for this study
+</p>
+</div>
+<p>The median lab MELD score was 16 (IQR 11-21) and the median sodium concentration was 137 (IQR 134-140) mmol/L. Hyponatremia of &lt;135, &lt;130, and &lt;125 mmol/L was found in respectively 28.5%, 8.8%, and 2.6% of the patients. Patients with alcohol-induced cirrhosis (ALD) had the lowest median Na levels, see Figure <a href="chap-meldna.html#fig:meldna-fig2">2.2</a>.For the assessment of selection bias, an analysis of all eligible patients (Na present versus absent) was added (supplement 1). Compared to the included patients, eligible patients with missing serum Na were more often female (31.9% vs 35.5%) and had higher rates of alcohol- or virus-induced liver cirrhosis (respectively 35.9% vs 41.0% and 12.4% vs 15.3%, p&lt;0.001). MELD scores were comparable, but excluded patients had significantly higher creatinine levels at listing (1.36 vs 1.42 mg/dL p&lt;0.001).</p>
+<div class="figure"><span style="display:block;" id="fig:meldna-fig2"></span>
+<img src="figures/meldna/figure%202.%20median%20sodium%20per%20disease.png" alt="Violin plots with embedded box plots of the median serum sodium (Na) levels at listing, for the most frequent causes of liver disease. The dotted line represents the median Na of 137 mmol/L for the whole cohort. For the significant differences between Na levels, P values for pairwise comparisons are shown" width="700" />
+<p class="caption">
+Figure 2.2: Violin plots with embedded box plots of the median serum sodium (Na) levels at listing, for the most frequent causes of liver disease. The dotted line represents the median Na of 137 mmol/L for the whole cohort. For the significant differences between Na levels, P values for pairwise comparisons are shown
+</p>
+</div>
+<p>Competing risk analysis showed that 90-day mortality and transplantation rates increased as sodium levels decreased, see Figure <a href="chap-meldna.html#fig:meldna-fig3">2.3</a>. Na&lt;130, 130-134 and &gt;=135 patients had 90-day death risks of respectively 27%, 18% and 8%. The 90-day transplant rates were respectively 33%, 27% and 18.0%. The grouped Na levels showed diverging survival curves, i.e. at lower Na levels the mortality risk increased at a higher rate (supplement 2). The 90-day death HRs for Na &lt;130 and Na 130-134 compared to Na &gt;=135 patients were 4.72 (95%CI 3.81-5.83), and 2.72 (95%CI 2.26-3.28), respectively.</p>
+<div class="figure"><span style="display:block;" id="fig:meldna-fig3"></span>
+<img src="thesis_files/figure-html/meldna-fig3-1.png" alt="Cumulative incidence plots for 90-day WL outcomes, with competing risks of death, transplantation and removal due to clinical condition or censoring for NSE or HU status during waiting. Hyponatriemic patients show increased rates of mortality (27%) and transplantation (33%) compared to normonatriemic patients (respectively 8% and 18%) patients. For an explanation of the NSE and HU status, see Jochmans et al." width="672" />
+<p class="caption">
+Figure 2.3: Cumulative incidence plots for 90-day WL outcomes, with competing risks of death, transplantation and removal due to clinical condition or censoring for NSE or HU status during waiting. Hyponatriemic patients show increased rates of mortality (27%) and transplantation (33%) compared to normonatriemic patients (respectively 8% and 18%) patients. For an explanation of the NSE and HU status, see Jochmans et al.
+</p>
+</div>
+</div>
+<div id="meld-na-performance" class="section level3 unnumbered">
+<h3>MELD-Na performance</h3>
+<p>Per MELD point increase, the 90-day mortality risk increased by 17% (HR 1.17; 95%CI 1.16 – 1.18; p&lt;0.001), c-index 0.832 (SE 0.008). The GAM with splines of the MELD-corrected effect of Na level on 90-day mortality showed approximate linearity in the 125-140 mmol/L range, see Figure <a href="chap-meldna.html#fig:meldna-fig4">2.4</a>. Within this interval, the risk of 90-day death increased by threefold (HR 2.9; 95%CI 2.30-3.53; p&lt;0.001). In the MELD-Na model, each gained MELD and lowered Na point increased 90-day mortality risk by respectively 16% (HR 1.16; 95%CI 1.15 – 1.17; p&lt;0.001), and 8% (HR 0.92; 95%CI 0.90 – 0.94; p&lt;0.001), c-index 0.847 (SE 0.007). For each year of the study period, the c-index of MELD and MELD-Na was plotted, see Figure <a href="chap-meldna.html#fig:meldna-fig5">2.5</a>. Between 2007-2018, the c-index of MELD and MELD-Na decreased significantly, respectively from 0.866 to 0.810 and 0.946 to 0.828 (Table <a href="chap-meldna.html#tab:meldna-tab2">2.2</a> ). In this period, the MELD, age and distribution of liver disease changed significantly (supplement 4). Alcohol-induced liver disease, HCC, primary biliary cirrhosis (PBC) and non-alcoholic steatohepatitis (NASH) cirrhosis increased and primary sclerosing cholangitis (PSC), hepatitis-C (HCV), hepatitis-B (HBV) and other causes decreased.</p>
+<div class="figure"><span style="display:block;" id="fig:meldna-fig4"></span>
+<img src="thesis_files/figure-html/meldna-fig4-1.png" alt="Generalized additive Cox model with spline showing the effect of serum sodium at listing on 90-day mortality, corrected for the MELD score." width="672" />
+<p class="caption">
+Figure 2.4: Generalized additive Cox model with spline showing the effect of serum sodium at listing on 90-day mortality, corrected for the MELD score.
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:meldna-fig5"></span>
+<img src="thesis_files/figure-html/meldna-fig5-1.png" alt="The concordance statistics (c-indices) for 90-day mortality of MELD and MELD-Na between 2007 and 2018." width="672" />
+<p class="caption">
+Figure 2.5: The concordance statistics (c-indices) for 90-day mortality of MELD and MELD-Na between 2007 and 2018.
+</p>
+</div>
+<table class="table lightable-classic" style="margin-left: auto; margin-right: auto; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:meldna-tab2">Table 2.2: </span>The 90-day mortality concordance statistics of MELD and MELD-Na
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Year
+</th>
+<th style="text-align:right;">
+MELD
+</th>
+<th style="text-align:right;">
+SE
+</th>
+<th style="text-align:right;">
+MELD-Na
+</th>
+<th style="text-align:right;">
+SE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:right;">
+0.866
+</td>
+<td style="text-align:right;">
+0.087
+</td>
+<td style="text-align:right;">
+0.946
+</td>
+<td style="text-align:right;">
+0.036
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2008
+</td>
+<td style="text-align:right;">
+0.835
+</td>
+<td style="text-align:right;">
+0.079
+</td>
+<td style="text-align:right;">
+0.900
+</td>
+<td style="text-align:right;">
+0.046
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2009
+</td>
+<td style="text-align:right;">
+0.922
+</td>
+<td style="text-align:right;">
+0.026
+</td>
+<td style="text-align:right;">
+0.933
+</td>
+<td style="text-align:right;">
+0.024
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2010
+</td>
+<td style="text-align:right;">
+0.855
+</td>
+<td style="text-align:right;">
+0.032
+</td>
+<td style="text-align:right;">
+0.863
+</td>
+<td style="text-align:right;">
+0.033
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2011
+</td>
+<td style="text-align:right;">
+0.776
+</td>
+<td style="text-align:right;">
+0.049
+</td>
+<td style="text-align:right;">
+0.804
+</td>
+<td style="text-align:right;">
+0.041
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2012
+</td>
+<td style="text-align:right;">
+0.828
+</td>
+<td style="text-align:right;">
+0.023
+</td>
+<td style="text-align:right;">
+0.848
+</td>
+<td style="text-align:right;">
+0.019
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2013
+</td>
+<td style="text-align:right;">
+0.843
+</td>
+<td style="text-align:right;">
+0.023
+</td>
+<td style="text-align:right;">
+0.846
+</td>
+<td style="text-align:right;">
+0.022
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2014
+</td>
+<td style="text-align:right;">
+0.829
+</td>
+<td style="text-align:right;">
+0.024
+</td>
+<td style="text-align:right;">
+0.843
+</td>
+<td style="text-align:right;">
+0.021
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:right;">
+0.821
+</td>
+<td style="text-align:right;">
+0.021
+</td>
+<td style="text-align:right;">
+0.824
+</td>
+<td style="text-align:right;">
+0.021
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2016
+</td>
+<td style="text-align:right;">
+0.853
+</td>
+<td style="text-align:right;">
+0.016
+</td>
+<td style="text-align:right;">
+0.866
+</td>
+<td style="text-align:right;">
+0.015
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+0.814
+</td>
+<td style="text-align:right;">
+0.026
+</td>
+<td style="text-align:right;">
+0.843
+</td>
+<td style="text-align:right;">
+0.019
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:right;">
+0.810
+</td>
+<td style="text-align:right;">
+0.034
+</td>
+<td style="text-align:right;">
+0.828
+</td>
+<td style="text-align:right;">
+0.031
+</td>
+</tr>
+</tbody>
+</table>
+<p>The MELD-Na calibration plot showed a well calibrated model for 90% of the predicted risks in the population, with an overestimation for the highest 10% (504 patients) predicted risks (Figure <a href="chap-meldna.html#fig:meldna-fig6">2.6</a> and supplement 6). The prediction error of 90-day death was lower for MELD-Na than for MELD, with Brier scores of respectively 0.059 (34% prediction error reduction), and 0.061 (32% reduction).</p>
+<div class="figure"><span style="display:block;" id="fig:meldna-fig6"></span>
+<img src="thesis_files/figure-html/meldna-fig6-1.png" alt="Calibration plot of the MELD-Na model showing the predicted and observed risks of death per decile (10%) of the patient population. The diagonal line represents a perfect calibration." width="672" />
+<p class="caption">
+Figure 2.6: Calibration plot of the MELD-Na model showing the predicted and observed risks of death per decile (10%) of the patient population. The diagonal line represents a perfect calibration.
+</p>
+</div>
+</div>
+<div id="impact-on-the-waiting-list" class="section level3 unnumbered">
+<h3>Impact on the waiting list</h3>
+<p>On the WL, implementation of the MELD-Na score would lead to competition for transplantation between hyponatremic and high-MELD patients. The constructed heatmap of risk differences showed that compared to MELD, approximately 20% of the patients gained significant predicted 90-day mortality risks according to MELD-Na (red area). The largest increase (+22.5%) was found for MELD 23 Na 125 patients. Approximately 19% of the patients had significantly lower predicted risks with MELD-Na compared to MELD (blue area), of which the largest decrease (-8.72%) was estimated for MELD 27 Na 140 patients, see Figure <a href="chap-meldna.html#fig:meldna-fig7">2.7</a>. Thus, the patients in the red area (19%) are prioritized most by MELD-Na. On the other hand, the lowest 20% of predicted risks (blue area) would have a reduced chance of transplantation compared to MELD allocation. The interactive heatmaps allow specific assessment of the gained risks and MELD-Na points for individual patients (online supplement <a href="https://plot.ly/~Liver_Research/3/" class="uri">https://plot.ly/~Liver_Research/3/</a> and <a href="https://plot.ly/~Liver_Research/5/" class="uri">https://plot.ly/~Liver_Research/5/</a>). In total, 3384 (64.9%) patients gained an average of 1.94 MELD-Na points at listing. The highest reclassification rates, i.e. lowest percentage on the diagonal, were seen between MELD 12 to 30 (figure 8 and <a href="https://plot.ly/~Liver_Research/7/" class="uri">https://plot.ly/~Liver_Research/7/</a> and <a href="https://plot.ly/~Liver_Research/18/" class="uri">https://plot.ly/~Liver_Research/18/</a>). On average, MELD 23 patients gained the most, i.e. an average of 2.73, MELD-Na points. From 19 points and above, the frequency of MELD-Na scores at listing was significantly higher than MELD scores, with the exception of MELD 40 (online supplement <a href="https://plot.ly/~Liver_Research/11/" class="uri">https://plot.ly/~Liver_Research/11/</a>).</p>
+<div class="figure"><span style="display:block;" id="fig:meldna-fig7"></span>
+<img src="thesis_files/figure-html/meldna-fig7-1.png" alt="Point and risk differences between MELD and MELD-Na." width="672" /><img src="thesis_files/figure-html/meldna-fig7-2.png" alt="Point and risk differences between MELD and MELD-Na." width="672" />
+<p class="caption">
+Figure 2.7: Point and risk differences between MELD and MELD-Na.
+</p>
+</div>
+<!-- ```{r meldna-fig7b, echo=F, fig.cap='Heatmap of the difference in predicted death probability between MELD and MELD-Na. For each MELD and Na combination the gained predicted risk from MELD-Na is shown, which represents which patients will be prioritized most (red area, highest predicted risk difference) and which patients will lose the most priority with MELD-Na-based allocation (blue area, lowest predicted risk difference).'} -->
+<!-- knitr::include_graphics("figures/meldna/figure 7b. heatmap predicted risk difference.png" , auto_pdf=T) -->
+<!-- ```  -->
+<p>To make comparison to the UNOS data possible, we calculated the stratified MELD reclassification rates and estimated WL mortality reduction (supplement 3). Stratification of scores in accordance to Kim et al.<sup>9</sup> showed a reclassification rate of 26.3% (156 / 593) in the deceased patients. This led to an estimated 4.9% reduction in 90-day waiting list mortality. The analysis of disease-specific prioritization in the deceased patients showed that patients with HCC and hepatitis B had the highest chance of reclassification to a higher MELD-Na stratum, 36% and 30% respectively (supplement 3). However, patients with (post)alcoholic cirrhosis had the highest increase in mean MELD-Na compared to MELD. This illustrated that the strata chosen by Kim et al. could enable stage migration bias (supplement 3 and 5). Therefore, we believe that the total number of reclassified patients and the distribution of the gained MELD-Na points are more useful information when estimating the possible impact of MELD-Na-based allocation (Figure <a href="chap-meldna.html#fig:meldna-fig8">2.8</a> and <a href="https://plot.ly/~Liver_Research/7/" class="uri">https://plot.ly/~Liver_Research/7/</a> and <a href="https://plot.ly/~Liver_Research/18/" class="uri">https://plot.ly/~Liver_Research/18/</a>).</p>
+<div class="figure"><span style="display:block;" id="fig:meldna-fig8"></span>
+<img src="figures/meldna/figure%208.%20Reclassification%20and%20gained%20points%20histogram%202.png" alt="Reclassification from MELD (y-axis with percentage of patients with that score) to MELD-Na (x-axis with percentage of patients with that score). The diagonal shows which patients remain in the same stratum, that is, not reclassified, and which patients are reclassified to a higher MELD-Na score (percentages in the tiles). A lighter color indicates a higher difference between MELD and MELD-Na scores. The histogram on the left shows for each MELD score the average gain in MELD-Na points." width="700" />
+<p class="caption">
+Figure 2.8: Reclassification from MELD (y-axis with percentage of patients with that score) to MELD-Na (x-axis with percentage of patients with that score). The diagonal shows which patients remain in the same stratum, that is, not reclassified, and which patients are reclassified to a higher MELD-Na score (percentages in the tiles). A lighter color indicates a higher difference between MELD and MELD-Na scores. The histogram on the left shows for each MELD score the average gain in MELD-Na points.
+</p>
+</div>
+</div>
+</div>
+<div id="discussion" class="section level2 unnumbered">
+<h2>Discussion</h2>
+<p>This cohort analysis validated the UNOS MELD-Na score for the Eurotransplant region and provided the first examination of the extent of hyponatremia among LT candidates in this region. It was shown that the mortality hazards for mild and severely hyponatremic patients continued to increase during waiting for LT. The precise relation between the sodium concentration at listing and the 90-day WL mortality was calculated. Our analysis showed that MELD-Na had better prognostic abilities than MELD for the prediction of 90-day WL mortality, even though both MELD and MELD-Na declined the past years. Therefore, the use of the MELD-Na score could improve the allocation of donor livers in the Eurotransplant region.</p>
+<div id="meld-na-prediction-performance" class="section level4 unnumbered">
+<h4>MELD-Na prediction performance</h4>
+<p>Accounting for serum sodium is relevant for the Eurotransplant population, as the prevalence of hyponatremia was similar,<sup>9,22</sup> or even higher compared to another large study.<sup>28</sup> The severity of hyponatremia was associated with a continuous increase in the risk of death on the WL, as shown by the cumulative incidence plots and diverging survival curves (Figure <a href="chap-meldna.html#fig:meldna-fig3">2.3</a> and supplement 2). Compared to MELD, MELD-Na showed better discrimination between death and survival at 90-days, with a c-index of respectively 0.832 and 0.847. The c-index of MELD-Na was higher than found by some<sup>29</sup> and comparable to that found by other investigators.<sup>9,30</sup> Although the improvement in c-index by using MELD-Na was modest, it represented an important improvement in mortality prediction by considering hyponatremia as an independent risk factor of 90-day mortality. As the sickest candidates on the waiting list are prioritized, the increased discrimination would improve allocation.</p>
+<p>Although MELD-Na performed better than MELD, both models showed significantly declining c-indices between 2007-2018 (Figure <a href="chap-meldna.html#fig:meldna-fig5">2.5</a>, Table <a href="chap-meldna.html#tab:meldna-tab2">2.2</a> ). It is possible that the exceptionally high MELD-Na c-indices in the years 2007-2009 were due to population sampling, which would also make the decrease in c-index over the years seem excessive. In this period, average age and MELD at listing increased significantly. Most importantly, the distribution of causes of liver disease significantly changed (supplement 4). Compared to the US, the Eurotransplant population comprised more patients with ALD and HCC and less with HCV and NASH.<sup>24</sup> Godfrey et al. first showed declining c-indices over the years for MELD and MELD-Na, which they attributed to the decrease in HCV and increase of NASH and ALD. Despite the different distribution of causes of liver disease compared to the US, a similar change over time was seen. This could explain the initially higher but similarly declining c-indices of MELD and MELD-Na. Policy makers should consider this decline when evaluating a possible shift from MELD to MELD-Na. Still, MELD-Na would be a significant improvement because of the increasing prevalence of hyponatremia, its effect on 90-day mortality and the significantly higher c-indices of MELD-Na.</p>
+<p>The MELD-Na showed good calibration, with overestimation of risks only in the top 10% of the patients. Both MELD and MELD-Na overestimated the highest predicted risks (supplement 6), as also shown by others.<sup>9</sup> However, MELD-Na showed a higher reduction in the prediction error of 90-day death compared to MELD, as calculated with Brier scores. Thus, MELD-Na was a more accurate predictor of 90-day WL death than MELD alone.</p>
+</div>
+<div id="effect-of-meld-na" class="section level4 unnumbered">
+<h4>Effect of MELD-Na</h4>
+<p>Since we validated the UNOS MELD-Na score, we used the Na 125-140 mmol/L interval to fit our model. In this interval we showed a 1.5 higher increase in 90-day mortality risk per Na unit as compared to the UNOS regions.<sup>9</sup> Therefore, a greater reduction in WL mortality could be achieved through MELD-Na-based allocation. In the US, introduction of MELD-Na-based allocation reduced (HR 0.738) 90-day waiting list mortality for almost all MELD scores.<sup>22</sup> However, the number of transplants was higher in the studied MELD-Na period, which also could have reduced WL mortality. Still, Nagai et al. showed that the intended recognition of hyponatremia was achieved, as the WL mortality hazards of mild and severe hyponatremia decreased with respectively 27.9% and 48.3%.<sup>22</sup> In the US, it was shown that in MELD&lt;12 patients hyponatremia was not associated with LT survival benefit.<sup>20</sup> Thus, UNOS MELD-Na is only used to allocate liver grafts in MELD&gt;11 patients. In our population, very few (2.8%) MELD&lt;12 patients had severe hyponatremia. Although these patients would gain transplant chances through MELD-Na allocation, others would be prioritized more often. Our data also showed that the frequency of MELD-Na &gt;18 scores increased significantly (<a href="https://plot.ly/~Liver_Research/11/" class="uri">https://plot.ly/~Liver_Research/11/</a>). This would reduce transplant chances for patients listed with exception points, e.g. HCC patients, as these patients initially receive 20 points at listing in Eurotransplant.<sup>6</sup> Although the reduced advantage of (N)SE points is warranted according to some,<sup>31,32</sup> (N)SE point policy did not change after MELD-Na implementation in the UNOS regions (personal SRTR communication). Still, many patients are listed with exception points, both in Eurotransplant and in the US. Therefore, the distribution of gained MELD-Na points, survival benefit and influence on exception points of Eurotransplant LT candidates should be considered before implementation of MELD-Na-based allocation. A simulation of MELD-Na-based allocation would give the most accurate estimates of the effect on WL mortality.</p>
+</div>
+<div id="limitations" class="section level4 unnumbered">
+<h4>Limitations</h4>
+<p>This study has several limitations. First, only one measurement, i.e. at first listing, of the MELD and sodium was used to study the effect on 90-day mortality. Since the disease state of the patient is a dynamic process, a time-dependent analysis with more datapoints might have been a better representation of the true risk posed by hyponatremia. Indeed, we showed that the effect of hyponatremia increased with time (Figure <a href="chap-meldna.html#fig:meldna-fig3">2.3</a> and supplement 3). Also, serum sodium levels in the MELD-Na model were bound between 125-140 mmol/L. The fitted Cox model between these borders had a excellent c-index, but the relationship between serum sodium level and mortality was slightly different for the Eurotransplant region compared to the UNOS regions.<sup>9</sup> However, the goal was to validate the MELD-Na as used in the UNOS regions for the Eurotransplant region, and this goal was achieved. Still, refitting of the MELD parameters for the Eurotransplant population could be a valuable, especially regarding the decline in c-index between 2007-2018. Second, sodium data at first listing was missing for many eligible patients (supplement 1). This could have caused selection bias, possibly making the results less generalizable. However, analysis of the differences between the patients with and without registered sodium at listing showed that there was no reason to suspect selection bias. In the missing Na group, a significantly higher prevalence of alcoholic cirrhosis and virus-induced hepatitis was seen (supplement 4). Also, patients in the group with missing Na had a significantly higher serum creatinine. Thus, the prevalence of hyponatremia in those eligible patients could very well be even higher than found in the current cohort. Moreover, even though some data was missing, the number of patients included in this study sufficed to evaluate and estimate the improvements of MELD-Na with great statistical precision. Thus, the results of this study should be an incentive for the mandatory collection of sodium values across the Eurotransplant region.</p>
+</div>
+</div>
+<div id="conclusion" class="section level2 unnumbered">
+<h2>Conclusion</h2>
+<p>In conclusion, this study showed that the MELD-Na gave better 90-day mortality prediction than MELD for LT candidates on the Eurotransplant waiting list. As stated before, “the MELD-based allocation system will and also must evolve.”<sup>26</sup> The recognition of the independent prognostic impact of hyponatremia should lead to a more effective allocation. Thus, in the Eurotransplant region the MELD should be replaced by the MELD-Na as the basis allocation of donor livers.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="references-1" class="section level2 unnumbered">
+<h2>References</h2>
+<ol style="list-style-type: decimal">
+<li>Eurotransplant. Annual Report 2017.; 2018. www.eurotransplant.org.</li>
+<li>Ng M, Fleming T, Robinson M, et al. Global, regional, and national prevalence of overweight and obesity in children and adults during 1980-2013: A systematic analysis for the Global Burden of Disease Study 2013. Lancet. 2014;384(9945):766-781. <a href="doi:10.1016/S0140-6736(14)60460-8" class="uri">doi:10.1016/S0140-6736(14)60460-8</a></li>
+<li>Asrani SK, Devarbhavi H, Eaton J, Kamath PS. Burden of liver diseases in the world. J Hepatol. 2019;70(1):151-171. <a href="doi:10.1016/j.jhep.2018.09.014" class="uri">doi:10.1016/j.jhep.2018.09.014</a></li>
+<li>Pimpin L, Cortez-Pinto H, Negro F, et al. Burden of liver disease in Europe: Epidemiology and analysis of risk factors to identify prevention policies. J Hepatol. 2018;69(3):718-735.</li>
+<li>Estes C, Razavi H, Loomba R, Younossi Z, Sanyal AJ. Modeling the epidemic of nonalcoholic fatty liver disease demonstrates an exponential increase in burden of disease. Hepatology. 2018;67(1):123-133. <a href="doi:10.1002/hep.29466" class="uri">doi:10.1002/hep.29466</a></li>
+<li>Jochmans I, Van Rosmalen M, Pirenne J, Samuel U. Adult Liver Allocation in Eurotransplant. Transplantation. 2017;101(7):1542-1550. <a href="doi:10.1097/TP.0000000000001631" class="uri">doi:10.1097/TP.0000000000001631</a></li>
+<li>Malinchoc M, Kamath PS, Gordon FD, Peine CJ, Rank J, Ter Borg PCJ. A model to predict poor survival in patients undergoing transjugular intrahepatic portosystemic shunts. Hepatology. 2000;31(4):864-871. <a href="doi:10.1053/he.2000.5852" class="uri">doi:10.1053/he.2000.5852</a></li>
+<li>Biggins SW, Rodriguez HJ, Bacchetti P, Bass NM, Roberts JP, Terrault NA. Serum sodium predicts mortality in patients listed for liver transplantation. Hepatology. 2005;41(1):32-39. <a href="doi:10.1002/hep.20517" class="uri">doi:10.1002/hep.20517</a></li>
+<li>Kim WR, Biggins SW, Kremers WK, et al. Hyponatremia and Mortality among Patients on the Liver-Transplant Waiting List. N Engl J Med. 2008;359(10):1018-1026. <a href="doi:10.1007/s11250-017-1262-3" class="uri">doi:10.1007/s11250-017-1262-3</a></li>
+<li>Ruf AE, Kremers WK, Chavez LL, Descalzi VI, Podesta LG, Villamil FG. Addition of serum sodium into the MELD score predicts waiting list mortality better than MELD alone. Liver Transplant. 2005;11(3):336-343. <a href="doi:10.1002/lt.20329" class="uri">doi:10.1002/lt.20329</a></li>
+<li>Heuman DM, Abou-Assi SG, Habib A, et al. Persistent ascites and low serum sodium identify patients with cirrhosis and low MELD scores who are at high risk for early death. Hepatology. 2004;40(4):802-810. <a href="doi:10.1002/hep.1840400409" class="uri">doi:10.1002/hep.1840400409</a></li>
+<li>Biggins SW, Kim WR, Terrault NA, et al. Evidence-Based Incorporation of Serum Sodium Concentration Into MELD. Gastroenterology. 2006;130(6):1652-1660. <a href="doi:10.1053/j.gastro.2006.02.010" class="uri">doi:10.1053/j.gastro.2006.02.010</a></li>
+<li>Ginès P, Guevara M. Hyponatremia in cirrhosis: Pathogenesis, clinical significance, and management. Hepatology. 2008;48(3):1002-1010. <a href="doi:10.1002/hep.22418" class="uri">doi:10.1002/hep.22418</a></li>
+<li>John S, Thuluvath PJ. Hyponatremia in cirrhosis: Pathophysiology and management. World J Gastroenterol. 2015;21(11):3197-3205. <a href="doi:10.3748/wjg.v21.i11.3197" class="uri">doi:10.3748/wjg.v21.i11.3197</a></li>
+<li>Wong F, Blei AT, Blendis LM, Thuluvath PJ. A vasopressin receptor antagonist (VPA-985) improves serum sodium concentration in patients with hyponatremia: A multicenter, randomized, placebo-controlled trial. Hepatology. 2003;37(1):182-191. <a href="doi:10.1053/jhep.2003.50021" class="uri">doi:10.1053/jhep.2003.50021</a></li>
+<li>Wong F, Sniderman K, Liu P, Allidina Y, Sherman M, Blendis L. Transjugular intrahepatic portosystemic stent shunt: Effects on hemodynamics and sodium homeostasis in cirrhosis and refractory ascites. Ann Intern Med. 1995;122(11):816-822. <a href="doi:10.7326/0003-4819-122-11-199506010-00002" class="uri">doi:10.7326/0003-4819-122-11-199506010-00002</a></li>
+<li>Londoño MC, Guevara M, Rimola A, et al. Hyponatremia Impairs Early Posttransplantation Outcome in Patients With Cirrhosis Undergoing Liver Transplantation. Gastroenterology. 2006;130(4):1135-1143. <a href="doi:10.1053/j.gastro.2006.02.017" class="uri">doi:10.1053/j.gastro.2006.02.017</a></li>
+<li>Dawwas MF, Lewsey JD, Neuberger JM, Gimson AE. The Impact of Serum Sodium Concentration on Mortality After Liver Transplantation: A Cohort Multicenter Study. Liver Transplant. 2007;13(5):767-768. <a href="doi:10.1002/lt" class="uri">doi:10.1002/lt</a></li>
+<li>Leise MD, Yun BC, Larson JJ, et al. Effect of the Pretransplant Serum Sodium Concentration on Outcomes Following Liver Transplantation. Liver Transplant. 2014;14(20):687-697. <a href="doi:10.1002/lt" class="uri">doi:10.1002/lt</a></li>
+<li>Sharma P, Schaubel DE, Goodrich NP, Merion RM. Serum Sodium and Survival Benefit of Liver Transplantation. Liver Transplant. 2015;21:308-313. <a href="doi:10.1002/lt" class="uri">doi:10.1002/lt</a>.</li>
+<li>Allocation of livers and liver- intestines. Organ Procurement and Transplantation Network Liver and Intestine Committee.</li>
+<li>Nagai S, Chau LC, Schilke RE, et al. Effects of Allocating Livers for Transplantation Based on Model for End-Stage Liver Disease-Sodium Scores on Patient Outcomes. Gastroenterology. 2018;155(October):1451-1482. <a href="doi:10.1053/j.gastro.2018.07.025" class="uri">doi:10.1053/j.gastro.2018.07.025</a></li>
+<li>2017 Annual Data Report. Scientific Registry of Transplant Recipients. <a href="http://srtr.transplant.hrsa.gov/annual_reports/Default.aspx" class="uri">http://srtr.transplant.hrsa.gov/annual_reports/Default.aspx</a>. Published 2017. Accessed September 5, 2019.</li>
+<li>Godfrey EL, Malik TH, Lai JC, et al. The decreasing predictive power of MELD in an era of changing etiology of liver disease. Am J Transplant. 2019;19(12):3299-3307. <a href="doi:10.1111/ajt.15559" class="uri">doi:10.1111/ajt.15559</a></li>
+<li>Moons KGM, Altman DG, Reitsma JB, et al. Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis (TRIPOD): Explanation and elaboration. Ann Intern Med. 2015;162(1):W1-W73. <a href="doi:10.7326/M14-0698" class="uri">doi:10.7326/M14-0698</a></li>
+<li>Wiesner R, Edwards E, Freeman R, et al. Model for end-stage liver disease (MELD) and allocation of donor livers. Gastroenterology. 2003;124(1):91-96. <a href="doi:10.1053/gast.2003.50016" class="uri">doi:10.1053/gast.2003.50016</a></li>
+<li>Sievert C, Parmer C, Hocking T, et al. Create Interactive Web Graphics via “plotly.js.” 2019. <a href="https://plot.ly/r" class="uri">https://plot.ly/r</a>.</li>
+<li>Angeli P, Wong F, Watson H, et al. Hyponatremia in cirrhosis: Results of a patient population survey. Hepatology. 2006;44(6):1535-1542. <a href="doi:10.1002/hep.21412" class="uri">doi:10.1002/hep.21412</a></li>
+<li>Biselli M, Gitto S, Gramenzi A, et al. Six Score Systems to Evaluate Candidates with Advanced Cirrhosis for Orthotopic Liver Transplant: Which Is the Winner? Liver Transplant. 2010;16:964-973. <a href="doi:10.1002/lt" class="uri">doi:10.1002/lt</a>.</li>
+<li>Cejas N, Villamil F, Lendoire J, et al. Improved Waiting-List Outcomes in Argentina After the Adoption of a Model for End-Stage Liver Disease–Based Liver Allocation Policy. Liver Transplant. 2013;13(19):711-720. <a href="doi:10.1002/lt" class="uri">doi:10.1002/lt</a></li>
+<li>Northup PG, Intagliata NM, Shah NL, Pelletier SJ, Berg CL, Argo CK. Excess mortality on the liver transplant waiting list: Unintended policy consequences and model for End-Stage Liver Disease (MELD) inflation. Hepatology. 2015;61(1):285-291. <a href="doi:10.1002/hep.27283" class="uri">doi:10.1002/hep.27283</a></li>
+<li>Umgelter A, Hapfelmeier A, Kopp W, van Rosmalen M, Rogiers X, Guba M. Disparities in Eurotransplant liver transplantation wait-list outcome between patients with and without model for end-stage liver disease exceptions. Liver Transplant. 2017;23(10):1256-1265. <a href="doi:10.1002/lt.24805" class="uri">doi:10.1002/lt.24805</a></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="part-i-forms-of-meld.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-refit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/BenGoudsmit/Thesis/edit/master/02-chapter-meldna.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/BenGoudsmit/Thesis/blob/master/02-chapter-meldna.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

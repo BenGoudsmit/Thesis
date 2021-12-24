@@ -1,0 +1,85 @@
+
+# Appendix
+\newpage
+
+## Supplement Chapter: The Model for End-stage Liver Disease 3.0: an update without proven accuracy {#chap-meld3}
+
+\chaptermark{MELD 3.0}
+
+\vspace*{\fill}
+
+\noindent  *Goudsmit BFJ, Putter H, van Hoek B. The Model for End-stage Liver Disease 3.0: an update without proven accuracy. Gastroenterology, 2021; doi: [10.1053/j.gastro.2021.09.047](https://doi.org/10.1053/j.gastro.2021.09047). \*
+
+------------------------------------------------------------------------
+
+\newpage
+
+### Letter 
+
+With great interest we read the study by Kim et al.^1^ In this work, the authors showed that MELD-Na performance is improved by including serum albumin levels, LT candidate sex, a creatinine cap set to 3 mg/dL, and significant interactions. Most notably, the MELD 3.0 concordance statistic (c-index) was 0.869, versus a MELD-Na c-index of 0.862. However, we have some concerns regarding this study.
+
+First, the authors report only discrimination (c-index) as model performance indicator. Indeed, high discrimination is important when ranking patients for LT, as it ensures that the model prioritizes the sickest patients. However, when basing treatment decisions on estimated mortality risks, it is vital to assess and report how accurate risks are estimated, i.e., model calibration. This is because a badly calibrated model can still have a high c-index, but treatment decisions should not be based on such a model.^2^ Model calibration is typically reported with calibration plots, that give insight in possible over- or underestimation of risk. Previous work showed that MELD-Na overestimated risks for the sickest patients.^3,4^ More importantly, recent study found that MELD predicted risks inaccurately.^5^ Therefore, the authors cannot conclude that “MELD 3.0 affords more accurate mortality prediction”, as calibration was not reported. It would be interesting to assess and report MELD 3.0 calibration, especially for male versus female LT candidate sex.
+
+Second, the authors report net 8.8% reclassification of deceased patients from a lower MELD-Na stratum to a higher MELD 3.0 stratum, for women this number was 14.9%. The idea is that higher MELD 3.0 scores thus better reflect mortality risks. The first important concern with proving MELD 3.0 prediction improvement through reclassification methods is that a poorly calibrated model can show improved prediction performance, even when this is not possible.^6^ These false effects can be found both in actual cohorts and simulated data. In part, this is due to the fact that the actual waiting list population cannot be separated into the suggested MELD strata (6-9, 10-19, etc.). Instead, when evaluating added biomarkers, measures like the Brier score, that simultaneously assess discrimination and calibration, should be used in independent validation data.^6^
+A second concern is that reclassification allows for ‘stage migration bias’,^7^ i.e., assigning patients to new strata improves strata-specific survival, even though survival of individual patients has not changed. The sickest patients from a lower MELD-Na stratum are moved to a higher MELD 3.0 stratum and survival is better in both strata. Therefore, stating that MELD 3.0 will lower deaths on the waiting list based on reclassification tables must be done cautiously, as this can inflate within-strata survival rates. 
+
+Third, the authors keep the lower borders of bilirubin, creatinine, and INR set to 1. These borders were chosen 20 years ago, to prevent negative logarithm transformation in the linear MELD formula. The more pressing clinical fact is that a substantial number of patients on the waiting list had creatinine (55%) and bilirubin (24%) values below 1 mg/dL at first registration.^8^ Including these lower measurements when predicting survival would be a better representation of the actual waiting list and would place the higher values in a more appropriate context, especially considering the lower creatinine values for women. Also, even though linear models are more easily understood and used, non-linear effects are clearly present (creatinine, sodium, and albumin). Therefore, flexible models could be considered to model more measurements and their non-linear effect on mortality.
+
+In conclusion, MELD 3.0’s accuracy must be proven before it can be considered as new allocation model, e.g., with calibration plots and Brier scores. Reclassification cannot be used alone to prove clinical improvement. We agree with the authors that efforts should be made to continuously improve MELD and liver graft allocation, but appropriate evidence must be presented.
+
+
+### References
+1. 	Kim WR, Mannalithara A, Heimbach JK, et al. MELD 3.0: The Model for End-stage Liver Disease Updated for the Modern Era. Gastroenterology. Published online 2021. doi:10.1053/j.gastro.2021.08.050
+2. 	Van Calster B, McLernon DJ, Van Smeden M, et al. Calibration: The Achilles heel of predictive analytics. BMC Med. 2019;17(1):1-7. doi:10.1186/s12916-019-1466-7
+3. 	Kim WR, Biggins SW, Kremers WK, et al. Hyponatremia and Mortality among Patients on the Liver-Transplant Waiting List. N Engl J Med. 2008;359(10):1018-1026. doi:10.1007/s11250-017-1262-3
+4. 	Goudsmit BFJ, Putter H, Tushuizen ME, et al. Validation of the Model for End‐stage Liver Disease sodium (MELD‐Na) score in the Eurotransplant region. Am J Transplant. Published online 2020. doi:10.1111/ajt.16142
+5. 	D’Amico G, Maruzzelli L, Airoldi A, et al. Performance of the model for end-stage liver disease score for mortality prediction and the potential role of etiology. J Hepatol. Published online 2021. doi:10.1016/j.jhep.2021.07.018
+6. 	Hilden J, Gerds TA. A note on the evaluation of novel biomarkers: Do not rely on integrated discrimination improvement and net reclassification index. Stat Med. 2014;33(19):3405-3414. doi:10.1002/sim.5804
+7. 	Feinstein AR, Sosin DM, Wells CK. The New England Journal of Medicine Downloaded from nejm.org at BOSTON UNIVERSITY on September 19, 2013. For personal use only. No other uses without permission. From the NEJM Archive. Copyright © 2010 Massachusetts Medical Society. All rights reserved. N Engl J Med. 1985;312(12):1604-1608.
+8. 	Goudsmit BFJ, Putter H, Tushuizen ME, et al. Refitting the Model for End-Stage Liver Disease for the Eurotransplant Region. Hepatology. 2021;74(1):351-363. doi:10.1002/hep.31677
+
+\newpage
+
+## Supplement Chapter: The role of the model for end-stage liver disease-sodium score and joint models for 90-day mortality prediction in patients with acute-on-chronic liver failure. {#chap-rolejm}
+
+\chaptermark{The role of JM}
+
+\vspace*{\fill}
+
+\noindent *Goudsmit BFJ, Tushuizen ME, Putter H, Braat AE, van Hoek B. The role of the model for end-stage liver disease-sodium score and joint models for 90-day mortality prediction in patients with acute-on-chronic liver failure. J Hepatol. 2021;74(2):475-476. doi: [10.1016/j.jhep.2020.08.032](https://www.journal-of-hepatology.eu/article/S0168-8278(20)33606-0/fulltext).* 
+
+------------------------------------------------------------------------
+
+\newpage
+
+### Letter 
+
+With great interest we read the article by Hernaez et al.^1^ The authors showed that predicted survival by the Model for End-stage Liver Disease sodium (MELD-Na) score underestimated the observed survival in acute-on-chronic liver failure (ACLF) patients. As a result, ACLF patients might be underserved in the MELD-Na-based allocation of donor livers.
+We agree with the authors that the MELD-Na score is not optimal for ACLF patients. However, we suggest several considerations for this paper. 
+
+First, the authors state that “it is unclear whether MELD-Na captures clinical severity” in ACLF patients. Considering the available literature, it is clear that the disease course of ACLF is not captured by MELD-Na, especially for ACLF-3 patients.^2^ In their large UNOS analysis, Sundaram et al. already showed ACLF death and removal rate to be independent of MELD-Na score, as mortality rates were highest in MELD-Na <25 and ACLF-3 patients. 
+
+Second, the MELD-Na accuracy of mortality prediction in ACLF patients is questioned. The CLIF score, specifically developed for ACLF patients, achieved a 90-day mortality concordance statistic (c-index) of 0.76, whereas the MELD-Na had a c-index of 0.67.^3^ The c-index shows how accurate the model can discern between life and death, by pairwise patient comparisons in the given data. The discrimination of both scores is not optimal. Given that the MELD-Na was not developed for ACLF patients, but for chronically-ill patients at listing for liver transplantation (LT), its discrimination seems respectable. The current allocation system is based on MELD-Na because, for the majority of patients with chronic liver disease, MELD-Na offers excellent performance.^4,5^ Still, the authors showed that MELD-Na and thus transplant chances increased with higher ACLF grades, with median MELD scores of 24, 27 and 32 for ACLF grade 1-3 respectively. The authors do not focus on the c-index as the main model performance indicator but assess the calibration instead. The expected and observed mortality rates in ACLF patients were compared. One could question the assessment and main focus of calibration if the model captures few relevant factors in these patients. Even in cirrhotic patients, for whom MELD-Na was designed, the MELD-Na becomes less reliable with increasing disease severity.^4,5^ 
+
+Third, the authors showed that LT was not often considered/performed in ACLF patients. Many patient-specific and center-level factors influence the evaluation for LT. Still, ACLF showed a positive association with LT, which was higher than for non-ACLF patients. Patient exclusion from transplantation is most likely due to expected futile efforts. The fact that the allocation system is MELD-Na based, does not change that. As Nadim et al. stated: “while scoring systems for ACLF may help centers decide who to transplant, the scores do not affect organ allocation; it is still the MELD score that ultimately determines organ allocation in most countries, including the US”.^6^ Granting exception points or status 1 may be the best option for the small number of ACLF patients listed for LT. 
+
+Finally, Hernaez et al. note that “future research should also focus on developing and validating prognostic scores that incorporate dynamic changes in patients clinical course” and that they “did not capture longitudinal changes of ACLF scores over time”. Traditional Cox models, like the MELD-Na, make assumptions that often do not hold in the data and use only one measurement in time for survival prediction. Thus, dynamic changes are not modeled and longitudinal data is ignored. For dynamic prognostic modeling of longitudinal data, joint models (JM) present an appropriate method of capturing changing disease severity.^7^ The JM adequately links longitudinal measurements to survival analysis by combining mixed-effect and Cox models. It considers all past measurements, changes in values and the rate of change at every point in time and uses this for patient-specific predictions that are updated based on every new available measurement. This is valuable for ACLF patients. In simulation studies, the JM outperformed Cox models with less biased results.^8–10^ 
+
+In conclusion, the MELD-Na underestimates survival in ACLF patients because it uses only some of the relevant prognostic factors for ACLF patient survival. Joint models should be considered to dynamically predict patient-specific survival based on repeated measurements.
+
+### References
+1. 	Hernaez R, Liu Y, Kramer JR, Rana A, El-serag HB, Kanwal F. Model for end-stage liver disease-sodium underestimates 90-day mortality risk in patients with acute-on-chronic liver failuare. J Hepatol. 2020. doi:10.1016/j.jhep.2020.06.005
+2. 	Sundaram V, Jalan R, Wu T, et al. Factors Associated with Survival of Patients With Severe Acute-On-Chronic Liver Failure Before and After Liver Transplantation. Gastroenterology. 2019;156(5):1381-1391.e3. doi:10.1053/j.gastro.2018.12.007
+3. 	Jalan R, Saliba F, Pavesi M, et al. Development and validation of a prognostic score to predict mortality in patients with acute-on-chronic liver failure. J Hepatol. 2014;61(5):1038-1047. doi:10.1016/j.jhep.2014.06.012
+4. 	Kim WR, Biggins SW, Kremers WK, et al. Hyponatremia and Mortality among Patients on the Liver-Transplant Waiting List. N Engl J Med. 2008;359(10):1018-1026. doi:10.1007/s11250-017-1262-3
+5. 	Goudsmit BFJ, Putter H, Tushuizen ME, et al. Validation of the Model for End‐stage Liver Disease sodium (MELD‐Na) score in the Eurotransplant region. Am J Transplant. 2020. doi:10.1111/ajt.16142
+6. 	Nadim MK, DiNorcia J, Ji L, et al. Inequity in organ allocation for patients awaiting liver transplantation: Rationale for uncapping the model for end-stage liver disease. J Hepatol. 2017;67(3):517-525. doi:10.1016/j.jhep.2017.04.022
+7. 	Faucett CL, Thomas DC. Simultaneously modelling censored survival data and repeatedly measured covariates: a Gibbs sampling approach. Stat Med. 1996;15(August 1995):1663-1685.
+8. 	Arisido MW, Antolini L, Bernasconi DP, Valsecchi MG, Rebora P. Joint model robustness compared with the time-varying covariate Cox model to evaluate the association between a longitudinal marker and a time-to-event endpoint. BMC Med Res Methodol. 2019;19(1):1-13. doi:10.1186/s12874-019-0873-y
+9. 	Papageorgiou G, Mokhles MM, Takkenberg JJM, Rizopoulos D. Individualized dynamic prediction of survival with the presence of intermediate events. Stat Med. 2019;38(30):5623-5640. doi:10.1002/sim.8387
+10. Campbell KR, Juarez-Colunga E, Grunwald GK, Cooper J, Davis S, Gralla J. Comparison of a time-varying covariate model and a joint model of time-to-event outcomes in the presence of measurement error and interval censoring: Application to kidney transplantation. BMC Med Res Methodol. 2019;19(1):1-12. doi:10.1186/s12874-019-0773-1
+
+
+
+
+

@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Survival benefit from liver transplantation for patients with and without hepatocellular carcinoma | Improving survival prediction models for liver transplantation candidates</title>
+  <meta name="description" content="Chapter 6 Survival benefit from liver transplantation for patients with and without hepatocellular carcinoma | Improving survival prediction models for liver transplantation candidates" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Survival benefit from liver transplantation for patients with and without hepatocellular carcinoma | Improving survival prediction models for liver transplantation candidates" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Survival benefit from liver transplantation for patients with and without hepatocellular carcinoma | Improving survival prediction models for liver transplantation candidates" />
+  
+  
+  
+
+<meta name="author" content="Ben Felix Jacob Goudsmit" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="part-iii-survival-with-and-without-transplantation.html"/>
+<link rel="next" href="chap-disc.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Thesis BFJ Goudsmit</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="general-introduction.html"><a href="general-introduction.html"><i class="fa fa-check"></i><b>1</b> General introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="general-introduction.html"><a href="general-introduction.html#research-in-context"><i class="fa fa-check"></i><b>1.1</b> Research in context</a>
+<ul>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#a-short-history-of-liver-transplantation"><i class="fa fa-check"></i>A short history of liver transplantation</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#the-start-of-liver-allocation"><i class="fa fa-check"></i>The start of liver allocation</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#survival-prediction"><i class="fa fa-check"></i>Survival prediction</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#measuring-model-prediction-performance"><i class="fa fa-check"></i>Measuring model prediction performance</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#the-meld-score"><i class="fa fa-check"></i>The MELD score</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="general-introduction.html"><a href="general-introduction.html#justifying-why-research-is-needed-central-argument"><i class="fa fa-check"></i><b>1.2</b> Justifying why research is needed: central argument</a></li>
+<li class="chapter" data-level="1.3" data-path="general-introduction.html"><a href="general-introduction.html#thesis-layout-research-questions-and-addressed-problems"><i class="fa fa-check"></i><b>1.3</b> Thesis layout: research questions and addressed problems</a>
+<ul>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#considering-sodium"><i class="fa fa-check"></i>Considering sodium</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#updating-coefficients"><i class="fa fa-check"></i>Updating coefficients</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#past-and-current-disease"><i class="fa fa-check"></i>Past and current disease</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#acute-on-chronic-liver-disease"><i class="fa fa-check"></i>Acute-on-chronic liver disease</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#benefit-of-transplantation-life-years-gained"><i class="fa fa-check"></i>Benefit of transplantation: life years gained</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="general-introduction.html"><a href="general-introduction.html#references"><i class="fa fa-check"></i><b>1.4</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-i-forms-of-meld.html"><a href="part-i-forms-of-meld.html"><i class="fa fa-check"></i>Part I: Forms of MELD</a></li>
+<li class="chapter" data-level="2" data-path="chap-meldna.html"><a href="chap-meldna.html"><i class="fa fa-check"></i><b>2</b> Validation of the Model for End‐stage Liver Disease sodium (MELD‐Na) score in the Eurotransplant region</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#methods"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#study-design-and-population"><i class="fa fa-check"></i>Study design and population</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#statistical-analysis"><i class="fa fa-check"></i>Statistical analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#results"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#study-population"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#meld-na-performance"><i class="fa fa-check"></i>MELD-Na performance</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#impact-on-the-waiting-list"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#discussion"><i class="fa fa-check"></i>Discussion</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#references-1"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-refit.html"><a href="chap-refit.html"><i class="fa fa-check"></i><b>3</b> Refitting the Model for End-stage Liver Disease for the Eurotransplant region</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#methods-1"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#patient-data"><i class="fa fa-check"></i>Patient data</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#statistical-methods"><i class="fa fa-check"></i>Statistical methods</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#results-1"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#model-development"><i class="fa fa-check"></i>Model development</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#model-performance"><i class="fa fa-check"></i>Model performance</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#impact-on-the-waiting-list-1"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#discussion-1"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#lower-bounds"><i class="fa fa-check"></i>Lower bounds</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#upper-bounds"><i class="fa fa-check"></i>Upper bounds</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#sodium-addition"><i class="fa fa-check"></i>Sodium addition</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#impact-on-the-wl"><i class="fa fa-check"></i>Impact on the WL</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#limitations-1"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#conclusion-1"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#references-2"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-ii-disease-over-time.html"><a href="part-ii-disease-over-time.html"><i class="fa fa-check"></i>Part II: Disease over time</a></li>
+<li class="chapter" data-level="4" data-path="chap-jm.html"><a href="chap-jm.html"><i class="fa fa-check"></i><b>4</b> Joint modelling of liver transplant candidates outperforms the model for end-stage liver disease: the effect of disease development over time on patient outcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#introduction-2"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#methods-2"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#study-population-1"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#statistical-analysis-1"><i class="fa fa-check"></i>Statistical analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#longitudinal-analysis"><i class="fa fa-check"></i>Longitudinal analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#combining-longitudinal-and-survival-analysis"><i class="fa fa-check"></i>Combining longitudinal and survival analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#prediction-performance"><i class="fa fa-check"></i>Prediction performance</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#impact-on-the-waiting-list-2"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#online-lt-jm-prediction-tool"><i class="fa fa-check"></i>Online LT-JM prediction tool</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#results-2"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#population-characteristics"><i class="fa fa-check"></i>Population characteristics</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#jm-properties"><i class="fa fa-check"></i>JM properties</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#jm-performance"><i class="fa fa-check"></i>JM performance</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#jm-impact-on-the-waiting-list"><i class="fa fa-check"></i>JM impact on the waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#online-prediction-tools"><i class="fa fa-check"></i>Online prediction tools</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#discussion-2"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#longitudinal-analysis-1"><i class="fa fa-check"></i>Longitudinal analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#prediction-performance-1"><i class="fa fa-check"></i>Prediction performance</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#impact-on-the-waiting-list-3"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#limitations-2"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#conclusion-2"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#references-3"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html"><i class="fa fa-check"></i><b>5</b> Development and validation of a dynamic survival prediction model for patients with acute-on-chronic liver failure</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#introduction-3"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#methods-3"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#study-population-2"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#identification-of-aclf"><i class="fa fa-check"></i>Identification of ACLF</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#development-of-the-aclf-jm"><i class="fa fa-check"></i>Development of the ACLF-JM</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#validation-of-the-aclf-jm"><i class="fa fa-check"></i>Validation of the ACLF-JM</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#aclf-jm-impact-on-the-transplantation-waiting-list"><i class="fa fa-check"></i>ACLF-JM impact on the transplantation waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#clinical-application-of-the-aclf-jm"><i class="fa fa-check"></i>Clinical application of the ACLF-JM</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#results-3"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#study-population-3"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#model-properties"><i class="fa fa-check"></i>Model properties</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#model-validation"><i class="fa fa-check"></i>Model validation</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#aclf-jm-impact-on-the-transplantation-waiting-list-1"><i class="fa fa-check"></i>ACLF-JM impact on the transplantation waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#clinical-application-of-the-aclf-jm-1"><i class="fa fa-check"></i>Clinical application of the ACLF-JM</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#discussion-3"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#disease-development-over-time"><i class="fa fa-check"></i>Disease development over time</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#aclf-jm-validation"><i class="fa fa-check"></i>ACLF-JM validation</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#clinical-application-of-the-aclf-jm-2"><i class="fa fa-check"></i>Clinical application of the ACLF-JM</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#limitations-3"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#conclusion-3"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#references-4"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-iii-survival-with-and-without-transplantation.html"><a href="part-iii-survival-with-and-without-transplantation.html"><i class="fa fa-check"></i>Part III: Survival with and without transplantation</a></li>
+<li class="chapter" data-level="6" data-path="chap-benefit.html"><a href="chap-benefit.html"><i class="fa fa-check"></i><b>6</b> Survival benefit from liver transplantation for patients with and without hepatocellular carcinoma</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#introduction-4"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#methods-4"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#patient-population"><i class="fa fa-check"></i>Patient population</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#benefit-definition"><i class="fa fa-check"></i>Benefit definition</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#statistical-analysis-2"><i class="fa fa-check"></i>Statistical analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#online-benefit-score-calculator"><i class="fa fa-check"></i>Online benefit score calculator</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#results-4"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#patient-characteristics-at-transplantation"><i class="fa fa-check"></i>Patient characteristics at transplantation</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#waiting-list-survival-model"><i class="fa fa-check"></i>Waiting list survival model</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#post-transplantation-survival-model"><i class="fa fa-check"></i>Post-transplantation survival model</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#survival-without-and-with-lt"><i class="fa fa-check"></i>Survival without and with LT</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#survival-benefit-life-years-gained-per-5-years"><i class="fa fa-check"></i>Survival benefit: life-years gained per 5 years</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#liver-transplant-benefit-scores"><i class="fa fa-check"></i>Liver transplant benefit scores</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#discussion-4"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#benefit-definition-1"><i class="fa fa-check"></i>Benefit definition</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#estimation-of-benefit"><i class="fa fa-check"></i>Estimation of benefit</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#non-hcc-and-hcc-benefit"><i class="fa fa-check"></i>Non-HCC and HCC benefit</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#using-benefit-scores"><i class="fa fa-check"></i>Using benefit scores</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#limitations-4"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#conclusion-4"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#references-5"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-disc.html"><a href="chap-disc.html"><i class="fa fa-check"></i><b>7</b> Summary, general discussion, and future perspectives</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-disc.html"><a href="chap-disc.html#summ"><i class="fa fa-check"></i><b>7.1</b> Summary</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-disc.html"><a href="chap-disc.html#gendisc"><i class="fa fa-check"></i><b>7.2</b> General discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#part-i-forms-of-meld-1"><i class="fa fa-check"></i>Part I: Forms of MELD</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#meld-3.0"><i class="fa fa-check"></i>MELD 3.0</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#part-ii-disease-over-time-1"><i class="fa fa-check"></i>Part II: Disease over time</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#joint-modeling-disease-and-survival-over-time"><i class="fa fa-check"></i>Joint modeling disease and survival over time</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#joint-modeling-acute-on-chronic-liver-failure"><i class="fa fa-check"></i>Joint modeling acute-on-chronic liver failure</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#part-iii-survival-with-and-without-transplantation-1"><i class="fa fa-check"></i>Part III: Survival with and without transplantation</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#benefit-from-liver-transplantation"><i class="fa fa-check"></i>Benefit from liver transplantation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="chap-disc.html"><a href="chap-disc.html#future-perspectives"><i class="fa fa-check"></i><b>7.3</b> Future perspectives</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#simulation"><i class="fa fa-check"></i>Simulation</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#new-model-implementation"><i class="fa fa-check"></i>New model implementation</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#from-urgency-to-benefit"><i class="fa fa-check"></i>From urgency to benefit</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="chap-disc.html"><a href="chap-disc.html#conclusion-5"><i class="fa fa-check"></i><b>7.4</b> Conclusion</a></li>
+<li class="chapter" data-level="7.5" data-path="chap-disc.html"><a href="chap-disc.html#references-6"><i class="fa fa-check"></i><b>7.5</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="appendix.html"><a href="appendix.html#chap-meld3"><i class="fa fa-check"></i><b>8.1</b> Supplement Chapter: The Model for End-stage Liver Disease 3.0: an update without proven accuracy</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="appendix.html"><a href="appendix.html#letter"><i class="fa fa-check"></i><b>8.1.1</b> Letter</a></li>
+<li class="chapter" data-level="8.1.2" data-path="appendix.html"><a href="appendix.html#references-7"><i class="fa fa-check"></i><b>8.1.2</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="appendix.html"><a href="appendix.html#chap-rolejm"><i class="fa fa-check"></i><b>8.2</b> Supplement Chapter: The role of the model for end-stage liver disease-sodium score and joint models for 90-day mortality prediction in patients with acute-on-chronic liver failure.</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="appendix.html"><a href="appendix.html#letter-1"><i class="fa fa-check"></i><b>8.2.1</b> Letter</a></li>
+<li class="chapter" data-level="8.2.2" data-path="appendix.html"><a href="appendix.html#references-8"><i class="fa fa-check"></i><b>8.2.2</b> References</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-nlsum.html"><a href="chap-nlsum.html"><i class="fa fa-check"></i><b>9</b> Nederlandse samenvatting (Summary in Dutch)</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-nlsum.html"><a href="chap-nlsum.html#deel-i"><i class="fa fa-check"></i>Deel I</a></li>
+<li class="chapter" data-level="" data-path="chap-nlsum.html"><a href="chap-nlsum.html#deel-ii"><i class="fa fa-check"></i>Deel II</a></li>
+<li class="chapter" data-level="" data-path="chap-nlsum.html"><a href="chap-nlsum.html#deel-iii"><i class="fa fa-check"></i>Deel III</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dankwoord.html"><a href="dankwoord.html"><i class="fa fa-check"></i>Dankwoord</a></li>
+<li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html"><i class="fa fa-check"></i>Curriculum vitae</a></li>
+<li class="chapter" data-level="" data-path="list-of-publications.html"><a href="list-of-publications.html"><i class="fa fa-check"></i>List of publications</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Improving survival prediction models for liver transplantation candidates</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap-benefit" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Survival benefit from liver transplantation for patients with and without hepatocellular carcinoma</h1>
+<p>
+Goudsmit BFJ, Prosepe I, Tushuizen ME, et al. Survival benefit from liver transplantation for patients with and without hepatocellular carcinoma. <em>Under review.</em></p>
+<hr />
+<div style="page-break-after: always;"></div>
+<p></p>
+<p>
+<strong>Background &amp; Aims</strong>: In the US, inequal liver transplantation (LT) access exists between patients with and without hepatocellular carcinoma (HCC). Survival benefit considers survival without and with LT and could equalize LT access. We calculated and compared LT survival benefit scores for patients with(out) HCC, based on longitudinal data in a recent US cohort.</p>
+<p><strong>Methods</strong>: Adult LT candidates with(out) HCC between 2010-2019 were included. Waitlist survival over time was contrasted to posttransplant survival, to estimate 5-year survival benefit from the moment of LT. Waitlist survival was modeled with bias-corrected time-dependent Cox regression and posttransplant survival was estimated through Cox proportional hazards regression.</p>
+<p><strong>Results</strong>: Mean HCC survival without LT was always lower than non-HCC waitlist survival. Below MELD(-Na) 30, HCC patients gained more life-years from LT than non-HCC patients at the same MELD(-Na) score. Only non-HCC patients below MELD(-Na) 9 had negative benefit. Most HCC patients were transplanted below MELD(-Na) 14 and most non-HCC patients above MELD(-Na) 26. Liver function (MELD(-Na), albumin) was the main predictor of 5-year benefit. Therefore, during five years, most HCC patients gained 0.12 to 1.96 years from LT, whereas most non-HCC patients gained 2.48 to 3.45 years.</p>
+<p><strong>Conclusion</strong>: On an individual level, transplanting patients with HCC resulted in survival benefit. However, on a population level, benefit was indirectly wasted, as non-HCC patients were likely to gain more survival due to decreased liver function. Based on these data, we now provide an online calculator to estimate 5-year survival benefit given specific patient characteristics. Survival benefit scores could serve to equalize LT access.</p>
+<div style="page-break-after: always;"></div>
+<div id="introduction-4" class="section level2 unnumbered">
+<h2>Introduction</h2>
+<p>Adult liver transplantation (LT) relies on scarce donor grafts. Therefore, allocation prioritizes patients that likely will die soon without transplantation.<sup>1</sup> For most patients on the LT waiting list in the United States (US), the Model for End-stage Liver Disease sodium (MELD-Na) score adequately predicts expected survival without transplantation.<sup>2,3</sup></p>
+<p>However, MELD-Na is less predictive of survival for transplant candidates with hepatocellular carcinoma (HCC). This is because HCC mortality is typically caused by tumor progression and not by liver failure.<sup>4</sup> The number of HCC patients listed for transplantation has tripled the past 10 years.<sup>5</sup> HCC is the single most important cause of death in cirrhotic patients, and treatment through LT still has the best long-term results.<sup>6–8</sup> The exception point system was developed to compensate liver graft allocation based on inadequate MELD(-Na) survival prediction for most notably HCC patients. In this system, HCC patients receive artificial MELD points that increase automatically every 90 days, to mimic HCC progression.<sup>9–11</sup> Unintendedly, the exception points created inequity between non-HCC and HCC patients, because HCC LT access increased too much,<sup>12–14</sup> and inequity among HCC patients, because all patients within one region receive the same priority with only waiting time as tiebreaker.<sup>15</sup></p>
+<p>Instead of arbitrary points, patient characteristics should be used to model the risk of waiting list dropout.<sup>10,14,16–18</sup> Moreover, to balance the principles urgency and utility,<sup>19</sup> the risk of waiting list dropout should be compared to expected post-transplant survival. The difference is survival benefit, or the life-years gained from transplantation.<sup>20</sup> Considering LT survival benefit is valuable because donor grafts are scarce and some patients gain more life-years than others.<sup>20–23</sup></p>
+<p>Benefit of non-HCC and HCC patients has been previously evaluated,<sup>13,14,16,17</sup> but re-evaluation is warranted. Firstly, because contradicting findings have been reported. Most notably, Vitale et al. showed that HCC patients in Italy benefited twice as much from LT compared to non-HCC patients,<sup>17</sup> whereas Berry et al. stated that US HCC patients derived negative or little benefit.<sup>13</sup> Secondly, previous work defined survival benefit as the difference between post-transplant survival and waiting list survival counted from first registration. We hypothesized that counting waiting list survival from first registration is suboptimal, as LT candidates on average have to wait six to eight months for transplantation.<sup>5</sup> During this time, liver disease will typically progress,<sup>24,25</sup> patients can drop out,<sup>5</sup> or HCC could be downstaged.<sup>6</sup> This changes survival rates as compared to baseline.<sup>20,21,23,26</sup> Because survival is gained from the moment of possible transplantation, benefit should be counted from that moment on, see Figure <a href="chap-benefit.html#fig:benefit-fig1a">6.1</a>. Lastly, benefit evaluation reflective of the current US population and allocation is missing.</p>
+<p>Therefore, the goal of this study was to estimate survival gain from transplantation in a large and recent US cohort. We compared LT survival benefit between non-HCC and HCC patients. Life expectancy with transplantation was contrasted to life expectancy without transplantation. We constructed an online benefit application that calculates life expectancy gained from transplantation based on specified patient characteristics.</p>
+<div class="figure"><span style="display:block;" id="fig:benefit-fig1a"></span>
+<img src="figures/benefit/figure%201a.png" alt="Survival benefit is defined as the difference in 5-year life-expectancy with and without transplantation. While patients are waiting for LT, time passes and disease severity typically changes. At the moment of transplantation, benefit is estimated. The survival up until transplantation (‘survival before LT’) is used to predict waiting list survival in absence of transplantation (‘survival without LT’). Without LT survival is then contrasted to posttransplant survival (‘with LT’) to calculate benefit." width="700" />
+<p class="caption">
+Figure 6.1: Survival benefit is defined as the difference in 5-year life-expectancy with and without transplantation. While patients are waiting for LT, time passes and disease severity typically changes. At the moment of transplantation, benefit is estimated. The survival up until transplantation (‘survival before LT’) is used to predict waiting list survival in absence of transplantation (‘survival without LT’). Without LT survival is then contrasted to posttransplant survival (‘with LT’) to calculate benefit.
+</p>
+</div>
+</div>
+<div id="methods-4" class="section level2 unnumbered">
+<h2>Methods</h2>
+<div id="patient-population" class="section level3 unnumbered">
+<h3>Patient population</h3>
+<p>This retrospective cohort analysis included adult (&gt;=18 years) patients listed for a first LT between January 1<sup>st</sup>, 2010 and April 30<sup>th</sup>, 2019 on the UNOS waiting list (Figure S1). This interval ended before the May 14<sup>th</sup>, 2019 implementation of median MELD at transplant.<sup>15</sup> It also compromised the most recent data with adequate 5-year follow-up completeness. We aimed to calculate benefit for two patient groups: patients without HCC and without exception points (non-HCC group), and patients with HCC and with exception points (HCC group). Although other diseases also qualify for exception points, like primary sclerosing cholangitis and biliary cirrhosis, we only assessed HCC patients, as this is by far the largest group and incidence is increasing.<sup>5</sup> Current OPTN policy allows standard exception points for 1) HCC patients within Milan criteria (henceforth T2 HCC),<sup>27</sup> and 2) HCC patients initially outside Milan criteria but successfully downstaged within criteria through loco-regional treatment before LT (henceforth HCC outside criteria). Although previous study found that outcomes of these groups were similar,<sup>28</sup> we separately analyzed these groups, as the initial HCC disease severity and non-LT treatment are different. We excluded patients with previous LT, acute liver failure, listing for living donation, listing for multiple organs, and non-HCC malignancy (Figure S1). We randomly split our population in training data (67% of patients) and validation data (the remaining 33% of patients).</p>
+</div>
+<div id="benefit-definition" class="section level3 unnumbered">
+<h3>Benefit definition</h3>
+<p>Survival benefit was defined as the life-years gained from transplantation during the next five years, see Figure <a href="chap-benefit.html#fig:benefit-fig1b">6.2</a>.<sup>21,29</sup> To estimate benefit for a given transplanted patient, post-transplantation survival (henceforth ‘with LT’) was contrasted to the hypothetical waiting list survival if LT would not have happened (henceforth ‘without LT’), again see Figure <a href="chap-benefit.html#fig:benefit-fig1a">6.1</a>.<sup>21</sup> Crucially, we estimated future waiting list survival from the moment of LT and not from baseline, as patients are not transplanted at baseline. To model without LT survival, we chose time-dependent Cox regression corrected with inverse probability censoring weighting (IPCW), in accordance to previous studies.<sup>21–23,26</sup> IPCW is used when treatment is initiated after baseline and the chance of treatment depends on patient characteristics, that is changing MELD-Na scores over time.<sup>21,26,30</sup> This dependence confounds analysis of waiting list survival upon which allocation is based. These risks therefore must be corrected with statistical methods, preferably IPCW.<sup>21,26,30</sup> Unlike previous work,<sup>13,16,17,28,31,32</sup> we specifically did not use intention-to-treat (ITT) or competing risk analysis, please see supplement 1 for a detailed explanation. In short, because 1) they predict a different risk than without LT survival, 2) could result in undertreatment of patients,<sup>30</sup> and 3) we wanted to model changes in waiting list disease over time beyond baseline. The IPCW analyses are more complex and therefore less often applied, but this does not mean we should not use them.<sup>33</sup></p>
+<div class="figure"><span style="display:block;" id="fig:benefit-fig1b"></span>
+<img src="thesis_files/figure-html/benefit-fig1b-1.png" alt="The survival with (solid line), without (dashed line) and benefit from transplantation (green area) are shown. In this example, survival is averaged for non-HCC patients with MELD-Na 25. Please note the difference in survival during five years (lines) and at five years (dots)." width="672" />
+<p class="caption">
+Figure 6.2: The survival with (solid line), without (dashed line) and benefit from transplantation (green area) are shown. In this example, survival is averaged for non-HCC patients with MELD-Na 25. Please note the difference in survival during five years (lines) and at five years (dots).
+</p>
+</div>
+</div>
+<div id="statistical-analysis-2" class="section level3 unnumbered">
+<h3>Statistical analysis</h3>
+<div id="waiting-list-survival" class="section level4 unnumbered">
+<h4>Waiting list survival</h4>
+<p>The waiting list population was divided in biweekly cross-sections, because in allocation liver grafts are offered to active patients on the waiting list at a certain date, not whole study cohorts of patients.<sup>21</sup> In time-dependent Cox analysis, repeated MELD-Na scores were modeled over time. Date and type of pre-LT HCC treatments were specifically included to account for their effects on waiting list survival. Additional predictors were used to correct the longitudinal data (Table S1), which we selected from available UNOS candidate variables deemed clinically relevant in published studies.<sup>10,16–18,21</sup> We excluded some variables a priori, because they referred to pediatric recipients, exclusion criteria, or donor characteristics. The outcome of analysis was waiting list mortality, which comprised death while awaiting LT and removal because of worsened condition. We censored for all other outcomes (e.g., transplantation, removal due to recovery, end of study) and corrected for dependent censoring with IPCW. Through IPCW we also estimated without LT survival of transplanted patients based on logic continuation of disease trajectories of similar patients at the same moment in time that were not transplanted (yet), please see supplement 1 for further explanation.</p>
+</div>
+<div id="post-transplantation-survival" class="section level4 unnumbered">
+<h4>Post-transplantation survival</h4>
+<p>We then used Cox proportional hazards regression to model post-transplant survival. Predictors were selected by assessing relations of available UNOS recipient and donor variables to 5-year survival in univariate models, with backwards selection of significant variables in multivariate analysis. The outcome was 5-year post-transplant survival, defined as the difference between the date of transplantation and the earliest date of death, loss to follow-up or end of study on April 30<sup>th</sup>, 2019.</p>
+</div>
+<div id="calculating-benefit-scores" class="section level4 unnumbered">
+<h4>Calculating benefit scores</h4>
+<p>After establishing the Cox models in the training data, 5-year survival benefit from LT was calculated for each transplanted patient in the independent validation data. Benefit scores were averaged per biochemical MELD or MELD-Na [MELD(-Na)] score at transplantation, respectively for transplantations before or after January 11<sup>th</sup>, 2016, and stratified for non-HCC and HCC patients. We visualized benefit with smoothed general additive model plots per MELD(-Na) score and (non-)HCC disease. We assessed model discrimination for 5-year survival by calculating the area under the receiver-operating-curve (AUC). Cox proportional hazards model calibration (i.e., model accuracy) at five years was assessed based on bootstrapping with 200 repetitions, to obtain overfitting-corrected estimates of predicted survival, which were compared to observed survival probabilities.<sup>34</sup></p>
+</div>
+</div>
+<div id="online-benefit-score-calculator" class="section level3 unnumbered">
+<h3>Online benefit score calculator</h3>
+<p>It was of interest to calculate LT benefit scores based on individual patient and donor characteristics. These benefit predictions had to be readily available online for the clinician and patient, in an intuitive calculator. Therefore, we fit a regression model to the previously calculated 5-year survival benefit scores. To compromise clinical ease of use and predictive power, only the most predictive variables were used in the benefit regression model. Variable importance for benefit prediction was assessed based on ANOVA tests. We used the overfitting-corrected R<sup>2</sup> to assess how much variation in benefit was explained by the predictors.<sup>34</sup> A R<sup>2</sup> value of 1 indicates that all variability in predictions is accounted for and a value above 0.9 therefore indicates excellent model predictions. The online calculator also gives graphical summaries of benefit, averaged per MELD-Na score and (non-)HCC disease, to illustrate the gain of life years during the next five years.</p>
+</div>
+</div>
+<div id="results-4" class="section level2 unnumbered">
+<h2>Results</h2>
+<div id="patient-characteristics-at-transplantation" class="section level3 unnumbered">
+<h3>Patient characteristics at transplantation</h3>
+Characteristics for non-HCC and HCC patients at transplantation between 2010-2019 are shown in Table <a href="chap-benefit.html#tab:benefit-tab1">6.1</a> . Compared to non-HCC patients, HCC patients were slightly older, more often male, and less often of white race/ethnicity. HCC patients also more frequently had diabetes mellitus, were less dependent on renal replacement therapy, and had lower median MELD(-Na) scores. HCC patients were mostly transplanted in medium (2, 4, 6, 7, and 8) and long (1, 5, and 9) UNOS waiting time regions, whereas non-HCC patients were mostly transplanted in short (3, 10, and 11) waiting time regions. Until the moment of transplantation, the vast majority (93%) of HCC patients were at home and therefore significantly less often in hospital or ICU than non-HCC patients. Accordingly, non-HCC patients were more often dependent on life-support. Median MELD-Na scores in non-HCC, T2 HCC, and HCC beyond criteria patients were 25, 12, and 11, respectively.
+The AFP at transplantation for within Milan/T2 criteria and initially outside Milan/T2 criteria HCC patients was on average (SD) 67 (294) and 61 (262) ng/mL, respectively. The average AFP levels were higher in T2 HCC patients than HCC patients beyond criteria, which was likely due to the higher frequency of downstaging non-LT treatment. At time of transplantation, HCC outside criteria patients more frequently had two or three tumors. Average total tumor diameter for T2 and non-T2 HCC was 2.79 (1.11) cm and 3.17 (1.89) cm, respectively.
+Donor risk index scores were comparable for (non-)HCC patients, therefore HCC patients on average received the same donor quality organs as non-HCC patients.
+<table class="table lightable-classic" style='margin-left: auto; margin-right: auto; font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;border-bottom: 0;'>
+<caption>
+<span id="tab:benefit-tab1">Table 6.1: </span>Recipient and donor characteristics at transplantation between 2010-2019
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Characteristics
+</th>
+<th style="text-align:left;">
+No HCC
+</th>
+<th style="text-align:left;">
+T2 HCC
+</th>
+<th style="text-align:left;">
+HCC outside criteria
+</th>
+<th style="text-align:left;">
+p
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+n
+</td>
+<td style="text-align:left;">
+24503
+</td>
+<td style="text-align:left;">
+6922
+</td>
+<td style="text-align:left;">
+5448
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Age (median [IQR])
+</td>
+<td style="text-align:left;">
+56.0 [48.0, 62.0]
+</td>
+<td style="text-align:left;">
+60.0 [56.0, 65.0]
+</td>
+<td style="text-align:left;">
+62.0 [58.0, 65.0]
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female sex (%)
+</td>
+<td style="text-align:left;">
+8926 (36.4)
+</td>
+<td style="text-align:left;">
+1614 (23.3)
+</td>
+<td style="text-align:left;">
+1133 (20.8)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="5" style="border-bottom: 0;">
+<strong>Race/ethnicity (%)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+White
+</td>
+<td style="text-align:left;">
+18897 (77.1)
+</td>
+<td style="text-align:left;">
+4907 (70.9)
+</td>
+<td style="text-align:left;">
+3705 (68.0)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Black
+</td>
+<td style="text-align:left;">
+1956 (8.0)
+</td>
+<td style="text-align:left;">
+683 (9.9)
+</td>
+<td style="text-align:left;">
+542 (9.9)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Hispanic
+</td>
+<td style="text-align:left;">
+2790 (11.4)
+</td>
+<td style="text-align:left;">
+873 (12.6)
+</td>
+<td style="text-align:left;">
+782 (14.4)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Other
+</td>
+<td style="text-align:left;">
+860 (3.5)
+</td>
+<td style="text-align:left;">
+459 (6.6)
+</td>
+<td style="text-align:left;">
+419 (7.7)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI (median [IQR])
+</td>
+<td style="text-align:left;">
+28.0 [25.0, 33.0]
+</td>
+<td style="text-align:left;">
+28.0 [25.0, 32.0]
+</td>
+<td style="text-align:left;">
+28.0 [25.0, 32.0]
+</td>
+<td style="text-align:left;">
+NS
+</td>
+</tr>
+<tr grouplength="7">
+<td colspan="5" style="border-bottom: 0;">
+<strong>Indication for transplantation (%)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Alcoholic
+</td>
+<td style="text-align:left;">
+6938 (28.3)
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Cholestatic
+</td>
+<td style="text-align:left;">
+2805 (11.4)
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Hepatitis C virus
+</td>
+<td style="text-align:left;">
+4666 (19.0)
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+NASH
+</td>
+<td style="text-align:left;">
+4688 (19.1)
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Other
+</td>
+<td style="text-align:left;">
+5406 (22.1)
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+T2 HCC
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+6922 (100)
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+HCC outside criteria
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+5448 (100)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Diabetes (%)
+</td>
+<td style="text-align:left;">
+6113 (24.9)
+</td>
+<td style="text-align:left;">
+2237 (32.3)
+</td>
+<td style="text-align:left;">
+1863 (34.2)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dialysis independent (%)
+</td>
+<td style="text-align:left;">
+20998 (85.7)
+</td>
+<td style="text-align:left;">
+6803 (98.3)
+</td>
+<td style="text-align:left;">
+5389 (98.9)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MELD score (median [IQR])
+</td>
+<td style="text-align:left;">
+25.0 [18.0, 33.0]
+</td>
+<td style="text-align:left;">
+12.0 [9.0, 16.0]
+</td>
+<td style="text-align:left;">
+11.0 [8.0, 14.0]
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MELD-Na score (median [IQR])
+</td>
+<td style="text-align:left;">
+27.0 [20.0, 34.0]
+</td>
+<td style="text-align:left;">
+13.0 [9.0, 17.0]
+</td>
+<td style="text-align:left;">
+11.0 [8.0, 16.0]
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr grouplength="3">
+<td colspan="5" style="border-bottom: 0;">
+<strong>Region waiting time* (%)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+long
+</td>
+<td style="text-align:left;">
+4614 (18.8)
+</td>
+<td style="text-align:left;">
+1643 (23.7)
+</td>
+<td style="text-align:left;">
+1401 (25.7)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+medium
+</td>
+<td style="text-align:left;">
+9135 (37.3)
+</td>
+<td style="text-align:left;">
+3093 (44.7)
+</td>
+<td style="text-align:left;">
+2255 (41.4)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+short
+</td>
+<td style="text-align:left;">
+10754 (43.9)
+</td>
+<td style="text-align:left;">
+2186 (31.6)
+</td>
+<td style="text-align:left;">
+1792 (32.9)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr grouplength="3">
+<td colspan="5" style="border-bottom: 0;">
+<strong>Location (%)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+home
+</td>
+<td style="text-align:left;">
+14142 (57.7)
+</td>
+<td style="text-align:left;">
+6385 (92.2)
+</td>
+<td style="text-align:left;">
+5124 (94.1)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+hospital
+</td>
+<td style="text-align:left;">
+6423 (26.2)
+</td>
+<td style="text-align:left;">
+392 (5.7)
+</td>
+<td style="text-align:left;">
+251 (4.6)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+ICU
+</td>
+<td style="text-align:left;">
+3938 (16.1)
+</td>
+<td style="text-align:left;">
+145 (2.1)
+</td>
+<td style="text-align:left;">
+73 (1.3)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Life-support dependent (%)
+</td>
+<td style="text-align:left;">
+2251 (9.2)
+</td>
+<td style="text-align:left;">
+79 (1.1)
+</td>
+<td style="text-align:left;">
+39 (0.7)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AFP in ng/mL (mean (SD))
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+67 (294)
+</td>
+<td style="text-align:left;">
+61 (262)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr grouplength="3">
+<td colspan="5" style="border-bottom: 0;">
+<strong>Number of HCC lesions (%)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+1
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+74.2
+</td>
+<td style="text-align:left;">
+65.5
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+2
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+19.3
+</td>
+<td style="text-align:left;">
+24.6
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+3
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+6.5
+</td>
+<td style="text-align:left;">
+9.9
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total tumor diameter (mean (SD))
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+2.79 (1.11)
+</td>
+<td style="text-align:left;">
+3.17 (1.89)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Donor risk index (median [IQR])
+</td>
+<td style="text-align:left;">
+1.35 [1.11, 1.64]
+</td>
+<td style="text-align:left;">
+1.36 [1.11, 1.65]
+</td>
+<td style="text-align:left;">
+1.37 [1.11, 1.65]
+</td>
+<td style="text-align:left;">
+NS
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;">Note: </span>
+</td>
+</tr>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup></sup> HCC: hepatocellular carcinoma, AFP: alpha-fetoprotein
+</td>
+</tr>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup>*</sup> Long wait time is UNOS regions 1, 5, and 9; mid wait time is regions 2, 4, 6, 7, and 8; and short-wait time is regions 3, 10, and 11.
+</td>
+</tr>
+</tfoot>
+</table></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="waiting-list-survival-model" class="section level3 unnumbered">
+<h3>Waiting list survival model</h3>
+<p>The significant predictors of the waiting list Cox model are shown in Table S1. In summary, the most important predictors of survival without LT were age, MELD(-Na) score, serum sodium, serum AFP, serum albumin, presence of diabetes mellitus, presence of ascites, and liver disease etiology. By correcting coefficients through IPCW, the importance of MELD(-Na) increased (data not shown), which was expected as we aimed to correct for dependent censoring bias.</p>
+</div>
+<div id="post-transplantation-survival-model" class="section level3 unnumbered">
+<h3>Post-transplantation survival model</h3>
+<p>The significant predictors for the post-transplantation survival model are shown in Table S2. Most important were age, liver disease etiology, being of black race/ethnicity, presence of diabetes mellitus, mechanical ventilation, total tumor diameter, serum AFP, and DRI score. HCC patients with MELD(-Na)&gt;19, AFP&gt;24 ng/mL, and total tumor diameter&gt;3.2 cm had the worst posttransplant 5-year survival rates (58.1%; 95% CI 50.2-67.2). For all other HCC patients, 5-year survival was above 60% (Figure S2).<sup>29</sup> Post-transplant model AUC of 5-year survival was 61.9 (61.2-62.6), indicating respectable discrimination. More importantly,<sup>35</sup> model calibration was excellent (Figure S3), which meant that our predicted risks closely resembled observed risks. After establishing model accuracy, survival estimates and benefit were calculated in the validation data.</p>
+</div>
+<div id="survival-without-and-with-lt" class="section level3 unnumbered">
+<h3>Survival without and with LT</h3>
+<p>The distribution of MELD(-Na) scores at transplantation is shown in Figure <a href="chap-benefit.html#fig:benefit-fig2">6.3</a>. Non-HCC patients were mostly transplanted at MELD(-Na) scores above 14 and HCC patients mostly below MELD(-Na) 14. This distribution is important for the interpretation of the survival and benefit estimates presented below.</p>
+<div class="figure"><span style="display:block;" id="fig:benefit-fig2"></span>
+<img src="thesis_files/figure-html/benefit-fig2-1.png" alt="Distribution of MELD(-Na) scores at transplantation, per (non-)HCC disease. Non-HCC patients are mostly transplanted at MELD(-Na) scores &gt;14. On the other hand, HCC patients are mostly transplanted below MELD(-Na) 14. Also, a significant part of non-HCC patients is transplanted above MELD(-Na) 30, whereas only 3% of HCC patients is transplanted at MELD(-Na) above 30." width="672" />
+<p class="caption">
+Figure 6.3: Distribution of MELD(-Na) scores at transplantation, per (non-)HCC disease. Non-HCC patients are mostly transplanted at MELD(-Na) scores &gt;14. On the other hand, HCC patients are mostly transplanted below MELD(-Na) 14. Also, a significant part of non-HCC patients is transplanted above MELD(-Na) 30, whereas only 3% of HCC patients is transplanted at MELD(-Na) above 30.
+</p>
+</div>
+<p>Figure <a href="chap-benefit.html#fig:benefit-fig3a">6.4</a> shows the smoothed average survival probabilities during the next five years, both for post-transplantation (with LT: solid lines) and for remaining on the waiting list (without LT: dashed lines). Because life years are gained over time, Figure <a href="chap-benefit.html#fig:benefit-fig3a">6.4</a> shows the mean survival during five years, i.e., the mean of the lines shown in Figure <a href="chap-benefit.html#fig:benefit-fig1b">6.2</a>. The survival probabilities at five years without and with LT are presented in Table S3, which are perhaps more intuitive survival measures for the clinician and patient. However, these hold no information regarding the survival trajectory during five years, which is what the average survival and benefit do encompass.
+For non-HCC patients below MELD(-Na) 10, i.e., a small number of patients, see Figure <a href="chap-benefit.html#fig:benefit-fig2">6.3</a>, mean survival probability without LT was better than with LT survival. In other words, on average these patients should not be transplanted. At equal MELD(-Na) scores, waiting list survival without LT for HCC patients was notably lower than for non-HCC patients. Survival without LT probabilities converged at the lowest levels, i.e., mortality could not increase much more at high MELD(-Na) scores. The average survival with LT in both groups declined above approximately MELD(-Na) 24. However, HCC survival decreased more at higher MELD(-Na) scores, most for HCC outside criteria. This decrease in posttransplant survival was possibly due to disease recurrence.</p>
+<div class="figure"><span style="display:block;" id="fig:benefit-fig3a"></span>
+<img src="thesis_files/figure-html/benefit-fig3a-1.png" alt="The mean survival during the next five years per MELD(-Na) score, for the waiting list (dashed lines) and after transplantation (solid lines). Note that the dashed lines represent future ‘without LT’ waiting list survival. The left y-axis shows life expectancy in years, the right y-axis shows survival probability." width="672" />
+<p class="caption">
+Figure 6.4: The mean survival during the next five years per MELD(-Na) score, for the waiting list (dashed lines) and after transplantation (solid lines). Note that the dashed lines represent future ‘without LT’ waiting list survival. The left y-axis shows life expectancy in years, the right y-axis shows survival probability.
+</p>
+</div>
+</div>
+<div id="survival-benefit-life-years-gained-per-5-years" class="section level3 unnumbered">
+<h3>Survival benefit: life-years gained per 5 years</h3>
+<p>The 5-year transplantation survival benefit per MELD(-Na) score and per (non-)HCC disease is shown in Figure <a href="chap-benefit.html#fig:benefit-fig3b">6.5</a> and Table <a href="chap-benefit.html#tab:benefit-tab2">6.2</a> (see Table S4 for the averages per MELD(-Na) score). Please note that the y-values correspond to the surface area shown in Figure <a href="chap-benefit.html#fig:benefit-fig1b">6.2</a>, e.g., for a non-HCC MELD(-Na) 25 patient, LT would give 2.35 years survival benefit during the next five years.</p>
+<div class="figure"><span style="display:block;" id="fig:benefit-fig3b"></span>
+<img src="thesis_files/figure-html/benefit-fig3b-1.png" alt="The survival benefit of liver transplantation per MELD(-Na) score. The left y-axis shows the average life-years gained in the next 5 years, i.e., the green surface area in Figure 8.2. The right y-axis shows the percentage improvement in mean survival probability during the next 5 years. Thus, for example, a T2/within Milan HCC patient with MELD-Na score 25 will gain 2.5 extra life-years in the next 5 years, i.e., the mean survival increases with 50% through transplantation." width="672" />
+<p class="caption">
+Figure 6.5: The survival benefit of liver transplantation per MELD(-Na) score. The left y-axis shows the average life-years gained in the next 5 years, i.e., the green surface area in Figure 8.2. The right y-axis shows the percentage improvement in mean survival probability during the next 5 years. Thus, for example, a T2/within Milan HCC patient with MELD-Na score 25 will gain 2.5 extra life-years in the next 5 years, i.e., the mean survival increases with 50% through transplantation.
+</p>
+</div>
+<p>For the 2.2% of non-HCC patients transplanted at MELD(-Na) below 9, benefit was negative, because mean postoperative life-expectancy was lower than survival without LT. With increasing MELD(-Na) scores, non-HCC benefit increased approximately linearly, up to 70% mean 5-year survival improvement for MELD(-Na) 40. The HCC benefit curves flattened with increasing MELD(-Na), whereas non-HCC benefit continued to increase. HCC MELD(-Na) &gt;=30 benefit estimates should be interpreted carefully as they represent a small number of patients, i.e., 4.5% of the T2 HCC and 2.8% of the outside criteria HCC patients. The HCC benefit flattened at higher MELD(-Na) scores because of decreasing post-transplant survival, see Figure <a href="chap-benefit.html#fig:benefit-fig3a">6.4</a>.
+Below MELD(-Na) 30, HCC patients would gain more benefit than non-HCC patients at the same MELD(-Na) score, which was mainly due to the lower expected HCC waiting list survival in absence of LT. However, the likelihood of transplantation at lower MELD(-Na) was much lower for non-HCC patients. Figure <a href="chap-benefit.html#fig:benefit-fig2">6.3</a> and Table <a href="chap-benefit.html#tab:benefit-tab2">6.2</a> show that most non-HCC patients were transplanted at higher benefit scores than most HCC patients. Indeed, over 50% of HCC patients were transplanted below MELD(-Na) 14, whereas over 50% of non-HCC patients were transplanted above MELD(-Na) 26. In terms of benefit, most HCC patients gained 0.10 to 1.96 years from LT, whereas most non-HCC patients gained 2.48 to 3.46 years (Table S4). For all patients across all MELD(-Na) scores, non-HCC patients gained 3.2 years in the next 5 years through transplantation, T2 HCC gained 1.19 and HCC outside criteria gained 1.45 life-years, see Table <a href="chap-benefit.html#tab:benefit-tab2">6.2</a>.</p>
+<table class="table lightable-classic" style="margin-left: auto; margin-right: auto; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption>
+<span id="tab:benefit-tab2">Table 6.2: </span>Liver transplantation 5-year survival benefit per MELD(-Na) score and etiology of disease
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;" colspan="1">
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+No HCC
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+T2 HCC
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+HCC outside criteria
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+MELD(-Na)
+</th>
+<th style="text-align:right;">
+n
+</th>
+<th style="text-align:left;">
+%
+</th>
+<th style="text-align:left;">
+benefit
+</th>
+<th style="text-align:right;">
+n
+</th>
+<th style="text-align:left;">
+%
+</th>
+<th style="text-align:left;">
+benefit
+</th>
+<th style="text-align:right;">
+n
+</th>
+<th style="text-align:left;">
+%
+</th>
+<th style="text-align:left;">
+benefit
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+6-9
+</td>
+<td style="text-align:right;">
+175
+</td>
+<td style="text-align:left;">
+2.2
+</td>
+<td style="text-align:left;">
+-0.14
+</td>
+<td style="text-align:right;">
+729
+</td>
+<td style="text-align:left;">
+32.0
+</td>
+<td style="text-align:left;">
+0.39
+</td>
+<td style="text-align:right;">
+717
+</td>
+<td style="text-align:left;">
+39.2
+</td>
+<td style="text-align:left;">
+0.82
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10-13
+</td>
+<td style="text-align:right;">
+425
+</td>
+<td style="text-align:left;">
+5.3
+</td>
+<td style="text-align:left;">
+0.46
+</td>
+<td style="text-align:right;">
+675
+</td>
+<td style="text-align:left;">
+29.6
+</td>
+<td style="text-align:left;">
+0.98
+</td>
+<td style="text-align:right;">
+525
+</td>
+<td style="text-align:left;">
+28.7
+</td>
+<td style="text-align:left;">
+1.40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14-17
+</td>
+<td style="text-align:right;">
+943
+</td>
+<td style="text-align:left;">
+11.7
+</td>
+<td style="text-align:left;">
+1.08
+</td>
+<td style="text-align:right;">
+416
+</td>
+<td style="text-align:left;">
+18.2
+</td>
+<td style="text-align:left;">
+1.61
+</td>
+<td style="text-align:right;">
+304
+</td>
+<td style="text-align:left;">
+16.6
+</td>
+<td style="text-align:left;">
+2.03
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+18-21
+</td>
+<td style="text-align:right;">
+1134
+</td>
+<td style="text-align:left;">
+14.1
+</td>
+<td style="text-align:left;">
+1.67
+</td>
+<td style="text-align:right;">
+197
+</td>
+<td style="text-align:left;">
+8.6
+</td>
+<td style="text-align:left;">
+2.02
+</td>
+<td style="text-align:right;">
+153
+</td>
+<td style="text-align:left;">
+8.4
+</td>
+<td style="text-align:left;">
+2.37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+22-25
+</td>
+<td style="text-align:right;">
+1260
+</td>
+<td style="text-align:left;">
+15.6
+</td>
+<td style="text-align:left;">
+2.20
+</td>
+<td style="text-align:right;">
+106
+</td>
+<td style="text-align:left;">
+4.6
+</td>
+<td style="text-align:left;">
+2.37
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:left;">
+3.2
+</td>
+<td style="text-align:left;">
+2.65
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+26-29
+</td>
+<td style="text-align:right;">
+1064
+</td>
+<td style="text-align:left;">
+13.2
+</td>
+<td style="text-align:left;">
+2.60
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:left;">
+2.5
+</td>
+<td style="text-align:left;">
+2.69
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+0.9
+</td>
+<td style="text-align:left;">
+2.72
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+30-34
+</td>
+<td style="text-align:right;">
+1159
+</td>
+<td style="text-align:left;">
+14.4
+</td>
+<td style="text-align:left;">
+2.99
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:left;">
+1.8
+</td>
+<td style="text-align:left;">
+2.78
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+1.1
+</td>
+<td style="text-align:left;">
+2.72
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-40
+</td>
+<td style="text-align:right;">
+1900
+</td>
+<td style="text-align:left;">
+23.6
+</td>
+<td style="text-align:left;">
+3.38
+</td>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:left;">
+2.7
+</td>
+<td style="text-align:left;">
+2.92
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:left;">
+1.7
+</td>
+<td style="text-align:left;">
+2.85
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black !important;">
+All patients
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;">
+8060
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;">
+100
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;">
+2.30
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;">
+2281
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;">
+100
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;">
+1.19
+</td>
+<td style="text-align:right;font-weight: bold;color: black !important;">
+1827
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;">
+100
+</td>
+<td style="text-align:left;font-weight: bold;color: black !important;">
+1.45
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;">Note: </span>
+</td>
+</tr>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup></sup> n: number of patients per MELD(-Na) group, % : percentage of patients per MELD(-Na) group
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div id="liver-transplant-benefit-scores" class="section level3 unnumbered">
+<h3>Liver transplant benefit scores</h3>
+<p>Liver transplant benefit scores could be used as a continuous, equalizing metric for (non-)HCC LT access. There might be a need to calculate benefit given specific patient characteristics. This is now possible in the online benefit calculator: <a href="https://predictionmodels.shinyapps.io/benefit_calculator/" class="uri">https://predictionmodels.shinyapps.io/benefit_calculator/</a>. The calculator was based on a secondary regression analysis with only the most important benefit predictors, which showed an optimism corrected R<sup>2</sup> of 0.93. We therefore assumed that the calculator adequately predicted benefit and could serve as translation from our complex analyses to clinical practice. Variable importance in regression was summarized in Figure S4. When predicting benefit, the MELD(-Na) score was by far most important. Next were serum albumin, (non-)HCC disease, serum sodium levels, and recipient age. In line with Schaubel et al.,<sup>21</sup> liver function therefore remained the strongest predictor of survival benefit.
+Lastly, the online app also allows users to plot mean benefit per MELD-Na and (non-)HCC disease, like Figure <a href="chap-benefit.html#fig:benefit-fig1a">6.1</a>. This can be used to inform clinicians and patients on the expected survival gain from transplantation. It also shows for selected HCC patients which non-HCC patients have equal benefit, i.e., which patients would compete for transplant based on benefit scores.</p>
+</div>
+</div>
+<div id="discussion-4" class="section level2 unnumbered">
+<h2>Discussion</h2>
+<p>Organ allocation aims to equally distribute donor organs to all patients in need. However, inequities on the LT waiting list exist. As a result, liver allocation has become increasingly relevant and complex. Survival benefit has gained increased attention,<sup>13,14,16,17,29</sup> as its optimization could improve life-years gained from transplantation for all listed patients.<sup>21</sup> Also, considering survival with and without LT based on patient characteristics closer resembles clinical reasoning.
+The objective of this study was to estimate and compare LT survival benefit for patients with and without HCC in a recent US waiting list cohort. The novelty was estimating benefit from the moment of transplantation based on longitudinal disease development up until that moment. Our results showed that mean LT survival benefit was positive across all MELD(-Na) scores, except for non-HCC patients with MELD(-Na) scores below 9. Non-HCC patients gained most life years from transplantation, as these patients were mostly transplanted above MELD(-Na) 26, where benefit was highest. HCC patients were mostly transplanted below MELD(-Na) 14, which yielded lower survival benefit. Liver function was the most important predictor of benefit. It is now possible online to calculate 5-year survival benefit based on specific patient characteristics through <a href="https://predictionmodels.shinyapps.io/benefit_calculator/" class="uri">https://predictionmodels.shinyapps.io/benefit_calculator/</a>.</p>
+<div id="benefit-definition-1" class="section level3 unnumbered">
+<h3>Benefit definition</h3>
+<p>Benefit was defined as the difference in survival with and without LT during the next five years. The endpoint of survival analysis was five years, because using 10-year or overall survival as outcome would give too much importance to variables that predict post-transplant survival.<sup>4,29</sup> Also, further increasing the prediction horizon made estimates less certain. At five years, the waiting list model showed an excellent AUC, also when compared to other similar analyses.21,23 Compared to recently reported and tested post-transplant survival models, our 5-year post-transplant survival model performed similar (LiTES) or better (HALT-HCC, Metroticket).<sup>10</sup></p>
+</div>
+<div id="estimation-of-benefit" class="section level3 unnumbered">
+<h3>Estimation of benefit</h3>
+<p>We choose our methods to estimate benefit from the moment of possible LT. These methods differed from previous clinical studies that modeled waiting list survival counted from first registration.<sup>13,16,17,32,36</sup> Our goal was to model future survival without LT, whereas counting from baseline gives survival before LT, see Figure <a href="chap-benefit.html#fig:benefit-fig1a">6.1</a>. Also, patient states at first listing and transplantation should not be compared, as survival changes within each patient over waiting list time due to e.g., disease progression and possible non-LT treatments.<sup>6,21,22,24–26</sup> We therefore calculated counterfactual waiting list survival (without LT) through time-dependent analysis with additional correction for bias.<sup>21,26</sup> Others performed similar analyses over time, but averaged calculated benefit over waiting list follow-up,<sup>21,23</sup> which for us seemed suboptimal as possible transplantation and its benefit occurred at one moment in time per patient. Lastly, some previous studies calculated benefit using characteristics of a ‘median donor’ assigned to all patients.<sup>13,37</sup> Instead, we choose to use the actual transplantations between 2010-2019, with the aim to best evaluate reality, as the observed transplants indicate inequity between (non-)HCC patients.<sup>5</sup></p>
+</div>
+<div id="non-hcc-and-hcc-benefit" class="section level3 unnumbered">
+<h3>Non-HCC and HCC benefit</h3>
+<p>A competing risks study by Berry et al. showed that HCC patients in the US overall gained negative or little benefit from transplantation, i.e., that HCC patients wasted benefit.<sup>13</sup> This contrasts with our findings that mean HCC benefit was positive across all MELD(-Na) scores, mainly because HCC survival without LT was low. Clinically, it makes sense that out of two otherwise identical patients, the patient with HCC will live shorter without LT because of the malignancy in situ.<sup>38</sup> It was suggested that Berry et al. overestimated HCC waiting list survival,<sup>39</sup> and that having HCC increased risk of waiting list mortality by factor 1.5.<sup>21</sup> Therefore, on the individual patient level, transplantation for HCC will add life years. However, on a population level, (over)prioritizing HCC patients can indirectly waste benefit, as non-HCC patients often will gain more survival from LT due to worse liver function. Interestingly, many HCC patients were transplanted at MELD(-Na) &lt;10, which was considered harmful in previous study.<sup>36</sup> Moreover, resectable HCC may be regarded a contra-indication for LT,<sup>4</sup> especially when considering the limited number of available liver donors. Therefore, the selection of HCC patients for transplantation remains one of the most important parts of liver graft allocation.<sup>29</sup></p>
+</div>
+<div id="using-benefit-scores" class="section level3 unnumbered">
+<h3>Using benefit scores</h3>
+<p>The LT benefit scores offer a continuous metric to stratify survival equally for non-HCC and HCC patients, as one single model is used for both groups. This abandons the use of waiting time, which is inherently flawed,<sup>19</sup> and binary criteria, which allow underreporting of HCC severity.<sup>40,41</sup> Current HCC criteria lack granularity, as patients that have the same waiting list priority can have very different survival with(out) LT.<sup>10,13,17,21</sup> Changing LT priority based on benefit scores could therefore prevent loss of life-years, as also shown in simulations.<sup>21</sup> Allocation policies like the HCC cap, HCC delay, and Median MELD at Transplant helped to reduce HCC LT access, but HCC patients are currently still better of regarding waiting time, transplantation rates, and death rates.<sup>5,42</sup> Clearly, there is a need for an equalizing principle for all eligible LT candidates. Still, consensus must be reached whether to consider benefit in allocation at all. Understandably, some feel uncomfortable to base treatment decisions on future posttransplant outcomes, which is in part why US policy first focused on improving regional disparities.<sup>15,43,44</sup> On the other hand, there is consensus on acceptable posttransplant outcomes,<sup>45</sup> and posttransplant survival can be accurately predicted. Interestingly, in the UK, a benefit-based allocation system was implemented in 2018.<sup>46</sup> The evaluation of this system will be valuable for the debate on benefit and its role in liver allocation. However, it is most important that, regardless of the driving allocation principle, scarce liver grafts should be fairly distributed based on patient characteristics and disease severity, not arbitrary exception points.</p>
+</div>
+<div id="limitations-4" class="section level3 unnumbered">
+<h3>Limitations</h3>
+<p>Our study has limitations. We excluded a minority of patients with exception points that did not have HCC, our findings might therefore not apply to the whole waiting list population. However, our goal was to compare non-HCC and HCC patients. Also, five-year post-transplant follow-up was not complete for all patients, as we compromised completeness and study period. Furthermore, we could only draw conclusions based on patients that were listed for transplantation. Therefore, selection bias exists, which is inherent to the analysis of registries. The UNOS also does not register HCC recurrence, which would be valuable as HCC recurrence rates can be up to 20%, after which median survival is less than a year.<sup>41</sup> Studying these data in HCC MELD&gt;30 patients would be especially interesting. Still, overall mortality is considered free from bias, whereas disease-specific survival is not.<sup>47</sup> Also, due to the small number of transplantations in HCC patients with MELD(-Na)&gt;30, estimates were less reliable for that group. Lastly, the presented time-dependent IPC-weighted analyses are complex and not intuitively interpreted. However, this complexity was needed to calculate future survival without LT and to best answer the clinical question of survival benefit. We attempted to translate complexity into an easy-accessible online benefit calculator.</p>
+</div>
+</div>
+<div id="conclusion-4" class="section level2 unnumbered">
+<h2>Conclusion</h2>
+<p>In conclusion, on an individual level, transplanting patients with HCC resulted in survival benefit. However, on a population level, benefit was indirectly wasted, as non-HCC patients were likely to gain more survival due to decreased liver function. Liver transplant benefit scores offer equal survival stratification for (non-)HCC patients. It is now possible online to calculate these scores based on individual patient characteristics. Considering benefit better resembles clinical reasoning and can optimize life years gained for the whole waiting list population. Survival benefit scores could therefore serve to more equally allocate scarce liver grafts amongst patients eligible for transplantation.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="references-5" class="section level2 unnumbered">
+<h2>References</h2>
+<ol style="list-style-type: decimal">
+<li>Tschuor C, Ferrarese A, Kuemmerli C, et al. Allocation of liver grafts worldwide – Is there a best system? J Hepatol. 2019;71(4):707-718. <a href="doi:10.1016/j.jhep.2019.05.025" class="uri">doi:10.1016/j.jhep.2019.05.025</a></li>
+<li>Kim WR, Biggins SW, Kremers WK, et al. Hyponatremia and Mortality among Patients on the Liver-Transplant Waiting List. N Engl J Med. 2008;359(10):1018-1026. <a href="doi:10.1007/s11250-017-1262-3" class="uri">doi:10.1007/s11250-017-1262-3</a></li>
+<li>Goudsmit BFJ, Putter H, Tushuizen ME, et al. Validation of the Model for End‐stage Liver Disease sodium (MELD‐Na) score in the Eurotransplant region. Am J Transplant. Published online 2020. <a href="doi:10.1111/ajt.16142" class="uri">doi:10.1111/ajt.16142</a></li>
+<li>Vitale A, Cucchetti A, Qiao GL, et al. Is resectable hepatocellular carcinoma a contraindication to liver transplantation? A novel decision model based on “number of patients needed to transplant” as measure of transplant benefit. J Hepatol. 2014;60(6):1165-1171. <a href="doi:10.1016/j.jhep.2014.01.022" class="uri">doi:10.1016/j.jhep.2014.01.022</a></li>
+<li>Kwong AJ, Kim WR, Lake JR, et al. OPTN/SRTR 2019 Annual Data Report: Liver. Am J Transplant. 2021;21(S2):208-315. <a href="doi:10.1111/ajt.16494" class="uri">doi:10.1111/ajt.16494</a></li>
+<li>Mazzaferro V, Citterio D, Bhoori S, et al. Liver transplantation in hepatocellular carcinoma after tumour downstaging ( XXL ): a randomised , controlled ,. Lancet Oncol. 2020;21(7):947-956. <a href="doi:10.1016/S1470-2045(20)30224-2" class="uri">doi:10.1016/S1470-2045(20)30224-2</a></li>
+<li>Global Burden of Disease Cancer Collaboration, Fitzmaurice C, Allen C, et al. Global, Regional, and National Cancer Incidence, Mortality, Years of Life Lost, Years Lived With Disability, and Disability-Adjusted Life-years for 32 Cancer Groups, 1990 to 2015: A Systematic Analysis for the Global Burden of Disease Study. JAMA Oncol. 2016;388(10053):1459-1544. <a href="doi:10.1001/jamaoncol.2016.5688" class="uri">doi:10.1001/jamaoncol.2016.5688</a></li>
+<li>Galle PR, Forner A, Llovet JM, et al. Clinical Practice Guidelines OF HEPATOLOGY EASL Clinical Practice Guidelines: Management of hepatocellular carcinoma q. J Hepatol. 2018;69(1):182-236. <a href="doi:10.1016/j.jhep.2018.03.019" class="uri">doi:10.1016/j.jhep.2018.03.019</a></li>
+<li>Alver SK, Lorenz DJ, Marvin MR, Brock GN. Projected outcomes of 6-month delay in exception points versus an equivalent Model for End-Stage Liver Disease score for hepatocellular carcinoma liver transplant candidates. Liver Transplant. 2016;22(10):1343-1355. <a href="doi:10.1002/lt.24503" class="uri">doi:10.1002/lt.24503</a></li>
+<li>Goldberg D, Mantero A, Newcomb C, et al. Predicting survival after liver transplantation in patients with hepatocellular carcinoma using the LiTES-HCC score. J Hepatol. Published online 2021:1-9. <a href="doi:10.1016/j.jhep.2020.12.021" class="uri">doi:10.1016/j.jhep.2020.12.021</a></li>
+<li>Freeman RB, Gish RG, Harper A, et al. Model for End-Stage Liver Disease (MELD) Exception Guidelines: Results and Recommendations From the MELD Exception Study Group and Conference (MESSAGE) for the Approval of Patients Who Need Liver Transplantation With Diseases Not Considered by the Standar. Liver Transplant. 2007;13(5):767-768. <a href="doi:10.1002/lt" class="uri">doi:10.1002/lt</a></li>
+<li>Northup PG, Intagliata NM, Shah NL, Pelletier SJ, Berg CL, Argo CK. Excess mortality on the liver transplant waiting list: Unintended policy consequences and model for End-Stage Liver Disease (MELD) inflation. Hepatology. 2015;61(1):285-291. <a href="doi:10.1002/hep.27283" class="uri">doi:10.1002/hep.27283</a></li>
+<li>Berry K, Ioannou GN. Comparison of Liver Transplant-Related Survival Benefit in Patients with Versus Without Hepatocellular Carcinoma in the United States. Gastroenterology. 2015;149(3):669-680. <a href="doi:10.1053/j.gastro.2015.05.025" class="uri">doi:10.1053/j.gastro.2015.05.025</a></li>
+<li>Washburn K, Edwards E, Harper A, Freeman RB. Hepatocellular Carcinoma Patients Are Advantaged in the Current Liver Transplant Allocation System. Am J Transplant. 2010;10(7):1652-1657. <a href="doi:10.1111/j.1600-6143.2010.03127.x" class="uri">doi:10.1111/j.1600-6143.2010.03127.x</a></li>
+<li>OPTN/UNOS Liver and Intestinal Transplantation Committee. OPTN / UNOS Policy Notice Revisions to National Liver Review Board Policies. Published 2019. Accessed April 21, 2021. <a href="https://optn.transplant.hrsa.gov/media/2816/liver_nlrb-revised-policynotice-dsa_01252019.pdf" class="uri">https://optn.transplant.hrsa.gov/media/2816/liver_nlrb-revised-policynotice-dsa_01252019.pdf</a></li>
+<li>Toso C, Dupuis-Lozeron E, Majno P, et al. A model for dropout assessment of candidates with or without hepatocellular carcinoma on a common liver transplant waiting list. Hepatology. 2012;56(1):149-156. <a href="doi:10.1002/hep.25603" class="uri">doi:10.1002/hep.25603</a></li>
+<li>Vitale A, Volk ML, De Feo TM, et al. A method for establishing allocation equity among patients with and without hepatocellular carcinoma on a common liver transplant waiting list. J Hepatol. 2014;60(2):290-297. <a href="doi:10.1016/j.jhep.2013.10.010" class="uri">doi:10.1016/j.jhep.2013.10.010</a></li>
+<li>Mehta N, Dodge JL, Roberts JP, Yao FY. A novel waitlist dropout score for hepatocellular carcinoma - identifying a threshold that predicts worse post-transplant survival. J Hepatol. Published online 2020:1-9. <a href="doi:10.1016/j.jhep.2020.10.033" class="uri">doi:10.1016/j.jhep.2020.10.033</a></li>
+<li>Persad G, Wertheimer A, Emanuel EJ. Principles for allocation of scarce medical interventions. Lancet. 2009;373(9661):423-431. <a href="doi:10.1016/S0140-6736(09)60137-9" class="uri">doi:10.1016/S0140-6736(09)60137-9</a></li>
+<li>Merion RM, Schaubel DE, Dykstra DM, Freeman RB, Port FK, Wolfe RA. The survival benefit of liver transplantation. Am J Transplant. 2005;5(2):307-313. <a href="doi:10.1111/j.1600-6143.2004.00703.x" class="uri">doi:10.1111/j.1600-6143.2004.00703.x</a></li>
+<li>Schaubel DE, Guidinger MK, Biggins SW, et al. Survival benefit-based deceased-donor liver allocation. Am J Transplant. 2009;9(4 PART 2):970-981. <a href="doi:10.1111/j.1600-6143.2009.02571.x" class="uri">doi:10.1111/j.1600-6143.2009.02571.x</a></li>
+<li>Schaubel DE, Sima CS, Goodrich NP, Feng S, Merion RM. The survival benefit of deceased donor liver transplantation as a function of candidate disease severity and donor quality. Am J Transplant. 2008;8(2):419-425. <a href="doi:10.1111/j.1600-6143.2007.02086.x" class="uri">doi:10.1111/j.1600-6143.2007.02086.x</a></li>
+<li>Sharma P, Schaubel DE, Goodrich NP, Merion RM. Serum Sodium and Survival Benefit of Liver Transplantation. Liver Transplant. 2015;21:308-313. <a href="doi:10.1002/lt" class="uri">doi:10.1002/lt</a>.</li>
+<li>Merion RM, Wolfe RA, Dykstra DM, Leichtman AB, Gillespie B, Held PJ. Longitudinal assessment of mortality risk among candidates for liver transplantation. Liver Transplant. 2003;9(1):12-18. <a href="doi:10.1053/jlts.2003.50009" class="uri">doi:10.1053/jlts.2003.50009</a></li>
+<li>Goudsmit BFJ, Braat AE, Tushuizen ME, et al. Joint modeling of liver transplant candidates outperforms the model for end-stage liver disease: The effect of disease development over time on patient outcome. Am J Transplant. 2021;(June):ajt.16730. <a href="doi:10.1111/ajt.16730" class="uri">doi:10.1111/ajt.16730</a></li>
+<li>Gong Q, Schaubel DE. Estimating the average treatment effect on survival based on observational data and using partly conditional modeling. Biometrics. 2017;73(1):134-144. <a href="doi:10.1111/biom.12542" class="uri">doi:10.1111/biom.12542</a></li>
+<li>Mazzaferro V, REGALIA E, DOCI R, et al. Liver transplantation for the treatment of small hepatocellular carcinomas in patients with cirrhosis. N Engl J Med. 1996;334(11):693-699.</li>
+<li>Yao FY, Kerlan RK, Hirose R, et al. Excellent outcome following down-staging of hepatocellular carcinoma prior to liver transplantation: An intention-to-treat analysis. Hepatology. 2008;48(3):819-827. <a href="doi:10.1002/hep.22412" class="uri">doi:10.1002/hep.22412</a></li>
+<li>Cillo U, Vitale A, Polacco M, Fasolo E. Liver transplantation for hepatocellular carcinoma through the lens of transplant benefit. Hepatology. 2017;65(5):1741-1748. <a href="doi:10.1002/hep.28998" class="uri">doi:10.1002/hep.28998</a></li>
+<li>van Geloven N, Swanson SA, Ramspek CL, et al. Prediction meets causal inference: the role of treatment in clinical prediction models. Eur J Epidemiol. 2020;35(7):619-630. <a href="doi:10.1007/s10654-020-00636-1" class="uri">doi:10.1007/s10654-020-00636-1</a></li>
+<li>Llovet JM, Fuster J, Bruix J. Intention-to-treat analysis of surgical treatment for early hepatocellular carcinoma: Resection versus transplantation. Hepatology. 1999;30(6):1434-1440. <a href="doi:10.1002/hep.510300629" class="uri">doi:10.1002/hep.510300629</a></li>
+<li>Lai Q, Vitale A, Iesari S, et al. Intention-to-treat survival benefit of liver transplantation in patients with hepatocellular cancer. Hepatology. 2017;66(6):1910-1919. <a href="doi:10.1002/hep.29342" class="uri">doi:10.1002/hep.29342</a></li>
+<li>Kaplan A. The Conduct of Inquiry : Methodology for Behavioral Science. Chandler ; Chandler; 1964.</li>
+<li>Harrell FE. Regression Modeling Strategies. Vol 45.; 2003. <a href="doi:10.1198/tech.2003.s158" class="uri">doi:10.1198/tech.2003.s158</a></li>
+<li>Van Calster B, McLernon DJ, Van Smeden M, et al. Calibration: The Achilles heel of predictive analytics. BMC Med. 2019;17(1):1-7. <a href="doi:10.1186/s12916-019-1466-7" class="uri">doi:10.1186/s12916-019-1466-7</a></li>
+<li>Vitale A, Huo T La, Cucchetti A, et al. Survival Benefit of Liver Transplantation Versus Resection for Hepatocellular Carcinoma: Impact of MELD Score. Ann Surg Oncol. 2015;22(6):1901-1907. <a href="doi:10.1245/s10434-014-4099-2" class="uri">doi:10.1245/s10434-014-4099-2</a></li>
+<li>Luo X, Leanza J, Massie AB, et al. MELD as a metric for survival benefit of liver transplantation. Am J Transplant. 2018;18(5):1231-1237. <a href="doi:10.1111/ajt.14660" class="uri">doi:10.1111/ajt.14660</a></li>
+<li>Vitale A, Volk ML, Senzolo M, Frigo AC, Cillo U. Estimation of Liver Transplant Related Survival Benefit: The Devil Is in the Details. Gastroenterology. 2016;150(2):534-535. <a href="doi:10.1053/j.gastro.2015.12.002" class="uri">doi:10.1053/j.gastro.2015.12.002</a></li>
+<li>Mehta N, Heimbach J, Hirose R, Roberts JP, Yao FY. Minimal Transplant Survival Benefit for Hepatocellular Carcinoma: Is it Real or an Overestimation of Waitlist Life Expectancy? Gastroenterology. 2016;150(2):533-534. <a href="doi:10.1053/j.gastro.2015.08.059" class="uri">doi:10.1053/j.gastro.2015.08.059</a></li>
+<li>Aufhauser DD, Sadot E, Murken DR, et al. Incidence of Occult Intrahepatic Metastasis in Hepatocellular Carcinoma Treated with Transplantation Corresponds to Early Recurrence Rates after Partial Hepatectomy. Ann Surg. 2018;267(5):922-928. <a href="doi:10.1097/SLA.0000000000002135" class="uri">doi:10.1097/SLA.0000000000002135</a></li>
+<li>Mahmud N, Hoteit MA, Goldberg DS. Risk Factors and Center-Level Variation in Hepatocellular Carcinoma Under-Staging for Liver Transplantation. Liver Transplant. 2020;26(8):977-988. <a href="doi:10.1002/lt.25787" class="uri">doi:10.1002/lt.25787</a></li>
+<li>Northup PG, Intagliata NM, Shah NL, Pelletier SJ, Berg CL, Argo CK. Excess mortality on the liver transplant waiting list: Unintended policy consequences and model for End-Stage Liver Disease (MELD) inflation. Hepatology. 2015;61(1):285-291. <a href="doi:10.1002/hep.27283" class="uri">doi:10.1002/hep.27283</a></li>
+<li>Kadry Z, Schaefer EW, Uemura T, Shah AR, Schreibman I, Riley TR. Impact of geographic disparity on liver allocation for hepatocellular cancer in the United States. J Hepatol. 2012;56(3):618-625. <a href="doi:10.1016/j.jhep.2011.08.019" class="uri">doi:10.1016/j.jhep.2011.08.019</a></li>
+<li>Neuberger J, Heimbach JK. Allocation of deceased-donor livers – Is there a most appropriate method? J Hepatol. 2019;71(4):654-656. <a href="doi:10.1016/j.jhep.2019.07.013" class="uri">doi:10.1016/j.jhep.2019.07.013</a></li>
+<li>Mehta N, Bhangui P, Yao FY, et al. Liver Transplantation for Hepatocellular Carcinoma. Working Group Report from the ILTS Transplant Oncology Consensus Conference. Transplantation. 2020;104(6):1136-1142. <a href="doi:10.1097/TP.0000000000003174" class="uri">doi:10.1097/TP.0000000000003174</a></li>
+<li>National Health Service Blood and Transplantat. Policy for Deceased Donor Liver Distribution and Allocation. Published online 2018:1-18. <a href="http://www.odt.nhs.uk/transplantation/tools-policies-and-guidance/policies-and-guidance/" class="uri">http://www.odt.nhs.uk/transplantation/tools-policies-and-guidance/policies-and-guidance/</a></li>
+<li>Penston J, Steele R, Brewster D. Should we use total mortality rather than cancer specific mortality to judge cancer screening programmes? Yes/No. BMJ. 2011;343(7830):1-2. <a href="doi:10.1136/bmj.d6395" class="uri">doi:10.1136/bmj.d6395</a></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="part-iii-survival-with-and-without-transplantation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-disc.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/BenGoudsmit/Thesis/edit/master/08-chapter-benefit.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/BenGoudsmit/Thesis/blob/master/08-chapter-benefit.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

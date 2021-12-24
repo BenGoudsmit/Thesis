@@ -1,0 +1,38 @@
+# Curriculum vitae {-}
+\chaptermark{Miscellaneous}
+
+Ben Goudsmit was born in Geleen on January 2^nd^, 1993. He grew up in Maastricht, where he graduated from gymnasium. From 2012 on, he studied medicine in Leiden.
+
+During his studies, he gained an interest in research. In 2018, he graduated from medical school and started a combined function of PhD student at the Leiden University Medical Center and medical staff member at Eurotransplant International Foundation.
+
+Ben currently lives in Den Haag and works as resident internal medicine at the Haaglanden Medisch Centrum.
+
+# List of publications {-}
+
+1. Alons IME, Goudsmit BFJ, Jellema K, van Walderveen MAA, Wermer MJH, Algra A. Response to Letter to the Editor Regarding" Yield of Computed Tomography (CT) Angiography in Patients with Acute Headache, Normal Neurological Examination, and Normal Non Contrast CT: A Meta-Analysis.". J Stroke Cerebrovasc Dis. 2018;27(7):2044-2045.
+
+2. Alons IME, Goudsmit BFJ, Jellema K, van Walderveen MAA, Wermer MJH, Algra A. Prediction of vascular abnormalities on CT angiography in patients with acute headache. Brain Behav. Published online 2018. doi:10.1002/brb3.997
+
+3. Alons IME, Goudsmit BFJ, Jellema K, van Walderveen MAA, Wermer MJH, Algra A. Yield of Computed Tomography (CT) Angiography in Patients with Acute Headache, Normal Neurological Examination, and Normal Non Contrast CT: A Meta-Analysis. J Stroke Cerebrovasc Dis. Published online 2017. doi:10.1016/j.jstrokecerebrovasdis.2017.11.016
+
+4. Goudsmit BFJ, Langeveld APM. Behandeling van een larynxfractuur met een combinatie van intraluminale stenting en externe fixatie. Ned Tijdschr voor Keel-neus-oorheelkd. 2018;24(2):54-59.
+
+5. Goudsmit BFJ, Putter H, Tushuizen ME, et al. Validation of the Model for End-stage Liver Disease sodium (MELD-Na) score in the Eurotransplant region. Am J Transplant. 2021;21(1):229-240.
+
+6. Goudsmit BFJ, Putter H, Tushuizen ME, et al. Invited response to" MELD calibration". Am J Transplant. Published online 2020.
+
+7. Goudsmit BFJ, Putter H, Tushuizen ME, et al. Refitting the Model for End-Stage Liver Disease for the Eurotransplant Region. Hepatology. 2021;74(1):351-363. doi:10.1002/hep.31677
+
+8. Goudsmit BFJ, Tushuizen ME, Putter H, Braat AE, van Hoek B. The role of the model for end-stage liver disease-sodium score and joint models for 90-day mortality prediction in patients with acute-on-chronic liver failure. J Hepatol. 2021;74(2):475-476.
+
+9. Goudsmit BFJ, Braat AE, Tushuizen ME, et al. Joint modeling of liver transplant candidates outperforms the model for end-stage liver disease: The effect of disease development over time on patient outcome. Am J Transplant. 2021;21(11):3583-3592.
+
+10. Goudsmit BFJ, Putter H, van Hoek B. The Model for End-stage Liver Disease 3.0: an update without proven accuracy. Gastroenterology. Published online 2021.
+
+11. Goudsmit BFJ, Braat AE, Tushuizen ME, et al. Development and validation of a dynamic survival prediction model for patients with acute-on-chronic liver failure. JHEP Reports. 2021;3(6):100369.
+
+12. Collaborative C, Collaborative G. Timing of surgery following SARS-CoV-2 infection: an international prospective cohort study. Anaesthesia. 2021;76(6):748-758. doi:10.1111/anae.15458
+
+13. CHOLECOVID Collaborative. An international multi-centre appraisal of the management and outcomes of acute CHOLEcystitis during the COVID-19 pandemic: The CHOLECOVID Study. Br J Surg. 2021;108(7). doi:10.11164/jjsps.5.2_381_2
+
+14. Mes SD, Hendriksma M, Heijnen BJ, et al. Long-term voice outcomes of laryngeal framework surgery for unilateral vocal fold paralysis. Eur Arch Oto-Rhino-Laryngology. Published online 2021:1-9.

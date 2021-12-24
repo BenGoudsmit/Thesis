@@ -1,0 +1,246 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+# Development and validation of a dynamic survival prediction model for patients with acute-on-chronic liver failure {#chap-aclfjm}
+
+\chaptermark{Joint Models for ACLF}
+
+\vspace*{\fill}
+
+\noindent Goudsmit BFJ, Braat AE, Tushuizen ME, et al. Development and validation of a dynamic survival prediction model for patients with acute-on-chronic liver failure. _JHEP Reports_. 2021; doi: 10.1016/j.jhepr.2021.100369.
+
+------------------------------------------------------------------------
+
+\noindent   
+
+**Abstract**
+
+**Background & Aims**: Acute-on-Chronic-Liver Failure (ACLF) involves an acute deterioration of liver function in patients with chronic liver disease. ACLF is usually associated with a precipitating event and results in the failure of other organ systems and high short-term mortality. Currently-used prediction models fail to adequately estimate prognosis and need for liver transplantation (LT) in ACLF. This study develops and validates a dynamic prediction model for ACLF patients, that uses both longitudinal and survival data. 
+
+**Methods**: Adult patients on the UNOS waitlist for LT between 11.01.2016-31.12.2019 were included. Repeated model for end-stage liver disease sodium (MELD-Na) measurements were jointly-modeled with Cox survival analysis to develop the ACLF joint model (ACLF-JM). Model validation was done in separate testing data with area under curve (AUC) and prediction errors. An online ACLF-JM tool was created for clinical application.
+
+**Results**: In total, 30,533 patients were included. ACLF grade 1 to 3 was present in respectively 16.4, 10.4 and 6.2% of the patients. The ACLF-JM predicted survival significantly (p<0.001) better than the MELD-Na, both at baseline and during follow-up. For 28- and 90-day predictions, ACLF-JM AUCs ranged between 0.840-0.871 and 0.833-875, respectively. Compared to MELD-Na, AUCs and prediction errors were improved by 23.1%-62.0% and 5%-37.6% respectively. Also, the ACLF-JM could have prioritized patients who had four times higher waiting list mortality, possibly not identified by MELD-Na.
+
+**Conclusion**: The ACLF-JM dynamically predicts outcome based on current and past disease severity. Prediction performance is excellent over time, even in ACLF-3 patients. Therefore, the ACLF-JM could be used as clinical tool in the evaluation of prognosis and treatment in patients with ACLF. 
+
+\newpage
+
+## Introduction {.unnumbered}
+Liver transplantation (LT) is a lifesaving treatment for patients with acute-on-chronic-liver failure (ACLF). ACLF is characterized by an acute deterioration of liver function in patients with chronic liver disease, often started by a precipitating event. ACLF results in the failure of one or more organs and is associated with high short-term mortality.^1–3^ The current model that prioritizes patients for LT, the Model for End-stage Liver Disease sodium (MELD-Na) score,^4,5^ underestimates disease severity in ACLF.^6,7^ This is because MELD-Na does not consider temporal development of single or multiorgan failure (involving the 6 major organs/systems—i.e. liver, kidney, brain, coagulation, circulation, and respiration). This underestimation of predicted waitlist mortality results in lower access to transplantation for ACLF patients.^7^ Sundaram et al. showed that ACLF death and waiting list removal rate were highest in ACLF-3 patients with MELD-Na <25.^8^ Given that 20.9% of UNOS LT candidates between 2005-2016 had a form of ACLF,8 the inequal transplantation access might be substantial.
+
+The MELD-Na uses one moment in time, i.e. the most recent measurement, to predict outcome.^4,5^ It therefore ignores previous data valuable for survival estimation. However, ACLF is a dynamic disease with a clinical course that can change within days, resulting in very different outcomes.^9,10^ Thus, there is a need for prediction models that estimate ACLF survival based on disease development over time.^7^ The Chronic Liver Failure Consortium Organ Failure score (CLIF-C OFs) and CLIF-C ACLF score were developed for this purpose and showed better performance than the MELD-Na.^3,6^ However, they also assessed only one moment in time. A joint model (JM) is a novel prediction model that simultaneously uses longitudinal and survival data.^11^ It approximates changing disease severity over time and uses this for survival prediction.^12^ JMs have shown superior predictive performance over Cox models.^12–14^ However, they have not been applied to ACLF.
+
+We hypothesized that using disease development over time to dynamically predict prognosis could improve survival prediction in ACLF patients. Much like a clinician, we aimed to use disease severity and its rate of change to predict outcome. We believe this is warranted in ACLF, because of the dynamic nature of ACLF disease and the current underestimation of mortality by MELD-Na.^9,10,15^ Therefore, we constructed and validated a multivariate prediction model for survival prediction in ACLF patients: the ACLF Joint Model (ACLF-JM). We investigated the ACLF-JM 28- and 90-day survival prediction performance in the United Network for Organ Sharing (UNOS) registry and compared its performance to the MELD-Na score. We also investigated whether the ACLF-JM would identify patients in whom MELD-Na underestimates mortality. For easy clinical application, an online ACLF-JM tool was developed for dynamic survival prediction in ACLF patients.
+
+## Methods {.unnumbered}
+
+The TRIPOD statement was used for the development and validation of this multivariate prediction model.^16^
+
+### Study population {.unnumbered}
+Data of LT candidates was requested from the UNOS. We included adult (\>=18 years) patients listed for a first LT between January 11^th^, 2016 (after MELD-Na implementation) and December 31^st^, 2019. We excluded candidates with acute liver failure (ALF) and hepatocellular carcinoma (HCC) at baseline. Data were used from first active listing until the earliest of patient death, transplantation, removal or censor at December 31^st^, 2019. Death was defined both as death while listed and removal for being too sick to transplant.^8^ If patients received exception points or a status 1 (i.e. high urgency status) after first listing, they were censored from that date. MELD-Na data was missing in 0.05%, therefore complete-case analysis was done. Missing values for the predictors life support dependency (variable CAN_LIFE_SUPPORT, 0.00009% missing) and spontaneous bacterial peritonitis (CAN_BACTERIA_PERIT, 0.005% missing) were set to ‘no’.
+
+### Identification of ACLF {.unnumbered}
+Baseline ACLF was defined according to the to the European Foundation for the Study of Chronic Liver Failure (EF Clif) criteria.^3^ Specifically, liver failure was defined as serum bilirubin \>=12 mg/dL, kidney failure as serum creatinine \>=2.0 mg/dL or renal replacement therapy, cerebral failure as presence of hepatic encephalopathy grade 3-4, coagulation failure as INR \>=2.5. Like other authors that used United Network for Organ Sharing (UNOS) data, we used mechanical ventilation as replacement for respiratory failure, since data on PaO2/FiO2 were not available. Also, life-support dependency was used to designate circulatory failure.^6,8,10,17^
+
+### Development of the ACLF-JM {.unnumbered}
+Data were randomly split in a training (67% of the patients) and a testing (33%) set, for model development and validation respectively. The ACLF-JM consists of two parts: a longitudinal (mixed-effect) and survival (Cox proportional hazards) model. Mixed-effect models were used because they estimate disease development over time as a continuous trajectory and can model both linear (chronic, stable disease) and non-linear (fast deterioration in ACLF) developments. See figure S4 for an illustration. Thus, repeated measurements of MELD-Na scores were modeled with mixed-effects. Additional predictors were used to correct the longitudinal data. To start, 50 candidate variables were assessed (table S2). We excluded some variables a priori, because they referred to pediatric recipients, exclusion criteria, or donor characteristics. Variable relation to mortality was studied in univariate analysis and then variables were backwards selected variables for multivariate Cox analysis. The final variables included in the model contributed most significantly besides the those used for ACLF scoring through EF CliF criteria (serum bilirubin, creatinine, renal replacement therapy, encephalopathy grade, INR, mechanical ventilation, and life-support dependency). Thus, we additionally corrected for candidate age (years), sex (male/female), life support dependency (yes/no), presence of bacterial peritonitis (yes/no), presence of cirrhosis (alcohol-induced, hepatitis-C virus, non-alcoholic steatohepatitis (NASH) or other cirrhosis) (yes/no) and CLIF-C OF score (No ACLF or ACLF grade 1 to 3) (table S1). Next, a Cox proportional hazards model was constructed for waiting list mortality, using the same predictors as the mixed-effect model. Then, the ACLF-JM was constructed by joint-modelling the longitudinal (mixed-effect) and survival (Cox) model.^18^ A key feature is that the ACLF-JM uses both the estimated MELD-Na value and the rate of change in MELD-Na (the slope of the decrease/increase) over time for survival prediction. For clarity, these concepts of value and slope were illustrated in Figure \@ref(fig:aclf-fig1). 
+
+```{r aclf-fig1, echo=F, fig.cap='For three hypothetical patients A, B and C, the 20-day MELD-Na development is shown. After 20 days, patient A has a MELD-Na score of 30 and is thus prioritized by the current allocation system. However, the ACLF-JM uses both the estimated value (measured MELD-Na score) and slope (rate of change) at time=20 for survival prediction. Calculation of the HRs shows that the ACLF-JM gives patient C the greatest risk of death, because of the fast increase in MELD-Na scores (positive slope). See supplement 4 for the precise explanation and calculation.'}
+knitr::include_graphics("figures/aclfjm/figure 1.png" , auto_pdf=T)
+```
+
+### Validation of the ACLF-JM {.unnumbered}
+Next, the prediction performance of the ACLF-JM was compared to the MELD-Na at various points in time in the separate testing data. Specifically, predictions were assessed at baseline and after a follow-up of 48 hours, 7 days and 14 days (similar to the validation study of the CLIF-C OF).6 Outcomes were 28-day and 90-day survival. For both the ACLF-JM and MELD-Na Cox model, the area under the receiver-operator-characteristic curve (AUC) and prediction errors were calculated and compared (see supplement 3 for detailed information). These measures and their 95% confidence intervals (95%CI) and p-values were calculated using the R package JM and bootstrapping.^18^
+
+### ACLF-JM impact on the transplantation waiting list {.unnumbered}
+Next, we assessed the possible effect of using the ACLF-JM instead of MELD-Na to estimate mortality and subsequently prioritize patients for LT. This was of interest, because ACLF patients are likely underserved in the current LT allocation.^15^ To assess possible differences in MELD-Na and ACLF-JM waitlist prioritization of patients, we followed patients from baseline until day 28.^6^ Within this period, each time a liver graft was offered, patients were ranked two times from most to least ill based on their estimated survival without transplant. One ranking was made with the ACLF-JM predictions and one based on MELD-Na. Thus, for each model, patients were ranked 2636 times, i.e., the total number of available liver grafts within the first 28 days. After a liver graft offer, the transplanted patient was removed from the waiting list. We assumed that the highest ranked patients were transplanted, which is not necessarily true, and thus that the number of available transplants in the first 28 days represented the threshold of receiving transplantation. We then assessed which patients were prioritized according to what model. After 28 days and 2636 rankings, patients were stratified in four groups: those who are prioritized and possibly transplanted within 28 days according to both scores, those who are prioritized by either the ACLF-JM or MELD-Na score (but not by both) and those who are not prioritized by both. We also assessed the characteristics of the differently-prioritized patients, to see why patients were prioritized differently. 
+
+### Clinical application of the ACLF-JM {.unnumbered}
+Lastly, an online version of the ACLF-JM was created (https://predictionmodels.shinyapps.io/aclf-jm/), which allows clinicians to assess ACLF-JM survival predictions for their individual patient(s). Plots can be created of these dynamic predictions, to show the updating survival estimate for every new available measurement during follow-up. For a instruction manual, see supplement 1 and 2. All statistical analyses were performed using R v4.0.0 (R Foundation for Statistical Computing, Vienna, Austria). 
+
+## Results {.unnumbered}
+
+### Study population {.unnumbered}
+In total, we included 30,533 patients with 249,030 measurements. Table \@ref(tab:aclf-tab1) shows the baseline characteristics of the study population. ACLF at baseline was seen in 33.3% of the patients; 15.9% had ACLF grade 1, 10.3% had grade 2 and 7.1% had grade 3. In these patients, liver (47.2%) and kidney (63.6%) failure were the most common. With increasing ACLF grade, median [IQR] age decreased, ranging from 59 [52-64] (no ACLF) to 53 [43-60] years (ACLF-3). Most patients were male (no ACLF: 65.0%, ACLF: 60%) and had alcoholic liver disease (no ACLF 25.8%, ACLF 40%). For ACLF grades 0 to 3, median [IQR] MELD-Na scores at listing were 15 [10-22], 27 [23-31], 33 [29-37] and 37 [31-42]. Average time on the waiting list was 150 days for patients without ACLF, 89 for ACLF grade 1, 24 for grade 2 and 10 days for grade 3. Cumulative incidence plots showed significantly higher death and transplantation rates in ACLF patients (figure S1). At the end of follow-up, 10.9% of the patients without ACLF died. For patients with ACLF grade 1 to 3, death rates were 16.7%, 14.3% and 22.4%, respectively.
+```{r aclf-tab1,message=FALSE, echo=F}
+options(warn=-1)
+library(kableExtra)
+library(readxl)
+library(tidyverse)
+tab1 <- read_excel("figures/aclfjm/table 1.xlsx")
+options(knitr.kable.NA = '')
+
+# set footnotes
+dt_footnote <- read_excel("figures/aclfjm/table 1.xlsx")
+# cols
+names(dt_footnote)[4] <- paste0("p") #, footnote_marker_alphabet(1)
+names(dt_footnote)[8] <- paste0("p") # , footnote_marker_alphabet(2)
+
+kbl(dt_footnote, booktabs=T, caption = "Baseline characteristics of UNOS liver transplantation candidates between 2016 to 2019 (n=30,533)",
+    linesep= "")%>%
+  kable_styling(latex_options = c("striped","scale_down")) %>% 
+  kable_classic() %>%
+  #kable_styling(latex_options = c("scale_down")) %>% 
+  pack_rows("Status after waiting", 6, 9) %>%
+  pack_rows("Grouped cause of disease (%)", 10, 17) %>%
+  pack_rows("Failure organ/system (%)", 20, 25) %>%
+  # footnote(threeparttable=T, 
+  #          general = "HCV, NASH, alcoholic, and cirrhosis other patients received cirrhosis=1 in the JM. BMI: body mass index, HCV: hepatitis C virus, NASH: non-acoholic steatohepatitis, MELD-Na: model for end-stage liver disease sodium"
+  #          ) %>% 
+  landscape()
+
+options(warn=0)
+``` 
+
+### Model properties {.unnumbered}
+The ACLF-JM is summarized by the equation: 
+\begin{align*} 
+{Hazard\ Ratio\ death}_t={1.15}^{{MELDNa}_{value\ t}}\ast{1.02}^{{MELDNa}_{slope\ t}}\ast{1.38}^{age}\\
+\ast{0.75}^{female\ gender}\ast{0.95}^{cirrhosis}\ast\left(if:{1.06}^{ACLF1}\right)\ast\left(if:{1.98}^{ACLF2}\right)\\
+\ast\left(if:{5.90}^{ACLF3}\right)\ast{1.18}^{SBP}\ast{1.35}^{life support}
+\end{align*} 
+The ACLF-JM estimates the MELD-Na value and slope at a given timepoint and calculates the HR of death. For each MELD-Na point increase, the risk of 1-year death increases with 15% (95% CI 14-16). For every 1-point increase in slope, i.e. acceleration of disease increase, the mortality risk increases with 2% (95% CI 1-2). Of course, in clinical practice, disease severity often changes more rapidly, especially for ACLF patients. A more intuitive illustration of the effect of MELD-Na value and slope is provided in Figure \@ref(fig:aclf-fig1), where three hypothetical awaiting LT are shown. The example calculation (details in supplement 4) shows that considering the rate of change (slope) in disease severity adds important information. Considering both MELD-Na value and slope would give priority to patient C (MELD-Na score 20, accelerating disease severity), whereas using the current MELD-Na-based allocation would prioritize patient A (MELD-Na 30, stable disease). 
+
+### Model validation {.unnumbered}
+The ACLF-JM prediction performance was validated in separate testing data. Table \@ref(tab:aclf-tab2) shows the 28- and 90-day prediction performance of the ACLF-JM and MELD-Na, stratified for patients with and without ACLF, at baseline and during follow-up. For all time points and studied outcomes, the JM performance was significantly better than MELD-Na. At baseline in ACLF patients, the ACLF-JM AUC was 0.875 (95% CI 0.840-0.909) and MELD-Na AUC was 0.780 (95% CI 0.737-0.823). During follow-up, AUCs of both models declined to 0.833 (0.799-0.868) and 0.719 (0.677-0.761) respectively, which is still excellent for the ACLF-JM and respectable for the MELD-Na (also see figure S2A and S3).
+```{r aclf-tab2,message=FALSE, echo=F}
+options(warn=-1)
+library(kableExtra)
+library(readxl)
+library(tidyverse)
+tab1 <- read_excel("figures/aclfjm/table 2.xlsx")
+tab1[, c(2,4,6,8)] <- sapply(tab1[, c(2,4,6,8)], as.numeric)
+names(tab1)[c(2,6)] <- paste0("ACLF-JM")
+names(tab1)[c(3,5,7,9)] <- paste0("95% CI")
+names(tab1)[c(4,8)] <- paste0("MELD-Na")
+options(knitr.kable.NA = '')
+kbl(tab1,booktabs=T, caption = "Mortality prediction AUC of the ACLF-JM versus the MELD-Na in patients with and without ACLF, at baseline and during follow-up",
+    linesep= "")%>%
+  kable_styling(latex_options = c("striped","scale_down")) %>% 
+  kable_classic() %>%
+  add_header_above(c(" " = 1, "ACLF" = 4, "No ACLF" =4)) %>%
+  pack_rows("28-day mortality", 1, 4) %>%
+  pack_rows("90-day mortality", 5, 8) %>%
+  footnote(threeparttable=T,
+           general = "ACLF: acute-on-chronic liver failure, AUC: area under receiver operator curve, JM: joint model, MELD-Na: model for end-stage liver disease sodium score",
+           symbol = "All AUCs differed significantly (p<0.001)") %>%
+  landscape()
+
+options(warn=0)
+```
+
+Figure \@ref(fig:aclf-fig2) show that with increasing ACLF grade, JM performance remains significantly better than the declining MELD-Na (also see table S3 and figure S3). Especially for 90-day prediction in ACLF grade 3 patients, JM performance is excellent with AUCs ranging from 0.841 to 0.853, contrasting the MELD-Na AUCs between 0.613 and 0.693. MELD-Na AUCs (almost) equal chance when predicting 28-day mortality in ACLF-3 patients, ranging from 0.497 to 0.605. Importantly, the ACLF-JM also better estimated risks, i.e. is better calibrated, than the MELD-Na (figure S2B). With increasing ACLF grade, prediction errors were improved up to 37.6% (figure S3B). An accurate model is important for clinical decision-making, because decisions are often based on risks.^19^
+
+```{r aclf-fig2, echo=F, fig.cap='The AUCs for 28- and 90-day mortality prediction of the ACLF-JM and the MELD-Na, stratified for ACLF severity.'}
+#knitr::include_graphics("figures/aclfjm/figure 2 v2.png" , auto_pdf=T)
+dfpred <- read_xlsx("figures/aclfjm/dfriskreg - r import.xlsx")
+dfpred %>%
+  dplyr::rename(AUCs=JM_AUCs,Briers=JM_Briers, Times=Time) %>% 
+  mutate(Times=factor(Times),
+         Prediction=factor(Prediction, levels=c("28","90"),labels=c("28 days","90 days")),
+         Model=factor(Model,levels=c("JM","MELD-Na"),labels=c("ACLF-JM","MELD-Na")),
+         ACLF = fct_relevel(ACLF,"No ACLF","All ACLF", "ACLF-1", "ACLF-2", "ACLF-3")) %>%
+  filter(ACLF!="All ACLF") %>% 
+  ggplot(aes(x=Times,y=AUCs,fill=Model,group=Model))+
+  geom_bar(position="dodge",stat="identity",color="black")+
+  scale_fill_brewer(palette="Blues",direction=1)+
+  facet_grid(Prediction~ACLF)+
+  theme_pubr()+ theme(legend.title = element_blank())+
+  geom_text(aes(label=round(AUCs,digits=1)), vjust=-0.3, size=3.5, position = position_dodge(1))+
+  labs(y="Mortality AUC",x="Time (days)")+
+  scale_x_discrete(labels=c("0","2","7","14"))+ 
+  coord_cartesian(ylim = c(0.45,0.9))
+```
+
+### ACLF-JM impact on the transplantation waiting list {.unnumbered}
+To study the difference in survival prediction and subsequent allocation priority between the ACLF-JM and the MELD-Na, patients were followed the first 28 days. In total, 2636 transplants were done within this period. Figure \@ref(fig:aclf-fig3) shows the correlation plot between MELD-Na scores and ACLF-JM mortality estimates after 28 days of waiting list follow-up. For 2186 patients (in green), transplantation priority was given according to both the ACLF-JM and MELD-Na, as estimated mortality without LT was highest. More interestingly, 450 patients (in blue) could possibly have been prioritized by the ACLF-JM, but not by MELD-Na. 
+
+```{r aclf-fig3, echo=F, fig.cap='The correlation plot of MELD-Na score and 28-day ACLF-JM survival predictions. Patients are stratified in 4 groups: orange and blue patients would have been prioritized differently under either the ACLF-JM or MELD-Na. Blue patients had a 4x higher 28-day waiting list mortality than orange patients.'}
+load("figures/aclfjm/df3.Rdata")
+cbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+df3 %>% 
+  mutate(tx2=case_when(tx=="Both"~"Both prioritized",tx=="JM prioritized"~"JM prioritized",
+                       tx=="MELD-Na prioritized"~"MELD-Na prioritized",
+                       tx=="Not transplanted"~"Not prioritized")) %>% 
+  ggplot(aes(x=1-jm_sprobs,y=meldnauncapped, group=tx, color=factor(tx2)))+
+  geom_point()+
+  scale_colour_manual(values=cbPalette)+
+  xlab("JM 28−day mortality probabilities") + ylab("MELD-Na score") + 
+  theme_base() + theme(legend.position = c(0.8, 0.2),legend.title = element_text(size=0))
+```
+
+Importantly, although these patients had lower median MELD-Na scores, they also had four times higher 28-day mortality rates, i.e., 13.1% versus 3.1%, see Table \@ref(tab:aclf-tab3). Compared to the 450 MELD-Na-prioritized patients (orange), ACLF-JM-prioritized patients were older, more often female, had lower ACLF-1 rates, more NASH, less alcohol-induced liver disease and were more often dependent on life-support. After 28 days, 190 patients were delisted due to increased disease severity. In these patients, survival prediction AUC (95%CI) of the ACLF-JM and MELD-Na was 88.0 (85.1-90.9) and 82.5 (79.0-85.9), respectively (figure S6). 
+
+```{r aclf-tab3,message=FALSE, echo=F}
+options(warn=-1)
+library(kableExtra)
+library(readxl)
+library(tidyverse)
+tab1 <- read_excel("figures/aclfjm/table 3.xlsx")
+
+options(knitr.kable.NA = '')
+kbl(tab1,booktabs=T, caption = "Characteristics of patients prioritized differently for liver transplantation within 28 days",
+    linesep= "")%>%
+  kable_styling(latex_options = c("scale_down","striped")) %>% 
+  kable_classic() %>%
+  pack_rows("ACLF (%)", 5, 8) %>%
+  pack_rows("Disease (%)", 9, 16) %>%
+  footnote(threeparttable=T,
+           general = "Clarification: JM-prioritized patients are not prioritized by MELD-Na, and vice versa.",
+           symbol = "Difference tested between ACLF-JM-prioritized and MELD-Na-prioritized patients") %>%
+  landscape()
+
+options(warn=0)
+```
+
+### Clinical application of the ACLF-JM {.unnumbered}
+After constructing and validating the ACLF-JM in this large cohort, an online application was developed, which allows clinicians to easily calculate individual patient survival probabilities based on the ACLF-JM. Available at: https://predictionmodels.shinyapps.io/aclf-jm/. Excel files with repeated MELD-Na measurements can be uploaded into this tool, to generate dynamic survival predictions during follow-up. The ACLF-JM simulates individual patient data to calculate personalized predictions. See supplement 1 for precise instructions for the data upload and supplement 2 for a step-by-step manual.
+
+## Discussion {.unnumbered}
+In this study, we developed and validated the ACLF-JM prediction model, to estimate survival of ACLF patients. We report several important findings. First, both current and past disease severity and its rate of change are strongly associated with survival in ACLF. Second, by using these data, the ACLF-JM gives excellent prediction performance, even in ACLF-3, and significantly outperforms MELD-Na. Third, the ACLF-JM could have prioritized patients with low median MELD-Na scores, i.e. not identified by MELD-Na, but four times higher mortality rates than MELD-Na prioritized patients. Fourth, the ACLF-JM can be clinically applied online to estimate and visualize patient-specific survival, which can be updated with every new measurement. 
+
+### Disease development over time {.unnumbered}
+ACLF disease severity is dynamic and can change rapidly. During the first week, disease severity changes for most patients, resulting in different survival outcomes.^9,10^ The current liver allocation system does not consider change, as it uses only the most recent measurement for survival prediction and ignores previous data. Moreover, survival is estimated based on the MELD-Na score, which ignores relevant factors for ACLF and therefore underestimates mortality.^7,8^ Hernaez et al. showed that mortality was higher than expected in low MELD-Na score patients. They also showed that, despite their high(er) ACLF grade, these low MELD-Na patients were often not considered for LT.^7^ Interestingly, Hernaez et al. mentioned that "Future research should also focus on developing and validating prognostic scores that incorporate dynamic changes in patients clinical course", i.e. the goal of this study. Sundaram et al. showed that ACLF death and removal rate did not correlate well with the MELD-Na score, as mortality rates were highest in ACLF-3 patients with MELD-Na <25.^8^ In this study, ACLF was present in 33.3% of the patients. Therefore, the MELD-Na underestimation of ACLF disease severity could be substantial, which possibly leads to unequal treatment access and surplus mortality.^7^ Therefore, the ACLF-JM was developed to predict ACLF patient survival based on disease development over time. The model provides several important improvements over the MELD-Na (table S4).^21^ Most importantly, predictions are based on all available previous data and update for every new measurement.^22^ Predictions should be update based on accumulating evidence, because ACLF is a dynamic disease. Also, the ACLF-JM considers both the value of disease severity and the rate at which disease severity is changing, see Figure \@ref(fig:aclf-fig1). It uses more nuanced aspects of ACLF disease development to predict survival. Thus, like a clinician, past and current disease developments are used to estimate patient prognosis. Updating prognosis is important in ACLF, as disease can increase fast and non-linearly (e.g. exponential).^1,3^ ACLF-JM survival predictions could therefore be used to aid clinical decision making for ACLF patients on the waiting list for LT, as current models result in unequal transplantation access and post-LT survival rates.^8,10,17^ Furthermore, In this cohort, we showed that ACLF-JM prioritization identified patients with low MELD-Na scores, but high mortality, see Table \@ref(tab:aclf-tab3). Mortality is underestimated in these patients and subsequently they receive a lower priority for LT. Since ACLF patients benefit from fast LT,^17^ use of the ACLF-JM for the evaluation of prognosis could perhaps help to resolve the underestimation of waiting list mortality for ACLF patients.^7^
+
+### ACLF-JM validation {.unnumbered}
+The ACLF-JM showed excellent short-term survival prediction performance at baseline and with increasing follow-up. Increasing ACLF grade did not lead to a decrease in predictive accuracy. This is important, because risk of death and need for LT should be reliably estimated in the sickest patients. Our data showed that both the ACLF-JM and MELD-Na AUCs declined with increasing follow-up. This is likely due to population changes, i.e. the sickest patients die or are transplanted first and less patients remain with increasing follow-up.^23^ Also, with increasing disease severity, generally a shorter follow-up period is available. The ACLF-JM approximation of disease does not depend on the number of measurements per patient, because it estimates disease over time as a continuous trajectory (figure S4). This is important, because frequency of measurement confounded previous (Cox-based) survival predictions for patients in need of LT.^24^ The ACLF-JM performed comparable and sometimes even better compared to the reported performance of the CLIF-C OF score.^6^ This could possibly indicate that ACLF-JM performance was adequate enough for clinical application. Because the UNOS registry does not contain data on white blood cell counts, CLIF-C ACLF scoring was not possible in this study. ACLF-JM performance could however be externally validated in the cohorts used to construct the CLIF-C scores.^6^
+
+### Clinical application of the ACLF-JM {.unnumbered}
+After training and ascertaining excellent performance, an online tool of the ACLF-JM was  created for clinical use. Especially in ACLF, both the patient and treating clinician benefit from patient-specific modelling, which shifts the focus of prediction from the population to the individual patient level. Jalan et al. already stated that there is a need for models that “update on a daily basis providing additional prognostic information”, and that “currently, no validated evidence-based tools guide the decision-making”.^6^ The ACLF-JM meets these demands and more, with excellent performance leading to personalized prediction, readily available online for any clinician.
+
+### Limitations {.unnumbered}
+A limitation is that longitudinal MELD-Na measurements are not best to model ACLF disease development, as they can underestimate ACLF disease severity.^7^ Ideally, longitudinal CLIF-C ACLFs data would be available in the UNOS data. However, MELD-Na was one of the few consistently available longitudinal measurements, which allowed analysis on a large scale and comparison to previous studies. The retrospective analysis of large databases also has several disadvantages. Misclassification of disease severity could give bias, e.g. subjective scoring of ascites and encephalopathy. Also, surrogate markers, suggested by authors of other large UNOS ACLF analyses, were used for ventilatory and circulatory failure.^6,8,10,17^ For example, mechanical ventilation was used as replacement for respiratory failure, it is however very well possible that a patient with respiratory failure did not receive mechanical ventilation, or vice versa. Despite these shortcomings, the ACLF-JM showed excellent performance with increasing disease severity (ACLF grade). 
+
+## Conclusion {.unnumbered}
+ACLF survival is dynamically predicted by the ACLF-JM prediction model, using both longitudinal and survival data. Updating prognosis on new measurements is important, as ACLF is a dynamic disease. The ACLF-JM prediction performance was excellent in this cohort, even in ACLF-3 patients. The ACLF-JM could therefore be used as a tool for the personalized evaluation of prognosis and clinical decision making in patients with ACLF.
+
+
+\newpage
+
+## References {.unnumbered}
+1. Jalan R, Gines P, Olson JC, et al. Acute-on chronic liver failure. J Hepatol. 2012;57(6):1336-1348. doi:10.1016/j.jhep.2012.06.026
+2. Hernaez R, Kramer JR, Liu Y, et al. Prevalence and short-term mortality of acute-on-chronic liver failure: A national cohort study from the USA. J Hepatol. 2019;70(4):639-647. doi:10.1016/j.jhep.2018.12.018
+3. Moreau R, Jalan R, Gines P, et al. Acute-on-chronic liver failure is a distinct syndrome that develops in patients with acute decompensation of cirrhosis. Gastroenterology. 2013;144(7):1426-1437.e9. doi:10.1053/j.gastro.2013.02.042
+4. Kim WR, Biggins SW, Kremers WK, et al. Hyponatremia and Mortality among Patients on the Liver-Transplant Waiting List. N Engl J Med. 2008;359(10):1018-1026. doi:10.1007/s11250-017-1262-3
+5. Goudsmit BFJ, Putter H, Tushuizen ME, et al. Validation of the Model for End‐stage Liver Disease sodium (MELD‐Na) score in the Eurotransplant region. Am J Transplant. 2020. doi:10.1111/ajt.16142
+6. Jalan R, Saliba F, Pavesi M, et al. Development and validation of a prognostic score to predict mortality in patients with acute-on-chronic liver failure. J Hepatol. 2014;61(5):1038-1047. doi:10.1016/j.jhep.2014.06.012
+7. Hernaez R, Liu Y, Kramer JR, Rana A, El-Serag HB, Kanwal F. Model for end-stage liver disease-sodium underestimates 90-day mortality risk in patients with acute-on-chronic liver failure. J Hepatol. 2020:1-9. doi:10.1016/j.jhep.2020.06.005
+8. Sundaram V, Jalan R, Wu T, et al. Factors Associated with Survival of Patients With Severe Acute-On-Chronic Liver Failure Before and After Liver Transplantation. Gastroenterology. 2019;156(5):1381-1391.e3. doi:10.1053/j.gastro.2018.12.007
+9. Gustot T, Fernandez J, Garcia E, et al. Clinical Course of acute-on-chronic liver failure syndrome and effects on prognosis. Hepatology. 2015;62(1):243-252. doi:10.1002/hep.27849
+10. Sundaram V, Kogachi S, Wong RJ, et al. Effect of the clinical course of acute-on-chronic liver failure prior to liver transplantation on post-transplant survival. J Hepatol. 2020;72(3):481-488. doi:10.1016/j.jhep.2019.10.013
+11. Rizopoulos R. Joint Models for Longitudinal and Time-to-Event Data: With Applications in R. 1st ed. Chapman and Hall/CRC; 2012.
+12. Papageorgiou G, Mokhles MM, Takkenberg JJM, Rizopoulos D. Individualized dynamic prediction of survival with the presence of intermediate events. Stat Med. 2019;38(30):5623-5640. doi:10.1002/sim.8387
+13. Arisido MW, Antolini L, Bernasconi DP, Valsecchi MG, Rebora P. Joint model robustness compared with the time-varying covariate Cox model to evaluate the association between a longitudinal marker and a time-to-event endpoint. BMC Med Res Methodol. 2019;19(1):1-13. doi:10.1186/s12874-019-0873-y
+14. Campbell KR, Juarez-Colunga E, Grunwald GK, Cooper J, Davis S, Gralla J. Comparison of a time-varying covariate model and a joint model of time-to-event outcomes in the presence of measurement error and interval censoring: Application to kidney transplantation. BMC Med Res Methodol. 2019;19(1):1-12. doi:10.1186/s12874-019-0773-1
+15. Hernaez R, Liu Y, Kramer JR, Rana A, El-serag HB, Kanwal F. Model for end-stage liver disease-sodium underestimates 90-day mortality risk in patients with acute-on-chronic liver failuare. J Hepatol. 2020. doi:10.1016/j.jhep.2020.06.005
+16. Moons KGM, Altman DG, Reitsma JB, et al. Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis (TRIPOD): Explanation and elaboration. Ann Intern Med. 2015;162(1):W1-W73. doi:10.7326/M14-0698
+17. Thuluvath PJ, Thuluvath AJ, Hanish S, Savva Y. Liver transplantation in patients with multiple organ failures: Feasibility and outcomes. J Hepatol. 2018;69(5):1047-1056. doi:10.1016/j.jhep.2018.07.007
+18. Rizopoulos D. The R package jmbayes for fitting joint models for longitudinal and time-to-event data using MCMC. J Stat Softw. 2016;72(7). doi:10.18637/jss.v072.i07
+19. Gerds TA, Blanche P, Mortensen R, Tollenaar N, Brasch Mogensen U, Ozenne B. riskRegression: Risk Regression Models and Prediction Scores for Survival Analysis with Competing Risks. 2020. https://cran.r-project.org/web/packages/riskRegression/index.html.
+20. Van Calster B, McLernon DJ, Van Smeden M, et al. Calibration: The Achilles heel of predictive analytics. BMC Med. 2019;17(1):1-7. doi:10.1186/s12916-019-1466-7
+21. Goudsmit BFJ, Tushuizen ME, Putter H, Braat AE, van Hoek B. The role of the model for end-stage liver disease-sodium score and joint models for 90-day mortality prediction in patients with acute-on-chronic liver failure. J Hepatol. 2021;74(2):475-476. doi:10.1016/j.jhep.2020.08.032
+22. Papageorgiou G, Mauff K, Tomer A, Rizopoulos D. An Overview of Joint Modeling of Time-to-Event and Longitudinal Outcomes. Annu Rev Stat Its Appl. 2019;6(1):223-240. doi:10.1146/annurev-statistics-030718-105048
+23. Goudsmit BFJ, Putter H, Tushuizen ME, et al. Refitting the model for end-stage liver disease for the Eurotransplant region. Hepatology. 2020;in press.
+24. Bambha K, Kim WR, Kremers WK, et al. Predicting survival among patients listed for liver transplantation: An assessment of serial MELD measurements. Am J Transplant. 2004;4(11):1798-1804. doi:10.1111/j.1600-6143.2004.00550.x

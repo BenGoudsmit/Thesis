@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Development and validation of a dynamic survival prediction model for patients with acute-on-chronic liver failure | Improving survival prediction models for liver transplantation candidates</title>
+  <meta name="description" content="Chapter 5 Development and validation of a dynamic survival prediction model for patients with acute-on-chronic liver failure | Improving survival prediction models for liver transplantation candidates" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Development and validation of a dynamic survival prediction model for patients with acute-on-chronic liver failure | Improving survival prediction models for liver transplantation candidates" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Development and validation of a dynamic survival prediction model for patients with acute-on-chronic liver failure | Improving survival prediction models for liver transplantation candidates" />
+  
+  
+  
+
+<meta name="author" content="Ben Felix Jacob Goudsmit" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-jm.html"/>
+<link rel="next" href="part-iii-survival-with-and-without-transplantation.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Thesis BFJ Goudsmit</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="general-introduction.html"><a href="general-introduction.html"><i class="fa fa-check"></i><b>1</b> General introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="general-introduction.html"><a href="general-introduction.html#research-in-context"><i class="fa fa-check"></i><b>1.1</b> Research in context</a>
+<ul>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#a-short-history-of-liver-transplantation"><i class="fa fa-check"></i>A short history of liver transplantation</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#the-start-of-liver-allocation"><i class="fa fa-check"></i>The start of liver allocation</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#survival-prediction"><i class="fa fa-check"></i>Survival prediction</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#measuring-model-prediction-performance"><i class="fa fa-check"></i>Measuring model prediction performance</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#the-meld-score"><i class="fa fa-check"></i>The MELD score</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="general-introduction.html"><a href="general-introduction.html#justifying-why-research-is-needed-central-argument"><i class="fa fa-check"></i><b>1.2</b> Justifying why research is needed: central argument</a></li>
+<li class="chapter" data-level="1.3" data-path="general-introduction.html"><a href="general-introduction.html#thesis-layout-research-questions-and-addressed-problems"><i class="fa fa-check"></i><b>1.3</b> Thesis layout: research questions and addressed problems</a>
+<ul>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#considering-sodium"><i class="fa fa-check"></i>Considering sodium</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#updating-coefficients"><i class="fa fa-check"></i>Updating coefficients</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#past-and-current-disease"><i class="fa fa-check"></i>Past and current disease</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#acute-on-chronic-liver-disease"><i class="fa fa-check"></i>Acute-on-chronic liver disease</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#benefit-of-transplantation-life-years-gained"><i class="fa fa-check"></i>Benefit of transplantation: life years gained</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="general-introduction.html"><a href="general-introduction.html#references"><i class="fa fa-check"></i><b>1.4</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-i-forms-of-meld.html"><a href="part-i-forms-of-meld.html"><i class="fa fa-check"></i>Part I: Forms of MELD</a></li>
+<li class="chapter" data-level="2" data-path="chap-meldna.html"><a href="chap-meldna.html"><i class="fa fa-check"></i><b>2</b> Validation of the Model for End‐stage Liver Disease sodium (MELD‐Na) score in the Eurotransplant region</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#methods"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#study-design-and-population"><i class="fa fa-check"></i>Study design and population</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#statistical-analysis"><i class="fa fa-check"></i>Statistical analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#results"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#study-population"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#meld-na-performance"><i class="fa fa-check"></i>MELD-Na performance</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#impact-on-the-waiting-list"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#discussion"><i class="fa fa-check"></i>Discussion</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#references-1"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-refit.html"><a href="chap-refit.html"><i class="fa fa-check"></i><b>3</b> Refitting the Model for End-stage Liver Disease for the Eurotransplant region</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#methods-1"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#patient-data"><i class="fa fa-check"></i>Patient data</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#statistical-methods"><i class="fa fa-check"></i>Statistical methods</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#results-1"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#model-development"><i class="fa fa-check"></i>Model development</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#model-performance"><i class="fa fa-check"></i>Model performance</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#impact-on-the-waiting-list-1"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#discussion-1"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#lower-bounds"><i class="fa fa-check"></i>Lower bounds</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#upper-bounds"><i class="fa fa-check"></i>Upper bounds</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#sodium-addition"><i class="fa fa-check"></i>Sodium addition</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#impact-on-the-wl"><i class="fa fa-check"></i>Impact on the WL</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#limitations-1"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#conclusion-1"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#references-2"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-ii-disease-over-time.html"><a href="part-ii-disease-over-time.html"><i class="fa fa-check"></i>Part II: Disease over time</a></li>
+<li class="chapter" data-level="4" data-path="chap-jm.html"><a href="chap-jm.html"><i class="fa fa-check"></i><b>4</b> Joint modelling of liver transplant candidates outperforms the model for end-stage liver disease: the effect of disease development over time on patient outcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#introduction-2"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#methods-2"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#study-population-1"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#statistical-analysis-1"><i class="fa fa-check"></i>Statistical analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#longitudinal-analysis"><i class="fa fa-check"></i>Longitudinal analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#combining-longitudinal-and-survival-analysis"><i class="fa fa-check"></i>Combining longitudinal and survival analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#prediction-performance"><i class="fa fa-check"></i>Prediction performance</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#impact-on-the-waiting-list-2"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#online-lt-jm-prediction-tool"><i class="fa fa-check"></i>Online LT-JM prediction tool</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#results-2"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#population-characteristics"><i class="fa fa-check"></i>Population characteristics</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#jm-properties"><i class="fa fa-check"></i>JM properties</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#jm-performance"><i class="fa fa-check"></i>JM performance</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#jm-impact-on-the-waiting-list"><i class="fa fa-check"></i>JM impact on the waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#online-prediction-tools"><i class="fa fa-check"></i>Online prediction tools</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#discussion-2"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#longitudinal-analysis-1"><i class="fa fa-check"></i>Longitudinal analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#prediction-performance-1"><i class="fa fa-check"></i>Prediction performance</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#impact-on-the-waiting-list-3"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#limitations-2"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#conclusion-2"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#references-3"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html"><i class="fa fa-check"></i><b>5</b> Development and validation of a dynamic survival prediction model for patients with acute-on-chronic liver failure</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#introduction-3"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#methods-3"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#study-population-2"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#identification-of-aclf"><i class="fa fa-check"></i>Identification of ACLF</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#development-of-the-aclf-jm"><i class="fa fa-check"></i>Development of the ACLF-JM</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#validation-of-the-aclf-jm"><i class="fa fa-check"></i>Validation of the ACLF-JM</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#aclf-jm-impact-on-the-transplantation-waiting-list"><i class="fa fa-check"></i>ACLF-JM impact on the transplantation waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#clinical-application-of-the-aclf-jm"><i class="fa fa-check"></i>Clinical application of the ACLF-JM</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#results-3"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#study-population-3"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#model-properties"><i class="fa fa-check"></i>Model properties</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#model-validation"><i class="fa fa-check"></i>Model validation</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#aclf-jm-impact-on-the-transplantation-waiting-list-1"><i class="fa fa-check"></i>ACLF-JM impact on the transplantation waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#clinical-application-of-the-aclf-jm-1"><i class="fa fa-check"></i>Clinical application of the ACLF-JM</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#discussion-3"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#disease-development-over-time"><i class="fa fa-check"></i>Disease development over time</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#aclf-jm-validation"><i class="fa fa-check"></i>ACLF-JM validation</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#clinical-application-of-the-aclf-jm-2"><i class="fa fa-check"></i>Clinical application of the ACLF-JM</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#limitations-3"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#conclusion-3"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#references-4"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-iii-survival-with-and-without-transplantation.html"><a href="part-iii-survival-with-and-without-transplantation.html"><i class="fa fa-check"></i>Part III: Survival with and without transplantation</a></li>
+<li class="chapter" data-level="6" data-path="chap-benefit.html"><a href="chap-benefit.html"><i class="fa fa-check"></i><b>6</b> Survival benefit from liver transplantation for patients with and without hepatocellular carcinoma</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#introduction-4"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#methods-4"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#patient-population"><i class="fa fa-check"></i>Patient population</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#benefit-definition"><i class="fa fa-check"></i>Benefit definition</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#statistical-analysis-2"><i class="fa fa-check"></i>Statistical analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#online-benefit-score-calculator"><i class="fa fa-check"></i>Online benefit score calculator</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#results-4"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#patient-characteristics-at-transplantation"><i class="fa fa-check"></i>Patient characteristics at transplantation</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#waiting-list-survival-model"><i class="fa fa-check"></i>Waiting list survival model</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#post-transplantation-survival-model"><i class="fa fa-check"></i>Post-transplantation survival model</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#survival-without-and-with-lt"><i class="fa fa-check"></i>Survival without and with LT</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#survival-benefit-life-years-gained-per-5-years"><i class="fa fa-check"></i>Survival benefit: life-years gained per 5 years</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#liver-transplant-benefit-scores"><i class="fa fa-check"></i>Liver transplant benefit scores</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#discussion-4"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#benefit-definition-1"><i class="fa fa-check"></i>Benefit definition</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#estimation-of-benefit"><i class="fa fa-check"></i>Estimation of benefit</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#non-hcc-and-hcc-benefit"><i class="fa fa-check"></i>Non-HCC and HCC benefit</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#using-benefit-scores"><i class="fa fa-check"></i>Using benefit scores</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#limitations-4"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#conclusion-4"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#references-5"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-disc.html"><a href="chap-disc.html"><i class="fa fa-check"></i><b>7</b> Summary, general discussion, and future perspectives</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap-disc.html"><a href="chap-disc.html#summ"><i class="fa fa-check"></i><b>7.1</b> Summary</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-disc.html"><a href="chap-disc.html#gendisc"><i class="fa fa-check"></i><b>7.2</b> General discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#part-i-forms-of-meld-1"><i class="fa fa-check"></i>Part I: Forms of MELD</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#meld-3.0"><i class="fa fa-check"></i>MELD 3.0</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#part-ii-disease-over-time-1"><i class="fa fa-check"></i>Part II: Disease over time</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#joint-modeling-disease-and-survival-over-time"><i class="fa fa-check"></i>Joint modeling disease and survival over time</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#joint-modeling-acute-on-chronic-liver-failure"><i class="fa fa-check"></i>Joint modeling acute-on-chronic liver failure</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#part-iii-survival-with-and-without-transplantation-1"><i class="fa fa-check"></i>Part III: Survival with and without transplantation</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#benefit-from-liver-transplantation"><i class="fa fa-check"></i>Benefit from liver transplantation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="chap-disc.html"><a href="chap-disc.html#future-perspectives"><i class="fa fa-check"></i><b>7.3</b> Future perspectives</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#simulation"><i class="fa fa-check"></i>Simulation</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#new-model-implementation"><i class="fa fa-check"></i>New model implementation</a></li>
+<li class="chapter" data-level="" data-path="chap-disc.html"><a href="chap-disc.html#from-urgency-to-benefit"><i class="fa fa-check"></i>From urgency to benefit</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="chap-disc.html"><a href="chap-disc.html#conclusion-5"><i class="fa fa-check"></i><b>7.4</b> Conclusion</a></li>
+<li class="chapter" data-level="7.5" data-path="chap-disc.html"><a href="chap-disc.html#references-6"><i class="fa fa-check"></i><b>7.5</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="appendix.html"><a href="appendix.html#chap-meld3"><i class="fa fa-check"></i><b>8.1</b> Supplement Chapter: The Model for End-stage Liver Disease 3.0: an update without proven accuracy</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="appendix.html"><a href="appendix.html#letter"><i class="fa fa-check"></i><b>8.1.1</b> Letter</a></li>
+<li class="chapter" data-level="8.1.2" data-path="appendix.html"><a href="appendix.html#references-7"><i class="fa fa-check"></i><b>8.1.2</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="appendix.html"><a href="appendix.html#chap-rolejm"><i class="fa fa-check"></i><b>8.2</b> Supplement Chapter: The role of the model for end-stage liver disease-sodium score and joint models for 90-day mortality prediction in patients with acute-on-chronic liver failure.</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="appendix.html"><a href="appendix.html#letter-1"><i class="fa fa-check"></i><b>8.2.1</b> Letter</a></li>
+<li class="chapter" data-level="8.2.2" data-path="appendix.html"><a href="appendix.html#references-8"><i class="fa fa-check"></i><b>8.2.2</b> References</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-nlsum.html"><a href="chap-nlsum.html"><i class="fa fa-check"></i><b>9</b> Nederlandse samenvatting (Summary in Dutch)</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-nlsum.html"><a href="chap-nlsum.html#deel-i"><i class="fa fa-check"></i>Deel I</a></li>
+<li class="chapter" data-level="" data-path="chap-nlsum.html"><a href="chap-nlsum.html#deel-ii"><i class="fa fa-check"></i>Deel II</a></li>
+<li class="chapter" data-level="" data-path="chap-nlsum.html"><a href="chap-nlsum.html#deel-iii"><i class="fa fa-check"></i>Deel III</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dankwoord.html"><a href="dankwoord.html"><i class="fa fa-check"></i>Dankwoord</a></li>
+<li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html"><i class="fa fa-check"></i>Curriculum vitae</a></li>
+<li class="chapter" data-level="" data-path="list-of-publications.html"><a href="list-of-publications.html"><i class="fa fa-check"></i>List of publications</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Improving survival prediction models for liver transplantation candidates</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap-aclfjm" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Development and validation of a dynamic survival prediction model for patients with acute-on-chronic liver failure</h1>
+<p>Goudsmit BFJ, Braat AE, Tushuizen ME, et al. Development and validation of a dynamic survival prediction model for patients with acute-on-chronic liver failure. <em>JHEP Reports</em>. 2021; doi: 10.1016/j.jhepr.2021.100369.</p>
+<hr />
+<p></p>
+<p><strong>Abstract</strong></p>
+<p><strong>Background &amp; Aims</strong>: Acute-on-Chronic-Liver Failure (ACLF) involves an acute deterioration of liver function in patients with chronic liver disease. ACLF is usually associated with a precipitating event and results in the failure of other organ systems and high short-term mortality. Currently-used prediction models fail to adequately estimate prognosis and need for liver transplantation (LT) in ACLF. This study develops and validates a dynamic prediction model for ACLF patients, that uses both longitudinal and survival data.</p>
+<p><strong>Methods</strong>: Adult patients on the UNOS waitlist for LT between 11.01.2016-31.12.2019 were included. Repeated model for end-stage liver disease sodium (MELD-Na) measurements were jointly-modeled with Cox survival analysis to develop the ACLF joint model (ACLF-JM). Model validation was done in separate testing data with area under curve (AUC) and prediction errors. An online ACLF-JM tool was created for clinical application.</p>
+<p><strong>Results</strong>: In total, 30,533 patients were included. ACLF grade 1 to 3 was present in respectively 16.4, 10.4 and 6.2% of the patients. The ACLF-JM predicted survival significantly (p&lt;0.001) better than the MELD-Na, both at baseline and during follow-up. For 28- and 90-day predictions, ACLF-JM AUCs ranged between 0.840-0.871 and 0.833-875, respectively. Compared to MELD-Na, AUCs and prediction errors were improved by 23.1%-62.0% and 5%-37.6% respectively. Also, the ACLF-JM could have prioritized patients who had four times higher waiting list mortality, possibly not identified by MELD-Na.</p>
+<p><strong>Conclusion</strong>: The ACLF-JM dynamically predicts outcome based on current and past disease severity. Prediction performance is excellent over time, even in ACLF-3 patients. Therefore, the ACLF-JM could be used as clinical tool in the evaluation of prognosis and treatment in patients with ACLF.</p>
+<div style="page-break-after: always;"></div>
+<div id="introduction-3" class="section level2 unnumbered">
+<h2>Introduction</h2>
+<p>Liver transplantation (LT) is a lifesaving treatment for patients with acute-on-chronic-liver failure (ACLF). ACLF is characterized by an acute deterioration of liver function in patients with chronic liver disease, often started by a precipitating event. ACLF results in the failure of one or more organs and is associated with high short-term mortality.<sup>1–3</sup> The current model that prioritizes patients for LT, the Model for End-stage Liver Disease sodium (MELD-Na) score,<sup>4,5</sup> underestimates disease severity in ACLF.<sup>6,7</sup> This is because MELD-Na does not consider temporal development of single or multiorgan failure (involving the 6 major organs/systems—i.e. liver, kidney, brain, coagulation, circulation, and respiration). This underestimation of predicted waitlist mortality results in lower access to transplantation for ACLF patients.<sup>7</sup> Sundaram et al. showed that ACLF death and waiting list removal rate were highest in ACLF-3 patients with MELD-Na &lt;25.<sup>8</sup> Given that 20.9% of UNOS LT candidates between 2005-2016 had a form of ACLF,8 the inequal transplantation access might be substantial.</p>
+<p>The MELD-Na uses one moment in time, i.e. the most recent measurement, to predict outcome.<sup>4,5</sup> It therefore ignores previous data valuable for survival estimation. However, ACLF is a dynamic disease with a clinical course that can change within days, resulting in very different outcomes.<sup>9,10</sup> Thus, there is a need for prediction models that estimate ACLF survival based on disease development over time.<sup>7</sup> The Chronic Liver Failure Consortium Organ Failure score (CLIF-C OFs) and CLIF-C ACLF score were developed for this purpose and showed better performance than the MELD-Na.<sup>3,6</sup> However, they also assessed only one moment in time. A joint model (JM) is a novel prediction model that simultaneously uses longitudinal and survival data.<sup>11</sup> It approximates changing disease severity over time and uses this for survival prediction.<sup>12</sup> JMs have shown superior predictive performance over Cox models.<sup>12–14</sup> However, they have not been applied to ACLF.</p>
+<p>We hypothesized that using disease development over time to dynamically predict prognosis could improve survival prediction in ACLF patients. Much like a clinician, we aimed to use disease severity and its rate of change to predict outcome. We believe this is warranted in ACLF, because of the dynamic nature of ACLF disease and the current underestimation of mortality by MELD-Na.<sup>9,10,15</sup> Therefore, we constructed and validated a multivariate prediction model for survival prediction in ACLF patients: the ACLF Joint Model (ACLF-JM). We investigated the ACLF-JM 28- and 90-day survival prediction performance in the United Network for Organ Sharing (UNOS) registry and compared its performance to the MELD-Na score. We also investigated whether the ACLF-JM would identify patients in whom MELD-Na underestimates mortality. For easy clinical application, an online ACLF-JM tool was developed for dynamic survival prediction in ACLF patients.</p>
+</div>
+<div id="methods-3" class="section level2 unnumbered">
+<h2>Methods</h2>
+<p>The TRIPOD statement was used for the development and validation of this multivariate prediction model.<sup>16</sup></p>
+<div id="study-population-2" class="section level3 unnumbered">
+<h3>Study population</h3>
+<p>Data of LT candidates was requested from the UNOS. We included adult (&gt;=18 years) patients listed for a first LT between January 11<sup>th</sup>, 2016 (after MELD-Na implementation) and December 31<sup>st</sup>, 2019. We excluded candidates with acute liver failure (ALF) and hepatocellular carcinoma (HCC) at baseline. Data were used from first active listing until the earliest of patient death, transplantation, removal or censor at December 31<sup>st</sup>, 2019. Death was defined both as death while listed and removal for being too sick to transplant.<sup>8</sup> If patients received exception points or a status 1 (i.e. high urgency status) after first listing, they were censored from that date. MELD-Na data was missing in 0.05%, therefore complete-case analysis was done. Missing values for the predictors life support dependency (variable CAN_LIFE_SUPPORT, 0.00009% missing) and spontaneous bacterial peritonitis (CAN_BACTERIA_PERIT, 0.005% missing) were set to ‘no.’</p>
+</div>
+<div id="identification-of-aclf" class="section level3 unnumbered">
+<h3>Identification of ACLF</h3>
+<p>Baseline ACLF was defined according to the to the European Foundation for the Study of Chronic Liver Failure (EF Clif) criteria.<sup>3</sup> Specifically, liver failure was defined as serum bilirubin &gt;=12 mg/dL, kidney failure as serum creatinine &gt;=2.0 mg/dL or renal replacement therapy, cerebral failure as presence of hepatic encephalopathy grade 3-4, coagulation failure as INR &gt;=2.5. Like other authors that used United Network for Organ Sharing (UNOS) data, we used mechanical ventilation as replacement for respiratory failure, since data on PaO2/FiO2 were not available. Also, life-support dependency was used to designate circulatory failure.<sup>6,8,10,17</sup></p>
+</div>
+<div id="development-of-the-aclf-jm" class="section level3 unnumbered">
+<h3>Development of the ACLF-JM</h3>
+<p>Data were randomly split in a training (67% of the patients) and a testing (33%) set, for model development and validation respectively. The ACLF-JM consists of two parts: a longitudinal (mixed-effect) and survival (Cox proportional hazards) model. Mixed-effect models were used because they estimate disease development over time as a continuous trajectory and can model both linear (chronic, stable disease) and non-linear (fast deterioration in ACLF) developments. See figure S4 for an illustration. Thus, repeated measurements of MELD-Na scores were modeled with mixed-effects. Additional predictors were used to correct the longitudinal data. To start, 50 candidate variables were assessed (table S2). We excluded some variables a priori, because they referred to pediatric recipients, exclusion criteria, or donor characteristics. Variable relation to mortality was studied in univariate analysis and then variables were backwards selected variables for multivariate Cox analysis. The final variables included in the model contributed most significantly besides the those used for ACLF scoring through EF CliF criteria (serum bilirubin, creatinine, renal replacement therapy, encephalopathy grade, INR, mechanical ventilation, and life-support dependency). Thus, we additionally corrected for candidate age (years), sex (male/female), life support dependency (yes/no), presence of bacterial peritonitis (yes/no), presence of cirrhosis (alcohol-induced, hepatitis-C virus, non-alcoholic steatohepatitis (NASH) or other cirrhosis) (yes/no) and CLIF-C OF score (No ACLF or ACLF grade 1 to 3) (table S1). Next, a Cox proportional hazards model was constructed for waiting list mortality, using the same predictors as the mixed-effect model. Then, the ACLF-JM was constructed by joint-modelling the longitudinal (mixed-effect) and survival (Cox) model.<sup>18</sup> A key feature is that the ACLF-JM uses both the estimated MELD-Na value and the rate of change in MELD-Na (the slope of the decrease/increase) over time for survival prediction. For clarity, these concepts of value and slope were illustrated in Figure <a href="chap-aclfjm.html#fig:aclf-fig1">5.1</a>.</p>
+<div class="figure"><span style="display:block;" id="fig:aclf-fig1"></span>
+<img src="figures/aclfjm/figure%201.png" alt="For three hypothetical patients A, B and C, the 20-day MELD-Na development is shown. After 20 days, patient A has a MELD-Na score of 30 and is thus prioritized by the current allocation system. However, the ACLF-JM uses both the estimated value (measured MELD-Na score) and slope (rate of change) at time=20 for survival prediction. Calculation of the HRs shows that the ACLF-JM gives patient C the greatest risk of death, because of the fast increase in MELD-Na scores (positive slope). See supplement 4 for the precise explanation and calculation." width="3060" />
+<p class="caption">
+Figure 5.1: For three hypothetical patients A, B and C, the 20-day MELD-Na development is shown. After 20 days, patient A has a MELD-Na score of 30 and is thus prioritized by the current allocation system. However, the ACLF-JM uses both the estimated value (measured MELD-Na score) and slope (rate of change) at time=20 for survival prediction. Calculation of the HRs shows that the ACLF-JM gives patient C the greatest risk of death, because of the fast increase in MELD-Na scores (positive slope). See supplement 4 for the precise explanation and calculation.
+</p>
+</div>
+</div>
+<div id="validation-of-the-aclf-jm" class="section level3 unnumbered">
+<h3>Validation of the ACLF-JM</h3>
+<p>Next, the prediction performance of the ACLF-JM was compared to the MELD-Na at various points in time in the separate testing data. Specifically, predictions were assessed at baseline and after a follow-up of 48 hours, 7 days and 14 days (similar to the validation study of the CLIF-C OF).6 Outcomes were 28-day and 90-day survival. For both the ACLF-JM and MELD-Na Cox model, the area under the receiver-operator-characteristic curve (AUC) and prediction errors were calculated and compared (see supplement 3 for detailed information). These measures and their 95% confidence intervals (95%CI) and p-values were calculated using the R package JM and bootstrapping.<sup>18</sup></p>
+</div>
+<div id="aclf-jm-impact-on-the-transplantation-waiting-list" class="section level3 unnumbered">
+<h3>ACLF-JM impact on the transplantation waiting list</h3>
+<p>Next, we assessed the possible effect of using the ACLF-JM instead of MELD-Na to estimate mortality and subsequently prioritize patients for LT. This was of interest, because ACLF patients are likely underserved in the current LT allocation.<sup>15</sup> To assess possible differences in MELD-Na and ACLF-JM waitlist prioritization of patients, we followed patients from baseline until day 28.<sup>6</sup> Within this period, each time a liver graft was offered, patients were ranked two times from most to least ill based on their estimated survival without transplant. One ranking was made with the ACLF-JM predictions and one based on MELD-Na. Thus, for each model, patients were ranked 2636 times, i.e., the total number of available liver grafts within the first 28 days. After a liver graft offer, the transplanted patient was removed from the waiting list. We assumed that the highest ranked patients were transplanted, which is not necessarily true, and thus that the number of available transplants in the first 28 days represented the threshold of receiving transplantation. We then assessed which patients were prioritized according to what model. After 28 days and 2636 rankings, patients were stratified in four groups: those who are prioritized and possibly transplanted within 28 days according to both scores, those who are prioritized by either the ACLF-JM or MELD-Na score (but not by both) and those who are not prioritized by both. We also assessed the characteristics of the differently-prioritized patients, to see why patients were prioritized differently.</p>
+</div>
+<div id="clinical-application-of-the-aclf-jm" class="section level3 unnumbered">
+<h3>Clinical application of the ACLF-JM</h3>
+<p>Lastly, an online version of the ACLF-JM was created (<a href="https://predictionmodels.shinyapps.io/aclf-jm/" class="uri">https://predictionmodels.shinyapps.io/aclf-jm/</a>), which allows clinicians to assess ACLF-JM survival predictions for their individual patient(s). Plots can be created of these dynamic predictions, to show the updating survival estimate for every new available measurement during follow-up. For a instruction manual, see supplement 1 and 2. All statistical analyses were performed using R v4.0.0 (R Foundation for Statistical Computing, Vienna, Austria).</p>
+</div>
+</div>
+<div id="results-3" class="section level2 unnumbered">
+<h2>Results</h2>
+<div id="study-population-3" class="section level3 unnumbered">
+<h3>Study population</h3>
+In total, we included 30,533 patients with 249,030 measurements. Table <a href="chap-aclfjm.html#tab:aclf-tab1">5.1</a> shows the baseline characteristics of the study population. ACLF at baseline was seen in 33.3% of the patients; 15.9% had ACLF grade 1, 10.3% had grade 2 and 7.1% had grade 3. In these patients, liver (47.2%) and kidney (63.6%) failure were the most common. With increasing ACLF grade, median [IQR] age decreased, ranging from 59 [52-64] (no ACLF) to 53 [43-60] years (ACLF-3). Most patients were male (no ACLF: 65.0%, ACLF: 60%) and had alcoholic liver disease (no ACLF 25.8%, ACLF 40%). For ACLF grades 0 to 3, median [IQR] MELD-Na scores at listing were 15 [10-22], 27 [23-31], 33 [29-37] and 37 [31-42]. Average time on the waiting list was 150 days for patients without ACLF, 89 for ACLF grade 1, 24 for grade 2 and 10 days for grade 3. Cumulative incidence plots showed significantly higher death and transplantation rates in ACLF patients (figure S1). At the end of follow-up, 10.9% of the patients without ACLF died. For patients with ACLF grade 1 to 3, death rates were 16.7%, 14.3% and 22.4%, respectively.
+<table class="table lightable-classic" style="margin-left: auto; margin-right: auto; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:aclf-tab1">Table 5.1: </span>Baseline characteristics of UNOS liver transplantation candidates between 2016 to 2019 (n=30,533)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Characteristics
+</th>
+<th style="text-align:left;">
+No ACLF
+</th>
+<th style="text-align:left;">
+ACLF (any grade)
+</th>
+<th style="text-align:left;">
+p
+</th>
+<th style="text-align:left;">
+ACLF-1
+</th>
+<th style="text-align:left;">
+ACLF-2
+</th>
+<th style="text-align:left;">
+ACLF-3
+</th>
+<th style="text-align:left;">
+p
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Number of patients (%)
+</td>
+<td style="text-align:left;">
+20,384 (66.7)
+</td>
+<td style="text-align:left;">
+10,149 (33.3)
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+4,843 (15.9)
+</td>
+<td style="text-align:left;">
+3,147 (10.3)
+</td>
+<td style="text-align:left;">
+2,159 (7.1)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Age (median [IQR])
+</td>
+<td style="text-align:left;">
+59 [52, 64]
+</td>
+<td style="text-align:left;">
+55 [47, 62]
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+<td style="text-align:left;">
+58 [50, 64]
+</td>
+<td style="text-align:left;">
+53 [44, 60]
+</td>
+<td style="text-align:left;">
+53 [43, 60]
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male gender
+</td>
+<td style="text-align:left;">
+13240 (65)
+</td>
+<td style="text-align:left;">
+6094 (60)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+<td style="text-align:left;">
+2905 (60.0)
+</td>
+<td style="text-align:left;">
+1919 (61.0)
+</td>
+<td style="text-align:left;">
+1270 (58.8)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI (median [IQR])
+</td>
+<td style="text-align:left;">
+28 [25, 33]
+</td>
+<td style="text-align:left;">
+29 [25, 33]
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+<td style="text-align:left;">
+28 [24, 33]
+</td>
+<td style="text-align:left;">
+29 [25, 34]
+</td>
+<td style="text-align:left;">
+30 [26, 35]
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Days waiting (median [IQR])
+</td>
+<td style="text-align:left;">
+58 [14, 193]
+</td>
+<td style="text-align:left;">
+12 [4, 40]
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+<td style="text-align:left;">
+27 [9, 93]
+</td>
+<td style="text-align:left;">
+8 [4, 20]
+</td>
+<td style="text-align:left;">
+5 [3, 10]
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="8" style="border-bottom: 0;">
+<strong>Status after waiting</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Censored (December 31, 2019)
+</td>
+<td style="text-align:left;">
+986 (4.8)
+</td>
+<td style="text-align:left;">
+185 (1.8)
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+129 (2.7)
+</td>
+<td style="text-align:left;">
+43 (1.4)
+</td>
+<td style="text-align:left;">
+13 (0.6)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Deceased
+</td>
+<td style="text-align:left;">
+2229 (10.9)
+</td>
+<td style="text-align:left;">
+1745 (17.2)
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+810 (16.7)
+</td>
+<td style="text-align:left;">
+451 (14.3)
+</td>
+<td style="text-align:left;">
+484 (22.4)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Transplanted
+</td>
+<td style="text-align:left;">
+8681 (42.6)
+</td>
+<td style="text-align:left;">
+7247 (71.4)
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+3187 (65.8)
+</td>
+<td style="text-align:left;">
+2472 (78.6)
+</td>
+<td style="text-align:left;">
+1588 (73.6)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Removed
+</td>
+<td style="text-align:left;">
+8488 (41.6)
+</td>
+<td style="text-align:left;">
+972 (9.6)
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+717 (14.8)
+</td>
+<td style="text-align:left;">
+181 (5.8)
+</td>
+<td style="text-align:left;">
+74 (3.4)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr grouplength="8">
+<td colspan="8" style="border-bottom: 0;">
+<strong>Grouped cause of disease (%)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Cirrhosis HCV
+</td>
+<td style="text-align:left;">
+3084 (15.1)
+</td>
+<td style="text-align:left;">
+917 (9.0)
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+556 (11.5)
+</td>
+<td style="text-align:left;">
+205 (6.5)
+</td>
+<td style="text-align:left;">
+156 (7.2)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+NASH
+</td>
+<td style="text-align:left;">
+4359 (21.4)
+</td>
+<td style="text-align:left;">
+1969 (19.4)
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+1184 (24.4)
+</td>
+<td style="text-align:left;">
+500 (15.9)
+</td>
+<td style="text-align:left;">
+285 (13.2)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Cirrhosis Alcoholic
+</td>
+<td style="text-align:left;">
+5252 (25.8)
+</td>
+<td style="text-align:left;">
+4057 (40.0)
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+1680 (34.7)
+</td>
+<td style="text-align:left;">
+1431 (45.5)
+</td>
+<td style="text-align:left;">
+946 (43.8)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Cirrhosis Other
+</td>
+<td style="text-align:left;">
+2976 (14.6)
+</td>
+<td style="text-align:left;">
+1778 (17.5)
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+682 (14.1)
+</td>
+<td style="text-align:left;">
+616 (19.6)
+</td>
+<td style="text-align:left;">
+480 (22.2)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Cholestatic disease
+</td>
+<td style="text-align:left;">
+1810 (8.9)
+</td>
+<td style="text-align:left;">
+612 (6.0)
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+343 (7.1)
+</td>
+<td style="text-align:left;">
+182 (5.8)
+</td>
+<td style="text-align:left;">
+87 (4.0)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Metabolic disease
+</td>
+<td style="text-align:left;">
+408 (2.0)
+</td>
+<td style="text-align:left;">
+245 (2.4)
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+112 (2.3)
+</td>
+<td style="text-align:left;">
+81 (2.6)
+</td>
+<td style="text-align:left;">
+52 (2.4)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Malignant/benign tumor
+</td>
+<td style="text-align:left;">
+2119 (10.4)
+</td>
+<td style="text-align:left;">
+266 (2.6)
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+194 (4.0)
+</td>
+<td style="text-align:left;">
+42 (1.3)
+</td>
+<td style="text-align:left;">
+30 (1.4)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Other
+</td>
+<td style="text-align:left;">
+376 (1.8)
+</td>
+<td style="text-align:left;">
+305 (3.0)
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+92 (1.9)
+</td>
+<td style="text-align:left;">
+90 (2.9)
+</td>
+<td style="text-align:left;">
+123 (5.7)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MELD-Na score (median [IQR])
+</td>
+<td style="text-align:left;">
+15 [10, 20]
+</td>
+<td style="text-align:left;">
+30 [25, 35]
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+<td style="text-align:left;">
+27 [22, 31]
+</td>
+<td style="text-align:left;">
+33 [29, 37]
+</td>
+<td style="text-align:left;">
+37 [31, 42]
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bacterial peritonitis (%)
+</td>
+<td style="text-align:left;">
+1560 (7.7)
+</td>
+<td style="text-align:left;">
+1533 (15.1)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+<td style="text-align:left;">
+643 (13.3)
+</td>
+<td style="text-align:left;">
+508 (16.1)
+</td>
+<td style="text-align:left;">
+329 (17.4)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr grouplength="6">
+<td colspan="8" style="border-bottom: 0;">
+<strong>Failure organ/system (%)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Liver
+</td>
+<td style="text-align:left;">
+540 (2.6)
+</td>
+<td style="text-align:left;">
+4789 (47.2)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+<td style="text-align:left;">
+1018 (21.0)
+</td>
+<td style="text-align:left;">
+2007 (63.8)
+</td>
+<td style="text-align:left;">
+1764 (81.7)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Kidney
+</td>
+<td style="text-align:left;">
+0 (0.0)
+</td>
+<td style="text-align:left;">
+6457 (63.6)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+<td style="text-align:left;">
+2958 (61.1)
+</td>
+<td style="text-align:left;">
+1717 (54.6)
+</td>
+<td style="text-align:left;">
+1782 (82.5)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Coagulation
+</td>
+<td style="text-align:left;">
+254 (1.2)
+</td>
+<td style="text-align:left;">
+3699 (36.4)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+<td style="text-align:left;">
+667 (13.8)
+</td>
+<td style="text-align:left;">
+1613 (51.3)
+</td>
+<td style="text-align:left;">
+1419 (65.7)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Cerebral
+</td>
+<td style="text-align:left;">
+806 (4.0)
+</td>
+<td style="text-align:left;">
+2095 (20.6)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+<td style="text-align:left;">
+164 (3.4)
+</td>
+<td style="text-align:left;">
+697 (22.1)
+</td>
+<td style="text-align:left;">
+1234 (57.2)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Circulatory
+</td>
+<td style="text-align:left;">
+22 (0.1)
+</td>
+<td style="text-align:left;">
+1193 (11.8)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+<td style="text-align:left;">
+36 (0.7)
+</td>
+<td style="text-align:left;">
+221 (7.0)
+</td>
+<td style="text-align:left;">
+936 (43.4)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Respiratory
+</td>
+<td style="text-align:left;">
+0 (0.0)
+</td>
+<td style="text-align:left;">
+662 (6.5)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+<td style="text-align:left;">
+0 (0.0)
+</td>
+<td style="text-align:left;">
+39 (1.2)
+</td>
+<td style="text-align:left;">
+623 (28.9)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="model-properties" class="section level3 unnumbered">
+<h3>Model properties</h3>
+<p>The ACLF-JM is summarized by the equation:
+<span class="math display">\[\begin{align*} 
+{Hazard\ Ratio\ death}_t={1.15}^{{MELDNa}_{value\ t}}\ast{1.02}^{{MELDNa}_{slope\ t}}\ast{1.38}^{age}\\
+\ast{0.75}^{female\ gender}\ast{0.95}^{cirrhosis}\ast\left(if:{1.06}^{ACLF1}\right)\ast\left(if:{1.98}^{ACLF2}\right)\\
+\ast\left(if:{5.90}^{ACLF3}\right)\ast{1.18}^{SBP}\ast{1.35}^{life support}
+\end{align*}\]</span>
+The ACLF-JM estimates the MELD-Na value and slope at a given timepoint and calculates the HR of death. For each MELD-Na point increase, the risk of 1-year death increases with 15% (95% CI 14-16). For every 1-point increase in slope, i.e. acceleration of disease increase, the mortality risk increases with 2% (95% CI 1-2). Of course, in clinical practice, disease severity often changes more rapidly, especially for ACLF patients. A more intuitive illustration of the effect of MELD-Na value and slope is provided in Figure <a href="chap-aclfjm.html#fig:aclf-fig1">5.1</a>, where three hypothetical awaiting LT are shown. The example calculation (details in supplement 4) shows that considering the rate of change (slope) in disease severity adds important information. Considering both MELD-Na value and slope would give priority to patient C (MELD-Na score 20, accelerating disease severity), whereas using the current MELD-Na-based allocation would prioritize patient A (MELD-Na 30, stable disease).</p>
+</div>
+<div id="model-validation" class="section level3 unnumbered">
+<h3>Model validation</h3>
+The ACLF-JM prediction performance was validated in separate testing data. Table <a href="chap-aclfjm.html#tab:aclf-tab2">5.2</a> shows the 28- and 90-day prediction performance of the ACLF-JM and MELD-Na, stratified for patients with and without ACLF, at baseline and during follow-up. For all time points and studied outcomes, the JM performance was significantly better than MELD-Na. At baseline in ACLF patients, the ACLF-JM AUC was 0.875 (95% CI 0.840-0.909) and MELD-Na AUC was 0.780 (95% CI 0.737-0.823). During follow-up, AUCs of both models declined to 0.833 (0.799-0.868) and 0.719 (0.677-0.761) respectively, which is still excellent for the ACLF-JM and respectable for the MELD-Na (also see figure S2A and S3).
+<table class="table lightable-classic" style="margin-left: auto; margin-right: auto; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption>
+<span id="tab:aclf-tab2">Table 5.2: </span>Mortality prediction AUC of the ACLF-JM versus the MELD-Na in patients with and without ACLF, at baseline and during follow-up
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;" colspan="1">
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+ACLF
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+No ACLF
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+Time
+</th>
+<th style="text-align:right;">
+ACLF-JM
+</th>
+<th style="text-align:left;">
+95% CI
+</th>
+<th style="text-align:right;">
+MELD-Na
+</th>
+<th style="text-align:left;">
+95% CI
+</th>
+<th style="text-align:right;">
+ACLF-JM
+</th>
+<th style="text-align:left;">
+95% CI
+</th>
+<th style="text-align:right;">
+MELD-Na
+</th>
+<th style="text-align:left;">
+95% CI
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="4">
+<td colspan="9" style="border-bottom: 0;">
+<strong>28-day mortality</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Baseline
+</td>
+<td style="text-align:right;">
+0.871
+</td>
+<td style="text-align:left;">
+0.844-0.898
+</td>
+<td style="text-align:right;">
+0.788
+</td>
+<td style="text-align:left;">
+0.754-0.822
+</td>
+<td style="text-align:right;">
+0.774
+</td>
+<td style="text-align:left;">
+0.717-0.831
+</td>
+<td style="text-align:right;">
+0.706
+</td>
+<td style="text-align:left;">
+0.643-0.769
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+48 hours
+</td>
+<td style="text-align:right;">
+0.871
+</td>
+<td style="text-align:left;">
+0.844-0.898
+</td>
+<td style="text-align:right;">
+0.786
+</td>
+<td style="text-align:left;">
+0.752-0.820
+</td>
+<td style="text-align:right;">
+0.794
+</td>
+<td style="text-align:left;">
+0.741-0.847
+</td>
+<td style="text-align:right;">
+0.728
+</td>
+<td style="text-align:left;">
+0.668-0.788
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+7 days
+</td>
+<td style="text-align:right;">
+0.862
+</td>
+<td style="text-align:left;">
+0.833-0.890
+</td>
+<td style="text-align:right;">
+0.753
+</td>
+<td style="text-align:left;">
+0.716-0.789
+</td>
+<td style="text-align:right;">
+0.810
+</td>
+<td style="text-align:left;">
+0.761-0.859
+</td>
+<td style="text-align:right;">
+0.740
+</td>
+<td style="text-align:left;">
+0.684-0.796
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+14 days
+</td>
+<td style="text-align:right;">
+0.840
+</td>
+<td style="text-align:left;">
+0.803-0.878
+</td>
+<td style="text-align:right;">
+0.731
+</td>
+<td style="text-align:left;">
+0.685-0.777
+</td>
+<td style="text-align:right;">
+0.833
+</td>
+<td style="text-align:left;">
+0.788-0.879
+</td>
+<td style="text-align:right;">
+0.748
+</td>
+<td style="text-align:left;">
+0.694-0.802
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="9" style="border-bottom: 0;">
+<strong>90-day mortality</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Baseline
+</td>
+<td style="text-align:right;">
+0.875
+</td>
+<td style="text-align:left;">
+0.840-0.909
+</td>
+<td style="text-align:right;">
+0.780
+</td>
+<td style="text-align:left;">
+0.737-0.823
+</td>
+<td style="text-align:right;">
+0.836
+</td>
+<td style="text-align:left;">
+0.807-0.865
+</td>
+<td style="text-align:right;">
+0.734
+</td>
+<td style="text-align:left;">
+0.700-0.768
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+48 hours
+</td>
+<td style="text-align:right;">
+0.870
+</td>
+<td style="text-align:left;">
+0.837-0.903
+</td>
+<td style="text-align:right;">
+0.777
+</td>
+<td style="text-align:left;">
+0.735-0.818
+</td>
+<td style="text-align:right;">
+0.838
+</td>
+<td style="text-align:left;">
+0.810-0.867
+</td>
+<td style="text-align:right;">
+0.736
+</td>
+<td style="text-align:left;">
+0.703-0.770
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+7 days
+</td>
+<td style="text-align:right;">
+0.861
+</td>
+<td style="text-align:left;">
+0.832-0.891
+</td>
+<td style="text-align:right;">
+0.755
+</td>
+<td style="text-align:left;">
+0.717-0.792
+</td>
+<td style="text-align:right;">
+0.835
+</td>
+<td style="text-align:left;">
+0.806-0.864
+</td>
+<td style="text-align:right;">
+0.722
+</td>
+<td style="text-align:left;">
+0.687-0.757
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+14 days
+</td>
+<td style="text-align:right;">
+0.833
+</td>
+<td style="text-align:left;">
+0.799-0.868
+</td>
+<td style="text-align:right;">
+0.719
+</td>
+<td style="text-align:left;">
+0.677-0.761
+</td>
+<td style="text-align:right;">
+0.837
+</td>
+<td style="text-align:left;">
+0.809-0.865
+</td>
+<td style="text-align:right;">
+0.717
+</td>
+<td style="text-align:left;">
+0.682-0.752
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;">Note: </span>
+</td>
+</tr>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup></sup> ACLF: acute-on-chronic liver failure, AUC: area under receiver operator curve, JM: joint model, MELD-Na: model for end-stage liver disease sodium score
+</td>
+</tr>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup>*</sup> All AUCs differed significantly (p&lt;0.001)
+</td>
+</tr>
+</tfoot>
+</table>
+<p>Figure <a href="chap-aclfjm.html#fig:aclf-fig2">5.2</a> show that with increasing ACLF grade, JM performance remains significantly better than the declining MELD-Na (also see table S3 and figure S3). Especially for 90-day prediction in ACLF grade 3 patients, JM performance is excellent with AUCs ranging from 0.841 to 0.853, contrasting the MELD-Na AUCs between 0.613 and 0.693. MELD-Na AUCs (almost) equal chance when predicting 28-day mortality in ACLF-3 patients, ranging from 0.497 to 0.605. Importantly, the ACLF-JM also better estimated risks, i.e. is better calibrated, than the MELD-Na (figure S2B). With increasing ACLF grade, prediction errors were improved up to 37.6% (figure S3B). An accurate model is important for clinical decision-making, because decisions are often based on risks.<sup>19</sup></p>
+<div class="figure"><span style="display:block;" id="fig:aclf-fig2"></span>
+<img src="thesis_files/figure-html/aclf-fig2-1.png" alt="The AUCs for 28- and 90-day mortality prediction of the ACLF-JM and the MELD-Na, stratified for ACLF severity." width="672" />
+<p class="caption">
+Figure 5.2: The AUCs for 28- and 90-day mortality prediction of the ACLF-JM and the MELD-Na, stratified for ACLF severity.
+</p>
+</div>
+</div>
+<div id="aclf-jm-impact-on-the-transplantation-waiting-list-1" class="section level3 unnumbered">
+<h3>ACLF-JM impact on the transplantation waiting list</h3>
+<p>To study the difference in survival prediction and subsequent allocation priority between the ACLF-JM and the MELD-Na, patients were followed the first 28 days. In total, 2636 transplants were done within this period. Figure <a href="chap-aclfjm.html#fig:aclf-fig3">5.3</a> shows the correlation plot between MELD-Na scores and ACLF-JM mortality estimates after 28 days of waiting list follow-up. For 2186 patients (in green), transplantation priority was given according to both the ACLF-JM and MELD-Na, as estimated mortality without LT was highest. More interestingly, 450 patients (in blue) could possibly have been prioritized by the ACLF-JM, but not by MELD-Na.</p>
+<div class="figure"><span style="display:block;" id="fig:aclf-fig3"></span>
+<img src="thesis_files/figure-html/aclf-fig3-1.png" alt="The correlation plot of MELD-Na score and 28-day ACLF-JM survival predictions. Patients are stratified in 4 groups: orange and blue patients would have been prioritized differently under either the ACLF-JM or MELD-Na. Blue patients had a 4x higher 28-day waiting list mortality than orange patients." width="672" />
+<p class="caption">
+Figure 5.3: The correlation plot of MELD-Na score and 28-day ACLF-JM survival predictions. Patients are stratified in 4 groups: orange and blue patients would have been prioritized differently under either the ACLF-JM or MELD-Na. Blue patients had a 4x higher 28-day waiting list mortality than orange patients.
+</p>
+</div>
+<p>Importantly, although these patients had lower median MELD-Na scores, they also had four times higher 28-day mortality rates, i.e., 13.1% versus 3.1%, see Table <a href="chap-aclfjm.html#tab:aclf-tab3">5.3</a>. Compared to the 450 MELD-Na-prioritized patients (orange), ACLF-JM-prioritized patients were older, more often female, had lower ACLF-1 rates, more NASH, less alcohol-induced liver disease and were more often dependent on life-support. After 28 days, 190 patients were delisted due to increased disease severity. In these patients, survival prediction AUC (95%CI) of the ACLF-JM and MELD-Na was 88.0 (85.1-90.9) and 82.5 (79.0-85.9), respectively (figure S6).</p>
+<table class="table lightable-classic" style="margin-left: auto; margin-right: auto; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption>
+<span id="tab:aclf-tab3">Table 5.3: </span>Characteristics of patients prioritized differently for liver transplantation within 28 days
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Characteristics
+</th>
+<th style="text-align:left;">
+Both prioritized
+</th>
+<th style="text-align:left;">
+ACLF-JM prioritized
+</th>
+<th style="text-align:left;">
+MELD-Na prioritized
+</th>
+<th style="text-align:left;">
+Not prioritized
+</th>
+<th style="text-align:left;">
+p*
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+n
+</td>
+<td style="text-align:left;">
+2186
+</td>
+<td style="text-align:left;">
+450
+</td>
+<td style="text-align:left;">
+450
+</td>
+<td style="text-align:left;">
+6990
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Age (median [IQR])
+</td>
+<td style="text-align:left;">
+56.0 [47.0, 62.0]
+</td>
+<td style="text-align:left;">
+62.0 [55.0, 67.0]
+</td>
+<td style="text-align:left;">
+50.0 [42.0, 56.8]
+</td>
+<td style="text-align:left;">
+59.0 [52.0, 64.0]
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male sex (%)
+</td>
+<td style="text-align:left;">
+1336 (61.1)
+</td>
+<td style="text-align:left;">
+175 (38.9)
+</td>
+<td style="text-align:left;">
+326 (72.4)
+</td>
+<td style="text-align:left;">
+4552 (65.1)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Death within 28 days (%)
+</td>
+<td style="text-align:left;">
+289 (13.2)
+</td>
+<td style="text-align:left;">
+59 (13.1)
+</td>
+<td style="text-align:left;">
+14 (3.1)
+</td>
+<td style="text-align:left;">
+90 (1.3)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="6" style="border-bottom: 0;">
+<strong>ACLF (%)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+No ACLF
+</td>
+<td style="text-align:left;">
+172 (7.9)
+</td>
+<td style="text-align:left;">
+191 (42.4)
+</td>
+<td style="text-align:left;">
+162 (36.0)
+</td>
+<td style="text-align:left;">
+6155 (88.1)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+ACLF-1
+</td>
+<td style="text-align:left;">
+585 (26.8)
+</td>
+<td style="text-align:left;">
+95 (21.1)
+</td>
+<td style="text-align:left;">
+248 (55.1)
+</td>
+<td style="text-align:left;">
+720 (10.3)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+ACLF-2
+</td>
+<td style="text-align:left;">
+792 (36.2)
+</td>
+<td style="text-align:left;">
+91 (20.2)
+</td>
+<td style="text-align:left;">
+39 (8.7)
+</td>
+<td style="text-align:left;">
+105 (1.5)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+ACLF-3
+</td>
+<td style="text-align:left;">
+637 (29.1)
+</td>
+<td style="text-align:left;">
+73 (16.2)
+</td>
+<td style="text-align:left;">
+1 (0.2)
+</td>
+<td style="text-align:left;">
+10 (0.1)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr grouplength="8">
+<td colspan="6" style="border-bottom: 0;">
+<strong>Disease (%)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Cirrhosis HCV
+</td>
+<td style="text-align:left;">
+165 (7.5)
+</td>
+<td style="text-align:left;">
+31 (6.9)
+</td>
+<td style="text-align:left;">
+39 (8.7)
+</td>
+<td style="text-align:left;">
+1099 (15.7)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+NASH
+</td>
+<td style="text-align:left;">
+392 (17.9)
+</td>
+<td style="text-align:left;">
+147 (32.7)
+</td>
+<td style="text-align:left;">
+61 (13.6)
+</td>
+<td style="text-align:left;">
+1479 (21.2)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Cirrhosis Alcoholic
+</td>
+<td style="text-align:left;">
+964 (44.1)
+</td>
+<td style="text-align:left;">
+130 (28.9)
+</td>
+<td style="text-align:left;">
+235 (52.2)
+</td>
+<td style="text-align:left;">
+1768 (25.3)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Cirrhosis Other
+</td>
+<td style="text-align:left;">
+416 (19.0)
+</td>
+<td style="text-align:left;">
+68 (15.1)
+</td>
+<td style="text-align:left;">
+55 (12.2)
+</td>
+<td style="text-align:left;">
+988 (14.1)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Cholestatic disease
+</td>
+<td style="text-align:left;">
+104 (4.8)
+</td>
+<td style="text-align:left;">
+41 (9.1)
+</td>
+<td style="text-align:left;">
+36 (8.0)
+</td>
+<td style="text-align:left;">
+638 (9.1)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Metabolic disease
+</td>
+<td style="text-align:left;">
+56 (2.6)
+</td>
+<td style="text-align:left;">
+5 (1.1)
+</td>
+<td style="text-align:left;">
+13 (2.9)
+</td>
+<td style="text-align:left;">
+135 (1.9)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Malignant/benign tumor
+</td>
+<td style="text-align:left;">
+39 (1.8)
+</td>
+<td style="text-align:left;">
+11 (2.4)
+</td>
+<td style="text-align:left;">
+7 (1.6)
+</td>
+<td style="text-align:left;">
+734 (10.5)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+Other
+</td>
+<td style="text-align:left;">
+50 (2.3)
+</td>
+<td style="text-align:left;">
+17 (3.8)
+</td>
+<td style="text-align:left;">
+4 (0.9)
+</td>
+<td style="text-align:left;">
+149 (2.1)
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MELD (median [IQR])
+</td>
+<td style="text-align:left;">
+34.0 [29.0, 39.0]
+</td>
+<td style="text-align:left;">
+24.0 [21.0, 28.0]
+</td>
+<td style="text-align:left;">
+26.0 [23.0, 29.0]
+</td>
+<td style="text-align:left;">
+15.0 [11.0, 19.0]
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MELD-Na (median [IQR])
+</td>
+<td style="text-align:left;">
+33.0 [30.0, 38.0]
+</td>
+<td style="text-align:left;">
+25.0 [23.0, 26.0]
+</td>
+<td style="text-align:left;">
+28.0 [27.0, 30.0]
+</td>
+<td style="text-align:left;">
+15.0 [10.0, 20.0]
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Life support dependent
+</td>
+<td style="text-align:left;">
+291 (13.3)
+</td>
+<td style="text-align:left;">
+84 (18.7)
+</td>
+<td style="text-align:left;">
+3 (0.7)
+</td>
+<td style="text-align:left;">
+50 (0.7)
+</td>
+<td style="text-align:left;">
+&lt;0.001
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;">Note: </span>
+</td>
+</tr>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup></sup> Clarification: JM-prioritized patients are not prioritized by MELD-Na, and vice versa.
+</td>
+</tr>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup>*</sup> Difference tested between ACLF-JM-prioritized and MELD-Na-prioritized patients
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div id="clinical-application-of-the-aclf-jm-1" class="section level3 unnumbered">
+<h3>Clinical application of the ACLF-JM</h3>
+<p>After constructing and validating the ACLF-JM in this large cohort, an online application was developed, which allows clinicians to easily calculate individual patient survival probabilities based on the ACLF-JM. Available at: <a href="https://predictionmodels.shinyapps.io/aclf-jm/" class="uri">https://predictionmodels.shinyapps.io/aclf-jm/</a>. Excel files with repeated MELD-Na measurements can be uploaded into this tool, to generate dynamic survival predictions during follow-up. The ACLF-JM simulates individual patient data to calculate personalized predictions. See supplement 1 for precise instructions for the data upload and supplement 2 for a step-by-step manual.</p>
+</div>
+</div>
+<div id="discussion-3" class="section level2 unnumbered">
+<h2>Discussion</h2>
+<p>In this study, we developed and validated the ACLF-JM prediction model, to estimate survival of ACLF patients. We report several important findings. First, both current and past disease severity and its rate of change are strongly associated with survival in ACLF. Second, by using these data, the ACLF-JM gives excellent prediction performance, even in ACLF-3, and significantly outperforms MELD-Na. Third, the ACLF-JM could have prioritized patients with low median MELD-Na scores, i.e. not identified by MELD-Na, but four times higher mortality rates than MELD-Na prioritized patients. Fourth, the ACLF-JM can be clinically applied online to estimate and visualize patient-specific survival, which can be updated with every new measurement.</p>
+<div id="disease-development-over-time" class="section level3 unnumbered">
+<h3>Disease development over time</h3>
+<p>ACLF disease severity is dynamic and can change rapidly. During the first week, disease severity changes for most patients, resulting in different survival outcomes.<sup>9,10</sup> The current liver allocation system does not consider change, as it uses only the most recent measurement for survival prediction and ignores previous data. Moreover, survival is estimated based on the MELD-Na score, which ignores relevant factors for ACLF and therefore underestimates mortality.<sup>7,8</sup> Hernaez et al. showed that mortality was higher than expected in low MELD-Na score patients. They also showed that, despite their high(er) ACLF grade, these low MELD-Na patients were often not considered for LT.<sup>7</sup> Interestingly, Hernaez et al. mentioned that “Future research should also focus on developing and validating prognostic scores that incorporate dynamic changes in patients clinical course,” i.e. the goal of this study. Sundaram et al. showed that ACLF death and removal rate did not correlate well with the MELD-Na score, as mortality rates were highest in ACLF-3 patients with MELD-Na &lt;25.<sup>8</sup> In this study, ACLF was present in 33.3% of the patients. Therefore, the MELD-Na underestimation of ACLF disease severity could be substantial, which possibly leads to unequal treatment access and surplus mortality.<sup>7</sup> Therefore, the ACLF-JM was developed to predict ACLF patient survival based on disease development over time. The model provides several important improvements over the MELD-Na (table S4).<sup>21</sup> Most importantly, predictions are based on all available previous data and update for every new measurement.<sup>22</sup> Predictions should be update based on accumulating evidence, because ACLF is a dynamic disease. Also, the ACLF-JM considers both the value of disease severity and the rate at which disease severity is changing, see Figure <a href="chap-aclfjm.html#fig:aclf-fig1">5.1</a>. It uses more nuanced aspects of ACLF disease development to predict survival. Thus, like a clinician, past and current disease developments are used to estimate patient prognosis. Updating prognosis is important in ACLF, as disease can increase fast and non-linearly (e.g. exponential).<sup>1,3</sup> ACLF-JM survival predictions could therefore be used to aid clinical decision making for ACLF patients on the waiting list for LT, as current models result in unequal transplantation access and post-LT survival rates.<sup>8,10,17</sup> Furthermore, In this cohort, we showed that ACLF-JM prioritization identified patients with low MELD-Na scores, but high mortality, see Table <a href="chap-aclfjm.html#tab:aclf-tab3">5.3</a>. Mortality is underestimated in these patients and subsequently they receive a lower priority for LT. Since ACLF patients benefit from fast LT,<sup>17</sup> use of the ACLF-JM for the evaluation of prognosis could perhaps help to resolve the underestimation of waiting list mortality for ACLF patients.<sup>7</sup></p>
+</div>
+<div id="aclf-jm-validation" class="section level3 unnumbered">
+<h3>ACLF-JM validation</h3>
+<p>The ACLF-JM showed excellent short-term survival prediction performance at baseline and with increasing follow-up. Increasing ACLF grade did not lead to a decrease in predictive accuracy. This is important, because risk of death and need for LT should be reliably estimated in the sickest patients. Our data showed that both the ACLF-JM and MELD-Na AUCs declined with increasing follow-up. This is likely due to population changes, i.e. the sickest patients die or are transplanted first and less patients remain with increasing follow-up.<sup>23</sup> Also, with increasing disease severity, generally a shorter follow-up period is available. The ACLF-JM approximation of disease does not depend on the number of measurements per patient, because it estimates disease over time as a continuous trajectory (figure S4). This is important, because frequency of measurement confounded previous (Cox-based) survival predictions for patients in need of LT.<sup>24</sup> The ACLF-JM performed comparable and sometimes even better compared to the reported performance of the CLIF-C OF score.<sup>6</sup> This could possibly indicate that ACLF-JM performance was adequate enough for clinical application. Because the UNOS registry does not contain data on white blood cell counts, CLIF-C ACLF scoring was not possible in this study. ACLF-JM performance could however be externally validated in the cohorts used to construct the CLIF-C scores.<sup>6</sup></p>
+</div>
+<div id="clinical-application-of-the-aclf-jm-2" class="section level3 unnumbered">
+<h3>Clinical application of the ACLF-JM</h3>
+<p>After training and ascertaining excellent performance, an online tool of the ACLF-JM was created for clinical use. Especially in ACLF, both the patient and treating clinician benefit from patient-specific modelling, which shifts the focus of prediction from the population to the individual patient level. Jalan et al. already stated that there is a need for models that “update on a daily basis providing additional prognostic information,” and that “currently, no validated evidence-based tools guide the decision-making.”<sup>6</sup> The ACLF-JM meets these demands and more, with excellent performance leading to personalized prediction, readily available online for any clinician.</p>
+</div>
+<div id="limitations-3" class="section level3 unnumbered">
+<h3>Limitations</h3>
+<p>A limitation is that longitudinal MELD-Na measurements are not best to model ACLF disease development, as they can underestimate ACLF disease severity.<sup>7</sup> Ideally, longitudinal CLIF-C ACLFs data would be available in the UNOS data. However, MELD-Na was one of the few consistently available longitudinal measurements, which allowed analysis on a large scale and comparison to previous studies. The retrospective analysis of large databases also has several disadvantages. Misclassification of disease severity could give bias, e.g. subjective scoring of ascites and encephalopathy. Also, surrogate markers, suggested by authors of other large UNOS ACLF analyses, were used for ventilatory and circulatory failure.<sup>6,8,10,17</sup> For example, mechanical ventilation was used as replacement for respiratory failure, it is however very well possible that a patient with respiratory failure did not receive mechanical ventilation, or vice versa. Despite these shortcomings, the ACLF-JM showed excellent performance with increasing disease severity (ACLF grade).</p>
+</div>
+</div>
+<div id="conclusion-3" class="section level2 unnumbered">
+<h2>Conclusion</h2>
+<p>ACLF survival is dynamically predicted by the ACLF-JM prediction model, using both longitudinal and survival data. Updating prognosis on new measurements is important, as ACLF is a dynamic disease. The ACLF-JM prediction performance was excellent in this cohort, even in ACLF-3 patients. The ACLF-JM could therefore be used as a tool for the personalized evaluation of prognosis and clinical decision making in patients with ACLF.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="references-4" class="section level2 unnumbered">
+<h2>References</h2>
+<ol style="list-style-type: decimal">
+<li>Jalan R, Gines P, Olson JC, et al. Acute-on chronic liver failure. J Hepatol. 2012;57(6):1336-1348. <a href="doi:10.1016/j.jhep.2012.06.026" class="uri">doi:10.1016/j.jhep.2012.06.026</a></li>
+<li>Hernaez R, Kramer JR, Liu Y, et al. Prevalence and short-term mortality of acute-on-chronic liver failure: A national cohort study from the USA. J Hepatol. 2019;70(4):639-647. <a href="doi:10.1016/j.jhep.2018.12.018" class="uri">doi:10.1016/j.jhep.2018.12.018</a></li>
+<li>Moreau R, Jalan R, Gines P, et al. Acute-on-chronic liver failure is a distinct syndrome that develops in patients with acute decompensation of cirrhosis. Gastroenterology. 2013;144(7):1426-1437.e9. <a href="doi:10.1053/j.gastro.2013.02.042" class="uri">doi:10.1053/j.gastro.2013.02.042</a></li>
+<li>Kim WR, Biggins SW, Kremers WK, et al. Hyponatremia and Mortality among Patients on the Liver-Transplant Waiting List. N Engl J Med. 2008;359(10):1018-1026. <a href="doi:10.1007/s11250-017-1262-3" class="uri">doi:10.1007/s11250-017-1262-3</a></li>
+<li>Goudsmit BFJ, Putter H, Tushuizen ME, et al. Validation of the Model for End‐stage Liver Disease sodium (MELD‐Na) score in the Eurotransplant region. Am J Transplant. 2020. <a href="doi:10.1111/ajt.16142" class="uri">doi:10.1111/ajt.16142</a></li>
+<li>Jalan R, Saliba F, Pavesi M, et al. Development and validation of a prognostic score to predict mortality in patients with acute-on-chronic liver failure. J Hepatol. 2014;61(5):1038-1047. <a href="doi:10.1016/j.jhep.2014.06.012" class="uri">doi:10.1016/j.jhep.2014.06.012</a></li>
+<li>Hernaez R, Liu Y, Kramer JR, Rana A, El-Serag HB, Kanwal F. Model for end-stage liver disease-sodium underestimates 90-day mortality risk in patients with acute-on-chronic liver failure. J Hepatol. 2020:1-9. <a href="doi:10.1016/j.jhep.2020.06.005" class="uri">doi:10.1016/j.jhep.2020.06.005</a></li>
+<li>Sundaram V, Jalan R, Wu T, et al. Factors Associated with Survival of Patients With Severe Acute-On-Chronic Liver Failure Before and After Liver Transplantation. Gastroenterology. 2019;156(5):1381-1391.e3. <a href="doi:10.1053/j.gastro.2018.12.007" class="uri">doi:10.1053/j.gastro.2018.12.007</a></li>
+<li>Gustot T, Fernandez J, Garcia E, et al. Clinical Course of acute-on-chronic liver failure syndrome and effects on prognosis. Hepatology. 2015;62(1):243-252. <a href="doi:10.1002/hep.27849" class="uri">doi:10.1002/hep.27849</a></li>
+<li>Sundaram V, Kogachi S, Wong RJ, et al. Effect of the clinical course of acute-on-chronic liver failure prior to liver transplantation on post-transplant survival. J Hepatol. 2020;72(3):481-488. <a href="doi:10.1016/j.jhep.2019.10.013" class="uri">doi:10.1016/j.jhep.2019.10.013</a></li>
+<li>Rizopoulos R. Joint Models for Longitudinal and Time-to-Event Data: With Applications in R. 1st ed. Chapman and Hall/CRC; 2012.</li>
+<li>Papageorgiou G, Mokhles MM, Takkenberg JJM, Rizopoulos D. Individualized dynamic prediction of survival with the presence of intermediate events. Stat Med. 2019;38(30):5623-5640. <a href="doi:10.1002/sim.8387" class="uri">doi:10.1002/sim.8387</a></li>
+<li>Arisido MW, Antolini L, Bernasconi DP, Valsecchi MG, Rebora P. Joint model robustness compared with the time-varying covariate Cox model to evaluate the association between a longitudinal marker and a time-to-event endpoint. BMC Med Res Methodol. 2019;19(1):1-13. <a href="doi:10.1186/s12874-019-0873-y" class="uri">doi:10.1186/s12874-019-0873-y</a></li>
+<li>Campbell KR, Juarez-Colunga E, Grunwald GK, Cooper J, Davis S, Gralla J. Comparison of a time-varying covariate model and a joint model of time-to-event outcomes in the presence of measurement error and interval censoring: Application to kidney transplantation. BMC Med Res Methodol. 2019;19(1):1-12. <a href="doi:10.1186/s12874-019-0773-1" class="uri">doi:10.1186/s12874-019-0773-1</a></li>
+<li>Hernaez R, Liu Y, Kramer JR, Rana A, El-serag HB, Kanwal F. Model for end-stage liver disease-sodium underestimates 90-day mortality risk in patients with acute-on-chronic liver failuare. J Hepatol. 2020. <a href="doi:10.1016/j.jhep.2020.06.005" class="uri">doi:10.1016/j.jhep.2020.06.005</a></li>
+<li>Moons KGM, Altman DG, Reitsma JB, et al. Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis (TRIPOD): Explanation and elaboration. Ann Intern Med. 2015;162(1):W1-W73. <a href="doi:10.7326/M14-0698" class="uri">doi:10.7326/M14-0698</a></li>
+<li>Thuluvath PJ, Thuluvath AJ, Hanish S, Savva Y. Liver transplantation in patients with multiple organ failures: Feasibility and outcomes. J Hepatol. 2018;69(5):1047-1056. <a href="doi:10.1016/j.jhep.2018.07.007" class="uri">doi:10.1016/j.jhep.2018.07.007</a></li>
+<li>Rizopoulos D. The R package jmbayes for fitting joint models for longitudinal and time-to-event data using MCMC. J Stat Softw. 2016;72(7). <a href="doi:10.18637/jss.v072.i07" class="uri">doi:10.18637/jss.v072.i07</a></li>
+<li>Gerds TA, Blanche P, Mortensen R, Tollenaar N, Brasch Mogensen U, Ozenne B. riskRegression: Risk Regression Models and Prediction Scores for Survival Analysis with Competing Risks. 2020. <a href="https://cran.r-project.org/web/packages/riskRegression/index.html" class="uri">https://cran.r-project.org/web/packages/riskRegression/index.html</a>.</li>
+<li>Van Calster B, McLernon DJ, Van Smeden M, et al. Calibration: The Achilles heel of predictive analytics. BMC Med. 2019;17(1):1-7. <a href="doi:10.1186/s12916-019-1466-7" class="uri">doi:10.1186/s12916-019-1466-7</a></li>
+<li>Goudsmit BFJ, Tushuizen ME, Putter H, Braat AE, van Hoek B. The role of the model for end-stage liver disease-sodium score and joint models for 90-day mortality prediction in patients with acute-on-chronic liver failure. J Hepatol. 2021;74(2):475-476. <a href="doi:10.1016/j.jhep.2020.08.032" class="uri">doi:10.1016/j.jhep.2020.08.032</a></li>
+<li>Papageorgiou G, Mauff K, Tomer A, Rizopoulos D. An Overview of Joint Modeling of Time-to-Event and Longitudinal Outcomes. Annu Rev Stat Its Appl. 2019;6(1):223-240. <a href="doi:10.1146/annurev-statistics-030718-105048" class="uri">doi:10.1146/annurev-statistics-030718-105048</a></li>
+<li>Goudsmit BFJ, Putter H, Tushuizen ME, et al. Refitting the model for end-stage liver disease for the Eurotransplant region. Hepatology. 2020;in press.</li>
+<li>Bambha K, Kim WR, Kremers WK, et al. Predicting survival among patients listed for liver transplantation: An assessment of serial MELD measurements. Am J Transplant. 2004;4(11):1798-1804. <a href="doi:10.1111/j.1600-6143.2004.00550.x" class="uri">doi:10.1111/j.1600-6143.2004.00550.x</a></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-jm.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="part-iii-survival-with-and-without-transplantation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/BenGoudsmit/Thesis/edit/master/07-chapter-jm-aclf.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/BenGoudsmit/Thesis/blob/master/07-chapter-jm-aclf.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
