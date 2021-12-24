@@ -92,6 +92,8 @@ output:
   # settings for html output
   bookdown::gitbook:
     config:
+      edit : null
+      download: ["book.pdf"]
       toc: 
         #this text will print on top ("before") or at the bottom ("after") of the table of contents
         before: | 
