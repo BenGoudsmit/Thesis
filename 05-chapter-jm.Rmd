@@ -62,7 +62,7 @@ The longitudinal MELD(-Na) data were modeled with mixed effect models. These cal
 Next, the abovementioned mixed effects model was combined with a Cox model. The latter was fit to the outcome of waiting list mortality, censoring for all other outcomes, with MELD(-Na) as predictor. Thus, the MELD(-Na) joint models (MELD-JM and MELDNa-JM) were constructed using the R package “JMbayes”.^15^ The JMs predicted survival using both the value of the MELD(-Na) score and its rate of change at each moment in time (i.e. time-dependent slope). By considering time-dependent slopes, a more nuanced definition of disease severity is used for survival prediction, see Figure \@ref(fig:jm-fig1). Also, predictions are updated for each newly-available measurement, i.e. the model is dynamic.
 
 ```{r jm-fig1, echo=F, fig.cap='Two hypothetical patient trajectories on the LT waiting list are shown. Patient A initially increases and then stabilizes in disease severity. B is initially stable and later deteriorates. Under the current MELD(-Na) allocation, patient A would be prioritized over patient B in liver allocation, because the most recent MELD(-Na) is used. However, the JM uses both the past and current disease severity (value) and the rate of change at each moment in time (slope). At any given time, the JM combines the hazard ratio’s for value and slope to calculate the risk of death. Thus, the JM would calculate a higher mortality risk and thus LT priority for patient B, because the disease is increasing fast.', dpi=1500, out.width="100%"}
-knitr::include_graphics("figures/jm/figure 1.png" , auto_pdf=T)
+knitr::include_graphics(c("figures/figure-html/jm-fig1-1.png"))
 ```
 
 ### Prediction performance {.unnumbered}

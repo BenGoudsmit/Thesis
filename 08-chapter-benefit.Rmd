@@ -54,7 +54,7 @@ Benefit of non-HCC and HCC patients has been previously evaluated,^13,14,16,17^ 
 Therefore, the goal of this study was to estimate survival gain from transplantation in a large and recent US cohort. We compared LT survival benefit between non-HCC and HCC patients. Life expectancy with transplantation was contrasted to life expectancy without transplantation. We constructed an online benefit application that calculates life expectancy gained from transplantation based on specified patient characteristics.
 
 ```{r benefit-fig1a, echo=F, fig.cap='Survival benefit is defined as the difference in 5-year life-expectancy with and without transplantation. While patients are waiting for LT, time passes and disease severity typically changes. At the moment of transplantation, benefit is estimated. The survival up until transplantation (‘survival before LT’) is used to predict waiting list survival in absence of transplantation (‘survival without LT’). Without LT survival is then contrasted to posttransplant survival (‘with LT’) to calculate benefit.'}
-knitr::include_graphics("figures/benefit/figure 1a.png" , auto_pdf=T)
+knitr::include_graphics(c("figures/figure-html/benefit-fig1a-1.png"))
 ```
 
 ## Methods {.unnumbered}

@@ -137,13 +137,13 @@ options(warn=0)
 ```
 
 ```{r meldna-fig1, echo=F, fig.cap='The flowchart of in- and exclusion for this study'}
-knitr::include_graphics("figures/meldna/figure 1. in- exclusion.png" , auto_pdf=T)
+knitr::include_graphics("figures/figure-html/meldna-fig1-1.png")
 ```
 
 The median lab MELD score was 16 (IQR 11-21) and the median sodium concentration was 137 (IQR 134-140) mmol/L. Hyponatremia of \<135, \<130, and \<125 mmol/L was found in respectively 28.5%, 8.8%, and 2.6% of the patients. Patients with alcohol-induced cirrhosis (ALD) had the lowest median Na levels, see Figure \@ref(fig:meldna-fig2).For the assessment of selection bias, an analysis of all eligible patients (Na present versus absent) was added (supplement 1). Compared to the included patients, eligible patients with missing serum Na were more often female (31.9% vs 35.5%) and had higher rates of alcohol- or virus-induced liver cirrhosis (respectively 35.9% vs 41.0% and 12.4% vs 15.3%, p\<0.001). MELD scores were comparable, but excluded patients had significantly higher creatinine levels at listing (1.36 vs 1.42 mg/dL p\<0.001).
 
 ```{r meldna-fig2, echo=F, fig.cap='Violin plots with embedded box plots of the median serum sodium (Na) levels at listing, for the most frequent causes of liver disease. The dotted line represents the median Na of 137 mmol/L for the whole cohort. For the significant differences between Na levels, P values for pairwise comparisons are shown'}
-knitr::include_graphics("figures/meldna/figure 2. median sodium per disease.png" , auto_pdf=T)
+knitr::include_graphics("figures/figure-html/meldna-fig2-1.png")
 ```
 
 Competing risk analysis showed that 90-day mortality and transplantation rates increased as sodium levels decreased, see Figure \@ref(fig:meldna-fig3). Na\<130, 130-134 and \>=135 patients had 90-day death risks of respectively 27%, 18% and 8%. The 90-day transplant rates were respectively 33%, 27% and 18.0%. The grouped Na levels showed diverging survival curves, i.e. at lower Na levels the mortality risk increased at a higher rate (supplement 2). The 90-day death HRs for Na \<130 and Na 130-134 compared to Na \>=135 patients were 4.72 (95%CI 3.81-5.83), and 2.72 (95%CI 2.26-3.28), respectively.
@@ -195,16 +195,10 @@ knitr::include_graphics(c("figures/figure-html/meldna-fig7-1.png",
                           "figures/figure-html/meldna-fig7-2.png"))
 ```
 
-<!-- ```{r meldna-fig7b, echo=F, fig.cap='Heatmap of the difference in predicted death probability between MELD and MELD-Na. For each MELD and Na combination the gained predicted risk from MELD-Na is shown, which represents which patients will be prioritized most (red area, highest predicted risk difference) and which patients will lose the most priority with MELD-Na-based allocation (blue area, lowest predicted risk difference).'} -->
-
-<!-- knitr::include_graphics("figures/meldna/figure 7b. heatmap predicted risk difference.png" , auto_pdf=T) -->
-
-<!-- ```  -->
-
 To make comparison to the UNOS data possible, we calculated the stratified MELD reclassification rates and estimated WL mortality reduction (supplement 3). Stratification of scores in accordance to Kim et al.^9^ showed a reclassification rate of 26.3% (156 / 593) in the deceased patients. This led to an estimated 4.9% reduction in 90-day waiting list mortality. The analysis of disease-specific prioritization in the deceased patients showed that patients with HCC and hepatitis B had the highest chance of reclassification to a higher MELD-Na stratum, 36% and 30% respectively (supplement 3). However, patients with (post)alcoholic cirrhosis had the highest increase in mean MELD-Na compared to MELD. This illustrated that the strata chosen by Kim et al. could enable stage migration bias (supplement 3 and 5). Therefore, we believe that the total number of reclassified patients and the distribution of the gained MELD-Na points are more useful information when estimating the possible impact of MELD-Na-based allocation (Figure \@ref(fig:meldna-fig8) and <https://plot.ly/~Liver_Research/7/> and <https://plot.ly/~Liver_Research/18/>).
 
 ```{r meldna-fig8, echo=F, fig.cap='Reclassification from MELD (y-axis with percentage of patients with that score) to MELD-Na (x-axis with percentage of patients with that score). The diagonal shows which patients remain in the same stratum, that is, not reclassified, and which patients are reclassified to a higher MELD-Na score (percentages in the tiles). A lighter color indicates a higher difference between MELD and MELD-Na scores. The histogram on the left shows for each MELD score the average gain in MELD-Na points.'}
-knitr::include_graphics("figures/meldna/figure 8. Reclassification and gained points histogram 2.png" , auto_pdf=T)
+knitr::include_graphics(c("figures/figure-html/meldna-fig8-1.png"))
 ```
 
 ## Discussion {.unnumbered}
