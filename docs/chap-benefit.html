@@ -334,7 +334,7 @@ Figure 6.1: Survival benefit is defined as the difference in 5-year life-expecta
 <h3>Benefit definition</h3>
 <p>Survival benefit was defined as the life-years gained from transplantation during the next five years, see Figure <a href="chap-benefit.html#fig:benefit-fig1b">6.2</a>.<sup>21,29</sup> To estimate benefit for a given transplanted patient, post-transplantation survival (henceforth ‘with LT’) was contrasted to the hypothetical waiting list survival if LT would not have happened (henceforth ‘without LT’), again see Figure <a href="chap-benefit.html#fig:benefit-fig1a">6.1</a>.<sup>21</sup> Crucially, we estimated future waiting list survival from the moment of LT and not from baseline, as patients are not transplanted at baseline. To model without LT survival, we chose time-dependent Cox regression corrected with inverse probability censoring weighting (IPCW), in accordance to previous studies.<sup>21–23,26</sup> IPCW is used when treatment is initiated after baseline and the chance of treatment depends on patient characteristics, that is changing MELD-Na scores over time.<sup>21,26,30</sup> This dependence confounds analysis of waiting list survival upon which allocation is based. These risks therefore must be corrected with statistical methods, preferably IPCW.<sup>21,26,30</sup> Unlike previous work,<sup>13,16,17,28,31,32</sup> we specifically did not use intention-to-treat (ITT) or competing risk analysis, please see supplement 1 for a detailed explanation. In short, because 1) they predict a different risk than without LT survival, 2) could result in undertreatment of patients,<sup>30</sup> and 3) we wanted to model changes in waiting list disease over time beyond baseline. The IPCW analyses are more complex and therefore less often applied, but this does not mean we should not use them.<sup>33</sup></p>
 <div class="figure"><span style="display:block;" id="fig:benefit-fig1b"></span>
-<img src="thesis_files/figure-html/benefit-fig1b-1.png" alt="The survival with (solid line), without (dashed line) and benefit from transplantation (green area) are shown. In this example, survival is averaged for non-HCC patients with MELD-Na 25. Please note the difference in survival during five years (lines) and at five years (dots)." width="672" />
+<img src="figures/figure-html/benefit-fig1b-1.png" alt="The survival with (solid line), without (dashed line) and benefit from transplantation (green area) are shown. In this example, survival is averaged for non-HCC patients with MELD-Na 25. Please note the difference in survival during five years (lines) and at five years (dots)." width="672" />
 <p class="caption">
 Figure 6.2: The survival with (solid line), without (dashed line) and benefit from transplantation (green area) are shown. In this example, survival is averaged for non-HCC patients with MELD-Na 25. Please note the difference in survival during five years (lines) and at five years (dots).
 </p>
@@ -990,7 +990,7 @@ NS
 <h3>Survival without and with LT</h3>
 <p>The distribution of MELD(-Na) scores at transplantation is shown in Figure <a href="chap-benefit.html#fig:benefit-fig2">6.3</a>. Non-HCC patients were mostly transplanted at MELD(-Na) scores above 14 and HCC patients mostly below MELD(-Na) 14. This distribution is important for the interpretation of the survival and benefit estimates presented below.</p>
 <div class="figure"><span style="display:block;" id="fig:benefit-fig2"></span>
-<img src="thesis_files/figure-html/benefit-fig2-1.png" alt="Distribution of MELD(-Na) scores at transplantation, per (non-)HCC disease. Non-HCC patients are mostly transplanted at MELD(-Na) scores &gt;14. On the other hand, HCC patients are mostly transplanted below MELD(-Na) 14. Also, a significant part of non-HCC patients is transplanted above MELD(-Na) 30, whereas only 3% of HCC patients is transplanted at MELD(-Na) above 30." width="672" />
+<img src="figures/figure-html/benefit-fig2-1.png" alt="Distribution of MELD(-Na) scores at transplantation, per (non-)HCC disease. Non-HCC patients are mostly transplanted at MELD(-Na) scores &gt;14. On the other hand, HCC patients are mostly transplanted below MELD(-Na) 14. Also, a significant part of non-HCC patients is transplanted above MELD(-Na) 30, whereas only 3% of HCC patients is transplanted at MELD(-Na) above 30." width="672" />
 <p class="caption">
 Figure 6.3: Distribution of MELD(-Na) scores at transplantation, per (non-)HCC disease. Non-HCC patients are mostly transplanted at MELD(-Na) scores &gt;14. On the other hand, HCC patients are mostly transplanted below MELD(-Na) 14. Also, a significant part of non-HCC patients is transplanted above MELD(-Na) 30, whereas only 3% of HCC patients is transplanted at MELD(-Na) above 30.
 </p>
@@ -998,7 +998,7 @@ Figure 6.3: Distribution of MELD(-Na) scores at transplantation, per (non-)HCC d
 <p>Figure <a href="chap-benefit.html#fig:benefit-fig3a">6.4</a> shows the smoothed average survival probabilities during the next five years, both for post-transplantation (with LT: solid lines) and for remaining on the waiting list (without LT: dashed lines). Because life years are gained over time, Figure <a href="chap-benefit.html#fig:benefit-fig3a">6.4</a> shows the mean survival during five years, i.e., the mean of the lines shown in Figure <a href="chap-benefit.html#fig:benefit-fig1b">6.2</a>. The survival probabilities at five years without and with LT are presented in Table S3, which are perhaps more intuitive survival measures for the clinician and patient. However, these hold no information regarding the survival trajectory during five years, which is what the average survival and benefit do encompass.
 For non-HCC patients below MELD(-Na) 10, i.e., a small number of patients, see Figure <a href="chap-benefit.html#fig:benefit-fig2">6.3</a>, mean survival probability without LT was better than with LT survival. In other words, on average these patients should not be transplanted. At equal MELD(-Na) scores, waiting list survival without LT for HCC patients was notably lower than for non-HCC patients. Survival without LT probabilities converged at the lowest levels, i.e., mortality could not increase much more at high MELD(-Na) scores. The average survival with LT in both groups declined above approximately MELD(-Na) 24. However, HCC survival decreased more at higher MELD(-Na) scores, most for HCC outside criteria. This decrease in posttransplant survival was possibly due to disease recurrence.</p>
 <div class="figure"><span style="display:block;" id="fig:benefit-fig3a"></span>
-<img src="thesis_files/figure-html/benefit-fig3a-1.png" alt="The mean survival during the next five years per MELD(-Na) score, for the waiting list (dashed lines) and after transplantation (solid lines). Note that the dashed lines represent future ‘without LT’ waiting list survival. The left y-axis shows life expectancy in years, the right y-axis shows survival probability." width="672" />
+<img src="figures/figure-html/benefit-fig3a-1.png" alt="The mean survival during the next five years per MELD(-Na) score, for the waiting list (dashed lines) and after transplantation (solid lines). Note that the dashed lines represent future ‘without LT’ waiting list survival. The left y-axis shows life expectancy in years, the right y-axis shows survival probability." width="672" />
 <p class="caption">
 Figure 6.4: The mean survival during the next five years per MELD(-Na) score, for the waiting list (dashed lines) and after transplantation (solid lines). Note that the dashed lines represent future ‘without LT’ waiting list survival. The left y-axis shows life expectancy in years, the right y-axis shows survival probability.
 </p>
@@ -1008,7 +1008,7 @@ Figure 6.4: The mean survival during the next five years per MELD(-Na) score, fo
 <h3>Survival benefit: life-years gained per 5 years</h3>
 <p>The 5-year transplantation survival benefit per MELD(-Na) score and per (non-)HCC disease is shown in Figure <a href="chap-benefit.html#fig:benefit-fig3b">6.5</a> and Table <a href="chap-benefit.html#tab:benefit-tab2">6.2</a> (see Table S4 for the averages per MELD(-Na) score). Please note that the y-values correspond to the surface area shown in Figure <a href="chap-benefit.html#fig:benefit-fig1b">6.2</a>, e.g., for a non-HCC MELD(-Na) 25 patient, LT would give 2.35 years survival benefit during the next five years.</p>
 <div class="figure"><span style="display:block;" id="fig:benefit-fig3b"></span>
-<img src="thesis_files/figure-html/benefit-fig3b-1.png" alt="The survival benefit of liver transplantation per MELD(-Na) score. The left y-axis shows the average life-years gained in the next 5 years, i.e., the green surface area in Figure 8.2. The right y-axis shows the percentage improvement in mean survival probability during the next 5 years. Thus, for example, a T2/within Milan HCC patient with MELD-Na score 25 will gain 2.5 extra life-years in the next 5 years, i.e., the mean survival increases with 50% through transplantation." width="672" />
+<img src="figures/figure-html/benefit-fig3b-1.png" alt="The survival benefit of liver transplantation per MELD(-Na) score. The left y-axis shows the average life-years gained in the next 5 years, i.e., the green surface area in Figure 8.2. The right y-axis shows the percentage improvement in mean survival probability during the next 5 years. Thus, for example, a T2/within Milan HCC patient with MELD-Na score 25 will gain 2.5 extra life-years in the next 5 years, i.e., the mean survival increases with 50% through transplantation." width="672" />
 <p class="caption">
 Figure 6.5: The survival benefit of liver transplantation per MELD(-Na) score. The left y-axis shows the average life-years gained in the next 5 years, i.e., the green surface area in Figure 8.2. The right y-axis shows the percentage improvement in mean survival probability during the next 5 years. Thus, for example, a T2/within Milan HCC patient with MELD-Na score 25 will gain 2.5 extra life-years in the next 5 years, i.e., the mean survival increases with 50% through transplantation.
 </p>
@@ -1503,7 +1503,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/BenGoudsmit/Thesis/edit/master/08-chapter-benefit.Rmd",
+"link": "https://github.com/BenGoudsmit/Thesis/blob/master/08-chapter-benefit.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -1514,7 +1514,7 @@ gitbook.start({
 "link": "https://github.com/BenGoudsmit/Thesis/blob/master/08-chapter-benefit.Rmd",
 "text": null
 },
-"download": "book.pdf",
+"download": "thesis - final.pdf",
 "search": {
 "engine": "fuse",
 "options": null

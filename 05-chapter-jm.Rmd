@@ -105,20 +105,8 @@ The JMs calculates hazard ratios at a specific time (HRt) though the following e
 The JM performance was assessed in the independent validation data at baseline (Figure \@ref(fig:jm-fig2) and figure S1) and during follow-up (Table \@ref(tab:jm-tab2): UNOS, table S1: Eurotransplant). 
 
 ```{r jm-fig2, echo=F,fig.ncol=1,fig.subcap=c('90-day mortality ROC plot of the MELDNa-JM and MELD-Na.', 'Calibration plot of the MELDNa-JM and MELD-Na score. Each dot represents 10 percent of the population. The lines show how well the predicted risks match the observed risks'), fig.cap='Performance measures for the MELDNa-JM and MELD-Na.'}
-# knitr::include_graphics(c("figures/jm/figure 2a.png",
-#                           "figures/jm/figure 2b.png"), auto_pdf=T)
-options(warn=-1)
-load("figures/jm/sprobs_t.Rdata")
-load("figures/jm/meldnasprobs_t.Rdata")
-load("figures/jm/subset.Rdata")
-LM=0 ; t=90
-scores <- Score(list("MELDNa-JM" = 1-sprobs_t,"MELD-Na"= 1-meldnasprobs_t), # vector of probabilities
-  formula = Hist(days,binstatus) ~ 1, data = subset, # data in which the JM and cox test
-  null.model = T, contrasts = T, conf.int= T, times = LM + t, # LM time + interval of prediction
-  plots = c("roc","calibration"))
-plotROC(scores,brier.in.legend = T,cens.method="local")
-plotCalibration(scores, method="quantile",cens.method="local")
-options(warn=0)
+knitr::include_graphics(c("figures/figure-html/jm-fig2-1.png",
+                          "figures/figure-html/jm-fig2-2.png"))
 ``` 
 
 ```{r jm-tab2,message=FALSE, echo=F}
@@ -160,35 +148,7 @@ landscape()
 Compared to MELD-Na, the MELDNa-JM prioritized slightly younger (56 vs 58 years) and female (46.5% vs 35.4%) patients, who less often had hepatitis-C-induced liver cirrhosis. Most importantly, MELDNa-JM-prioritized patients had a 3.6 times higher 90-day mortality rate, i.e. 15.4% versus 4.3%. For the Eurotransplant region, MELD-JM prioritized patients with 5.0 times higher 90-day mortality compared to MELD, i.e. 23.2% versus 4.6% (table S6). A possible cause of this difference in mortality is illustrated in Figure \@ref(fig:jm-fig3). 
 
 ```{r jm-fig3,message=F, warn=F, echo=F, fig.cap='The MELDNa- JM and MELD- Na would prioritize different patients for liver transplantation. For these patients, we plotted the individual (black lines) and average (red line) MELD-Na score development during 90 days. Although the MELD-Na-prioritized patients had a higher initial MELD-Na score (value), their average scores remained stable (slope). In contrast, the JM-prioritized patients had lower MELD-Na (value) scores but with faster increasing disease severity (slope). Interestingly, the JM- prioritized patients had a five times higher 90- day mortality rate. Indicating that JM prioritization could possibly be more just.'}
-options(warn=-1)
-
-load("figures/jm/longjmprio.Rdata")
-load("figures/jm/longmeldnaprio.Rdata")
-A <- longjmprio %>% 
-  mutate(id=factor(id)) %>% 
-  group_by(id) %>% 
-  ggplot(aes(x=daycount,y=meldna, group=id))+
-  geom_line(color="black", alpha=0.4) + 
-  geom_segment(aes(x = 0, y = 24, xend = 90, yend = 33),color="red", lwd=2)+
-  #stat_smooth(aes(group = 1), color="red", se=F, method="lm", lwd=2) +
-  scale_x_continuous("Days on the waiting list", breaks=c(0,30,60,90), 
-                     labels=c(0,30,60,90), limits=c(0,90))+
-  scale_y_continuous("MELD-Na score", limits=c(6,40))+
-  ggtitle("MELDNA-JM")+
-  theme_pubr() 
-
-B <- longmeldnaprio %>% 
-  mutate(id=factor(id)) %>% group_by(id) %>% 
-  ggplot(aes(x=daycount,y=meldna, group=id))+
-  geom_line(color="black", alpha=0.4) + 
-  stat_smooth(aes(group = 1), color="red", se=F, method="lm", lwd=2) +
-  scale_x_continuous("Days on the waiting list", breaks=c(0,30,60,90), 
-                     labels=c(0,30,60,90), limits=c(0,90))+
-  scale_y_continuous("MELD-Na score", limits=c(6,40))+
-  ggtitle("MELD-Na")+
-  theme_pubr()
-ggarrange(A, B, ncol = 2, nrow = 1)
-options(warn=0)
+knitr::include_graphics("figures/figure-html/jm-fig3-1.png")
 ```
 
 

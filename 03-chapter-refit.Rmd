@@ -76,40 +76,9 @@ options(warn=0)
 The GAM plots for each parameter are shown below. For creatinine, the S-shaped curve displayed clear lower and upper boundaries in Figure \@ref(fig:refit-fig1)A, the maximum log-likelihood was calculated for the bounds of 0.7 and 2.5 mg/dL. Clinically, it seemed logical to include values of creatinine below 1.0 mg/dL, mainly because many patients (55%) had creatinine levels \<=1 mg/dL. Through refitting, the serum creatinine was decreased in weight and its upper bound was lowered. Therefore, the influence of renal failure on the chances for LT was reduced. 
 
 ```{r refit-fig1, warning=F, fig.align="center", echo=F, fig.ncol=1, fig.cap='For each parameter, the relation to 90-day mortality is shown based on the training data', out.height="27%", fig.subcap=c('Creatinine','Bilirubin','INR')}
-options(warn=-1)
-load("figures/refit/creatplain data.RData")
-dfcreat <- cbind(creatterm,ytemp)
-dfcreat$y_centered <- dfcreat$y-center
-dfcreat %>% ggplot(aes(exp(x),exp(y_centered)))+
-  geom_line(lwd=1.2)+
-  geom_line(aes(x = exp(x), y = exp((y + 1.96 * se - center))), linetype = 2)+
-  geom_line(aes(x = exp(x), y = exp((y - 1.96 * se - center))), linetype = 2)+
-  scale_x_continuous("Serum creatinine (mmol/L)", limits=c(0.4,6), trans='log10')+
-  scale_y_continuous("Relative Risk of 90-day death", trans='log10', limits=c(0.4,7))+
-  theme_base()
-
-load("figures/refit/biliplain data.RData")
-dfbili <- cbind(biliterm,ytemp)
-dfbili$y_centered <- dfbili$y-center
-dfbili %>% ggplot(aes(exp(x),exp(y_centered)))+
-  geom_line(lwd=1.2)+
-  geom_line(aes(x = exp(x), y = exp((y + 1.96 * se - center))), linetype = 2)+
-  geom_line(aes(x = exp(x), y = exp((y - 1.96 * se - center))), linetype = 2)+
-  scale_x_continuous("Serum bilirubin (mmol/L)", limits=c(0.4,100), breaks = c(0.5,1,3,5,10,20,50,100), trans='log10')+
-  scale_y_continuous("Relative Risk of 90-day death", trans='log10', limits=c(0.4,16))+
-  theme_base()
-
-load("figures/refit/inrplain data.RData")
-dfinr <- cbind(INRterm,ytemp)
-dfinr$y_centered <- dfinr$y-center
-dfinr %>% ggplot(aes(exp(x),exp(y_centered)))+
-  geom_line(lwd=1.2)+
-  geom_line(aes(x = exp(x), y = exp((y + 1.96 * se - center))), linetype = 2)+
-  geom_line(aes(x = exp(x), y = exp((y - 1.96 * se - center))), linetype = 2)+
-  scale_x_continuous("Serum INR", limits=c(0.7,10), breaks = c(0.5,1,3,5,10,20,50,100), trans='log10')+
-  scale_y_continuous("Relative Risk of 90-day death", trans='log10', limits=c(0.1,50))+
-  theme_base()
-options(warn=0)
+knitr::include_graphics(c("figures/figure-html/refit-fig1-1.png",
+                          "figures/figure-html/refit-fig1-2.png",
+                          "figures/figure-html/refit-fig1-3.png"))
 ```
 
 For bilirubin, in Figure \@ref(fig:refit-fig1)B, the lower bound was found at 0.3 and the upper at 27 mg/dL. Varying of the lower bound between 0.1 and 0.5 did not alter the log-likelihood significantly, i.e. would still be an acceptable fit to the data. Also, 23.7% of our population would no longer be capped at listing. The upper bound of 27 mg/dL could be altered to a clinically more relevant value, roughly between 20 and 40, without affecting the optimal fit to the data too much (supplement heatmap bilirubin).
@@ -120,65 +89,9 @@ Overall, the reMELD and reMELD-Na models capped less patients at assumed values 
 In Figure \@ref(fig:refit-fig2), lines were plotted for respectively creatinine, bilirubin, and the INR to represent the refit coefficient (slope of the diagonal) and the boundaries (horizontal lines).
 
 ```{r refit-fig2, echo=F, fig.align="center", fig.ncol=1,fig.cap='For each parameter, the diagonal line represent the coefficient (slope of the diagonal) and lower and upper boundaries (horizontal segments) in refit MELD', out.height="27%", fig.subcap=c('Creatinine','Bilirubin','INR')}
-options(warn=-1)
-load("figures/refit/creatplain data.RData")
-dfcreat <- cbind(creatterm,ytemp)
-dfcreat$y_centered <- dfcreat$y-center
-dfcreat$x_exp <- exp(dfcreat$x)
-dfcreat$y_centered_exp <- exp(dfcreat$y_centered)
-
-creatbet <- 1.285655
-xlow <- log(0.8) 
-xhigh <- log(2.5)
-ylow <- creatbet * xlow
-yhigh <- creatbet * xhigh
-
-dfcreat %>% ggplot(aes(exp(x),exp(y_centered)))+
-  geom_line(lwd=1)+
-  geom_line(aes(x = exp(x), y = exp((y + 1.96 * se - center))), linetype = 2)+
-  geom_line(aes(x = exp(x), y = exp((y - 1.96 * se - center))), linetype = 2)+
-  scale_x_continuous("Serum creatinine (mmol/L)", limits=c(0.4,6), trans='log10')+
-  scale_y_continuous("Relative Risk of 90-day death", trans='log10', limits=c(0.4,7))+
-  theme_base()+
-  geom_segment(aes(x = 0.8, y = exp(creatbet * xlow), xend = 2.5, yend = exp(yhigh)+0.6),colour = "red", lwd=1.2)+
-  geom_segment(aes(x = 0.4, y = exp(creatbet * xlow), xend = 0.8, yend = exp(creatbet * xlow)),colour = "red", lwd=1.2)+
-  geom_segment(aes(x = 2.5, y = exp(yhigh)+0.6, xend = 6, yend = exp(yhigh)+0.6),colour = "red", lwd=1.2)
-  
-load("figures/refit/tmpbili.RData")
-bet <- 0.7655996
-xlow <- log(0.3)
-xhigh <- log(26.9)
-ylow <- bet * xlow
-yhigh <- bet * xhigh
-
-tmpbili %>% ggplot(aes(bili1,HR))+
-  geom_line(lwd=1)+
-  geom_line(aes(x = bili1, y = HRlow95), linetype = 2)+
-  geom_line(aes(x = bili1, y = HRupp95), linetype = 2)+
-  scale_x_continuous("Serum bilirubin (mmol/L)", limits=c(0.3,100), trans='log10')+
-  scale_y_continuous("Relative Risk of 90-day death", trans='log10', limits=c(0.3,20))+
-  theme_base()+
-  geom_segment(aes(x = 0.3, y = exp(ylow), xend = 26.9, yend =exp(yhigh)-3),colour = "red", lwd=1.2)+
-  geom_segment(aes(x = 26.9, y = exp(yhigh)-3, xend = 100, yend =exp(yhigh)-3),colour = "red", lwd=1.2)
-
-load("figures/refit/tmpinr.RData")
-bet <- 2.293092
-xlow <- log(0.1)
-xhigh <- log(2.6)
-ylow <- bet * xlow
-yhigh <- bet * xhigh
-
-tmpINR %>% ggplot(aes(INR1,HR))+
-  geom_line(lwd=1)+
-  geom_line(aes(x = INR1, y = HRlow95), linetype = 2)+
-  geom_line(aes(x = INR1, y = HRupp95), linetype = 2)+
-  scale_x_continuous("Serum INR", limits=c(0.85,10), trans='log10')+
-  scale_y_continuous("Relative Risk of 90-day death", trans='log10', limits=c(0.5,50))+
-  theme_base()+
-  geom_segment(aes(x = 0.85, y = 0.8, xend = 2.6, yend =10),colour = "red", lwd=1.2)+
-  geom_segment(aes(x = 2.6, y = 10, xend = 10, yend =10),colour = "red", lwd=1.2)
-
-options(warn=0)
+knitr::include_graphics(c("figures/figure-html/refit-fig2-1.png",
+                          "figures/figure-html/refit-fig2-2.png",
+                          "figures/figure-html/refit-fig2-3.png"))
 ```
 
 The heatmaps of the calculated log-likelihoods and c-indices per combination of boundaries are attached in the (online) supplement. After checking for interactions and matching the 25th and 75th quantiles of the reMELD to the UNOS-MELD in the training data, the reMELD equation was: $$7.728*ln(creatinine) + 3.446*ln(bilirubin) + 10.597*ln(INR) + 8.422$$ In this equation the abovementioned boundaries were used for the parameters.
@@ -214,95 +127,9 @@ options(warn=0)
 Figure \@ref(fig:refit-fig3) shows the effect of each MELD parameter, corrected for the others, on 90-day mortality in the validation data. The red and blue lines represent the coefficients of the reMELD and UNOS-MELD respectively. It was visually apparent that refit MELD showed a better fit to the data for all three parameters. 
 
 ```{r refit-fig3, fig.align="center", echo=F, fig.ncol=1,fig.cap='In the validation data, the relation with 90-day mortality is shown. The coefficients and boundaries of creatinine in reMELD (red) and UNOS-MELD (blue) illustrate model fit.',  fig.subcap=c('Creatinine', 'Bilirubin', 'INR'), out.height="27%"}
-options(warn=-1)
-load("figures/refit/validation_parameters.RData")
-
-betreMELDcreat <- 1.547263
-xlow <- log(0.8)
-xhigh <-log(2.5)
-ylow_re <- exp(betreMELDcreat * xlow)
-yhigh_re <- exp(betreMELDcreat * xhigh)
-
-# add UNOS MELD coef
-betMELDcreat <- 0.957
-xlow <- log(1)
-xhigh <-log(4)
-ylow_meld <- exp(betMELDcreat * xlow)
-yhigh_meld <- exp(betMELDcreat * xhigh)
-
-tmpcreat %>% ggplot(aes(creat1,HR))+
-  geom_line(lwd=1)+
-  geom_line(aes(x = creat1, y = HRlow95), linetype = 2)+
-  geom_line(aes(x = creat1, y = HRupp95), linetype = 2)+
-  scale_x_continuous("Serum creatinine (mmol/L)", limits=c(0.4,10), trans='log10')+ # , trans='log10'
-  scale_y_continuous("Relative Risk of 90-day death",  limits=c(0.3,10), trans='log10')+ # trans='log10',
-  theme_base()+
-  geom_segment(aes(x = 0.8, y = ylow_re, xend = 2.5, yend = yhigh_re),colour = "red", lwd=1.2)+
-  geom_segment(aes(x = 0.4, y = ylow_re, xend = 0.8, yend = ylow_re),colour = "red", lwd=1.2)+
-  geom_segment(aes(x = 2.5, y = yhigh_re, xend = 10, yend = yhigh_re),colour = "red", lwd=1.2)+
-  geom_segment(aes(x=1,y=ylow_meld,xend=4,yend=yhigh_meld), colour = "blue", lwd=1.2)+
-  geom_segment(aes(x=0.4,y=ylow_meld,xend=1,yend=ylow_meld), colour = "blue", lwd=1.2)+
-  geom_segment(aes(x=4,y=yhigh_meld,xend=10,yend=yhigh_meld), colour = "blue", lwd=1.2)
-
-# bili
-betreMELDbili <- 0.6899988
-xlow <- log(0.3)
-xhigh <-log(26.9)
-ylow_re <- exp(betreMELDbili * xlow)
-yhigh_re <- exp(betreMELDbili * xhigh)
-
-# add UNOS MELD coef
-betMELDbili <- 0.378
-tmpbili$y_bili <- tmpbili$bili1*betMELDbili
-xlow <- log(1)
-xhigh <-log(100)
-ylow_meld <- exp(betMELDbili * xlow)
-yhigh_meld <- exp(betMELDbili * xhigh)
-
-tmpbili %>% ggplot(aes(bili1,HR))+
-  geom_line(lwd=1)+
-  geom_line(aes(x = bili1, y = HRlow95), linetype = 2)+
-  geom_line(aes(x = bili1, y = HRupp95), linetype = 2)+
-  scale_x_continuous("Serum bilirubin (mmol/L)", limits=c(0.2,100), trans='log10')+ # , trans='log10'
-  scale_y_continuous("Relative Risk of 90-day death",  limits=c(0.3,20), trans='log10')+ # trans='log10',
-  theme_base()+
-  geom_segment(aes(x = 0.3, y = ylow_re, xend = 26.9, yend = yhigh_re),colour = "red", lwd=1.2)+
-  geom_segment(aes(x = 0.2, y = ylow_re, xend = 0.3, yend = ylow_re),colour = "red", lwd=1.2)+
-  geom_segment(aes(x = 26.9, y = yhigh_re, xend = 100, yend = yhigh_re),colour = "red", lwd=1.2)+
-  #geom_line(aes(tmpbili$bili1,tmpbili$bili_meld), colour="blue")
-  geom_segment(aes(x=1,y=ylow_meld,xend=20,yend=20), colour = "blue", lwd=1.2)+
-  geom_segment(aes(x=0.2,y=ylow_meld,xend=1,yend=ylow_meld), colour = "blue", lwd=1.2)
-
-# INR
-betreMELDinr <- 2.121545
-xlow <- log(0.1)
-xhigh <-log(2.6)
-ylow_re <- exp(betreMELDinr * xlow)
-yhigh_re <- exp(betreMELDinr * xhigh)
-
-# add UNOS MELD coef
-betMELDinr <- 0.112
-tmpinr <- tmpINR
-tmpinr$inr1 <- tmpinr$INR1
-tmpinr$y_inr <- tmpinr$inr1*betMELDinr
-xlow <- log(1)
-xhigh <-log(100)
-ylow <- betMELDinr * xlow
-
-tmpinr %>% ggplot(aes(inr1,HR))+
-  geom_line(lwd=1)+
-  geom_line(aes(x = inr1, y = HRlow95), linetype = 2)+
-  geom_line(aes(x = inr1, y = HRupp95), linetype = 2)+
-  scale_x_continuous("Serum INR", limits=c(0.85,10), trans='log10')+ # , trans='log10'
-  scale_y_continuous("Relative Risk of 90-day death",  limits=c(0.5,80), trans='log10')+ # trans='log10',
-  theme_base()+
-  geom_segment(aes(x = 0.85, y = 0.7, xend = 2.6, yend = yhigh_re+0.6),colour = "red", lwd=1.2)+
-  #geom_segment(aes(x = 0.2, y = ylow_re, xend = 0.3, yend = ylow_re),colour = "red", lwd=1.2)+
-  geom_segment(aes(x = 2.6, y = yhigh_re+0.6, xend = 10, yend = yhigh_re+0.6),colour = "red", lwd=1.2)+
-  geom_segment(aes(x=1,y=1,xend=10,yend=9), colour = "blue", lwd=1.2)+
-  geom_segment(aes(x=0.85,y=1,xend=1,yend=1), colour = "blue", lwd=1.2)
-
-options(warn=0)
+knitr::include_graphics(c("figures/figure-html/refit-fig3-1.png",
+                          "figures/figure-html/refit-fig3-2.png",
+                          "figures/figure-html/refit-fig3-3.png"))
 ```
 
 The calculated chi-square values confirmed significant (p<0.001) improvements in the refit models compared to the UNOS-MELD, shown in Table \@ref(tab:refit-tab3). The reMELD and reMELD-Na models showed c-indices of 0.866 and 0.869 respectively, which were significantly (p<0.001) higher than 0.849 of the UNOS-MELD, see Table \@ref(tab:refit-tab3). Furthermore, the reMELD-Na showed a 8% reduction in prediction error as compared to UNOS-MELD with Brier scores of 0.053 (reMELD-Na) and 0.057 (UNOS-MELD) respectively. 
@@ -350,22 +177,7 @@ Most notably, reMELD-Na-prioritized patients were slightly older, were more ofte
 The correlation plot Figure \@ref(fig:refit-fig4) shows which patients would be prioritized according to either UNOS-MELD or re-MELD-Na allocation. 
 
 ```{r refit-fig4, echo=F,  fig.align = "center", fig.cap='Correlation plot of UNOS- MELD and reMELD- Na. Based on the number of transplanted patients after the first 90 days (n = 1,248), the highest- ranked patients according to both scores separately were assigned a liver graft, as represented by the horizontal (graft granted by reMELD- Na) and vertical (by UNOS- MELD) lines. Patients in the top left quadrant (reMELD- Na- prioritized) had a 1.58 times higher risk of 90- day death compared to patients in the lower right quadrant (UNOS- MELD- prioritized).'}
-options(warn=-1)
-load("figures/refit/totaldata.Rdata")
-ggplot(totaldata2) +
- aes(x = UNOSMELD_nonround, y = REFITMELDNA, colour = transplanted) +
- geom_point(size = 1L) +
-  #scale_color_manual(values=c("#D55E00", "#E69F00","#0072B2","#009E73"))+
-  scale_color_brewer(palette = "RdYlBu", direction=-1) +
- labs(x = "UNOS MELD", y = "reMELD-Na", 
-      #title = "Correlation plot UNOS MELD and reMELD-Na ", 
-      color = "Transplanted") +
-  geom_hline(yintercept=22.49)+ #manual lookup
-  geom_vline(xintercept=23.30)+
-  scale_x_continuous(breaks=c(10,20,30,40,50,60), labels=c(10,20,30,40,50,60))+
-  scale_y_continuous(breaks=c(10,20,30,40), labels=c(10,20,30,40), limits= c(6,40))+
-  ggthemes::theme_base()+ theme(legend.position = c(0.75, 0.2))
-options(warn=0)
+knitr::include_graphics("figures/figure-html/refit-fig4-1.png")
 ```
 
 The patients in the top left quadrant would have been prioritized by reMELD-Na allocation but not by UNOS-MELD. They had estimated 90-day survival probabilities of 52.4% (95CI 41.3 – 66.5), as compared to 70.0% (95CI 58.9 – 83.1) for patients prioritized by UNOS-MELD, but not by reMELD-Na (bottom right quadrant), Thus, re-MELD-Na would have prioritized patients with a 90-day WL mortality HR of 1.6 as compared to currently prioritized patients. Figure \@ref(fig:refit-fig4) also illustrated that after refitting, no scores above 40 were calculated and thus that all high MELD scores were acknowledged correctly. By using more recent data and the true 90-day mortality rates of our population, reMELD-Na showed that very few patients actually approached 100% 90-day WL mortality, i.e. MELD 40. Thus, the refit models restored the clinical meaning of the 6-40-point range.

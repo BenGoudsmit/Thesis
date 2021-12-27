@@ -94,6 +94,11 @@ output:
     config:
       edit: https://github.com/BenGoudsmit/Thesis/blob/master/%s
       download: ["thesis - final.pdf"]
+      sharing:
+        facebook: no
+        github: yes
+        twitter: yes
+        all: ['facebook', 'twitter', 'linkedin']
       toc: 
         #this text will print on top ("before") or at the bottom ("after") of the table of contents
         before: | 

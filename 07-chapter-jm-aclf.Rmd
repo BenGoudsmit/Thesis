@@ -82,13 +82,9 @@ kbl(dt_footnote, booktabs=T, caption = "Baseline characteristics of UNOS liver t
     linesep= "")%>%
   kable_styling(latex_options = c("striped","scale_down")) %>% 
   kable_classic() %>%
-  #kable_styling(latex_options = c("scale_down")) %>% 
   pack_rows("Status after waiting", 6, 9) %>%
   pack_rows("Grouped cause of disease (%)", 10, 17) %>%
   pack_rows("Failure organ/system (%)", 20, 25) %>%
-  # footnote(threeparttable=T, 
-  #          general = "HCV, NASH, alcoholic, and cirrhosis other patients received cirrhosis=1 in the JM. BMI: body mass index, HCV: hepatitis C virus, NASH: non-acoholic steatohepatitis, MELD-Na: model for end-stage liver disease sodium"
-  #          ) %>% 
   landscape()
 
 options(warn=0)
@@ -134,41 +130,14 @@ options(warn=0)
 Figure \@ref(fig:aclf-fig2) show that with increasing ACLF grade, JM performance remains significantly better than the declining MELD-Na (also see table S3 and figure S3). Especially for 90-day prediction in ACLF grade 3 patients, JM performance is excellent with AUCs ranging from 0.841 to 0.853, contrasting the MELD-Na AUCs between 0.613 and 0.693. MELD-Na AUCs (almost) equal chance when predicting 28-day mortality in ACLF-3 patients, ranging from 0.497 to 0.605. Importantly, the ACLF-JM also better estimated risks, i.e. is better calibrated, than the MELD-Na (figure S2B). With increasing ACLF grade, prediction errors were improved up to 37.6% (figure S3B). An accurate model is important for clinical decision-making, because decisions are often based on risks.^19^
 
 ```{r aclf-fig2, echo=F, fig.cap='The AUCs for 28- and 90-day mortality prediction of the ACLF-JM and the MELD-Na, stratified for ACLF severity.'}
-#knitr::include_graphics("figures/aclfjm/figure 2 v2.png" , auto_pdf=T)
-dfpred <- read_xlsx("figures/aclfjm/dfriskreg - r import.xlsx")
-dfpred %>%
-  dplyr::rename(AUCs=JM_AUCs,Briers=JM_Briers, Times=Time) %>% 
-  mutate(Times=factor(Times),
-         Prediction=factor(Prediction, levels=c("28","90"),labels=c("28 days","90 days")),
-         Model=factor(Model,levels=c("JM","MELD-Na"),labels=c("ACLF-JM","MELD-Na")),
-         ACLF = fct_relevel(ACLF,"No ACLF","All ACLF", "ACLF-1", "ACLF-2", "ACLF-3")) %>%
-  filter(ACLF!="All ACLF") %>% 
-  ggplot(aes(x=Times,y=AUCs,fill=Model,group=Model))+
-  geom_bar(position="dodge",stat="identity",color="black")+
-  scale_fill_brewer(palette="Blues",direction=1)+
-  facet_grid(Prediction~ACLF)+
-  theme_pubr()+ theme(legend.title = element_blank())+
-  geom_text(aes(label=round(AUCs,digits=1)), vjust=-0.3, size=3.5, position = position_dodge(1))+
-  labs(y="Mortality AUC",x="Time (days)")+
-  scale_x_discrete(labels=c("0","2","7","14"))+ 
-  coord_cartesian(ylim = c(0.45,0.9))
+knitr::include_graphics("figures/figure-html/aclf-fig2-1.png")
 ```
 
 ### ACLF-JM impact on the transplantation waiting list {.unnumbered}
 To study the difference in survival prediction and subsequent allocation priority between the ACLF-JM and the MELD-Na, patients were followed the first 28 days. In total, 2636 transplants were done within this period. Figure \@ref(fig:aclf-fig3) shows the correlation plot between MELD-Na scores and ACLF-JM mortality estimates after 28 days of waiting list follow-up. For 2186 patients (in green), transplantation priority was given according to both the ACLF-JM and MELD-Na, as estimated mortality without LT was highest. More interestingly, 450 patients (in blue) could possibly have been prioritized by the ACLF-JM, but not by MELD-Na. 
 
 ```{r aclf-fig3, echo=F, fig.cap='The correlation plot of MELD-Na score and 28-day ACLF-JM survival predictions. Patients are stratified in 4 groups: orange and blue patients would have been prioritized differently under either the ACLF-JM or MELD-Na. Blue patients had a 4x higher 28-day waiting list mortality than orange patients.'}
-load("figures/aclfjm/df3.Rdata")
-cbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
-df3 %>% 
-  mutate(tx2=case_when(tx=="Both"~"Both prioritized",tx=="JM prioritized"~"JM prioritized",
-                       tx=="MELD-Na prioritized"~"MELD-Na prioritized",
-                       tx=="Not transplanted"~"Not prioritized")) %>% 
-  ggplot(aes(x=1-jm_sprobs,y=meldnauncapped, group=tx, color=factor(tx2)))+
-  geom_point()+
-  scale_colour_manual(values=cbPalette)+
-  xlab("JM 28−day mortality probabilities") + ylab("MELD-Na score") + 
-  theme_base() + theme(legend.position = c(0.8, 0.2),legend.title = element_text(size=0))
+knitr::include_graphics("figures/figure-html/aclf-fig3-1.png")
 ```
 
 Importantly, although these patients had lower median MELD-Na scores, they also had four times higher 28-day mortality rates, i.e., 13.1% versus 3.1%, see Table \@ref(tab:aclf-tab3). Compared to the 450 MELD-Na-prioritized patients (orange), ACLF-JM-prioritized patients were older, more often female, had lower ACLF-1 rates, more NASH, less alcohol-induced liver disease and were more often dependent on life-support. After 28 days, 190 patients were delisted due to increased disease severity. In these patients, survival prediction AUC (95%CI) of the ACLF-JM and MELD-Na was 88.0 (85.1-90.9) and 82.5 (79.0-85.9), respectively (figure S6). 

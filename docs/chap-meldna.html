@@ -633,7 +633,7 @@ Figure 2.2: Violin plots with embedded box plots of the median serum sodium (Na)
 </div>
 <p>Competing risk analysis showed that 90-day mortality and transplantation rates increased as sodium levels decreased, see Figure <a href="chap-meldna.html#fig:meldna-fig3">2.3</a>. Na&lt;130, 130-134 and &gt;=135 patients had 90-day death risks of respectively 27%, 18% and 8%. The 90-day transplant rates were respectively 33%, 27% and 18.0%. The grouped Na levels showed diverging survival curves, i.e. at lower Na levels the mortality risk increased at a higher rate (supplement 2). The 90-day death HRs for Na &lt;130 and Na 130-134 compared to Na &gt;=135 patients were 4.72 (95%CI 3.81-5.83), and 2.72 (95%CI 2.26-3.28), respectively.</p>
 <div class="figure"><span style="display:block;" id="fig:meldna-fig3"></span>
-<img src="thesis_files/figure-html/meldna-fig3-1.png" alt="Cumulative incidence plots for 90-day WL outcomes, with competing risks of death, transplantation and removal due to clinical condition or censoring for NSE or HU status during waiting. Hyponatriemic patients show increased rates of mortality (27%) and transplantation (33%) compared to normonatriemic patients (respectively 8% and 18%) patients. For an explanation of the NSE and HU status, see Jochmans et al." width="672" />
+<img src="figures/figure-html/meldna-fig3-1.png" alt="Cumulative incidence plots for 90-day WL outcomes, with competing risks of death, transplantation and removal due to clinical condition or censoring for NSE or HU status during waiting. Hyponatriemic patients show increased rates of mortality (27%) and transplantation (33%) compared to normonatriemic patients (respectively 8% and 18%) patients. For an explanation of the NSE and HU status, see Jochmans et al." width="672" />
 <p class="caption">
 Figure 2.3: Cumulative incidence plots for 90-day WL outcomes, with competing risks of death, transplantation and removal due to clinical condition or censoring for NSE or HU status during waiting. Hyponatriemic patients show increased rates of mortality (27%) and transplantation (33%) compared to normonatriemic patients (respectively 8% and 18%) patients. For an explanation of the NSE and HU status, see Jochmans et al.
 </p>
@@ -643,13 +643,13 @@ Figure 2.3: Cumulative incidence plots for 90-day WL outcomes, with competing ri
 <h3>MELD-Na performance</h3>
 <p>Per MELD point increase, the 90-day mortality risk increased by 17% (HR 1.17; 95%CI 1.16 – 1.18; p&lt;0.001), c-index 0.832 (SE 0.008). The GAM with splines of the MELD-corrected effect of Na level on 90-day mortality showed approximate linearity in the 125-140 mmol/L range, see Figure <a href="chap-meldna.html#fig:meldna-fig4">2.4</a>. Within this interval, the risk of 90-day death increased by threefold (HR 2.9; 95%CI 2.30-3.53; p&lt;0.001). In the MELD-Na model, each gained MELD and lowered Na point increased 90-day mortality risk by respectively 16% (HR 1.16; 95%CI 1.15 – 1.17; p&lt;0.001), and 8% (HR 0.92; 95%CI 0.90 – 0.94; p&lt;0.001), c-index 0.847 (SE 0.007). For each year of the study period, the c-index of MELD and MELD-Na was plotted, see Figure <a href="chap-meldna.html#fig:meldna-fig5">2.5</a>. Between 2007-2018, the c-index of MELD and MELD-Na decreased significantly, respectively from 0.866 to 0.810 and 0.946 to 0.828 (Table <a href="chap-meldna.html#tab:meldna-tab2">2.2</a> ). In this period, the MELD, age and distribution of liver disease changed significantly (supplement 4). Alcohol-induced liver disease, HCC, primary biliary cirrhosis (PBC) and non-alcoholic steatohepatitis (NASH) cirrhosis increased and primary sclerosing cholangitis (PSC), hepatitis-C (HCV), hepatitis-B (HBV) and other causes decreased.</p>
 <div class="figure"><span style="display:block;" id="fig:meldna-fig4"></span>
-<img src="thesis_files/figure-html/meldna-fig4-1.png" alt="Generalized additive Cox model with spline showing the effect of serum sodium at listing on 90-day mortality, corrected for the MELD score." width="672" />
+<img src="figures/figure-html/meldna-fig4-1.png" alt="Generalized additive Cox model with spline showing the effect of serum sodium at listing on 90-day mortality, corrected for the MELD score." width="672" />
 <p class="caption">
 Figure 2.4: Generalized additive Cox model with spline showing the effect of serum sodium at listing on 90-day mortality, corrected for the MELD score.
 </p>
 </div>
 <div class="figure"><span style="display:block;" id="fig:meldna-fig5"></span>
-<img src="thesis_files/figure-html/meldna-fig5-1.png" alt="The concordance statistics (c-indices) for 90-day mortality of MELD and MELD-Na between 2007 and 2018." width="672" />
+<img src="figures/figure-html/meldna-fig5-1.png" alt="The concordance statistics (c-indices) for 90-day mortality of MELD and MELD-Na between 2007 and 2018." width="672" />
 <p class="caption">
 Figure 2.5: The concordance statistics (c-indices) for 90-day mortality of MELD and MELD-Na between 2007 and 2018.
 </p>
@@ -886,7 +886,7 @@ SE
 </table>
 <p>The MELD-Na calibration plot showed a well calibrated model for 90% of the predicted risks in the population, with an overestimation for the highest 10% (504 patients) predicted risks (Figure <a href="chap-meldna.html#fig:meldna-fig6">2.6</a> and supplement 6). The prediction error of 90-day death was lower for MELD-Na than for MELD, with Brier scores of respectively 0.059 (34% prediction error reduction), and 0.061 (32% reduction).</p>
 <div class="figure"><span style="display:block;" id="fig:meldna-fig6"></span>
-<img src="thesis_files/figure-html/meldna-fig6-1.png" alt="Calibration plot of the MELD-Na model showing the predicted and observed risks of death per decile (10%) of the patient population. The diagonal line represents a perfect calibration." width="672" />
+<img src="figures/figure-html/meldna-fig6-1.png" alt="Calibration plot of the MELD-Na model showing the predicted and observed risks of death per decile (10%) of the patient population. The diagonal line represents a perfect calibration." width="672" />
 <p class="caption">
 Figure 2.6: Calibration plot of the MELD-Na model showing the predicted and observed risks of death per decile (10%) of the patient population. The diagonal line represents a perfect calibration.
 </p>
@@ -896,7 +896,7 @@ Figure 2.6: Calibration plot of the MELD-Na model showing the predicted and obse
 <h3>Impact on the waiting list</h3>
 <p>On the WL, implementation of the MELD-Na score would lead to competition for transplantation between hyponatremic and high-MELD patients. The constructed heatmap of risk differences showed that compared to MELD, approximately 20% of the patients gained significant predicted 90-day mortality risks according to MELD-Na (red area). The largest increase (+22.5%) was found for MELD 23 Na 125 patients. Approximately 19% of the patients had significantly lower predicted risks with MELD-Na compared to MELD (blue area), of which the largest decrease (-8.72%) was estimated for MELD 27 Na 140 patients, see Figure <a href="chap-meldna.html#fig:meldna-fig7">2.7</a>. Thus, the patients in the red area (19%) are prioritized most by MELD-Na. On the other hand, the lowest 20% of predicted risks (blue area) would have a reduced chance of transplantation compared to MELD allocation. The interactive heatmaps allow specific assessment of the gained risks and MELD-Na points for individual patients (online supplement <a href="https://plot.ly/~Liver_Research/3/" class="uri">https://plot.ly/~Liver_Research/3/</a> and <a href="https://plot.ly/~Liver_Research/5/" class="uri">https://plot.ly/~Liver_Research/5/</a>). In total, 3384 (64.9%) patients gained an average of 1.94 MELD-Na points at listing. The highest reclassification rates, i.e. lowest percentage on the diagonal, were seen between MELD 12 to 30 (figure 8 and <a href="https://plot.ly/~Liver_Research/7/" class="uri">https://plot.ly/~Liver_Research/7/</a> and <a href="https://plot.ly/~Liver_Research/18/" class="uri">https://plot.ly/~Liver_Research/18/</a>). On average, MELD 23 patients gained the most, i.e. an average of 2.73, MELD-Na points. From 19 points and above, the frequency of MELD-Na scores at listing was significantly higher than MELD scores, with the exception of MELD 40 (online supplement <a href="https://plot.ly/~Liver_Research/11/" class="uri">https://plot.ly/~Liver_Research/11/</a>).</p>
 <div class="figure"><span style="display:block;" id="fig:meldna-fig7"></span>
-<img src="thesis_files/figure-html/meldna-fig7-1.png" alt="Point and risk differences between MELD and MELD-Na." width="672" /><img src="thesis_files/figure-html/meldna-fig7-2.png" alt="Point and risk differences between MELD and MELD-Na." width="672" />
+<img src="figures/figure-html/meldna-fig7-1.png" alt="Point and risk differences between MELD and MELD-Na." width="672" /><img src="figures/figure-html/meldna-fig7-2.png" alt="Point and risk differences between MELD and MELD-Na." width="672" />
 <p class="caption">
 Figure 2.7: Point and risk differences between MELD and MELD-Na.
 </p>
@@ -1012,7 +1012,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/BenGoudsmit/Thesis/edit/master/02-chapter-meldna.Rmd",
+"link": "https://github.com/BenGoudsmit/Thesis/blob/master/02-chapter-meldna.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -1023,7 +1023,7 @@ gitbook.start({
 "link": "https://github.com/BenGoudsmit/Thesis/blob/master/02-chapter-meldna.Rmd",
 "text": null
 },
-"download": "book.pdf",
+"download": "thesis - final.pdf",
 "search": {
 "engine": "fuse",
 "options": null

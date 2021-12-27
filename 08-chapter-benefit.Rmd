@@ -66,35 +66,7 @@ This retrospective cohort analysis included adult (>=18 years) patients listed f
 Survival benefit was defined as the life-years gained from transplantation during the next five years, see Figure \@ref(fig:benefit-fig1b).^21,29^ To estimate benefit for a given transplanted patient, post-transplantation survival (henceforth ‘with LT’) was contrasted to the hypothetical waiting list survival if LT would not have happened (henceforth ‘without LT’), again see Figure \@ref(fig:benefit-fig1a).^21^ Crucially, we estimated future waiting list survival from the moment of LT and not from baseline, as patients are not transplanted at baseline. To model without LT survival, we chose time-dependent Cox regression corrected with inverse probability censoring weighting (IPCW), in accordance to previous studies.^21–23,26^ IPCW is used when treatment is initiated after baseline and the chance of treatment depends on patient characteristics, that is changing MELD-Na scores over time.^21,26,30^ This dependence confounds analysis of waiting list survival upon which allocation is based. These risks therefore must be corrected with statistical methods, preferably IPCW.^21,26,30^ Unlike previous work,^13,16,17,28,31,32^ we specifically did not use intention-to-treat (ITT) or competing risk analysis, please see supplement 1 for a detailed explanation. In short, because 1) they predict a different risk than without LT survival, 2) could result in undertreatment of patients,^30^ and 3) we wanted to model changes in waiting list disease over time beyond baseline. The IPCW analyses are more complex and therefore less often applied, but this does not mean we should not use them.^33^
 
 ```{r benefit-fig1b, message=F, echo=F, fig.cap='The survival with (solid line), without (dashed line) and benefit from transplantation (green area) are shown. In this example, survival is averaged for non-HCC patients with MELD-Na 25. Please note the difference in survival during five years (lines) and at five years (dots).'}
-options(warn=-1)
-library(kableExtra)
-library(readxl)
-library(tidyverse)
-load("figures/benefit/df2 plots 3.Rdata")
-
-probs <- df2 %>%
-  filter(meld==25 & hccdiagnosis=="No HCC" & time==5) %>%
-  group_by(meld,time,hccdiagnosis) %>%
-  summarise(post=mean(post_sprobs),
-            pre=mean(pre_sprobs))
-
-df2 %>%
-  filter(meld==25 & hccdiagnosis=="No HCC") %>%
-  group_by(meld,time,hccdiagnosis) %>%
-  mutate(post_meansurv=mean(post_surv),
-         pre_meansurv=mean(pre_surv))%>%
-  ggplot(aes(time,post_meansurv)) + geom_line(lwd=1.2)+
-  geom_line(aes(time,pre_meansurv), lty=2, lwd=1.2)+
-  geom_ribbon(aes(ymin=pre_meansurv, ymax=post_meansurv), fill="#32CD32", alpha=0.5) +
-  geom_point(aes(x=5,y=probs$post-0.005),color="dodgerblue",lwd=4)+
-  geom_point(aes(x=5,y=probs$pre-0.01),color="dodgerblue",lwd=4)+
-  scale_y_continuous(name="Survival probability",limits=c(0,1)) +
-  scale_x_continuous(name="Time after transplantation (years)", limits=c(0,5))+
-  theme_bw() +
-  theme(axis.title=element_text(size=13))+
-  annotate("text", x = c(4.5), y=c(probs$pre+0.05,probs$post+0.05),
-           label = c("Survival without LT", "Survival with LT"))
-options(warn=0)
+knitr::include_graphics(c("figures/figure-html/benefit-fig1b-1.png"))
 ```
 
 ### Statistical analysis {.unnumbered}
@@ -154,93 +126,21 @@ The significant predictors for the post-transplantation survival model are shown
 The distribution of MELD(-Na) scores at transplantation is shown in Figure \@ref(fig:benefit-fig2). Non-HCC patients were mostly transplanted at MELD(-Na) scores above 14 and HCC patients mostly below MELD(-Na) 14. This distribution is important for the interpretation of the survival and benefit estimates presented below.
 
 ```{r benefit-fig2,message=F,warning=F, echo=F, fig.cap='Distribution of MELD(-Na) scores at transplantation, per (non-)HCC disease. Non-HCC patients are mostly transplanted at MELD(-Na) scores >14. On the other hand, HCC patients are mostly transplanted below MELD(-Na) 14. Also, a significant part of non-HCC patients is transplanted above MELD(-Na) 30, whereas only 3% of HCC patients is transplanted at MELD(-Na) above 30.'}
-#knitr::include_graphics("figures/benefit/figure 2.png", auto_pdf=T)
-options(warn=-1)
-load("figures/benefit/dftemp.Rdata")
-cbp2 <- c("#000000", "#E69F00", "#56B4E9", "#009E73",
-          "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
-df %>% 
-  mutate(exceptiondiagnosis2=case_when(exceptiondiagnosis=="No HCC"~1,
-                                       exceptiondiagnosis=="T2 HCC"~2,
-                                       exceptiondiagnosis=="not T2 HCC"~3),
-         exceptiondiagnosis2=factor(exceptiondiagnosis2,levels=c(1:3),labels=c("No HCC","T2 HCC",
-                                                                               "HCC outside criteria"))) %>% 
-  ggplot(aes(combo_uncapmeld)) + geom_freqpoly( aes(color = exceptiondiagnosis2),bins = 50, size = 1.5) +
-  scale_color_manual(values = cbp2)+ theme_bw() + 
-  scale_x_continuous(name="MELD(-Na) score at transplantation", limits=c(6,60), breaks=c(seq(6,58,2)))+
-   theme(
-    axis.title=element_text(size=13),
-    legend.title = element_blank(), 
-        legend.position = c(0.85, 0.4),
-        legend.background = element_rect(fill="white", size=0.5, linetype="solid", colour ="black"))
-options(warn=0)
+knitr::include_graphics(c("figures/figure-html/benefit-fig2-1.png"))
 ```
 
 Figure \@ref(fig:benefit-fig3a) shows the smoothed average survival probabilities during the next five years, both for post-transplantation (with LT: solid lines) and for remaining on the waiting list (without LT: dashed lines). Because life years are gained over time, Figure \@ref(fig:benefit-fig3a) shows the mean survival during five years, i.e., the mean of the lines shown in Figure \@ref(fig:benefit-fig1b). The survival probabilities at five years without and with LT are presented in Table S3, which are perhaps more intuitive survival measures for the clinician and patient. However, these hold no information regarding the survival trajectory during five years, which is what the average survival and benefit do encompass. 
 For non-HCC patients below MELD(-Na) 10, i.e., a small number of patients, see Figure \@ref(fig:benefit-fig2), mean survival probability without LT was better than with LT survival. In other words, on average these patients should not be transplanted. At equal MELD(-Na) scores, waiting list survival without LT for HCC patients was notably lower than for non-HCC patients. Survival without LT probabilities converged at the lowest levels, i.e., mortality could not increase much more at high MELD(-Na) scores. The average survival with LT in both groups declined above approximately MELD(-Na) 24. However, HCC survival decreased more at higher MELD(-Na) scores, most for HCC outside criteria. This decrease in posttransplant survival was possibly due to disease recurrence.
 
 ```{r benefit-fig3a, echo=F, message=F, fig.cap='The mean survival during the next five years per MELD(-Na) score, for the waiting list (dashed lines) and after transplantation (solid lines). Note that the dashed lines represent future ‘without LT’ waiting list survival. The left y-axis shows life expectancy in years, the right y-axis shows survival probability.'}
-options(warn=-1)
-library(tidyverse)
-library(ggplot2)
-library(ggthemes)
-library(riskRegression)
-library(survival)
-library(ggpubr)
-library(knitr)
-library(kableExtra)
-library(readxl)
-library(tidyverse)
-load("figures/benefit/benefit figures.Rdata")
-cbp2 <- c("#000000", "#E69F00", "#56B4E9", "#009E73",
-          "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
-trans_fact <- 0.05
-
-benefit %>% 
-  ggplot(aes(combo_meld_at_transplant,post_rmst,color=hccdiagnosis,group=hccdiagnosis))+
-  geom_line(stat="smooth", lwd=1.5)+
-  geom_line(aes(combo_meld_at_transplant,pre_rmst,color=hccdiagnosis,group=hccdiagnosis),
-            stat="smooth", lwd=1.5, linetype="twodash")+
-  scale_y_continuous(name="Life expectancy in the next 5 years",breaks=seq(-0.5,5,0.5),
-                     sec.axis = sec_axis(~./trans_fact,
-                       name="Survival probability in the next 5 years (%)", breaks=seq(0,90,10)))+
-  scale_x_continuous(name="MELD(-Na) score at transplantation", breaks=seq(6,40,2)) + 
-  color_palette(cbp2) + 
-  #ggtitle("Average 5-year life expectancy and survival probability")+
-  theme_bw() +
-  annotate("text", x = c(36), y=c(0.1,4), label = c("Without LT", "With LT"))+ 
-  theme(
-    axis.title=element_text(size=13),
-    legend.title = element_blank(), 
-        legend.position = c(0.84, 0.4),
-        legend.background = element_rect(fill="white", size=0.5, linetype="solid", colour ="black"))
-
-options(warn=0)
+knitr::include_graphics(c("figures/figure-html/benefit-fig3a-1.png"))
 ```
 
 ### Survival benefit: life-years gained per 5 years {.unnumbered}
 The 5-year transplantation survival benefit per MELD(-Na) score and per (non-)HCC disease is shown in Figure \@ref(fig:benefit-fig3b) and Table \@ref(tab:benefit-tab2) (see Table S4 for the averages per MELD(-Na) score). Please note that the y-values correspond to the surface area shown in Figure \@ref(fig:benefit-fig1b), e.g., for a non-HCC MELD(-Na) 25 patient, LT would give 2.35 years survival benefit during the next five years. 
 
 ```{r benefit-fig3b, echo=F, message=F, fig.cap='The survival benefit of liver transplantation per MELD(-Na) score. The left y-axis shows the average life-years gained in the next 5 years, i.e., the green surface area in Figure 8.2. The right y-axis shows the percentage improvement in mean survival probability during the next 5 years. Thus, for example, a T2/within Milan HCC patient with MELD-Na score 25 will gain 2.5 extra life-years in the next 5 years, i.e., the mean survival increases with 50% through transplantation.'}
-options(warn=-1)
-# benefit 2 y axes
-benefit %>% 
-  ggplot(aes(combo_meld_at_transplant,benefit5y,color=hccdiagnosis,group=hccdiagnosis))+geom_line(stat="smooth", lwd=1.5)+
-  scale_y_continuous(name="Life-years gained next 5 years", breaks=seq(-0.5,4,0.5),
-                     sec.axis=sec_axis(~./trans_fact, name="Improvement in survival probability next 5 years (%)",
-                     breaks=seq(-10,70,10)))+
-  scale_x_continuous(name="MELD(-Na) score at transplantation", breaks=seq(6,40,2)) + 
-  color_palette(cbp2) + 
-  #ggtitle("Survival benefit of liver transplantation")+
-  theme_bw() + 
-  geom_hline(yintercept=0, color = "red") +
-  annotate("text", x = c(37), y=c(-0.1,0.1), label = c("Life-years lost", "Life-years gained"))+ 
-  theme(
-    axis.title=element_text(size=13),
-    legend.title = element_blank(), 
-        legend.position = c(0.82, 0.4),
-        legend.background = element_rect(fill="white", size=0.5, linetype="solid", colour ="black"))
-options(warn=0)
+knitr::include_graphics(c("figures/figure-html/benefit-fig3b-1.png"))
 ```
 
 For the 2.2% of non-HCC patients transplanted at MELD(-Na) below 9, benefit was negative, because mean postoperative life-expectancy was lower than survival without LT. With increasing MELD(-Na) scores, non-HCC benefit increased approximately linearly, up to 70% mean 5-year survival improvement for MELD(-Na) 40. The HCC benefit curves flattened with increasing MELD(-Na), whereas non-HCC benefit continued to increase. HCC MELD(-Na) >=30 benefit estimates should be interpreted carefully as they represent a small number of patients, i.e., 4.5% of the T2 HCC and 2.8% of the outside criteria HCC patients. The HCC benefit flattened at higher MELD(-Na) scores because of decreasing post-transplant survival, see Figure \@ref(fig:benefit-fig3a).
