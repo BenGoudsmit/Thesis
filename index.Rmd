@@ -1,9 +1,6 @@
 ---
 ### Title page
 title: "Improving survival prediction models for liver transplantation candidates"
-# subtitle: |
-#   | Prediction models through a clinical lens 
-# (can also be  omitted if you don't have a subtitle)
 author: "Ben Felix Jacob Goudsmit" # Your full name (including middle names if applicable)
 date: '' # Your defense date in Dutch: "[weekday] [day in numerics] [name of month] [year]"
 aula: true # set to true if your defense is in the Aula; set to false/omit if it is in the Agnietenkapel
