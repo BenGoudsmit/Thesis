@@ -12,8 +12,8 @@ time: "xx.xx" # time of your defense (a 24h time, e.g. "14.00")
 # This paragraph begins with "This thesis was typeset using (R) Markdown, \LaTeX\ and the \verb+bookdown+ R-package"
 # and is optionally followed by:
 ISBN: "xxx-xx-xxxx-xxx-x" # optional, otherwise this bit is omitted
-printing: "" # optional, otherwise this bit is omitted
-cover: "Cover design by " # optional, otherwise this bit is omitted
+printing: "Gildeprint" # optional, otherwise this bit is omitted
+cover: "Cover design by Anke @ Persoonlijk Proefschrift" # optional, otherwise this bit is omitted
 
 # # Can be skipped entirely, but if you define THESIS_URL, this will read: 
 # # "An online version of this thesis is available at THESIS_URL [,licensed under a LICENSE.]
@@ -89,11 +89,10 @@ output:
   # settings for html output
   bookdown::gitbook:
     config:
-      edit: https://github.com/BenGoudsmit/Thesis/blob/master/%s
-      download: ["thesis - final.pdf"]
+      download: ["pdf"]
       sharing:
         facebook: no
-        github: yes
+        github: no
         twitter: yes
         all: ['facebook', 'twitter', 'linkedin']
       toc: 
