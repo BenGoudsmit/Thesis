@@ -1,4 +1,11 @@
-\addtocontents{toc}{\setcounter{tocdepth}{1}}
+<!-- \addtocontents{toc}{\setcounter{tocdepth}{1}} -->
+\addtocontents{toc}{\setcounter{tocdepth}{0}}
+
+\newpage
+\thispagestyle{plain}
+\mbox{}
+\pagecolor{black}
+\color{white}
 
 # General introduction
 
@@ -16,8 +23,11 @@
 ------------------------------------------------------------------------
 
 \newpage
+\nopagecolor
+\color{black}
+\linespread{1.213}
 
-## Research in context
+## Research in context {.unnumbered}
 
 This thesis focuses on survival prediction models in liver transplantation (LT). Predicting survival is important because it is used to prioritize patients in need of transplantation. Many patients are not transplanted in time, due to the shortage of donor liver grafts.^1,2^ Optimizing survival prediction models is therefore a matter of life and death.
 
@@ -38,7 +48,7 @@ Because liver allocation aims to prioritize patients who will die soonest withou
 
 Clinical information of a patient can relate to the true patient state that is either currently present (diagnosis) or will be present in the future (prognosis).^11^ In the setting of survival prediction, future survival (prognosis) of a patient is estimated. Typically, only some patients will experience the event of interest (death) within the studied time. Therefore, survival times will be unknown for many patients, which is known as censoring of outcome.^12^ Right censoring can occur because (1) the patient did not die yet, (2) because the patient was lost during study follow-up, or (3) another event took place which disabled further follow-up (e.g., transplantation prevented further follow-up for death on the waiting list). The fact that patients can be censored makes survival analysis difficult, as the aim is to use all the available information and to not discard follow-up times of patients without the event. In the setting of LT and this thesis, survival analysis will mostly be done for LT candidates on the waiting list. The survival probability on the waiting list is the chance that a patient survives from a specified time of origin (e.g., first registration) until a future time point (e.g., 90 days). Post-transplant survival will also be used in chapter \@ref(chap-benefit) of this thesis and is defined as the probability of survival from the moment of transplantation to the earliest of post-transplant death, loss to follow-up, or end of study.
 
-When predicting survival, it is important to consider that patient characteristics can affect survival and that these characteristics can be differently distributed within the studied population. For example, older patients might more frequently have more severe disease. The Cox proportional hazards model is used to study the impact of one variable, adjusted for the impact of other variables, and to estimate the effect size of each variable.^13^ For the above mentioned example, a Cox model could show that for two patients with the disease severity, a higher age would increase the risk of death. The probability that a patient on the waiting list dies at a given moment is called the hazard $h(t)$: $$h(t) = h_{0}(t) \times e^{b_{1}x_{1} + b_{2}x_{2} + ...}$$ This formula shows that the hazard depends on the chosen time $t$, which seems likely for the waiting list. It also depends on chosen predictors $(x_{1},x_{2},..)$ that have a certain impact, which is expressed through the size of the coefficients $(b_{1},b_{2},..)$. The baseline hazard $h_{0}$ is the hazard if all predictors $(x_{1},x_{2},..)$ were set to zero. For example, if age were used to predict survival, $h_{0}$ would be the instantaneous risk of death at age 0.
+When predicting survival, it is important to consider that patient characteristics can affect survival and that these characteristics can be differently distributed within the studied population. For example, older patients might more frequently have more severe disease. The Cox proportional hazards model is used to study the impact of one variable, adjusted for the impact of other variables, and to estimate the effect size of each variable.^13^ For the above mentioned example, a Cox model could show that for two patients with the disease severity, a higher age would increase the risk of death. The probability that a patient on the waiting list dies at a given moment is called the hazard $h(t)$: \[h(t) = h_{0}(t) \times e^{b_{1}x_{1} + b_{2}x_{2} + ...}\] This formula shows that the hazard depends on the chosen time $t$, which seems likely for the waiting list. It also depends on chosen predictors $(x_{1},x_{2},..)$ that have a certain impact, which is expressed through the size of the coefficients $(b_{1},b_{2},..)$. The baseline hazard $h_{0}$ is the hazard if all predictors $(x_{1},x_{2},..)$ were set to zero. For example, if age were used to predict survival, $h_{0}$ would be the instantaneous risk of death at age 0.
 
 ### Measuring model prediction performance {.unnumbered}
 
@@ -50,25 +60,33 @@ The next essential measure of model performance is calibration, which measures m
 Several survival prediction models have previously been applied in liver allocation. Perhaps the most noteworthy is the Child-Turcotte-Pugh (CTP) score, which was the first widespread model used to reflect patient disease severity for the LT waiting list.^16^ Although this score was a well-established predictor of mortality in cirrhotic patients, it failed in effective sickest-first allocation for several reasons. One important limitation was that patients were categorized in only three groups. These groups still encompassed many patients with varying disease severity and therefore risk stratification was not precise. Also, within each group, waiting time was still used as main prioritizing principle. Another important limitation of the CTP score was the subjective grading of ascites and encephalopathy, which could lead to inter-observer variability when scoring disease severity.^17^ To reach a more reproducible and objective representation of disease, the Model for End-stage Liver Disease (MELD) was considered.
 
 The MELD score was developed in the Mayo Clinic to predict early survival after transjugular intrahepatic portosystemic shunt (TIPS) placement in 231 cirrhotic patients.^18^ These patients received TIPS to prevent variceal rebleeding and to treat refractory ascites. The seminal study by Malinchoc et al. found that three blood measurements best predicted survival, i.e., serum bilirubin, creatinine, and the international normalized ratio for prothrombin time (INR). After validation in 71 Dutch patients, the original MELD equation was proposed: 
-\begin{align*} 
-\ MELD = 9.57\times ln(creatinine) + 3.78\times ln(bilirubin) +\\ 
+\linespread{1}
+\begin{align*}
+\ MELD = 9.57\times ln(creatinine) + 3.78\times ln(bilirubin) +\\
 \ 11.2\times ln(INR) + 6.43 \times(cause of cirrhosis)
-\end{align*} 
+\end{align*}
+\linespread{1.213}
 Because survival after TIPS mainly depended on the severity of liver disease, it was hypothesized that MELD was also suitable for survival prediction in patients without TIPS. Thus, retrospective validation was done to investigate whether MELD could also be applied to different etiologies and severities of liver disease.^19^ It was found that the cause of cirrhosis could be excluded from the equation without lowering predictive performance. Thus, the final form became: 
-\begin{align*} 
-\ MELD = 9.57\times ln(creatinine) + 3.78\times ln(bilirubin) +\\ 
+<!-- \begin{align*}  -->
+<!-- \ MELD = 9.57\times ln(creatinine) + 3.78\times ln(bilirubin) +\\  -->
+<!-- \ 11.2\times ln(INR) + 6.43 -->
+<!-- \end{align*}  -->
+\linespread{1}
+\begin{align*}
+\ MELD = 9.57\times ln(creatinine) + 3.78\times ln(bilirubin) +\\
 \ 11.2\times ln(INR) + 6.43
-\end{align*} 
+\end{align*}
+\linespread{1.213}
 Then, because it was considered as potential allocation model, MELD was prospectively evaluated by ranking patients on the waiting list.^20^ In 2002, MELD was applied as the basis of liver allocation in the United States (US). In 2006, the Eurotransplant region followed. In 2016, the US progressed to a newer form of MELD: the MELD sodium (MELD-Na) score.^21^ However, MELD has remained unchanged as the main driver for liver allocation in the Eurotransplant region.
 
-\chaptermark{Central argument}
+<!-- \chaptermark{Central argument} -->
 
-## Justifying why research is needed: central argument
+## Justifying why research is needed: central argument {.unnumbered}
 In the Eurotransplant region, the fundamental model that predicts survival for liver allocation has remained unchanged since 2006. It is therefore easy to see the gap this thesis aims to fill. The current LT allocation system prioritizes the sickest patients, based on estimated survival on the waiting list. Thus, the primary goal of this thesis is to improve models that predict survival in LT candidates. These improved models could help to distribute liver grafts in the best way possible. To understand the possible improvements, some current problems are outlined below.
 
-\chaptermark{Research questions}
+<!-- \chaptermark{Research questions} -->
 
-## Thesis layout: research questions and addressed problems
+## Thesis layout: research questions and addressed problems {.unnumbered}
 
 ### Considering sodium {.unnumbered}
 The MELD score uses three blood measurements, i.e., serum bilirubin, creatinine, and the INR. In cirrhotic patients, hyponatremia indicates worse survival.^22,23^ This is because the kidneys fail to compensate lowered splanchnic blood pressure caused by cirrhosis-induced vasodilatation. As such, hyponatremia does not represent kidney failure per se, but it indicates a decompensation of regulating systems in a setting of portal hypertension. It was shown that sodium (Na) affected death risk corrected for MELD.^24–26^ Therefore, the addition of sodium (Na) to MELD (MELD-Na) was investigated in the US. Important advantages of serum sodium were that it was readily available and could be measured reliably and objectively. Results showed that MELD-Na better predicted survival on the waiting list and therefore possibly enabled better sickest-first LT allocation.^21^ In 2016, the US implemented MELD-Na as the basis of LT allocation. Subsequent evaluation indeed showed a reduction in waiting list mortality.^27^ Thus, as a starting point for this thesis, it was suggested to validate MELD-Na for the Eurotransplant region. Therefore, in **Chapter \@ref(chap-meldna)**, we hypothesized that MELD-Na would also improve LT candidate survival prediction in the Eurotransplant region.
@@ -77,22 +95,28 @@ The MELD score uses three blood measurements, i.e., serum bilirubin, creatinine,
 After validating MELD-Na, the author questioned whether the current forms of MELD and MELD-Na were suitable for the Eurotransplant region. This question arose because a model best represents the population it is fit in. As the MELD score was fitted 20 years ago in 231 US patients,^18^ it was assumed to be a bad representation of the current Eurotransplant population. Therefore, in **Chapter \@ref(chap-refit)**, the second question posed in this thesis was whether refitting MELD for the Eurotransplant region would improve survival prediction. To understand what refitting means and how improvements could be made, consider the above-mentioned MELD equation. It shows three parameters (bilirubin, creatinine, and INR) and their coefficient (relative weight). The values of these coefficients represent the relations of the variables to survival in the studied population. However, MELD’s coefficients were set in a small (n=231) and likely unrepresentative population.^18^ Population changes (most notably disease incidence) have decreased MELD’s predictive power over the years.^28^ Even in the US, updating MELD showed an improvement in survival prediction.^29,30^ We hypothesized that in a different population, like the Eurotransplant region, MELD variables relation to survival would be different. It is remarkable that the Eurotransplant region has been using a MELD equation that is 20 years old. Thousands of patients have been prioritized based on an unadjusted and possibly suboptimal model.
 
 ### Past and current disease {.unnumbered}
-When refitting MELD, the question arose why only one baseline measurement was used to fit the model. The third problem addressed in this thesis therefore was that current survival prediction for LT prioritization is based on one moment in time, i.e., the last available measurement of MELD. This is not the moment the model was fit for. Previous measurements are also ignored. In the Eurotransplant region at the end of 2020, patients on the LT waiting list spent a median time of 10 months waiting ( _Eurotransplant public statistics library: 3085P_All ET_ ). During this time, disease develops and expected survival changes. This past course of disease encompasses valuable information for the future survival probability and thus patient priority for LT. Although it is currently ignored by MELD, in clinical practice it would be considered undesirable to ignore previous disease information. In **Chapter \@ref(chap-jm)** we hypothesized that using both previous and current disease severity to predict survival would be an improvement. The idea was to better mimic clinical survival prediction, as an experienced clinician would consider both previous and current disease development to estimate patient prognosis. To achieve this, joint models (JMs) were applied.^31^ The JM combines longitudinal and survival analysis. This way, complex questions can be answered, such as: what is the effect of a change in MELD over time on future patient survival? Importantly, JMs yield predictions that are dynamic (updated based on accumulating evidence) and personalized (for the population average and individual). However, JMs were never applied on a large scale in medicine, also not in the field of LT.
+When refitting MELD, the question arose why only one baseline measurement was used to fit the model. The third problem addressed in this thesis therefore was that current survival prediction for LT prioritization is based on one moment in time, i.e., the last available measurement of MELD. This is not the moment the model was fit for. Previous measurements are also ignored. In the Eurotransplant region at the end of 2020, patients on the LT waiting list spent a median time of 10 months waiting ( _Eurotransplant public statistics library: 3085P_All ET_ ). During this time, disease develops and expected survival changes. This past course of disease encompasses valuable information for the future survival probability and thus patient priority for LT. Although it is currently ignored by MELD, in clinical practice it would be considered undesirable to ignore previous disease information. 
+
+In **Chapter \@ref(chap-jm)** we hypothesized that using both previous and current disease severity to predict survival would be an improvement. The idea was to better mimic clinical survival prediction, as an experienced clinician would consider both previous and current disease development to estimate patient prognosis. To achieve this, joint models (JMs) were applied.^31^ The JM combines longitudinal and survival analysis. This way, complex questions can be answered, such as: what is the effect of a change in MELD over time on future patient survival? Importantly, JMs yield predictions that are dynamic (updated based on accumulating evidence) and personalized (for the population average and individual). However, JMs were never applied on a large scale in medicine, also not in the field of LT.
 
 ### Acute-on-chronic liver disease {.unnumbered}
 Most patients on the LT waiting list have chronic liver disease, which gradually worsens in severity. However, some patients can develop acute-on-chronic liver failure (ACLF). ACLF is a syndrome characterized by three major features: systemic inflammation, relationship with precipitating events (e.g., infections or alcoholic hepatitis), and an association with single- or multi-organ failure.^32^ As a result, in ACLF mortality is high and a proportion of these patients urgently needs LT for treatment. However, the MELD score underestimates mortality in ACLF, because it ‘only’ measures liver and kidney failure.^33^ In **Chapter \@ref(chap-aclfjm)**, JMs were applied to model disease and survival in patients with ACLF. We proposed that the dynamic JMs would be valuable in ACLF, because ACLF disease severity and mortality change rapidly over time.^34^ The JM can consider both the value of disease severity and its rate of change at each moment in time. Analogous to speed, one can measure a value (e.g., 15 m/s) and a rate of change (e.g., an acceleration of 5 m/s^2^). The rate of change indicates worsening, stable, or improving disease severity, which is valuable prognostic information.
 
 ### Benefit of transplantation: life years gained {.unnumbered}
-The LT waiting list prioritizes the sickest patients to receive transplantation offers first. It is based on the principle of urgency, to prevent deaths on the waiting list. However, this ignores post-transplant outcomes, which, in an extreme example, could result in transplanting patients who die the next day. Also, patients could be transplanted even though it does more harm than good.^35^ An alternative principle of allocation could be based on survival benefit, or the life years gained from transplantation.^36^ Survival benefit is calculated by comparing the estimated survival with and without LT. For the clinician, it is intuitive to weigh the possible consequences of (not) treating a patient. This is especially true for LT, because it is a treatment with inherent increased risk of death due to surgery and e.g. infections due to post-transplant immunosuppression.^37^ Also, there are far more patients in need of transplantation than there are available liver grafts,^1,2^ which further necessitates the prevention of futile LT.^38,39^ Thus, it is relevant to investigate whether and to what extend patients gain life years from LT. In **Chapter \@ref(chap-benefit)**, survival benefit of US LT candidates is estimated. A survival benefit comparison is made between patients with and without hepatocellular carcinoma (HCC). This is done because survival with and without LT is different between (non-)HCC patients.^40,41^ Allocation also differs between HCC and non-HCC-patients, because MELD(-Na) fails to adequately predict survival in patients with HCC. To compensate this inadequacy, an alternative system of artificial exception points was devised.^42^ Although the aim of the exception point system was to equalize LT access, in practice HCC patients have gained too much LT access.^43–45^ 
+The LT waiting list prioritizes the sickest patients to receive transplantation offers first. It is based on the principle of urgency, to prevent deaths on the waiting list. However, this ignores post-transplant outcomes, which, in an extreme example, could result in transplanting patients who die the next day. Also, patients could be transplanted even though it does more harm than good.^35^ An alternative principle of allocation could be based on survival benefit, or the life years gained from transplantation.^36^ Survival benefit is calculated by comparing the estimated survival with and without LT. For the clinician, it is intuitive to weigh the possible consequences of (not) treating a patient. This is especially true for LT, because it is a treatment with inherent increased risk of death due to surgery and e.g. infections due to post-transplant immunosuppression.^37^ Also, there are far more patients in need of transplantation than there are available liver grafts,^1,2^ which further necessitates the prevention of futile LT.^38,39^ 
+
+Thus, it is relevant to investigate whether and to what extend patients gain life years from LT. In **Chapter \@ref(chap-benefit)**, survival benefit of US LT candidates is estimated. A survival benefit comparison is made between patients with and without hepatocellular carcinoma (HCC). This is done because survival with and without LT is different between (non-)HCC patients.^40,41^ Allocation also differs between HCC and non-HCC-patients, because MELD(-Na) fails to adequately predict survival in patients with HCC. To compensate this inadequacy, an alternative system of artificial exception points was devised.^42^ Although the aim of the exception point system was to equalize LT access, in practice HCC patients have gained too much LT access.^43–45^ 
 In the Eurotransplant exception system, eligible HCC patients receive an initial MELD score that equals 10% (MELD 20) or 15% (MELD 22) 90-day mortality, depending on the country of listing. The initial MELD score is then increased with 10% mortality every 90 days, which intends to mimic tumor progression. It is however evident that exception points fail to represent patient characteristics and are arbitrary. Although the aim of the exception point system was to equalize LT access, in practice HCC patients gained too much LT access.^43–45^ Survival benefit, based on actual patient characteristics, could therefore serve as equalizing principle for survival prediction and allocation.
 
-In **Chapter \@ref(chap-disc)**, this thesis will be summarized, discussed, and provided with future perspectives. In **Chapter \@ref(chap-nlsum)**, a Dutch summary is given.
+In **Part IV**, this thesis will be summarized, discussed, and provided with future perspectives. The appendix provides two supplementary chapters. Lastly, a **summary in Dutch** will be given.
 
 \newpage
 
 \chaptermark{References}
+\linespread{1}
+\small
 
-## References
+## References {.unnumbered}
 1. Eurotransplant International Foundation. Annual Report 2020.; 2020.
 2. Kwong AJ, Kim WR, Lake JR, et al. OPTN/SRTR 2019 Annual Data Report: Liver. Am J Transplant. 2021;21(S2):208-315. doi:10.1111/ajt.16494
 3. Starzl TE, Marchioro TL, Von Kaulla KN, Hermann G, Brittain RS, Wadell WR. Transplantation of the liver. Surg Gynecol Obs. 1963;117(2):659-676. doi:10.1097/00000658-197808000-00001
@@ -138,3 +162,9 @@ In **Chapter \@ref(chap-disc)**, this thesis will be summarized, discussed, and 
 43.	Massie AB, Caffo B, Gentry SE, et al. MELD exceptions and rates of waiting list outcomes. Am J Transplant. 2011;11(11):2362-2371. doi:10.1111/j.1600-6143.2011.03735.x
 44.	Washburn K, Edwards E, Harper A, Freeman RB. Hepatocellular Carcinoma Patients Are Advantaged in the Current Liver Transplant Allocation System. Am J Transplant. 2010;10(7):1652-1657. doi:10.1111/j.1600-6143.2010.03127.x
 45.	Northup PG, Intagliata NM, Shah NL, Pelletier SJ, Berg CL, Argo CK. Excess mortality on the liver transplant waiting list: Unintended policy consequences and model for End-Stage Liver Disease (MELD) inflation. Hepatology. 2015;61(1):285-291. doi:10.1002/hep.27283
+
+\newpage
+\linespread{1.213}
+\normalsize
+\thispagestyle{plain}
+\mbox{}
