@@ -19,3 +19,7 @@ dplyr
 stringr
 forcats
 RColorBrewer
+survminer
+lemon
+viridisLite
+viridis

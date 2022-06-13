@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Future perspectives | Improving survival prediction models for liver transplantation candidates</title>
+  <meta name="description" content="Chapter 9 Future perspectives | Improving survival prediction models for liver transplantation candidates" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Future perspectives | Improving survival prediction models for liver transplantation candidates" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Future perspectives | Improving survival prediction models for liver transplantation candidates" />
+  
+  
+  
+
+<meta name="author" content="Ben Felix Jacob Goudsmit" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="gendisc.html"/>
+<link rel="next" href="appendix.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Thesis BFJ Goudsmit</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="general-introduction.html"><a href="general-introduction.html"><i class="fa fa-check"></i><b>1</b> General introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#research-in-context"><i class="fa fa-check"></i>Research in context</a>
+<ul>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#a-short-history-of-liver-transplantation"><i class="fa fa-check"></i>A short history of liver transplantation</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#the-start-of-liver-allocation"><i class="fa fa-check"></i>The start of liver allocation</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#survival-prediction"><i class="fa fa-check"></i>Survival prediction</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#measuring-model-prediction-performance"><i class="fa fa-check"></i>Measuring model prediction performance</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#the-meld-score"><i class="fa fa-check"></i>The MELD score</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#justifying-why-research-is-needed-central-argument"><i class="fa fa-check"></i>Justifying why research is needed: central argument</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#thesis-layout-research-questions-and-addressed-problems"><i class="fa fa-check"></i>Thesis layout: research questions and addressed problems</a>
+<ul>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#considering-sodium"><i class="fa fa-check"></i>Considering sodium</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#updating-coefficients"><i class="fa fa-check"></i>Updating coefficients</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#past-and-current-disease"><i class="fa fa-check"></i>Past and current disease</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#acute-on-chronic-liver-disease"><i class="fa fa-check"></i>Acute-on-chronic liver disease</a></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#benefit-of-transplantation-life-years-gained"><i class="fa fa-check"></i>Benefit of transplantation: life years gained</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="general-introduction.html"><a href="general-introduction.html#references"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-i-forms-of-meld.html"><a href="part-i-forms-of-meld.html"><i class="fa fa-check"></i>Part I: Forms of MELD</a></li>
+<li class="chapter" data-level="2" data-path="chap-meldna.html"><a href="chap-meldna.html"><i class="fa fa-check"></i><b>2</b> Validation of the Model for End‐stage Liver Disease sodium (MELD‐Na) score in the Eurotransplant region</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#methods"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#study-design-and-population"><i class="fa fa-check"></i>Study design and population</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#statistical-analysis"><i class="fa fa-check"></i>Statistical analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#results"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#study-population"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#meld-na-performance"><i class="fa fa-check"></i>MELD-Na performance</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#impact-on-the-waiting-list"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#discussion"><i class="fa fa-check"></i>Discussion</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#conclusion"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-meldna.html"><a href="chap-meldna.html#references-1"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-refit.html"><a href="chap-refit.html"><i class="fa fa-check"></i><b>3</b> Refitting the Model for End-stage Liver Disease for the Eurotransplant region</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#introduction-1"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#methods-1"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#patient-data"><i class="fa fa-check"></i>Patient data</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#statistical-methods"><i class="fa fa-check"></i>Statistical methods</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#results-1"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#model-development"><i class="fa fa-check"></i>Model development</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#model-performance"><i class="fa fa-check"></i>Model performance</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#impact-on-the-waiting-list-1"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#discussion-1"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#lower-bounds"><i class="fa fa-check"></i>Lower bounds</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#upper-bounds"><i class="fa fa-check"></i>Upper bounds</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#sodium-addition"><i class="fa fa-check"></i>Sodium addition</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#impact-on-the-wl"><i class="fa fa-check"></i>Impact on the WL</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#limitations-1"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#conclusion-1"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-refit.html"><a href="chap-refit.html#references-2"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-ii-disease-over-time.html"><a href="part-ii-disease-over-time.html"><i class="fa fa-check"></i>Part II: Disease over time</a></li>
+<li class="chapter" data-level="4" data-path="chap-jm.html"><a href="chap-jm.html"><i class="fa fa-check"></i><b>4</b> Joint modelling of liver transplant candidates outperforms the model for end-stage liver disease: the effect of disease development over time on patient outcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#introduction-2"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#methods-2"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#study-population-1"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#statistical-analysis-1"><i class="fa fa-check"></i>Statistical analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#longitudinal-analysis"><i class="fa fa-check"></i>Longitudinal analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#combining-longitudinal-and-survival-analysis"><i class="fa fa-check"></i>Combining longitudinal and survival analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#prediction-performance"><i class="fa fa-check"></i>Prediction performance</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#impact-on-the-waiting-list-2"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#online-lt-jm-prediction-tool"><i class="fa fa-check"></i>Online LT-JM prediction tool</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#results-2"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#population-characteristics"><i class="fa fa-check"></i>Population characteristics</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#jm-properties"><i class="fa fa-check"></i>JM properties</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#jm-performance"><i class="fa fa-check"></i>JM performance</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#jm-impact-on-the-waiting-list"><i class="fa fa-check"></i>JM impact on the waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#online-prediction-tools"><i class="fa fa-check"></i>Online prediction tools</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#discussion-2"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#longitudinal-analysis-1"><i class="fa fa-check"></i>Longitudinal analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#prediction-performance-1"><i class="fa fa-check"></i>Prediction performance</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#impact-on-the-waiting-list-3"><i class="fa fa-check"></i>Impact on the waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#limitations-2"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#conclusion-2"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-jm.html"><a href="chap-jm.html#references-3"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html"><i class="fa fa-check"></i><b>5</b> Development and validation of a dynamic survival prediction model for patients with acute-on-chronic liver failure</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#introduction-3"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#methods-3"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#study-population-2"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#identification-of-aclf"><i class="fa fa-check"></i>Identification of ACLF</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#development-of-the-aclf-jm"><i class="fa fa-check"></i>Development of the ACLF-JM</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#validation-of-the-aclf-jm"><i class="fa fa-check"></i>Validation of the ACLF-JM</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#aclf-jm-impact-on-the-transplantation-waiting-list"><i class="fa fa-check"></i>ACLF-JM impact on the transplantation waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#clinical-application-of-the-aclf-jm"><i class="fa fa-check"></i>Clinical application of the ACLF-JM</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#results-3"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#study-population-3"><i class="fa fa-check"></i>Study population</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#model-properties"><i class="fa fa-check"></i>Model properties</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#model-validation"><i class="fa fa-check"></i>Model validation</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#aclf-jm-impact-on-the-transplantation-waiting-list-1"><i class="fa fa-check"></i>ACLF-JM impact on the transplantation waiting list</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#clinical-application-of-the-aclf-jm-1"><i class="fa fa-check"></i>Clinical application of the ACLF-JM</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#discussion-3"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#disease-development-over-time"><i class="fa fa-check"></i>Disease development over time</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#aclf-jm-validation"><i class="fa fa-check"></i>ACLF-JM validation</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#clinical-application-of-the-aclf-jm-2"><i class="fa fa-check"></i>Clinical application of the ACLF-JM</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#limitations-3"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#conclusion-3"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-aclfjm.html"><a href="chap-aclfjm.html#references-4"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-iii-survival-with-and-without-transplantation.html"><a href="part-iii-survival-with-and-without-transplantation.html"><i class="fa fa-check"></i>Part III: Survival with and without transplantation</a></li>
+<li class="chapter" data-level="6" data-path="chap-benefit.html"><a href="chap-benefit.html"><i class="fa fa-check"></i><b>6</b> Survival benefit from liver transplantation for patients with and without hepatocellular carcinoma</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#introduction-4"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#methods-4"><i class="fa fa-check"></i>Methods</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#patient-population"><i class="fa fa-check"></i>Patient population</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#benefit-definition"><i class="fa fa-check"></i>Benefit definition</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#statistical-analysis-2"><i class="fa fa-check"></i>Statistical analysis</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#online-benefit-score-calculator"><i class="fa fa-check"></i>Online benefit score calculator</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#results-4"><i class="fa fa-check"></i>Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#patient-characteristics-at-transplantation"><i class="fa fa-check"></i>Patient characteristics at transplantation</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#waiting-list-survival-model"><i class="fa fa-check"></i>Waiting list survival model</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#post-transplantation-survival-model"><i class="fa fa-check"></i>Post-transplantation survival model</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#survival-without-and-with-lt"><i class="fa fa-check"></i>Survival without and with LT</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#survival-benefit-life-years-gained-per-5-years"><i class="fa fa-check"></i>Survival benefit: life-years gained per 5 years</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#liver-transplant-benefit-scores"><i class="fa fa-check"></i>Liver transplant benefit scores</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#discussion-4"><i class="fa fa-check"></i>Discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#benefit-definition-1"><i class="fa fa-check"></i>Benefit definition</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#estimation-of-benefit"><i class="fa fa-check"></i>Estimation of benefit</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#non-hcc-and-hcc-benefit"><i class="fa fa-check"></i>Non-HCC and HCC benefit</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#using-benefit-scores"><i class="fa fa-check"></i>Using benefit scores</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#limitations-4"><i class="fa fa-check"></i>Limitations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#conclusion-4"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="chap-benefit.html"><a href="chap-benefit.html#references-5"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="part-iv-summary-general-discussion-and-future-perspectives.html"><a href="part-iv-summary-general-discussion-and-future-perspectives.html"><i class="fa fa-check"></i>Part IV: Summary, general discussion, and future perspectives</a></li>
+<li class="chapter" data-level="7" data-path="summ.html"><a href="summ.html"><i class="fa fa-check"></i><b>7</b> Summary</a></li>
+<li class="chapter" data-level="8" data-path="gendisc.html"><a href="gendisc.html"><i class="fa fa-check"></i><b>8</b> General discussion</a>
+<ul>
+<li class="chapter" data-level="" data-path="gendisc.html"><a href="gendisc.html#part-i-forms-of-meld-1"><i class="fa fa-check"></i>Part I: Forms of MELD</a></li>
+<li class="chapter" data-level="" data-path="gendisc.html"><a href="gendisc.html#meld-3.0"><i class="fa fa-check"></i>MELD 3.0</a></li>
+<li class="chapter" data-level="" data-path="gendisc.html"><a href="gendisc.html#part-ii-disease-over-time-1"><i class="fa fa-check"></i>Part II: Disease over time</a></li>
+<li class="chapter" data-level="" data-path="gendisc.html"><a href="gendisc.html#joint-modeling-disease-and-survival-over-time"><i class="fa fa-check"></i>Joint modeling disease and survival over time</a></li>
+<li class="chapter" data-level="" data-path="gendisc.html"><a href="gendisc.html#joint-modeling-acute-on-chronic-liver-failure"><i class="fa fa-check"></i>Joint modeling acute-on-chronic liver failure</a></li>
+<li class="chapter" data-level="" data-path="gendisc.html"><a href="gendisc.html#part-iii-survival-with-and-without-transplantation-1"><i class="fa fa-check"></i>Part III: Survival with and without transplantation</a></li>
+<li class="chapter" data-level="" data-path="gendisc.html"><a href="gendisc.html#benefit-from-liver-transplantation"><i class="fa fa-check"></i>Benefit from liver transplantation</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="future-perspectives.html"><a href="future-perspectives.html"><i class="fa fa-check"></i><b>9</b> Future perspectives</a>
+<ul>
+<li class="chapter" data-level="" data-path="future-perspectives.html"><a href="future-perspectives.html#simulation"><i class="fa fa-check"></i>Simulation</a></li>
+<li class="chapter" data-level="" data-path="future-perspectives.html"><a href="future-perspectives.html#new-model-implementation"><i class="fa fa-check"></i>New model implementation</a></li>
+<li class="chapter" data-level="" data-path="future-perspectives.html"><a href="future-perspectives.html#from-urgency-to-benefit"><i class="fa fa-check"></i>From urgency to benefit</a></li>
+<li class="chapter" data-level="" data-path="future-perspectives.html"><a href="future-perspectives.html#conclusion-5"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="chapter" data-level="" data-path="future-perspectives.html"><a href="future-perspectives.html#references-6"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>10</b> Appendix</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="appendix.html"><a href="appendix.html#chap-meld3"><i class="fa fa-check"></i><b>10.1</b> Supplement Chapter: The Model for End-stage Liver Disease 3.0: an update without proven accuracy</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#letter"><i class="fa fa-check"></i>Letter</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#references-7"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="appendix.html"><a href="appendix.html#chap-rolejm"><i class="fa fa-check"></i><b>10.2</b> Supplement Chapter: The role of the model for end-stage liver disease-sodium score and joint models for 90-day mortality prediction in patients with acute-on-chronic liver failure.</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#letter-1"><i class="fa fa-check"></i>Letter</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#references-8"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-nlsum.html"><a href="chap-nlsum.html"><i class="fa fa-check"></i><b>11</b> Nederlandse samenvatting (Summary in Dutch)</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-nlsum.html"><a href="chap-nlsum.html#verbetering-van-voorspellingsmodellen-voor-levertransplantatiekandidaten"><i class="fa fa-check"></i>Verbetering van voorspellingsmodellen voor levertransplantatiekandidaten</a>
+<ul>
+<li class="chapter" data-level="" data-path="chap-nlsum.html"><a href="chap-nlsum.html#deel-i"><i class="fa fa-check"></i>Deel I</a></li>
+<li class="chapter" data-level="" data-path="chap-nlsum.html"><a href="chap-nlsum.html#deel-ii"><i class="fa fa-check"></i>Deel II</a></li>
+<li class="chapter" data-level="" data-path="chap-nlsum.html"><a href="chap-nlsum.html#deel-iii"><i class="fa fa-check"></i>Deel III</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dankwoord.html"><a href="dankwoord.html"><i class="fa fa-check"></i>Dankwoord</a></li>
+<li class="chapter" data-level="" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html"><i class="fa fa-check"></i>Curriculum vitae</a></li>
+<li class="chapter" data-level="" data-path="list-of-publications.html"><a href="list-of-publications.html"><i class="fa fa-check"></i>List of publications</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Improving survival prediction models for liver transplantation candidates</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="future-perspectives" class="section level1" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Future perspectives</h1>
+<div id="simulation" class="section level3 unnumbered">
+<h3>Simulation</h3>
+<p>Throughout this thesis, several methods were applied to estimate new model impact on the LT waiting list. We used reclassification tables, new-to-old score differences, or estimated changes in waiting list priority. These methods were used because reviewers and policymakers requested evidence of possible model impact on current waiting list outcomes. Although understandable, it is difficult and likely impossible to reliably estimate the impact of a new model on the allocation system. The best way to evaluate the effects of a new model is to implement it. The next best option is evaluation through simulation. For the Eurotransplant region, a simulation program is currently missing. An important future direction of research could therefore be the construction of what could be called the Simulation of the Eurotransplant Liver Allocation System (SELAS). SELAS would improve both Eurotransplant allocation research and policy. It would also help Eurotransplant regain its leading role in organ allocation and development. Realization of SELAS seems feasible given the existing collaboration between Eurotransplant International Foundation and the Technical University Eindhoven, as the latter has considerable experience with simulation models. The longstanding cooperation between Eurotransplant and the Leiden University Medical Center would then ensure integration of allocation, statistical methodology, and clinical knowledge.</p>
+<p>In the U.S.A., a liver simulation program is available, that is the Liver Simulated Allocation Model (LSAM). LSAM lets users change existing allocation rules and simulate the effects in historical US data. Indeed, US allocation research is often complemented by simulation evidence. Still, simulated results should be interpreted with care. Evaluation of LSAM showed that although trends were adequately estimated, exact numbers of waiting list deaths and transplants were over- and underestimated, respectively.<sup>68</sup> Also, simulation performance was significantly worse for pediatric patients,<sup>69</sup> which indicates that simulations might be unreliable for yet undefined subgroups.</p>
+<p>Even simulation programs have limitations. Therefore, researchers should rely on their methodology and clinical experience. Consider for example the refit coefficients in <strong>Chapter <a href="chap-refit.html#chap-refit">3</a></strong>. We presented significant improvements in fit, discrimination, and accuracy. Although these metrics are important evidence, improvement was most intuitively shown through visual representation of new and old coefficients Figure <a href="chap-refit.html#fig:refit-fig3">3.3</a>. These clearly showed that reMELD(-Na) better represents the Eurotransplant population and therefore will likely better predict risk in future LT candidates. Simulation of evidence therefore has a role in the path of implementation, but sound methods and reasoning should be considered most important.</p>
+</div>
+<div id="new-model-implementation" class="section level3 unnumbered">
+<h3>New model implementation</h3>
+<p>Possibilities are investigated to alleviate the shortage of available donor organs, such as more liberal donor criteria, living donation, machine perfusion, organoids, and xenotransplantation. Whatever improvements might be made, survival prediction will remain paramount to decide which patient should be treated. For example, with machine perfusion techniques, a larger number of liver grafts will likely become available and will be preserved longer outside the donor. This could imply more widespread allocation of organs to find the best match with the recipient. Also, with more time available, more complex calculations could be done to estimate outcomes of possible donor-recipient combinations. These calculations could be based on causal inference models, JMs, or ideally a combination of both.</p>
+<p>For now, the shortage of donor organs persists. As mentioned, currently the principle of urgency is used for liver allocation, by prioritizing the sickest patients first. Eurotransplant has maintained this basis since 2006. In this thesis, we showed that significant improvements in survival prediction are possible. Understandably, reasons beyond clinical relevance and statistical significance determine model implementation. Because of (inter)national interests within Eurotransplant, changes in allocation are not easily implemented. Still, in our view, refit MELD (reMELD) would be relatively easy to implement, as no changes in the data structure of Eurotransplant would be required. We therefore urge Eurotransplant policy makers to consider that the refit models were a significantly better fit to the current Eurotransplant population, that ranking patients from most to least ill (discrimination) was significantly improved, and that refit model mortality risk estimates were more accurate. Implementation of (refit) MELD-Na would also not be very difficult, since sodium is a readily available laboratory measurement, that is almost always assessed in combination with creatinine. Again, the significant prediction improvements should form sufficient rationale for further allocation improvements.</p>
+<p>Other additions to MELD could also be considered, such as serum albumin, von Willebrand factor and C-reactive protein.<sup>18,20,70</sup> A problem is that these variables are not collected within Eurotransplant. Several aspects of MELD, that are not evidence based, can however be improved without changing existing data registries.<sup>19</sup> Arguably one of the most important and counter-intuitive aspects is MELD’s upper bound of 40, which means that patients with MELD&gt;40 receive a score of 40. Therefore, allocation stops considering disease severity in the sickest patients. Already in the first validation study of MELD, MELD’s relation to 90-day risk of death was plotted and showed an increasing waiting list mortality above MELD 40.<sup>7</sup> Recent evaluation confirmed this finding, without increased post-transplant mortality for recipients with MELD&gt;40.<sup>71</sup> It therefore makes clinical sense to remove the upper border of MELD in order to improve allocation for the sickest patients. Other suggestions to improve MELD were mentioned previously in this thesis, like removing arbitrary lower and upper bounds and using survival probabilities as primary metric.</p>
+<p>The implementation of JMs for allocation would require more effort. Eurotransplant would need to ensure that longitudinal data of each listed patient is available every time a liver graft is offered. However, if using one measurement per patient is possible, it should also be possible to use multiple, as these longitudinal data are stored by Eurotransplant. The computation of JM survival predictions would require notably more time than calculating MELD, as simulations are done for each patient. However, we believe that the advantages of correctly specified JMs are convincing. Also, although the JMs were trained in large patient cohorts, their practical application for the Eurotransplant waiting list would mean calculating survival for several hundred patients, which is done within minutes. Considering previous and current data for each patient on the waiting list would be a major improvement.</p>
+</div>
+<div id="from-urgency-to-benefit" class="section level3 unnumbered">
+<h3>From urgency to benefit</h3>
+<p>Deciding how to allocate scarce medical interventions is relevant, as the recent COVID pandemic has shown for vaccines and ICU beds. The COVID pandemic also showed that with increasing resource scarcity, a shift in allocation principle could be warranted, that is from a ‘first come first served’ to a benefit-based approach.<sup>72</sup></p>
+<p>In the field of LT, organ demand persistently exceeds supply, which argues against sickest-first allocation.<sup>67</sup> This is because prioritizing the sickest ignores currently less ill patients that might gain more from treatment or who could be worse off in the future as disease progresses. Therefore, sickest-first allocation can only be just if the scarcity is temporary, which is not the case. This does evoke questions on how to handle high-urgency patients, as these patients are the pinnacle of urgency-based allocation and receive priority over other patients that have higher waiting list mortality.<sup>31,49,73</sup> Another extreme of urgency are multi-organ transplants. These possibly save only one life, whereas each of the organs could have saved a patient. Saving more lives is arguably more just. Finally, re-transplantations would require similar reconsideration of urgency and benefit,<sup>73</sup> as the highest priority is given to patients who might gain little and, perhaps more importantly, the liver is then denied to another recipient. Although benefit will not resolve all allocation issues, it is an inherently more just and therefore a better principle than urgency alone.<sup>67</sup></p>
+<p>We devised methods that predict survival benefit from LT. This opens the possibility for the change from urgency- to benefit-based allocation. It is however important to recognize that US data were used for the calculation of benefit. These US data encompass more LT candidate variables, that allow better estimation of future waiting list survival. Currently, Eurotransplant registers fewer LT candidate variables. It is easy to see that this will cause delay in allocation development, especially compared to other regions. This is arguably already the case, as No major revision of MELD allocation has been done by Eurotransplant since 2006. During this period, survival prediction models in US liver graft allocation were investigated and significantly improved. In our view, Eurotransplant should strive for a data registry structured much like UNOS, which allows researchers easy access to anonymized data. This in turn generates evidence upon which policy can be based. In our view, Eurotransplant should also provide a central platform where professionals and patients can gain insight in allocation policy and evidence. Transparency created through interactive statistics and accessible prediction models would greatly improve Eurotransplant’s scientific basis and would perhaps place more trust in the organization. Most importantly, patients deserve to know their estimated prognosis of waiting for or accepting an organ. To this end, in this thesis, we provided several prediction models in interactive online applications. The aim was to increase insight for both clinicians and patients.</p>
+<p>Another possible solution for the advancement of liver allocation, despite the missing data across Eurotransplant, could be detailed national allocation based on more detailed hospital data. This allocation could be either benefit- or urgency-based, as long as one model is used to calculate future waiting list survival, preferably corrected for dependent censoring. Most organs are allocated nationally, that is 83.4% of MELD-allocated liver grafts in Belgium, Germany, and The Netherlands ( <em>data not published</em> ), which also ignores possibly sicker recipients abroad. Therefore, it seems feasible to abandon the sickest-first principle and to implement benefit-based allocation on a national level. This way, each country would be responsible for the method and accuracy of its survival prediction and subsequent allocation. International organ exchange would then be based on Eurotransplant standards.</p>
+</div>
+<div id="conclusion-5" class="section level2 unnumbered">
+<h2>Conclusion</h2>
+<p>In conclusion, this thesis investigated survival prediction models in the setting of LT, where organ scarcity and allocation necessitates continuous development of such methods. Statistically significant and clinically relevant advancements were demonstrated that could improve liver allocation through better survival prediction for patients on the waiting list.</p>
+</div>
+<div id="references-6" class="section level2 unnumbered">
+<h2>References</h2>
+<ol style="list-style-type: decimal">
+<li>Alukal JJ, John S, Thuluvath PJ. Hyponatremia in Cirrhosis: An Update. Am J Gastroenterol. 2020;115(11):1775-1785. <a href="doi:10.14309/ajg.0000000000000786" class="uri">doi:10.14309/ajg.0000000000000786</a></li>
+<li>Londoño MC, Guevara M, Rimola A, et al. Hyponatremia Impairs Early Posttransplantation Outcome in Patients With Cirrhosis Undergoing Liver Transplantation. Gastroenterology. 2006;130(4):1135-1143. <a href="doi:10.1053/j.gastro.2006.02.017" class="uri">doi:10.1053/j.gastro.2006.02.017</a></li>
+<li>Dawwas MF, Lewsey JD, Neuberger JM, Gimson AE. The Impact of Serum Sodium Concentration on Mortality After Liver Transplantation: A Cohort Multicenter Study. Liver Transplant. 2007;13(5):767-768. <a href="doi:10.1002/lt" class="uri">doi:10.1002/lt</a></li>
+<li>Leise MD, Yun BC, Larson JJ, et al. Effect of the Pretransplant Serum Sodium Concentration on Outcomes Following Liver Transplantation. Liver Transplant. 2014;14(20):687-697. <a href="doi:10.1002/lt" class="uri">doi:10.1002/lt</a></li>
+<li>Nagai S, Chau LC, Schilke RE, et al. Effects of Allocating Livers for Transplantation Based on Model for End-Stage Liver Disease-Sodium Scores on Patient Outcomes. Gastroenterology. 2018;155(October):1451-1482. <a href="doi:10.1053/j.gastro.2018.07.025" class="uri">doi:10.1053/j.gastro.2018.07.025</a></li>
+<li>Sharma P, Schaubel DE, Goodrich NP, Merion RM. Serum Sodium and Survival Benefit of Liver Transplantation. Liver Transplant. 2015;21:308-313. <a href="doi:10.1002/lt" class="uri">doi:10.1002/lt</a>.</li>
+<li>Singal AK, Ong S, Satapathy SK, Kamath PS, Wiesner RH. Simultaneous liver kidney transplantation. Transpl Int. 2019;32(4):343-352. <a href="doi:10.1111/tri.13388" class="uri">doi:10.1111/tri.13388</a></li>
+<li>Malinchoc M, Kamath PS, Gordon FD, Peine CJ, Rank J, Ter Borg PCJ. A model to predict poor survival in patients undergoing transjugular intrahepatic portosystemic shunts. Hepatology. 2000;31(4):864-871. <a href="doi:10.1053/he.2000.5852" class="uri">doi:10.1053/he.2000.5852</a></li>
+<li>Kamath PS, Wiesner RH, Malinchoc M, et al. A model to predict survival in patients with end-stage liver disease. Hepatology. 2001;33(2):464-470. <a href="doi:10.1053/jhep.2001.22172" class="uri">doi:10.1053/jhep.2001.22172</a></li>
+<li>Wiesner R, Edwards E, Freeman R, et al. Model for end-stage liver disease (MELD) and allocation of donor livers. Gastroenterology. 2003;124(1):91-96. <a href="doi:10.1053/gast.2003.50016" class="uri">doi:10.1053/gast.2003.50016</a></li>
+<li>Sharma P, Schaubel DE, Guidinger MK, Goodrich NP, Ojo AO, Merion RM. Impact of MELD-based allocation on end-stage renal disease after liver transplantation. Am J Transplant. 2011;11(11):2372-2378. <a href="doi:10.1111/j.1600-6143.2011.03703.x" class="uri">doi:10.1111/j.1600-6143.2011.03703.x</a></li>
+<li>Kwong AJ, Kim WR, Lake JR, et al. OPTN/SRTR 2019 Annual Data Report: Liver. Am J Transplant. 2021;21(S2):208-315. <a href="doi:10.1111/ajt.16494" class="uri">doi:10.1111/ajt.16494</a></li>
+<li>Gonwa TA, Jennings L, Mai ML, Stark PC, Levey AS, Klintmalm GB. Estimation of glomerular filtration rates before and after orthotopic liver transplantation: Evaluation of current equations. Liver Transplant. 2004;10(2):301-309. <a href="doi:10.1002/lt.20017" class="uri">doi:10.1002/lt.20017</a></li>
+<li>Sherman DS, Fish DN, Teitelbaum I. Assessing renal function in cirrhotic patients: Problems and pitfalls. Am J Kidney Dis. 2003;41(2):269-278. <a href="doi:10.1053/ajkd.2003.50035" class="uri">doi:10.1053/ajkd.2003.50035</a></li>
+<li>Godfrey EL, Malik TH, Lai JC, et al. The decreasing predictive power of MELD in an era of changing etiology of liver disease. Am J Transplant. 2019;19(12):3299-3307. <a href="doi:10.1111/ajt.15559" class="uri">doi:10.1111/ajt.15559</a></li>
+<li>Cholongitas E, Marelli L, Kerry A, et al. Female liver transplant recipients with the same GFR as male recipients have lower MELD scores - A systematic bias. Am J Transplant. 2007;7(3):685-692. <a href="doi:10.1111/j.1600-6143.2007.01666.x" class="uri">doi:10.1111/j.1600-6143.2007.01666.x</a></li>
+<li>Allen AM, Heimbach JK, Larson JJ, et al. Reduced Access to Liver Transplantation in Women: Role of Height, MELD Exception Scores, and Renal Function Underestimation. Transplantation. 2018;102(10):1710-1716. <a href="doi:10.1097/TP.0000000000002196" class="uri">doi:10.1097/TP.0000000000002196</a></li>
+<li>Asrani SK, Jennings LW, Kim WR, et al. MELD-GRAIL-Na: Glomerular Filtration Rate and Mortality on Liver-Transplant Waiting List. Hepatology. 2020;71(5):1766-1774. <a href="doi:10.1002/hep.30932" class="uri">doi:10.1002/hep.30932</a></li>
+<li>Merion RM, Sharma P, Mathur AK, Schaubel DE. Evidence-based development of liver allocation: A review. Transpl Int. 2011;24(10):965-972. <a href="doi:10.1111/j.1432-2277.2011.01274.x" class="uri">doi:10.1111/j.1432-2277.2011.01274.x</a></li>
+<li>Kim WR, Mannalithara A, Heimbach JK, et al. MELD 3.0: The Model for End-stage Liver Disease Updated for the Modern Era. Gastroenterology. Published online 2021. <a href="doi:10.1053/j.gastro.2021.08.050" class="uri">doi:10.1053/j.gastro.2021.08.050</a></li>
+<li>Goudsmit BFJ, Putter H, van Hoek B. The Model for End-stage Liver Disease 3.0: an update without proven accuracy. Gastroenterology. Published online 2021. <a href="doi:10.1053/j.gastro.2021.09.047" class="uri">doi:10.1053/j.gastro.2021.09.047</a></li>
+<li>Goudsmit BFJ, Putter H, Tushuizen ME, et al. Validation of the Model for End‐stage Liver Disease sodium (MELD‐Na) score in the Eurotransplant region. Am J Transplant. Published online 2020. <a href="doi:10.1111/ajt.16142" class="uri">doi:10.1111/ajt.16142</a></li>
+<li>Jenkins DA, Sperrin M, Martin GP, Peek N. Dynamic models to predict health outcomes: current status and methodological challenges. Diagnostic Progn Res. 2018;2(1):1-9. <a href="doi:10.1186/s41512-018-0045-2" class="uri">doi:10.1186/s41512-018-0045-2</a></li>
+<li>D’Amico G, Maruzzelli L, Airoldi A, et al. Performance of the model for end-stage liver disease score for mortality prediction and the potential role of etiology. J Hepatol. Published online 2021. <a href="doi:10.1016/j.jhep.2021.07.018" class="uri">doi:10.1016/j.jhep.2021.07.018</a></li>
+<li>Merion RM, Wolfe RA, Dykstra DM, Leichtman AB, Gillespie B, Held PJ. Longitudinal assessment of mortality risk among candidates for liver transplantation. Liver Transplant. 2003;9(1):12-18. <a href="doi:10.1053/jlts.2003.50009" class="uri">doi:10.1053/jlts.2003.50009</a></li>
+<li>Bambha K, Kim WR, Kremers WK, et al. Predicting survival among patients listed for liver transplantation: An assessment of serial MELD measurements. Am J Transplant. 2004;4(11):1798-1804. <a href="doi:10.1111/j.1600-6143.2004.00550.x" class="uri">doi:10.1111/j.1600-6143.2004.00550.x</a></li>
+<li>Sharma P, Schaubel DE, Sima CS, Merion RM, Lok ASF. Re-weighting the Model for End-Stage Liver Disease Score Components. Gastroenterology. 2008;135(5):1575-1581. <a href="doi:10.1053/j.gastro.2008.08.004" class="uri">doi:10.1053/j.gastro.2008.08.004</a></li>
+<li>Györi GP, Silberhumer GR, Rahmel A, et al. Impact of dynamic changes in MELD score on survival after liver transplantation – a Eurotransplant registry analysis. Liver Int. 2016;36(7):1011-1017. <a href="doi:10.1111/liv.13075" class="uri">doi:10.1111/liv.13075</a></li>
+<li>Luo X, Leanza J, Massie AB, et al. MELD as a metric for survival benefit of liver transplantation. Am J Transplant. 2018;18(5):1231-1237. <a href="doi:10.1111/ajt.14660" class="uri">doi:10.1111/ajt.14660</a></li>
+<li>Schaubel DE, Guidinger MK, Biggins SW, et al. Survival benefit-based deceased-donor liver allocation. Am J Transplant. 2009;9(4 PART 2):970-981. <a href="doi:10.1111/j.1600-6143.2009.02571.x" class="uri">doi:10.1111/j.1600-6143.2009.02571.x</a></li>
+<li>Sharma P, Schaubel DE, Gong Q, Guidinger M, Merion RM. End-stage liver disease candidates at the highest model for end-stage liver disease scores have higher wait-list mortality than status-1A candidates. Hepatology. 2012;55(1):192-198. <a href="doi:10.1002/hep.24632" class="uri">doi:10.1002/hep.24632</a></li>
+<li>Therneau T, Crowson C, Atkinson E. Using Time Dependent Covariates and Time Dependent Coefficients in the Cox Model. 2019;33(3):1-8. <a href="doi:10.1093/jpepsy/jsn055" class="uri">doi:10.1093/jpepsy/jsn055</a></li>
+<li>Arisido MW, Antolini L, Bernasconi DP, Valsecchi MG, Rebora P. Joint model robustness compared with the time-varying covariate Cox model to evaluate the association between a longitudinal marker and a time-to-event endpoint. BMC Med Res Methodol. 2019;19(1):1-13. <a href="doi:10.1186/s12874-019-0873-y" class="uri">doi:10.1186/s12874-019-0873-y</a></li>
+<li>Papageorgiou G, Mokhles MM, Takkenberg JJM, Rizopoulos D. Individualized dynamic prediction of survival with the presence of intermediate events. Stat Med. 2019;38(30):5623-5640. <a href="doi:10.1002/sim.8387" class="uri">doi:10.1002/sim.8387</a></li>
+<li>Campbell KR, Juarez-Colunga E, Grunwald GK, Cooper J, Davis S, Gralla J. Comparison of a time-varying covariate model and a joint model of time-to-event outcomes in the presence of measurement error and interval censoring: Application to kidney transplantation. BMC Med Res Methodol. 2019;19(1):1-12. <a href="doi:10.1186/s12874-019-0773-1" class="uri">doi:10.1186/s12874-019-0773-1</a></li>
+<li>Arroyo V, Moreau R, Jalan R. Acute-on-Chronic Liver Failure. N Engl J Med. 2020;(382):2137-2145. <a href="doi:10.1056/NEJMra1914900" class="uri">doi:10.1056/NEJMra1914900</a></li>
+<li>Thuluvath PJ, Thuluvath AJ, Hanish S, Savva Y. Liver transplantation in patients with multiple organ failures: Feasibility and outcomes. J Hepatol. 2018;69(5):1047-1056. <a href="doi:10.1016/j.jhep.2018.07.007" class="uri">doi:10.1016/j.jhep.2018.07.007</a></li>
+<li>Sundaram V, Jalan R, Wu T, et al. Factors Associated with Survival of Patients With Severe Acute-On-Chronic Liver Failure Before and After Liver Transplantation. Gastroenterology. 2019;156(5):1381-1391.e3. <a href="doi:10.1053/j.gastro.2018.12.007" class="uri">doi:10.1053/j.gastro.2018.12.007</a></li>
+<li>Hernaez R, Liu Y, Kramer JR, Rana A, El-serag HB, Kanwal F. Model for end-stage liver disease-sodium underestimates 90-day mortality risk in patients with acute-on-chronic liver failuare. J Hepatol. Published online 2020. <a href="doi:10.1016/j.jhep.2020.06.005" class="uri">doi:10.1016/j.jhep.2020.06.005</a></li>
+<li>Goudsmit BFJ, Tushuizen ME, Putter H, Braat AE, van Hoek B. The role of the model for end-stage liver disease-sodium score and joint models for 90-day mortality prediction in patients with acute-on-chronic liver failure. J Hepatol. 2021;74(2):475-476. <a href="doi:10.1016/j.jhep.2020.08.032" class="uri">doi:10.1016/j.jhep.2020.08.032</a></li>
+<li>Sundaram V, Kogachi S, Wong RJ, et al. Effect of the clinical course of acute-on-chronic liver failure prior to liver transplantation on post-transplant survival. J Hepatol. 2020;72(3):481-488. <a href="doi:10.1016/j.jhep.2019.10.013" class="uri">doi:10.1016/j.jhep.2019.10.013</a></li>
+<li>Bambha K, Kim WR, Kremers WK, et al. Predicting survival among patients listed for liver transplantation: An assessment of serial MELD measurements. Am J Transplant. 2004;4(11):1798-1804. <a href="doi:10.1111/j.1600-6143.2004.00550.x" class="uri">doi:10.1111/j.1600-6143.2004.00550.x</a></li>
+<li>Northup PG, Berg CL. Preoperative delta-MELD score does not independently predict mortality after liver transplantation. Am J Transplant. 2004;4(10):1643-1649. <a href="doi:10.1111/j.1600-6143.2004.00593.x" class="uri">doi:10.1111/j.1600-6143.2004.00593.x</a></li>
+<li>Huo TI, Wu JC, Lin HC, et al. Evaluation of the increase in model for end-stage liver disease (delta MELD) score over time as a prognostic predictor in patients with advanced cirrhosis: Risk factor analysis and comparison with initial MELD and Child-Turcotte-Pugh score. J Hepatol. 2005;42(6):826-832. <a href="doi:10.1016/j.jhep.2005.01.019" class="uri">doi:10.1016/j.jhep.2005.01.019</a></li>
+<li>Cholankeril G, Li AA, Dennis BB, et al. Pre-Operative Delta-MELD is an Independent Predictor of Higher Mortality following Liver Transplantation. Sci Rep. 2019;9(1):8312. <a href="doi:10.1038/s41598-019-44814-y" class="uri">doi:10.1038/s41598-019-44814-y</a></li>
+<li>Györi GP, Silberhumer GR, Zehetmayer S, et al. Dynamic changes in MELD score not only predict survival on the waiting list but also overall survival after liver transplantation. Transpl Int. 2012;25(9):935-940. <a href="doi:10.1111/j.1432-2277.2012.01519.x" class="uri">doi:10.1111/j.1432-2277.2012.01519.x</a></li>
+<li>Schlegel A, Linecker M, Kron P, et al. Risk Assessment in High- and Low-MELD Liver Transplantation. Am J Transplant. 2017;17(4):1050-1063. <a href="doi:10.1111/ajt.14065" class="uri">doi:10.1111/ajt.14065</a></li>
+<li>Brock GN, Washburn K, Marvin MR. Use of rapid Model for End-Stage Liver Disease (MELD) increases for liver transplant registrant prioritization after MELD-Na and Share 35, an evaluation using data from the United Network for Organ Sharing. PLoS One. 2019;14(10):1-17. <a href="doi:10.1371/journal.pone.0223053" class="uri">doi:10.1371/journal.pone.0223053</a></li>
+<li>Gong Q, Schaubel DE. Partly conditional estimation of the effect of a time-dependent factor in the presence of dependent censoring. Biometrics. 2013;69(2):338-347. <a href="doi:10.1111/biom.12023" class="uri">doi:10.1111/biom.12023</a></li>
+<li>Berry K, Ioannou GN. Comparison of Liver Transplant-Related Survival Benefit in Patients with Versus Without Hepatocellular Carcinoma in the United States. Gastroenterology. 2015;149(3):669-680. <a href="doi:10.1053/j.gastro.2015.05.025" class="uri">doi:10.1053/j.gastro.2015.05.025</a></li>
+<li>Toso C, Dupuis-Lozeron E, Majno P, et al. A model for dropout assessment of candidates with or without hepatocellular carcinoma on a common liver transplant waiting list. Hepatology. 2012;56(1):149-156. <a href="doi:10.1002/hep.25603" class="uri">doi:10.1002/hep.25603</a></li>
+<li>Vitale A, Volk ML, De Feo TM, et al. A method for establishing allocation equity among patients with and without hepatocellular carcinoma on a common liver transplant waiting list. J Hepatol. 2014;60(2):290-297. <a href="doi:10.1016/j.jhep.2013.10.010" class="uri">doi:10.1016/j.jhep.2013.10.010</a></li>
+<li>Lai Q, Vitale A, Iesari S, et al. Intention-to-treat survival benefit of liver transplantation in patients with hepatocellular cancer. Hepatology. 2017;66(6):1910-1919. <a href="doi:10.1002/hep.29342" class="uri">doi:10.1002/hep.29342</a></li>
+<li>Vitale A, Huo T La, Cucchetti A, et al. Survival Benefit of Liver Transplantation Versus Resection for Hepatocellular Carcinoma: Impact of MELD Score. Ann Surg Oncol. 2015;22(6):1901-1907. <a href="doi:10.1245/s10434-014-4099-2" class="uri">doi:10.1245/s10434-014-4099-2</a></li>
+<li>Kaplan A. The Conduct of Inquiry: Methodology for Behavioral Science. Chandler; Chandler; 1964.</li>
+<li>van Geloven N, Swanson SA, Ramspek CL, et al. Prediction meets causal inference: the role of treatment in clinical prediction models. Eur J Epidemiol. 2020;35(7):619-630. <a href="doi:10.1007/s10654-020-00636-1" class="uri">doi:10.1007/s10654-020-00636-1</a></li>
+<li>Sperrin M, Diaz-Ordaz K, Pajouheshnia R. Invited Commentary: Treatment Drop-in—Making the Case for Causal Prediction. Am J Epidemiol. 2021;190(10):2015-2018. <a href="doi:10.1093/aje/kwab030" class="uri">doi:10.1093/aje/kwab030</a></li>
+<li>Gong Q, Schaubel DE. Estimating the average treatment effect on survival based on observational data and using partly conditional modeling. Biometrics. 2017;73(1):134-144. <a href="doi:10.1111/biom.12542" class="uri">doi:10.1111/biom.12542</a></li>
+<li>National Health Service Blood and Transplantat. Policy for Deceased Donor Liver Distribution and Allocation. Published online 2018:1-18. <a href="http://www.odt.nhs.uk/transplantation/tools-policies-and-guidance/policies-and-guidance/" class="uri">http://www.odt.nhs.uk/transplantation/tools-policies-and-guidance/policies-and-guidance/</a></li>
+<li>Pajouheshnia R, Peelen LM, Moons KGM, Reitsma JB, Groenwold RHH. Accounting for treatment use when validating a prognostic model: A simulation study. BMC Med Res Methodol. 2017;17(1):1-12. <a href="doi:10.1186/s12874-017-0375-8" class="uri">doi:10.1186/s12874-017-0375-8</a></li>
+<li>Fitzmaurice C, Akinyemiju T, Abera S, et al. The burden of primary liver cancer and underlying etiologies from 1990 to 2015 at the global, regional, and national level results from the global burden of disease study 2015. JAMA Oncol. 2017;3(12):1683-1691. <a href="doi:10.1001/jamaoncol.2017.3055" class="uri">doi:10.1001/jamaoncol.2017.3055</a></li>
+<li>Mazzaferro V, REGALIA E, DOCI R, et al. Liver transplantation for the treatment of small hepatocellular carcinomas in patients with cirrhosis. N Engl J Med. 1996;334(11):693-699.</li>
+<li>Cillo U, Vitale A, Polacco M, Fasolo E. Liver transplantation for hepatocellular carcinoma through the lens of transplant benefit. Hepatology. 2017;65(5):1741-1748. <a href="doi:10.1002/hep.28998" class="uri">doi:10.1002/hep.28998</a></li>
+<li>Northup PG, Intagliata NM, Shah NL, Pelletier SJ, Berg CL, Argo CK. Excess mortality on the liver transplant waiting list: Unintended policy consequences and model for End-Stage Liver Disease (MELD) inflation. Hepatology. 2015;61(1):285-291. <a href="doi:10.1002/hep.27283" class="uri">doi:10.1002/hep.27283</a></li>
+<li>Washburn K, Edwards E, Harper A, Freeman RB. Hepatocellular Carcinoma Patients Are Advantaged in the Current Liver Transplant Allocation System. Am J Transplant. 2010;10(7):1652-1657. <a href="doi:10.1111/j.1600-6143.2010.03127.x" class="uri">doi:10.1111/j.1600-6143.2010.03127.x</a></li>
+<li>Freeman RB, Edwards EB. Liver transplant waiting time does not correlate with waiting list mortality: Implications for liver allocation policy. Liver Transplant. 2000;6(5):543-552. <a href="doi:10.1053/jlts.2000.9744" class="uri">doi:10.1053/jlts.2000.9744</a></li>
+<li>Persad G, Wertheimer A, Emanuel EJ. Principles for allocation of scarce medical interventions. Lancet. 2009;373(9661):423-431. <a href="doi:10.1016/S0140-6736(09)60137-9" class="uri">doi:10.1016/S0140-6736(09)60137-9</a></li>
+<li>Goel A, Kim WR, Pyke J, et al. Liver Simulated Allocation Modeling: Were the Predictions Accurate for Share 35? Transplantation. 2018;102(5):769-774. <a href="doi:10.1097/TP.0000000000002079" class="uri">doi:10.1097/TP.0000000000002079</a></li>
+<li>Wood NL, Mogul DB, Perito ER, et al. Liver simulated allocation model does not effectively predict organ offer decisions for pediatric liver transplant candidates. Am J Transplant. 2021;21(9):3157-3162. <a href="doi:10.1111/ajt.16621" class="uri">doi:10.1111/ajt.16621</a></li>
+<li>Starlinger P, Ahn JC, Mullan A, et al. The Addition of C-Reactive Protein and von Willebrand Factor to Model for End-Stage Liver Disease-Sodium Improves Prediction of Waitlist Mortality. Hepatology. 2021;74(3):1533-1545. <a href="doi:10.1002/hep.31838" class="uri">doi:10.1002/hep.31838</a></li>
+<li>Nadim MK, DiNorcia J, Ji L, et al. Inequity in organ allocation for patients awaiting liver transplantation: Rationale for uncapping the model for end-stage liver disease. J Hepatol. 2017;67(3):517-525. <a href="doi:10.1016/j.jhep.2017.04.022" class="uri">doi:10.1016/j.jhep.2017.04.022</a></li>
+<li>FMS. Draaiboek Triage Op Basis van Niet-Medische Overwegingen Voor IC-Opname Ten Tijde van Fase 3 in de COVID-19 Pandemie Criteria Voor Fase 3 Stap C Aansluitend Op Het NVIC Draaiboek Pandemie Versie 2.0-November 2020.; 2020.</li>
+<li>de Boer J, Braat A, Putter H, et al. Outcome of Liver Transplant Patients with High Urgent Priority. Are We Doing the Right Thing? Transplantation; 2018. <a href="doi:10.1097/tp.0000000000002526" class="uri">doi:10.1097/tp.0000000000002526</a></li>
+</ol>
+<p></p>
+
+<!-- \addtocontents{toc}{\setcounter{tocdepth}{0}} -->
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="gendisc.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["thesis - final.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
