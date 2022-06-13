@@ -1,15 +1,26 @@
+\pagecolor{black}
+\color{white}
+
 # Dankwoord {-}
 \chaptermark{Dankwoord}
+\selectlanguage{dutch}
+
+\newpage
+\nopagecolor
+\color{black}
+\righthyphenmin=62
+\lefthyphenmin=62
+\hyphenchar\font=-1
 
 Tot slot een woord van dank. De afgelopen jaren heb ik me mogen verdiepen in het onderzoek naar voorspellingsmodellen in levertransplantatie. Dit is mogelijk geweest door een groot aantal mensen, maar ik wil met name de volgende personen bedanken:
 
-Beste dr. Braat, beste Dries, door jou is dit alles begonnen. Je hebt me enthousiast gemaakt voor de complexe wereld van het transplantatie-onderzoek en je hebt me geholpen aan mijn eerste baan. Je geduldige begeleiding, visie, koppigheid en humor zijn onmisbaar geweest voor de totstandkoming van dit proefschrift.
+Doctor Braat, beste Dries, door jou is dit alles begonnen. Je hebt me enthousiast gemaakt voor de complexe wereld van het transplantatie-onderzoek en je hebt me geholpen aan mijn eerste baan. Je geduldige begeleiding, visie, koppigheid en humor zijn onmisbaar geweest voor de totstandkoming van dit proefschrift.
 
-Beste prof. Van Hoek, beste Bart, vanaf het begin was het voor mij duidelijk dat je een betrokken arts en begeleider bent. Je oprechte interesse en enthousiasme voor mijn onderzoek zijn een grote steun geweest. 
+Professor van Hoek, beste Bart, vanaf het begin was het voor mij duidelijk dat je een betrokken arts en begeleider bent. Je oprechte interesse en enthousiasme voor mijn onderzoek zijn een grote steun geweest. 
 
-Beste prof. Putter, beste Hein, je bent een tovenaar. Ik ben begonnen met R doordat ik de magie wilde leren die ik je wekelijks zag programmeren. Dit heeft mijn onderzoek ongetwijfeld verrijkt en verdiept. Door jouw wekelijkse sturing is dit alles mogelijk geworden.
+Professor Putter, beste Hein, je bent een tovenaar. Ik ben begonnen met R doordat ik de magie wilde leren die ik je wekelijks zag programmeren. Dit heeft mijn onderzoek ongetwijfeld verrijkt en verdiept. Door jouw wekelijkse sturing is dit alles mogelijk geworden.
 
-Beste dr. Tushuizen, beste Maarten, je geloofde in de potentie van mijn ideeën en was altijd bereid om snel en nauwkeurig mee te denken en mijn manuscripten te lezen. Alleen PhD'ers kunnen volledig waarderen hoe waardevol dat is.
+Doctor Tushuizen, beste Maarten, je geloofde in de potentie van mijn ideeën en was altijd bereid om snel en nauwkeurig mee te denken en mijn manuscripten te lezen. Alleen PhD'ers kunnen volledig waarderen hoe waardevol dat is.
 
 Geachte leden van de leescommissie en de oppositie. Dank voor jullie instemmen met en het verdiepen in mijn proefschrift. Het is een eer de gelijktijdige aandacht te krijgen van zo veel scherpe geesten.
 
@@ -36,3 +47,7 @@ Mijn ouders. Jullie trots en geloof in mij vormen een ononderbroken steun.
 Mijn zussen, we zijn allemaal andere paden ingeslagen en daardoor is mijn leven zoveel rijker geworden, dank voor jullie geduld en warmte.
 
 Fleur, licht van mijn leven. Je viert elke dag en leert me te genieten. Samen met jou kijk ik uit naar alles wat nog komt.
+
+\newpage
+\thispagestyle{plain}
+\mbox{}

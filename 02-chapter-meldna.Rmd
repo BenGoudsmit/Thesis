@@ -19,6 +19,10 @@ library(RColorBrewer)
 
 ```
 
+
+\pagecolor{black}
+\color{white}
+
 # Part I: Forms of MELD {.unnumbered}
 
 \chaptermark{Forms of MELD}
@@ -28,25 +32,6 @@ library(RColorBrewer)
 > --- George Box
 
 ------------------------------------------------------------------------
-
-<!-- \newpage -->
-
-<!-- ```{r, echo=F,message=F,warning=F, fig.align='center', fig.dim = c(7, 10)} -->
-<!-- options(warn=-1) -->
-<!-- load("figures/discussion/four model risks.Rdata") -->
-<!-- four_risks %>%  -->
-<!--   filter(model=="MELD"|model=="MELDNA") %>%  -->
-<!--   ggplot(aes(score,value,group=model))+ #, color=model -->
-<!--   #geom_line(size=1.5)+ -->
-<!--   geom_line(data = subset(four_risks, model=="MELDNA"),color = "grey", size=1.5)+ -->
-<!--   geom_line(data = subset(four_risks, model=="MELD"),color = "black", size=1.5)+ -->
-<!--   scale_x_continuous(expand = c(0, 0)) + -->
-<!--   scale_y_continuous(expand = c(0, 0)) + -->
-<!--   theme_void() #+ scale_color_grey(start = 0.6, end = 0.1)  -->
-
-<!-- options(warn=0) -->
-
-<!-- ``` -->
 
 \newpage
 
@@ -61,8 +46,11 @@ library(RColorBrewer)
 ------------------------------------------------------------------------
 
 \newpage
+\nopagecolor
+\color{black}
 
 \noindent   
+\small
 
 **Abstract**
 
@@ -75,6 +63,7 @@ library(RColorBrewer)
 **Conclusion**: The MELD-Na score yielded improved prediction of 90-day WL mortality in the ET region and using MELD-Na for liver allocation will very likely reduce WL mortality.
 
 \newpage
+\normalsize
 
 ## Introduction {.unnumbered}
 
@@ -84,7 +73,9 @@ For optimal matching and use of donor livers in the Eurotransplant (ET) region, 
 
 To improve the survival prediction and allocation by the MELD score, the addition of the serum sodium (Na) concentration was proposed, as hyponatremia is an independent prognostic factor in patients with cirrhosis.^8-12^ In cirrhosis, portal hypertension leads to systemic vasodilatation, secondary neurohormonal compensation and less renal excretion of solute-free water.^13,14^ The severity of portal hypertension is inversely related to the serum Na concentration.^15,16^ Clinically, Na levels influence the outcomes of LT candidates before and possibly even after LT.^17-20^ Interestingly, in the UNOS regions, MELD-Na has been used for liver graft allocation since 2016.^21^
 
-After the introduction of MELD-Na in the United States (US), recent evaluation showed a decline in WL mortality.^22^ However, the populations of the US and Eurotransplant differ.^1,23^ Recently, it was shown that differences in population characteristics influenced the predictive power of MELD and MELD-Na.^24^ Therefore, MELD-Na-based allocation needs to be investigated in Eurotransplant before implementation. We hypothesized that the serum sodium levels at listing were similar between the Eurotransplant and US regions. If so, MELD-Na-based allocation could also lead to a reduction in WL mortality in the Eurotransplant region. Therefore, our aim was to validate the UNOS MELD-Na score for the Eurotransplant region. For this, the prediction of 90-day WL mortality by the MELD-Na score was investigated in the Eurotransplant population. In addition, the potential effect of MELD-Na-based liver allocation on the Eurotransplant waiting list mortality was estimated.
+After the introduction of MELD-Na in the United States (US), recent evaluation showed a decline in WL mortality.^22^ However, the populations of the US and Eurotransplant differ.^1,23^ Recently, it was shown that differences in population characteristics influenced the predictive power of MELD and MELD-Na.^24^ Therefore, MELD-Na-based allocation needs to be investigated in Eurotransplant before implementation. We hypothesized that the serum sodium levels at listing were similar between the Eurotransplant and US regions. If so, MELD-Na-based allocation could also lead to a reduction in WL mortality in the Eurotransplant region. 
+
+Therefore, our aim was to validate the UNOS MELD-Na score for the Eurotransplant region. For this, the prediction of 90-day WL mortality by the MELD-Na score was investigated in the Eurotransplant population. In addition, the potential effect of MELD-Na-based liver allocation on the Eurotransplant waiting list mortality was estimated.
 
 ## Methods {.unnumbered}
 
@@ -98,9 +89,7 @@ For the complete-case analysis, continuous variables were reported as mean (SD) 
 
 ## Results {.unnumbered}
 
-### Study population {.unnumbered}
-
-For this study, 14.396 patients were eligible. After excluding patients with missing serum Na at listing, 5223 patients were included. See Figure \@ref(fig:meldna-fig1). The baseline characteristics of included patients at first active listing are shown in Table \@ref(tab:meldna-tab1).
+\linespread{1}
 
 ```{r meldna-tab1,message=FALSE, echo=F}
 options(warn=-1)
@@ -109,19 +98,7 @@ library(readxl)
 library(tidyverse)
 tab1 <- read_excel("figures/meldna/table 1 Patient characteristics at listing.xlsx")
 tab2 <- tab1[-c(5:8),]
-#colnames(tab1) <- c(NA,NA)
 options(knitr.kable.NA = '')
-# kbl(tab1,booktabs=T, caption = "Demographics of the patients at first active listing")%>%
-#   kable_styling(latex_options = c("scale_down")) %>% 
-#   kable_classic() %>%
-#   pack_rows("BMI", 5, 8) %>%
-#   pack_rows("ABO", 9, 12)%>%
-#   pack_rows("MELD parameters", 14, 16)%>%
-#   pack_rows("Grouped sodium", 18, 21)%>%
-#   pack_rows("Disease", 23, 27)%>%
-#   pack_rows("Waiting list outcome (90 days)", 28, 33) %>% 
-#   footnote(general = "Median (25th-75th percentile)")
-
 kbl(tab2,booktabs=T, caption = "Demographics of the patients at first active listing",
     linesep= "")%>%
   kable_styling(latex_options = c("striped")) %>% 
@@ -136,35 +113,104 @@ kbl(tab2,booktabs=T, caption = "Demographics of the patients at first active lis
 options(warn=0)
 ```
 
+\linespread{1.213}
+
+### Study population {.unnumbered}
+
 ```{r meldna-fig1, echo=F, fig.cap='The flowchart of in- and exclusion for this study'}
-knitr::include_graphics("figures/figure-html/meldna-fig1-1.png")
+knitr::include_graphics("figures/meldna/figure 1. in- exclusion.png" , auto_pdf=T)
 ```
 
-The median lab MELD score was 16 (IQR 11-21) and the median sodium concentration was 137 (IQR 134-140) mmol/L. Hyponatremia of \<135, \<130, and \<125 mmol/L was found in respectively 28.5%, 8.8%, and 2.6% of the patients. Patients with alcohol-induced cirrhosis (ALD) had the lowest median Na levels, see Figure \@ref(fig:meldna-fig2).For the assessment of selection bias, an analysis of all eligible patients (Na present versus absent) was added (supplement 1). Compared to the included patients, eligible patients with missing serum Na were more often female (31.9% vs 35.5%) and had higher rates of alcohol- or virus-induced liver cirrhosis (respectively 35.9% vs 41.0% and 12.4% vs 15.3%, p\<0.001). MELD scores were comparable, but excluded patients had significantly higher creatinine levels at listing (1.36 vs 1.42 mg/dL p\<0.001).
+For this study, 14.396 patients were eligible. After excluding patients with missing serum Na at listing, 5223 patients were included. See Figure \@ref(fig:meldna-fig1). The baseline characteristics of included patients at first active listing are shown in Table \@ref(tab:meldna-tab1). The median lab MELD score was 16 (IQR 11-21) and the median sodium concentration was 137 (IQR 134-140) mmol/L. Hyponatremia of \<135, \<130, and \<125 mmol/L was found in respectively 28.5%, 8.8%, and 2.6% of the patients. Patients with alcohol-induced cirrhosis (ALD) had the lowest median Na levels, see Figure \@ref(fig:meldna-fig2). 
 
 ```{r meldna-fig2, echo=F, fig.cap='Violin plots with embedded box plots of the median serum sodium (Na) levels at listing, for the most frequent causes of liver disease. The dotted line represents the median Na of 137 mmol/L for the whole cohort. For the significant differences between Na levels, P values for pairwise comparisons are shown'}
-knitr::include_graphics("figures/figure-html/meldna-fig2-1.png")
+knitr::include_graphics("figures/meldna/figure 2. median sodium per disease.png" , auto_pdf=T)
+```
+
+For the assessment of selection bias, an analysis of all eligible patients (Na present versus absent) was added (supplement 1). Compared to the included patients, eligible patients with missing serum Na were more often female (31.9% vs 35.5%) and had higher rates of alcohol- or virus-induced liver cirrhosis (respectively 35.9% vs 41.0% and 12.4% vs 15.3%, p\<0.001). MELD scores were comparable, but excluded patients had significantly higher creatinine levels at listing (1.36 vs 1.42 mg/dL p\<0.001).
+
+```{r meldna-fig3,message=F,warning=F, echo=F, fig.cap='Cumulative incidence plots for 90-day WL outcomes, with competing risks of death, transplantation and removal due to clinical condition or censoring for NSE or HU status during waiting. Hyponatriemic patients show increased rates of mortality (27%) and transplantation (33%) compared to normonatriemic patients (respectively 8% and 18%).'}
+options(warn=-1)
+require("survival")
+library(survminer)
+library(survival)
+library(ggplot2)
+library(RColorBrewer)
+load("figures/meldna/comp risk data.Rdata")
+cols <- brewer.pal(8, "Dark2")
+year <- 365.25 # to convert from days to years
+#table(etwork2$status4)
+etwork2 <- etwork2 %>% mutate(status5=case_when(
+  status4=="Censored at 90d"~0, status4=="Deceased"~1,
+   status4=="Transplanted"~2,TRUE~3))
+#table(etwork2$status5)
+etwork2$status5 <- factor(etwork2$status5,levels=c(0:3),labels=c("Censored","Deceased","Transplanted","Removed"))
+
+par(mfrow=c(1,3))
+sf <- survfit(Surv(days90, status5) ~ 1, data=etwork2[etwork2$Sodium=="Sodium <130",])
+plot(sf, xlim=c(0,90), col=cols, lwd=2, ylim=c(0, 0.35),
+     xlab="Days since WL entry", ylab="Cumulative incidence") 
+legend("topleft", levels(etwork2$status5)[-1], lwd=2, col=cols, bty="n")
+mtext("Sodium <130", side=3)
+sf <- survfit(Surv(days90, status5) ~ 1, data=etwork2[etwork2$Sodium=="Sodium 130-134",])
+plot(sf, xlim=c(0,90), col=cols, lwd=2, ylim=c(0, 0.35),
+     xlab="Days since WL entry", ylab="Cumulative incidence")
+legend("topleft", levels(etwork2$status5)[-1], lwd=2, col=cols, bty="n")
+mtext("Sodium 130-134", side=3)
+sf <- survfit(Surv(days90, status5) ~ 1, data=etwork2[etwork2$Sodium=="Sodium >=135",])
+plot(sf, xlim=c(0,90), col=cols, lwd=2, ylim=c(0, 0.35),
+     xlab="Days since WL entry", ylab="Cumulative incidence")
+legend("topleft", levels(etwork2$status5)[-1], lwd=2, col=cols, bty="n")
+mtext("Sodium >=135", side=3)
+par(mfrow=c(1,1))
 ```
 
 Competing risk analysis showed that 90-day mortality and transplantation rates increased as sodium levels decreased, see Figure \@ref(fig:meldna-fig3). Na\<130, 130-134 and \>=135 patients had 90-day death risks of respectively 27%, 18% and 8%. The 90-day transplant rates were respectively 33%, 27% and 18.0%. The grouped Na levels showed diverging survival curves, i.e. at lower Na levels the mortality risk increased at a higher rate (supplement 2). The 90-day death HRs for Na \<130 and Na 130-134 compared to Na \>=135 patients were 4.72 (95%CI 3.81-5.83), and 2.72 (95%CI 2.26-3.28), respectively.
 
-```{r meldna-fig3,message=F,warning=F, echo=F, fig.cap='Cumulative incidence plots for 90-day WL outcomes, with competing risks of death, transplantation and removal due to clinical condition or censoring for NSE or HU status during waiting. Hyponatriemic patients show increased rates of mortality (27%) and transplantation (33%) compared to normonatriemic patients (respectively 8% and 18%) patients. For an explanation of the NSE and HU status, see Jochmans et al.'}
-knitr::include_graphics("figures/figure-html/meldna-fig3-1.png")
-```
-
 ### MELD-Na performance {.unnumbered}
 
-Per MELD point increase, the 90-day mortality risk increased by 17% (HR 1.17; 95%CI 1.16 -- 1.18; p\<0.001), c-index 0.832 (SE 0.008). The GAM with splines of the MELD-corrected effect of Na level on 90-day mortality showed approximate linearity in the 125-140 mmol/L range, see Figure \@ref(fig:meldna-fig4). Within this interval, the risk of 90-day death increased by threefold (HR 2.9; 95%CI 2.30-3.53; p\<0.001). In the MELD-Na model, each gained MELD and lowered Na point increased 90-day mortality risk by respectively 16% (HR 1.16; 95%CI 1.15 -- 1.17; p\<0.001), and 8% (HR 0.92; 95%CI 0.90 -- 0.94; p\<0.001), c-index 0.847 (SE 0.007). For each year of the study period, the c-index of MELD and MELD-Na was plotted, see Figure \@ref(fig:meldna-fig5). Between 2007-2018, the c-index of MELD and MELD-Na decreased significantly, respectively from 0.866 to 0.810 and 0.946 to 0.828 (Table \@ref(tab:meldna-tab2) ). In this period, the MELD, age and distribution of liver disease changed significantly (supplement 4). Alcohol-induced liver disease, HCC, primary biliary cirrhosis (PBC) and non-alcoholic steatohepatitis (NASH) cirrhosis increased and primary sclerosing cholangitis (PSC), hepatitis-C (HCV), hepatitis-B (HBV) and other causes decreased.
-
 ```{r meldna-fig4, echo=F, fig.cap='Generalized additive Cox model with spline showing the effect of serum sodium at listing on 90-day mortality, corrected for the MELD score.'}
-knitr::include_graphics("figures/figure-html/meldna-fig4-1.png")
+# knitr::include_graphics("figures/meldna/figure 4. GAM with splines of MELD-corrected Na risk.png" , auto_pdf=T)
+load("figures/meldna/gam data 2.Rdata")
+naterm2 %>% ggplot(aes(x,exp(ytemp-center)))+geom_line(lwd=1.2)+
+  geom_line(aes(x,exp(ytemp_low-center)), lty=2)+
+  geom_line(aes(x,exp(ytemp_upp-center)), lty=2)+
+  scale_x_continuous("Serum sodium concentration (mmol/L)")+
+  scale_y_continuous("Relative Risk of 90-day death", trans='log10', breaks = c(1,3,5,10))+
+  theme_base()+
+  geom_rug(sides="b")
+
 ```
+
+Per MELD point increase, the 90-day mortality risk increased by 17% (HR 1.17; 95%CI 1.16 -- 1.18; p\<0.001), c-index 0.832 (SE 0.008). The GAM with splines of the MELD-corrected effect of Na level on 90-day mortality showed approximate linearity in the 125-140 mmol/L range, see Figure \@ref(fig:meldna-fig4). Within this interval, the risk of 90-day death increased by threefold (HR 2.9; 95%CI 2.30-3.53; p\<0.001). In the MELD-Na model, each gained MELD and lowered Na point increased 90-day mortality risk by respectively 16% (HR 1.16; 95%CI 1.15 -- 1.17; p\<0.001), and 8% (HR 0.92; 95%CI 0.90 -- 0.94; p\<0.001), c-index 0.847 (SE 0.007).
 
 ```{r meldna-fig5, echo=F, fig.cap='The concordance statistics (c-indices) for 90-day mortality of MELD and MELD-Na between 2007 and 2018.'}
-knitr::include_graphics("figures/figure-html/meldna-fig5-1.png")
+# knitr::include_graphics("figures/meldna/figure 5. c-index over years.png" , auto_pdf=T)
+load("figures/meldna/c index data.Rdata")
+cbp2 <- c("#000000", "#E69F00", "#56B4E9", "#009E73",
+          "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+ggplot(e, aes(x=year, y=cindex, group=model, color=model)) + 
+  geom_line(lwd=1) +
+  geom_point()+
+  geom_errorbar(aes(ymin=cindex-se, ymax=cindex+se), width=.2,
+                position=position_dodge(0.1))+
+  scale_x_continuous(breaks=seq(2007,2018,1))+
+  scale_y_continuous(limits=c(0.7,1.0))+
+  theme(axis.text.x = element_text(colour = "black"),
+        axis.text.y = element_text(colour = "black"))+
+  theme_base() + scale_color_manual(values=cbp2)+
+  labs(x="Year of listing", y = "Concordance statistic")+
+  theme(
+  legend.title = element_blank(), 
+        legend.position = c(0.85, 0.15),
+        legend.background = element_rect(fill="white", size=0.5, linetype="solid", colour ="black"))
 
 
 ```
+
+For each year of the study period, the c-index of MELD and MELD-Na was plotted, see Figure \@ref(fig:meldna-fig5). Between 2007-2018, the c-index of MELD and MELD-Na decreased significantly, respectively from 0.866 to 0.810 and 0.946 to 0.828 (Table \@ref(tab:meldna-tab2) ). In this period, the MELD, age and distribution of liver disease changed significantly (supplement 4). Alcohol-induced liver disease, HCC, primary biliary cirrhosis (PBC) and non-alcoholic steatohepatitis (NASH) cirrhosis increased and primary sclerosing cholangitis (PSC), hepatitis-C (HCV), hepatitis-B (HBV) and other causes decreased.
+
+\linespread{1}
 
 ```{r meldna-tab2,message=FALSE, echo=F}
 options(warn=-1)
@@ -180,25 +226,78 @@ kbl(tab2, booktabs=T, linesep= "",
 options(warn=0)
 ```
 
-The MELD-Na calibration plot showed a well calibrated model for 90% of the predicted risks in the population, with an overestimation for the highest 10% (504 patients) predicted risks (Figure \@ref(fig:meldna-fig6) and supplement 6). The prediction error of 90-day death was lower for MELD-Na than for MELD, with Brier scores of respectively 0.059 (34% prediction error reduction), and 0.061 (32% reduction).
+\linespread{1.213}
 
-```{r meldna-fig6, message=F,warning=F, echo=F, fig.cap='Calibration plot of the MELD-Na model showing the predicted and observed risks of death per decile (10%) of the patient population. The diagonal line represents a perfect calibration.'}
-knitr::include_graphics("figures/figure-html/meldna-fig6-1.png")
+```{r meldna-fig6, message=F,warning=F, echo=F, fig.cap='Calibration plot of the MELD-Na model showing the predicted and observed risks of death per decile (10%) of the patient population. The diagonal line represents perfect calibration.', fig.pos="!h"}
+options(warn=-1)
+library(lemon)
+#knitr::include_graphics("figures/meldna/figure 6. Calibration plot of MELD-Na.png" , auto_pdf=T)
+load("figures/meldna/meldna cal data.Rdata")
+
+res %>% ggplot(aes(meanpred,prop))+ 
+  geom_abline(lty=2) +
+  geom_errorbar(aes(ymin=prop-1.96*propSE, ymax=prop+1.96*propSE))+
+  geom_pointline(distance=0.1, fill='white', shape=2, size=2, stroke=1.5, linesize=3)+
+  scale_x_continuous("Predicted probability",limits = c(0,1), breaks=c(seq(0,1,0.2)))+
+  scale_y_continuous("Observed probability",limits = c(0,1), breaks=c(seq(0,1,0.2)))+
+  theme_base()
+
 ```
+
+The MELD-Na calibration plot showed a well calibrated model for 90% of the predicted risks in the population, with an overestimation for the highest 10% (504 patients) predicted risks (Figure \@ref(fig:meldna-fig6) and supplement 6). The prediction error of 90-day death was lower for MELD-Na than for MELD, with Brier scores of respectively 0.059 (34% prediction error reduction), and 0.061 (32% reduction).
 
 ### Impact on the waiting list {.unnumbered}
 
-On the WL, implementation of the MELD-Na score would lead to competition for transplantation between hyponatremic and high-MELD patients. The constructed heatmap of risk differences showed that compared to MELD, approximately 20% of the patients gained significant predicted 90-day mortality risks according to MELD-Na (red area). The largest increase (+22.5%) was found for MELD 23 Na 125 patients. Approximately 19% of the patients had significantly lower predicted risks with MELD-Na compared to MELD (blue area), of which the largest decrease (-8.72%) was estimated for MELD 27 Na 140 patients, see Figure \@ref(fig:meldna-fig7). Thus, the patients in the red area (19%) are prioritized most by MELD-Na. On the other hand, the lowest 20% of predicted risks (blue area) would have a reduced chance of transplantation compared to MELD allocation. The interactive heatmaps allow specific assessment of the gained risks and MELD-Na points for individual patients (online supplement <https://plot.ly/~Liver_Research/3/> and <https://plot.ly/~Liver_Research/5/>). In total, 3384 (64.9%) patients gained an average of 1.94 MELD-Na points at listing. The highest reclassification rates, i.e. lowest percentage on the diagonal, were seen between MELD 12 to 30 (figure 8 and <https://plot.ly/~Liver_Research/7/> and <https://plot.ly/~Liver_Research/18/>). On average, MELD 23 patients gained the most, i.e. an average of 2.73, MELD-Na points. From 19 points and above, the frequency of MELD-Na scores at listing was significantly higher than MELD scores, with the exception of MELD 40 (online supplement <https://plot.ly/~Liver_Research/11/>).
+On the WL, implementation of the MELD-Na score would lead to competition for transplantation between hyponatremic and high-MELD patients. The constructed heatmap of risk differences showed that compared to MELD, approximately 20% of the patients gained significant predicted 90-day mortality risks according to MELD-Na (red area). The largest increase (+22.5%) was found for MELD 23 Na 125 patients. Approximately 19% of the patients had significantly lower predicted risks with MELD-Na compared to MELD (blue area), of which the largest decrease (-8.72%) was estimated for MELD 27 Na 140 patients, see Figure \@ref(fig:meldna-fig7). 
 
-```{r meldna-fig7,warning=F,message=F, echo=F,fig.ncol=1,fig.subcap=c('Gained MELD-Na points for each combination of MELD and serum sodium level at listing', 'Difference in predicted death probability between MELD and MELD-Na'), fig.cap='Point and risk differences between MELD and MELD-Na.'}
-knitr::include_graphics(c("figures/figure-html/meldna-fig7-1.png",
-                          "figures/figure-html/meldna-fig7-2.png"))
+```{r meldna-fig7, echo=F,fig.ncol=1,fig.subcap=c('Gained MELD-Na points for each combination of MELD and serum sodium level at listing', 'Difference in predicted death probability between MELD and MELD-Na'), fig.cap='Point and risk differences between MELD and MELD-Na.'}
+library(viridis)
+library(RColorBrewer)
+load("figures/meldna/grid_df.Rdata")
+
+grid %>% mutate(MELDNa1=round(MELDNa1),meldnagained=round(meldnagained)) %>% 
+  ggplot(aes(MELD1, na_cap, fill= meldnagained)) + geom_tile()+
+  scale_fill_viridis(option = "B",direction=-1)+
+  scale_x_continuous("MELD at listing",breaks=c(seq(6,40,2)), expand = c(0, 0)) +
+  scale_y_continuous("Sodium at listing", breaks=c(seq(125,140,1)), expand = c(0, 0)) +
+  theme_base()+
+  annotate("text", color=c(rep("white",10),rep("black",4)), x = c(6,8,11,13.5,16,19,21.5,24,26.7,29,31.5,35,37.5,39.5), y = 125, label = c(as.character(quote(c(0,1,2,3,4,5,6,7,8,9,10,11,12,13)))[-1])) +
+  theme(legend.position = c("none"))
+
+nb.cols <- 14
+mycolors <- colorRampPalette(brewer.pal(8, "Spectral"))(nb.cols)
+mycolors2 <- rev(mycolors)
+
+grid %>% mutate(pverschil=100*pverschil) %>%
+  rename(`Risk difference`=pverschil) %>% 
+  ggplot(aes(MELD1, na_cap, fill= `Risk difference`)) + geom_tile()+
+  #scale_fill_distiller(palette = "Spectral", direction = -1) +
+  #scale_fill_manual(values = mycolors) +    
+  scale_fill_gradientn(colors=mycolors2,na.value = "transparent",
+                           breaks=c(-20,-10,0,10,20),labels=c("-20%","-10%","0%","+10%","+20%"),
+                           limits=c(-10,23))+
+  scale_x_continuous("MELD at listing",breaks=c(seq(6,40,2)), expand = c(0, 0)) +
+  scale_y_continuous("Sodium at listing", breaks=c(seq(125,140,1)), expand = c(0, 0)) +
+  theme_base()+
+  theme(
+    legend.title = element_text(colour = 'black', size = 10, hjust = 1, vjust = 1),
+  #legend.title = element_blank(), 
+        legend.position = c(0.9, 0.5),
+        legend.background = element_rect(fill="white", size=0.5, linetype="solid", colour ="black"))
 ```
+
+<!-- ```{r meldna-fig7b, echo=F, fig.cap='Heatmap of the difference in predicted death probability between MELD and MELD-Na. For each MELD and Na combination the gained predicted risk from MELD-Na is shown, which represents which patients will be prioritized most (red area, highest predicted risk difference) and which patients will lose the most priority with MELD-Na-based allocation (blue area, lowest predicted risk difference).'} -->
+
+<!-- knitr::include_graphics("figures/meldna/figure 7b. heatmap predicted risk difference.png" , auto_pdf=T) -->
+
+<!-- ```  -->
+
+Thus, the patients in the red area (19%) are prioritized most by MELD-Na. On the other hand, the lowest 20% of predicted risks (blue area) would have a reduced chance of transplantation compared to MELD allocation. The interactive heatmaps allow specific assessment of the gained risks and MELD-Na points for individual patients (online supplement <https://plot.ly/~Liver_Research/3/> and <https://plot.ly/~Liver_Research/5/>). In total, 3384 (64.9%) patients gained an average of 1.94 MELD-Na points at listing. The highest reclassification rates, i.e. lowest percentage on the diagonal, were seen between MELD 12 to 30 (figure 8 and <https://plot.ly/~Liver_Research/7/> and <https://plot.ly/~Liver_Research/18/>). On average, MELD 23 patients gained the most, i.e. an average of 2.73, MELD-Na points. From 19 points and above, the frequency of MELD-Na scores at listing was significantly higher than MELD scores, with the exception of MELD 40 (online supplement <https://plot.ly/~Liver_Research/11/>).
 
 To make comparison to the UNOS data possible, we calculated the stratified MELD reclassification rates and estimated WL mortality reduction (supplement 3). Stratification of scores in accordance to Kim et al.^9^ showed a reclassification rate of 26.3% (156 / 593) in the deceased patients. This led to an estimated 4.9% reduction in 90-day waiting list mortality. The analysis of disease-specific prioritization in the deceased patients showed that patients with HCC and hepatitis B had the highest chance of reclassification to a higher MELD-Na stratum, 36% and 30% respectively (supplement 3). However, patients with (post)alcoholic cirrhosis had the highest increase in mean MELD-Na compared to MELD. This illustrated that the strata chosen by Kim et al. could enable stage migration bias (supplement 3 and 5). Therefore, we believe that the total number of reclassified patients and the distribution of the gained MELD-Na points are more useful information when estimating the possible impact of MELD-Na-based allocation (Figure \@ref(fig:meldna-fig8) and <https://plot.ly/~Liver_Research/7/> and <https://plot.ly/~Liver_Research/18/>).
 
-```{r meldna-fig8, echo=F, fig.cap='Reclassification from MELD (y-axis with percentage of patients with that score) to MELD-Na (x-axis with percentage of patients with that score). The diagonal shows which patients remain in the same stratum, that is, not reclassified, and which patients are reclassified to a higher MELD-Na score (percentages in the tiles). A lighter color indicates a higher difference between MELD and MELD-Na scores. The histogram on the left shows for each MELD score the average gain in MELD-Na points.'}
-knitr::include_graphics(c("figures/figure-html/meldna-fig8-1.png"))
+```{r meldna-fig8, echo=F, fig.cap='Reclassification from MELD (y-axis with percentage of patients with that score) to MELD-Na (x-axis with percentage of patients with that score). The diagonal shows which patients remain in the same stratum, that is, not reclassified, and which patients are reclassified to a higher MELD-Na score (percentages in the tiles). A lighter color indicates a higher difference between MELD and MELD-Na scores. The histogram on the left shows for each MELD score the average gain in MELD-Na points.', out.extra='angle=90'}
+knitr::include_graphics("figures/meldna/figure 8. Reclassification and gained points histogram 2.png" , auto_pdf=T)
 ```
 
 ## Discussion {.unnumbered}
@@ -216,13 +315,15 @@ The MELD-Na showed good calibration, with overestimation of risks only in the to
 Since we validated the UNOS MELD-Na score, we used the Na 125-140 mmol/L interval to fit our model. In this interval we showed a 1.5 higher increase in 90-day mortality risk per Na unit as compared to the UNOS regions.^9^ Therefore, a greater reduction in WL mortality could be achieved through MELD-Na-based allocation. In the US, introduction of MELD-Na-based allocation reduced (HR 0.738) 90-day waiting list mortality for almost all MELD scores.^22^ However, the number of transplants was higher in the studied MELD-Na period, which also could have reduced WL mortality. Still, Nagai et al. showed that the intended recognition of hyponatremia was achieved, as the WL mortality hazards of mild and severe hyponatremia decreased with respectively 27.9% and 48.3%.^22^ In the US, it was shown that in MELD\<12 patients hyponatremia was not associated with LT survival benefit.^20^ Thus, UNOS MELD-Na is only used to allocate liver grafts in MELD\>11 patients. In our population, very few (2.8%) MELD\<12 patients had severe hyponatremia. Although these patients would gain transplant chances through MELD-Na allocation, others would be prioritized more often. Our data also showed that the frequency of MELD-Na \>18 scores increased significantly (<https://plot.ly/~Liver_Research/11/>). This would reduce transplant chances for patients listed with exception points, e.g. HCC patients, as these patients initially receive 20 points at listing in Eurotransplant.^6^ Although the reduced advantage of (N)SE points is warranted according to some,^31,32^ (N)SE point policy did not change after MELD-Na implementation in the UNOS regions (personal SRTR communication). Still, many patients are listed with exception points, both in Eurotransplant and in the US. Therefore, the distribution of gained MELD-Na points, survival benefit and influence on exception points of Eurotransplant LT candidates should be considered before implementation of MELD-Na-based allocation. A simulation of MELD-Na-based allocation would give the most accurate estimates of the effect on WL mortality.
 
 #### Limitations {.unnumbered}
-This study has several limitations. First, only one measurement, i.e. at first listing, of the MELD and sodium was used to study the effect on 90-day mortality. Since the disease state of the patient is a dynamic process, a time-dependent analysis with more datapoints might have been a better representation of the true risk posed by hyponatremia. Indeed, we showed that the effect of hyponatremia increased with time (Figure \@ref(fig:meldna-fig3) and supplement 3). Also, serum sodium levels in the MELD-Na model were bound between 125-140 mmol/L. The fitted Cox model between these borders had a excellent c-index, but the relationship between serum sodium level and mortality was slightly different for the Eurotransplant region compared to the UNOS regions.^9^ However, the goal was to validate the MELD-Na as used in the UNOS regions for the Eurotransplant region, and this goal was achieved. Still, refitting of the MELD parameters for the Eurotransplant population could be a valuable, especially regarding the decline in c-index between 2007-2018. Second, sodium data at first listing was missing for many eligible patients (supplement 1). This could have caused selection bias, possibly making the results less generalizable. However, analysis of the differences between the patients with and without registered sodium at listing showed that there was no reason to suspect selection bias. In the missing Na group, a significantly higher prevalence of alcoholic cirrhosis and virus-induced hepatitis was seen (supplement 4). Also, patients in the group with missing Na had a significantly higher serum creatinine. Thus, the prevalence of hyponatremia in those eligible patients could very well be even higher than found in the current cohort. Moreover, even though some data was missing, the number of patients included in this study sufficed to evaluate and estimate the improvements of MELD-Na with great statistical precision. Thus, the results of this study should be an incentive for the mandatory collection of sodium values across the Eurotransplant region.
+This study has several limitations. First, only one measurement, i.e. at first listing, of the MELD and sodium was used to study the effect on 90-day mortality. Since the disease state of the patient is a dynamic process, a time-dependent analysis with more datapoints might have been a better representation of the true risk posed by hyponatremia. Indeed, we showed that the effect of hyponatremia increased with time (Figure \@ref(fig:meldna-fig3) and supplement 3). Also, serum sodium levels in the MELD-Na model were bound between 125-140 mmol/L. The fitted Cox model between these borders had a excellent c-index, but the relationship between serum sodium level and mortality was slightly different for the Eurotransplant region compared to the UNOS regions.^9^ However, the goal was to validate the MELD-Na as used in the UNOS regions for the Eurotransplant region, and this goal was achieved. Still, refitting of the MELD parameters for the Eurotransplant population could be valuable, especially regarding the decline in c-index between 2007-2018. Second, sodium data at first listing was missing for many eligible patients (supplement 1). This could have caused selection bias, possibly making the results less generalizable. However, analysis of the differences between the patients with and without registered sodium at listing showed that there was no reason to suspect selection bias. In the missing Na group, a significantly higher prevalence of alcoholic cirrhosis and virus-induced hepatitis was seen (supplement 4). Also, patients in the group with missing Na had a significantly higher serum creatinine. Thus, the prevalence of hyponatremia in those eligible patients could very well be even higher than found in the current cohort. Moreover, even though some data was missing, the number of patients included in this study sufficed to evaluate and estimate the improvements of MELD-Na with great statistical precision. Thus, the results of this study should be an incentive for the mandatory collection of sodium values across the Eurotransplant region.
 
 ## Conclusion {.unnumbered}
 
 In conclusion, this study showed that the MELD-Na gave better 90-day mortality prediction than MELD for LT candidates on the Eurotransplant waiting list. As stated before, "the MELD-based allocation system will and also must evolve".^26^ The recognition of the independent prognostic impact of hyponatremia should lead to a more effective allocation. Thus, in the Eurotransplant region the MELD should be replaced by the MELD-Na as the basis allocation of donor livers.
 
 \newpage
+\linespread{1}
+\small
 
 ## References {.unnumbered}
 1.  Eurotransplant. Annual Report 2017.; 2018. www.eurotransplant.org.
@@ -257,3 +358,9 @@ In conclusion, this study showed that the MELD-Na gave better 90-day mortality p
 30. Cejas N, Villamil F, Lendoire J, et al. Improved Waiting-List Outcomes in Argentina After the Adoption of a Model for End-Stage Liver Disease--Based Liver Allocation Policy. Liver Transplant. 2013;13(19):711-720. <doi:10.1002/lt>
 31. Northup PG, Intagliata NM, Shah NL, Pelletier SJ, Berg CL, Argo CK. Excess mortality on the liver transplant waiting list: Unintended policy consequences and model for End-Stage Liver Disease (MELD) inflation. Hepatology. 2015;61(1):285-291. <doi:10.1002/hep.27283>
 32. Umgelter A, Hapfelmeier A, Kopp W, van Rosmalen M, Rogiers X, Guba M. Disparities in Eurotransplant liver transplantation wait-list outcome between patients with and without model for end-stage liver disease exceptions. Liver Transplant. 2017;23(10):1256-1265. <doi:10.1002/lt.24805>
+
+\newpage
+\linespread{1.213}
+\normalsize
+\thispagestyle{plain}
+\mbox{}

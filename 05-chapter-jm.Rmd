@@ -3,6 +3,9 @@ output:
   word_document: default
   html_document: default
 ---
+\pagecolor{black}
+\color{white}
+
 # Part II: Disease over time {.unnumbered}
 
 \chaptermark{Disease over time}
@@ -14,6 +17,7 @@ output:
 ------------------------------------------------------------------------
 
 \newpage
+\linespread{1}
 
 # Joint modelling of liver transplant candidates outperforms the model for end-stage liver disease: the effect of disease development over time on patient outcome {#chap-jm}
 
@@ -25,7 +29,13 @@ output:
 
 ------------------------------------------------------------------------
 
-\noindent   
+\noindent
+\newpage
+<!-- \linespread{1} -->
+\nopagecolor
+\color{black}
+\small
+\linespread{1.213}
 
 **Abstract**
 
@@ -38,6 +48,8 @@ output:
 **Conclusion**: The MELD(Na)-JM significantly outperformed current models that drive liver allocation. Thus, patient survival can be dynamically predicted based on past and current disease. These predictions could more accurately direct treatment to those most in need.
 
 \newpage
+\normalsize
+\linespread{1.213}
 
 ## Introduction {.unnumbered}
 The shortage of available donor livers creates waiting lists of liver transplant (LT) candidates with end-stage liver disease.^1^ In many countries, candidates with the lowest expected survival are ranked highest and thus usually treated first.^2^ In the Eurotransplant and United Network for Organ Sharing (UNOS) regions, the survival prediction and subsequent ranking of LT candidates is based on the Model for End-stage Liver Disease (MELD) or MELD sodium (MELD-Na) score.^2^ The MELD(-Na) score estimates 90-day mortality based on the last known measurement of serum creatinine, bilirubin and the INR (and sodium).^3–5^ For patients awaiting LT, MELD(-Na) scores are repeatedly and regularly measured. These data are valuable for outcome prediction as they show the patient-specific disease development over time.^6,7^ Clinically, it also makes sense to account for past disease and its severity when estimating prognosis. However, currently only the last available MELD(-Na) measurement is used for survival prediction and subsequent LT allocation. Previous data is ignored. 
@@ -50,7 +62,7 @@ The goal of this study is to use joint models to improve prediction of waiting l
 The analyses were done separately for the Eurotransplant and UNOS regions, MELD- and MELD-Na based JMs were constructed and validated respectively. 
 
 ### Study population {.unnumbered}
-For this study, waiting list data was used from Eurotransplant and the UNOS regions. For the Eurotransplant region, patients were followed between January 1^st, 2007 until December 31^st, 2018. For the UNOS, the study interval was from January 16^th 2016 (MELD-Na implementation) to December 31^st, 2019. Patients with acute liver failure, exception points or priority status at registration and listing for multiple organs were excluded. All other adult patients listed for a first LT were included. Longitudinal exception points were not modeled, as they do not reflect disease severity within the patient. Separate training (67% of the patients) and testing (33%) sets were constructed through random sampling. The longitudinal data of the waiting list contained repeated measurements of the MELD(-Na) score.^4 Data from first active listing until delisting were used. Reasons for delisting were death, transplantation, removal or the end of study. Patients who were removed due to deteriorating clinical condition or who died within 30 days of removal were also counted as deceased. “Removal” comprised of removal from the waiting list due to improved clinical condition and censoring for exception points or priority status acquired during follow-up. The primary outcome of survival analysis was the overall waiting list mortality. Predictors were (repeated) MELD(-Na) scores. In table S7, results are shown of an additional model that also considers e.g. age, region and sex. For the longitudinal analysis, patients were censored at the end of the study follow-up. Also, patients receiving priority status or exception points during waiting were censored from that date, as transplant and thus death chances would change from that time point on. The sample size was set by the retrospective study design. Complete-case analysis was done.
+For this study, waiting list data was used from Eurotransplant and the UNOS regions. For the Eurotransplant region, patients were followed between January 1^st^, 2007 until December 31^st^, 2018. For the UNOS, the study interval was from January 16^th^ 2016 (MELD-Na implementation) to December 31^st^, 2019. Patients with acute liver failure, exception points or priority status at registration and listing for multiple organs were excluded. All other adult patients listed for a first LT were included. Longitudinal exception points were not modeled, as they do not reflect disease severity within the patient. Separate training (67% of the patients) and testing (33%) sets were constructed through random sampling. The longitudinal data of the waiting list contained repeated measurements of the MELD(-Na) score.^4^ Data from first active listing until delisting were used. Reasons for delisting were death, transplantation, removal or the end of study. Patients who were removed due to deteriorating clinical condition or who died within 30 days of removal were also counted as deceased. “Removal” comprised of removal from the waiting list due to improved clinical condition and censoring for exception points or priority status acquired during follow-up. The primary outcome of survival analysis was the overall waiting list mortality. Predictors were (repeated) MELD(-Na) scores. In table S7, results are shown of an additional model that also considers e.g. age, region and sex. For the longitudinal analysis, patients were censored at the end of the study follow-up. Also, patients receiving priority status or exception points during waiting were censored from that date, as transplant and thus death chances would change from that time point on. The sample size was set by the retrospective study design. Complete-case analysis was done.
 
 ### Statistical analysis {.unnumbered}
 Study variables following normal distributions are presented as mean±SD (standard deviation) and non-normal variables as median±IQR (interquartile range). Categorical variables are reported as counts and percentages.
@@ -62,7 +74,7 @@ The longitudinal MELD(-Na) data were modeled with mixed effect models. These cal
 Next, the abovementioned mixed effects model was combined with a Cox model. The latter was fit to the outcome of waiting list mortality, censoring for all other outcomes, with MELD(-Na) as predictor. Thus, the MELD(-Na) joint models (MELD-JM and MELDNa-JM) were constructed using the R package “JMbayes”.^15^ The JMs predicted survival using both the value of the MELD(-Na) score and its rate of change at each moment in time (i.e. time-dependent slope). By considering time-dependent slopes, a more nuanced definition of disease severity is used for survival prediction, see Figure \@ref(fig:jm-fig1). Also, predictions are updated for each newly-available measurement, i.e. the model is dynamic.
 
 ```{r jm-fig1, echo=F, fig.cap='Two hypothetical patient trajectories on the LT waiting list are shown. Patient A initially increases and then stabilizes in disease severity. B is initially stable and later deteriorates. Under the current MELD(-Na) allocation, patient A would be prioritized over patient B in liver allocation, because the most recent MELD(-Na) is used. However, the JM uses both the past and current disease severity (value) and the rate of change at each moment in time (slope). At any given time, the JM combines the hazard ratio’s for value and slope to calculate the risk of death. Thus, the JM would calculate a higher mortality risk and thus LT priority for patient B, because the disease is increasing fast.', dpi=1500, out.width="100%"}
-knitr::include_graphics(c("figures/figure-html/jm-fig1-1.png"))
+knitr::include_graphics("figures/jm/figure 1.png" , auto_pdf=T)
 ```
 
 ### Prediction performance {.unnumbered}
@@ -79,6 +91,8 @@ Lastly, online prediction tools of the MELD-JM (https://predictionmodels.shinyap
 ### Population characteristics {.unnumbered}
 Table \@ref(tab:jm-tab1) shows the baseline characteristics for the Eurotransplant and UNOS populations. The 16,283 Eurotransplant LT candidates had a median age of 55 (48-61) at listing. Most (66.3%) patients were male and the most common liver diseases were (post)alcoholic (39.5%), cholestatic (11.7%) and hepatitis-C (10.7%) induced cirrhosis. At the end of follow-up, 50.2% were transplanted, 20.9% deceased, 20.2% were removed either due to improved clinical condition, priority status or exception points and 8.7% were censored at the end of study. The 30,533 UNOS patients had a median age of 58 (50-64) years and were mostly (63.3%) male. Alcohol- (30.5%) and NASH (20.7%) related liver cirrhosis were most common. The median MELD at listing was 18 (13-26), which was higher than the MELD 15 (11-21) for the Eurotransplant region. Median MELD-Na at listing was 19 (12-27) points in the UNOS cohort. At the end of follow-up, 52.2% was transplanted, 13% had died while waiting or was removed because of worsening clinical condition 31% was removed due to improved condition, exception point or status 1 approval during follow-up and 3.8% was censored at the end of study.
 
+\linespread{1}
+
 ```{r jm-tab1,message=FALSE, echo=F}
 options(warn=-1)
 library(kableExtra)
@@ -88,7 +102,7 @@ tab1 <- read_excel("figures/jm/table 1.xlsx")
 options(knitr.kable.NA = '')
 kbl(tab1,booktabs=T, caption = "Baseline characteristics for the Eurotransplant and UNOS regions",
     linesep= "")%>%
-  kable_styling(latex_options = c("striped")) %>%
+  kable_styling(latex_options = c("scale_down","striped")) %>%
   kable_classic() %>%
   pack_rows("Disease (%)", 6, 11) %>%
   pack_rows("Serum measurement at listing (mean (SD))", 12, 15) %>%
@@ -98,15 +112,29 @@ kbl(tab1,booktabs=T, caption = "Baseline characteristics for the Eurotransplant 
 options(warn=0)
 ``` 
 
+\linespread{1.213}
+
 ### JM properties {.unnumbered}
-The JMs calculates hazard ratios at a specific time (HRt) though the following equations, for MELD-JM: $${HR}_t=\left({1.29}^{{MELD}_{value}}\right)\ast({8.12}^{{MELD}_{slope}})$$ and MELDNa-JM: $${HR}_t=\left({1.24}^{{MELDNa}_{value}}\right)\ast\left({8.02}^{{MELDNa}_{slope}}\right)$$ The MELD-JM coefficient for MELD values is 1.29 with 95% CI (1.28-1.31). The MELD-JM slope coefficient is 8.12 (95% CI 1.27-50.38). For the MELDNa-JM these are 1.23 (95% CI 1.24-1.26) and 8.02 (95% CI 3.65-17.1) respectively. This means that at a given moment in time, a 1-point increase in MELD value will increase mortality risk by a factor 1.29, and a 1-point faster or slower change gives a factor 8.12 difference. These equations, combined with the baseline risks, can be used to calculate specific risks. However, the JM is needed to calculate the MELD(-Na) value and slope at a given time point. To enable easy access to JM predictions, we developed online applications of the MELD-JM (https://predictionmodels.shinyapps.io/meld-jm/) and MELDNa-JM (https://predictionmodels.shinyapps.io/MELDNa-JM/). Interested readers can upload repeated MELD(-Na) measurements of individual patients into these applications, to generate personalized predictions. See supplement page 3 for an instruction manual. The performance of these JMs is tested below.
+The JMs calculates hazard ratios at a specific time ($HR_{t}$) through the following equations, for MELD-JM: $${HR}_t=\left({1.29}^{{MELD}_{value}}\right)\ast\left({8.12}^{{MELD}_{slope}}\right)$$ and MELDNa-JM: $${HR}_t=\left({1.24}^{{MELDNa}_{value}}\right)\ast\left({8.02}^{{MELDNa}_{slope}}\right)$$ The MELD-JM coefficient for MELD values is 1.29, with 95% CI (1.28-1.31). The MELD-JM slope coefficient is 8.12 (95% CI 1.27-50.38). For the MELDNa-JM these are 1.23 (95% CI 1.24-1.26) and 8.02 (95% CI 3.65-17.1) respectively. This means that at a given moment in time, a 1-point increase in MELD value will increase mortality risk by a factor 1.29, and a 1-point faster or slower change gives a factor 8.12 difference. These equations, combined with the baseline risks, can be used to calculate specific risks. However, the JM is needed to calculate the MELD(-Na) value and slope at a given time point. To enable easy access to JM predictions, we developed online applications of the MELD-JM (https://predictionmodels.shinyapps.io/meld-jm/) and MELDNa-JM (https://predictionmodels.shinyapps.io/MELDNa-JM/). Interested readers can upload repeated MELD(-Na) measurements of individual patients into these applications, to generate personalized predictions. See supplement page 3 for an instruction manual. The performance of these JMs is tested below.
 
 ### JM performance {.unnumbered}
 The JM performance was assessed in the independent validation data at baseline (Figure \@ref(fig:jm-fig2) and figure S1) and during follow-up (Table \@ref(tab:jm-tab2): UNOS, table S1: Eurotransplant). 
 
 ```{r jm-fig2, echo=F,fig.ncol=1,fig.subcap=c('90-day mortality ROC plot of the MELDNa-JM and MELD-Na.', 'Calibration plot of the MELDNa-JM and MELD-Na score. Each dot represents 10 percent of the population. The lines show how well the predicted risks match the observed risks'), fig.cap='Performance measures for the MELDNa-JM and MELD-Na.'}
-knitr::include_graphics(c("figures/figure-html/jm-fig2-1.png",
-                          "figures/figure-html/jm-fig2-2.png"))
+# knitr::include_graphics(c("figures/jm/figure 2a.png",
+#                           "figures/jm/figure 2b.png"), auto_pdf=T)
+options(warn=-1)
+load("figures/jm/sprobs_t.Rdata")
+load("figures/jm/meldnasprobs_t.Rdata")
+load("figures/jm/subset.Rdata")
+LM=0 ; t=90
+scores <- Score(list("MELDNa-JM" = 1-sprobs_t,"MELD-Na"= 1-meldnasprobs_t), # vector of probabilities
+  formula = Hist(days,binstatus) ~ 1, data = subset, # data in which the JM and cox test
+  null.model = T, contrasts = T, conf.int= T, times = LM + t, # LM time + interval of prediction
+  plots = c("roc","calibration"))
+plotROC(scores,brier.in.legend = T,cens.method="local")
+plotCalibration(scores, method="quantile",cens.method="local")
+options(warn=0)
 ``` 
 
 ```{r jm-tab2,message=FALSE, echo=F}
@@ -118,7 +146,7 @@ tab1 <- read_excel("figures/jm/table 2.xlsx")
 colnames(tab1) <- c("Time (months)","AUC","low95","upp95","AUC","low95","upp95","p")
 kbl(tab1,booktabs=T, caption = "90-day mortality AUCs of the MELDNa-JM versus the MELD-Na, at baseline and during waiting list follow-up in the validation cohort.",
     linesep= "")%>%
-  kable_styling(latex_options = c("striped")) %>%
+  kable_styling(latex_options = c("scale_down","striped")) %>%
   add_header_above(c(" " = 1, "MELDNa-JM" = 3, "MELD-Na" = 3," " = 1)) %>% 
   kable_classic() %>%
   footnote(threeparttable=T, general = "AUC: area under receiver operator curve, JM: joint model, MELD-Na: model for end-stage liver disease sodium score")
@@ -126,7 +154,7 @@ kbl(tab1,booktabs=T, caption = "90-day mortality AUCs of the MELDNa-JM versus th
 options(warn=0)
 ``` 
 
-At baseline, MELDNa-JM AUC was 0.91 (0.89-0.93) and MELD-Na AUC was 0.84 (0.81-0.87). In Eurotransplant, MELD-JM AUC was 0.94 (95% CI 0.92-0.95) compared to 0.87 (0.85-0.89) for MELD (figures S1 and S2). For both the MELD(Na)-JM and MELD(-Na), prediction performance was best in the first months of follow-up. The MELD(Na)-JMs AUCs were significantly (p<0.001) better than the MELD(-Na) for the first 12 months of follow-up. During this period, the majority of transplantations was done, i.e. 94% (UNOS) and 84% (Eurotransplant). After 12 months, JMs AUCs were still notably but not significantly better than MELD(-Na). Over time, MELD(-Na) might be less representative of disease severity in LT candidates, which could explain the decrease in AUC over time for both models. MELD(Na)-JM prediction errors were always significantly lower than the MELD(-Na) (figure 2B, figure S2, tables S1 and S2). In other words, the JMs predictions were more accurate and thus better resembled the observed risks in the population. Subset analysis of prior (2007-2012) versus recent (2013-2018) years showed slightly better performance in the 2007-2012 cohort (table S4). Excluding HCV patients as sensitivity analysis increased AUCs (table S5). MELDNa-JM performed better in males (Figure S5), possibly because MELD-Na tends to underestimate female disease severity through lower creatinine levels.18 Performance was comparable for most diseases and worst in HCV disease (Figure S6). The implications for LT candidates might be limited, as the number of listed HCV patients is decreasing.19 Performance for non-black candidates was slightly better than for black candidates (Figure S7).
+At baseline, MELDNa-JM AUC was 0.91 (0.89-0.93) and MELD-Na AUC was 0.84 (0.81-0.87). In Eurotransplant, MELD-JM AUC was 0.94 (95% CI 0.92-0.95) compared to 0.87 (0.85-0.89) for MELD (figures S1 and S2). For both the MELD(Na)-JM and MELD(-Na), prediction performance was best in the first months of follow-up. The MELD(Na)-JMs AUCs were significantly (p<0.001) better than the MELD(-Na) for the first 12 months of follow-up. During this period, the majority of transplantations was done, i.e. 94% (UNOS) and 84% (Eurotransplant). After 12 months, JMs AUCs were still notably but not significantly better than MELD(-Na). Over time, MELD(-Na) might be less representative of disease severity in LT candidates, which could explain the decrease in AUC over time for both models. MELD(Na)-JM prediction errors were always significantly lower than the MELD(-Na) (figure 2B, figure S2, tables S1 and S2). In other words, the JMs predictions were more accurate and thus better resembled the observed risks in the population. Subset analysis of prior (2007-2012) versus recent (2013-2018) years showed slightly better performance in the 2007-2012 cohort (table S4). Excluding HCV patients as sensitivity analysis increased AUCs (table S5). MELDNa-JM performed better in males (Figure S5), possibly because MELD-Na tends to underestimate female disease severity through lower creatinine levels.^18^ Performance was comparable for most diseases and worst in HCV disease (Figure S6). The implications for LT candidates might be limited, as the number of listed HCV patients is decreasing.^19^ Performance for non-black candidates was slightly better than for black candidates (Figure S7).
 
 ### JM impact on the waiting list {.unnumbered}
 The possible differences in MELDNa-JM and MELD-Na prioritization were assessed. Table \@ref(tab:jm-tab3) shows the baseline characteristics of patients that would have been prioritized both by MELDNa-JM and MELD-Na, by one of the models or by neither (table S6: MELD and MELD-JM comparison). 
@@ -137,7 +165,7 @@ library(readxl)
 library(tidyverse)
 tab1 <- read_excel("figures/jm/table 3.xlsx")
 options(knitr.kable.NA = '')
-kbl(tab1,booktabs=T, caption = "90-day mortality AUCs of the MELDNa-JM versus the MELD-Na, at baseline and during waiting list follow-up in the validation cohort.",
+kbl(tab1,booktabs=T, caption = "Characteristics of prioritized recipients.",
     linesep= "")%>%
   kable_styling(latex_options = c("scale_down","striped")) %>%
   pack_rows("Disease (%)", 6, 13) %>%
@@ -148,7 +176,35 @@ landscape()
 Compared to MELD-Na, the MELDNa-JM prioritized slightly younger (56 vs 58 years) and female (46.5% vs 35.4%) patients, who less often had hepatitis-C-induced liver cirrhosis. Most importantly, MELDNa-JM-prioritized patients had a 3.6 times higher 90-day mortality rate, i.e. 15.4% versus 4.3%. For the Eurotransplant region, MELD-JM prioritized patients with 5.0 times higher 90-day mortality compared to MELD, i.e. 23.2% versus 4.6% (table S6). A possible cause of this difference in mortality is illustrated in Figure \@ref(fig:jm-fig3). 
 
 ```{r jm-fig3,message=F, warn=F, echo=F, fig.cap='The MELDNa- JM and MELD- Na would prioritize different patients for liver transplantation. For these patients, we plotted the individual (black lines) and average (red line) MELD-Na score development during 90 days. Although the MELD-Na-prioritized patients had a higher initial MELD-Na score (value), their average scores remained stable (slope). In contrast, the JM-prioritized patients had lower MELD-Na (value) scores but with faster increasing disease severity (slope). Interestingly, the JM- prioritized patients had a five times higher 90- day mortality rate. Indicating that JM prioritization could possibly be more just.'}
-knitr::include_graphics("figures/figure-html/jm-fig3-1.png")
+options(warn=-1)
+
+load("figures/jm/longjmprio.Rdata")
+load("figures/jm/longmeldnaprio.Rdata")
+A <- longjmprio %>% 
+  mutate(id=factor(id)) %>% 
+  group_by(id) %>% 
+  ggplot(aes(x=daycount,y=meldna, group=id))+
+  geom_line(color="black", alpha=0.4) + 
+  geom_segment(aes(x = 0, y = 24, xend = 90, yend = 33),color="red", lwd=2)+
+  #stat_smooth(aes(group = 1), color="red", se=F, method="lm", lwd=2) +
+  scale_x_continuous("Days on the waiting list", breaks=c(0,30,60,90), 
+                     labels=c(0,30,60,90), limits=c(0,90))+
+  scale_y_continuous("MELD-Na score", limits=c(6,40))+
+  ggtitle("MELDNA-JM")+
+  theme_pubr() 
+
+B <- longmeldnaprio %>% 
+  mutate(id=factor(id)) %>% group_by(id) %>% 
+  ggplot(aes(x=daycount,y=meldna, group=id))+
+  geom_line(color="black", alpha=0.4) + 
+  stat_smooth(aes(group = 1), color="red", se=F, method="lm", lwd=2) +
+  scale_x_continuous("Days on the waiting list", breaks=c(0,30,60,90), 
+                     labels=c(0,30,60,90), limits=c(0,90))+
+  scale_y_continuous("MELD-Na score", limits=c(6,40))+
+  ggtitle("MELD-Na")+
+  theme_pubr()
+ggarrange(A, B, ncol = 2, nrow = 1)
+options(warn=0)
 ```
 
 
@@ -176,6 +232,8 @@ A limitation is that data could be missing dependent on unobserved values. Stati
 This study developed and validated the MELD-JM and MELDNa-JM prediction models for respectively the Eurotransplant and UNOS regions. The MELD(Na)-JM significantly outperformed current models that drive liver allocation. Thus, patient survival can be dynamically predicted based on past and current disease. These predictions could more accurately direct treatment to those most in need.
 
 \newpage
+\linespread{1}
+\small
 
 ## References {.unnumbered}
 1. 	Eurotransplant. Annual Report 2017.; 2018. www.eurotransplant.org.
@@ -212,3 +270,9 @@ This study developed and validated the MELD-JM and MELDNa-JM prediction models f
 32. Schaubel DE, Guidinger MK, Biggins SW, et al. Survival benefit-based deceased-donor liver allocation. Am J Transplant. 2009;9(4 PART 2):970-981. doi:10.1111/j.1600-6143.2009.02571.x
 33. Sharma P, Schaubel DE, Gong Q, Guidinger M, Merion RM. End-stage liver disease candidates at the highest model for end-stage liver disease scores have higher wait-list mortality than status-1A candidates. Hepatology. 2012;55(1):192-198. doi:10.1002/hep.24632
 34. van Geloven N, Swanson SA, Ramspek CL, et al. Prediction meets causal inference: the role of treatment in clinical prediction models. Eur J Epidemiol. 2020;35(7):619-630. doi:10.1007/s10654-020-00636-1
+
+\newpage
+\linespread{1.213}
+\normalsize
+\thispagestyle{plain}
+\mbox{}

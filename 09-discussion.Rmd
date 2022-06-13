@@ -1,6 +1,13 @@
-\addtocontents{toc}{\setcounter{tocdepth}{1}}
+<!-- \addtocontents{toc}{\setcounter{tocdepth}{1}} -->
+\addtocontents{toc}{\setcounter{tocdepth}{0}}
+\pagecolor{black}
+\color{white}
 
-# Summary, general discussion, and future perspectives {#chap-disc}
+# Part IV: Summary, general discussion, and future perspectives {.unnumbered}
+
+\chaptermark{Forms of MELD}
+
+<!-- # Summary, general discussion, and future perspectives {#chap-disc} -->
 
 \chaptermark{summary, discussion, perspectives}
 
@@ -12,7 +19,11 @@
 
 \newpage
 
-## Summary {#summ}
+# Summary {#summ}
+
+\newpage
+\nopagecolor
+\color{black}
 
 The persistent scarcity of donor liver grafts necessitates prioritization of patients based on expected future survival without transplantation. The goal of this thesis was to improve survival prediction models for patients on the LT waiting list. Through advancements in prediction models, liver grafts can be allocated in the best way possible.
 
@@ -27,8 +38,16 @@ In **Chapter \@ref(chap-aclfjm)**, we constructed and validated the ACLF-JM for 
 In **Chapter \@ref(chap-benefit)**, we studied the survival benefit that LT caused, by comparing 5-year survival with and without LT between patients with and without HCC in the US. HCC patients had lower waiting list survival than non-HCC patients. Most HCC patients were transplanted below MELD(-Na) 14 and most non-HCC patients above MELD(-Na) 26. Liver function (MELD(-Na), albumin) was the main predictor of 5-year benefit. Therefore, during five years, most HCC patients gained 0.12 to 1.96 years from LT, whereas most non-HCC patients gained 2.48 to 3.45 years. Thus, on an individual level, transplanting patients with HCC resulted in survival benefit. However, on a population level, benefit was indirectly wasted, as non-HCC patients were likely to gain more survival due to decreased liver function. 
 
 \newpage
+\pagecolor{black}
+\color{white}
+\thispagestyle{plain}
+\mbox{}
 
-## General discussion {#gendisc}
+# General discussion {#gendisc}
+
+\newpage
+\nopagecolor
+\color{black}
 
 ### Part I: Forms of MELD {.unnumbered}
 
@@ -73,7 +92,22 @@ Current waiting list survival predictions are based on measurements at one momen
 Previously, time-dependent Cox (TDC) models have been used to model MELD scores and waiting list survival over time.^25–31^ In TDC analysis, the changing temporal effect of a predictor is estimated based on follow-up time divided into intervals of measurement, e.g., 0-30 days and 31-60 days. Within each time interval, TDC models assume that the last measured value is carried on forward. In the abovementioned example, creatinine values measured on day 0 and 31 would remain constant for the next 30 days. Crucially, there is no interpolation of values, thus a creatinine value at e.g. day 45 is not approximated.^32^ In clinical terms, the TDC assumes that the disease state does not change until the next moment of measurement. This results in a ‘staircase effect’, where the trajectory of disease over time is represented through rectangular steps, see Figure \@ref(fig:disc-fig1). Survival is then predicted based on this staircase trajectory.
 
 ```{r disc-fig1, warning=F, message=F, fig.cap='Staircase versus smooth representation of disease over time.'}
-knitr::include_graphics(c("figures/figure-html/disc-fig1-1.png"), auto_pdf=T)
+load("figures/discussion/df long.Rdata")
+# many observations 
+df2 <- df %>% filter(n>50 & n<100) %>% 
+  filter((meld[revcounter==1]-meld[counter==1]>10)) # high difference from start to end
+ids <- unique(df2$id)
+
+# study first ID
+df2 %>% filter(id %in% c(ids[1])) %>% 
+  filter(tstart<2.72) %>% 
+  ggplot(aes(tstart,meld))+
+  geom_point(alpha=0.3, size=2)+
+  geom_step(lwd=1)+
+  scale_y_continuous("MELD score",breaks=c(seq(8,16,2)))+
+  labs(x="Time (months)")+
+  geom_smooth(se=F, color="black", lwd=1)+
+  theme_base()
 ```
 
 However, it is clinically evident that the condition of a patient and the liver disease are not constant until a new moment of measurement. Instead, disease develops continuously, as a smooth and non-linear trajectory. We configured JMs to estimate disease as a smooth continuum over time with interpolation of trajectories between measurements. At and between measurements, not the last measured value was assumed, but the ‘true’ underlying value. For the abovementioned example, the JM would estimate values for each moment in time between day 0 and 60. Crucially, the model considered that measurements from the same patient were more related than measurements between patients. TDC models ignore this correlation.
@@ -101,10 +135,27 @@ In supplement **chapter \@ref(chap-rolejm)**, we hypothesized that JMs would be 
 In **Chapter \@ref(chap-aclfjm)**, we approximated liver disease severity in ACLF patients based on repeated MELD-Na values, corrected for baseline ACLF grade and other predictors (sex, age, presence of cirrhosis, life-support dependency, and presence of bacterial peritonitis). However, predicting ACLF survival based on MELD-Na measurements was suboptimal. This is because ACLF involves inflammation and multi-organ failure,^36^ which are not captured by MELD-Na scores. Therefore, ACLF survival prediction could be improved further by modeling more organ system functions over time. Survival prediction based on simultaneous consideration of multiple organ systems is possible in multivariate JMs. It would make sense to separately consider the role of each organ system. Unfortunately, such data is not readily available for both the Eurotransplant and UNOS regions. Therefore, like others,^37,38,41^ we could only correct for ACLF grade at baseline. However, within the European Foundation for the study of Chronic Liver Failure (EF CLIF) consortium data, longitudinal CLIF ACLF scores measurements per patients could be available. Therefore, future application of JMs in this data might result in JMs that better represent changes in ACLF and let failure of each organ system correlate to mortality.
 
 #### Underlying MELD rate of change {.unnumbered}
-Despite using MELD-Na as basis, we still hypothesized that improvement was possible, mainly because baseline ACLF severity and MELD-Na rate of change would be considered. For the rate of change, the term ‘slope’ is often used, as the rate of change is the derivative of the function of MELD-Na values over time. The concept of MELD-Na’s rate of change (or slope) over time is not new. Most notably, delta-MELD has been proposed previously.^25^ However, the slope generated by the JM differs notably from delta-MELD. Firstly, the JM slope is based on the assumed true underlying disease development (see above). Secondly, the JM slope is the derivative of the measured value at one specific moment in time. In contrast, delta-MELD is defined as the difference between the current MELD score and the lowest MELD score in the previous 30 days, divided by the number of days between the current and lowest scores.^25^ Thus, the obtained delta-MELD slopes are averaged over a varying number of days for different patients and time points. Also, using the lowest previously measured value overestimates the rate of change, unless the previous value actually is the lowest. This way, delta-MELD could indicate increasing disease severity even though a patient was in stable condition, see Figure \@ref(fig:disc-fig2) below. Basing treatment decisions on such estimates therefore seems inappropriate. In the example below, the JM slope would be approximately horizontal at 30 days and therefore the instantaneous slope at each moment is a better representation changing disease.
+Despite using MELD-Na as basis, we still hypothesized that improvement was possible, mainly because baseline ACLF severity and MELD-Na rate of change would be considered. For the rate of change, the term ‘slope’ is often used, as the rate of change is the derivative of the function of MELD-Na values over time. The concept of MELD-Na’s rate of change (or slope) over time is not new. Most notably, delta-MELD has been proposed previously.^25^ However, the slope generated by the JM differs notably from delta-MELD. Firstly, the JM slope is based on the assumed true underlying disease development (see above). Secondly, the JM slope is the derivative of the measured value at one specific moment in time. In contrast, delta-MELD is defined as the difference between the current MELD score and the lowest MELD score in the previous 30 days, divided by the number of days between the current and lowest scores.^25^ Thus, the obtained delta-MELD slopes are averaged over a varying number of days for different patients and time points. Also, using the lowest previously measured value overestimates the rate of change, unless the previous value actually is the lowest. This way, delta-MELD could indicate increasing disease severity even though a patient was in stable condition, see Figure \@ref(fig:disc-fig2). Basing treatment decisions on such estimates therefore seems inappropriate. In the example below, the JM slope would be approximately horizontal at 30 days and therefore the instantaneous slope at each moment is a better representation changing disease.
 
 ```{r disc-fig2, warning=F, message=F, fig.cap='Illustration of delta-MELD slope overestimation of disease increase.'}
-knitr::include_graphics(c("figures/figure-html/disc-fig2-1.png"), auto_pdf=T)
+options(warn=-1)
+df <- data.frame(
+  Time=seq(0,6,0.5),
+  MELD=c(11,11,10,9,9,10,11,14,16,18,19,20,20)
+)
+
+df %>% ggplot(aes(Time,MELD))+
+  geom_point(alpha=0.5)+geom_smooth(se=F,color="black",size=1.5)+
+  geom_segment(aes(x=2,y=9,xend=6,yend=20),size=1.5,color="red",
+               arrow = arrow(length = unit(0.5, "cm")))+
+  geom_segment(aes(x=2,y=9,xend=6,yend=9), lty=2, color="red")+
+  geom_segment(aes(x=6,y=9,xend=6,yend=20), lty=2, color="red")+
+  annotate("text", x = 4, y = 9.5, label = "Time difference", color="red", size=5)+
+  annotate("text", x = 5.8, y = 13, label = "MELD difference", color="red", angle=90, size=5)+
+  annotate("text", x = 4, y = 13.5, label = "delta MELD", color="red", angle=50, size=5)+
+  scale_x_continuous(name="Time (days)",breaks=c(0,2,4,6),labels = c(0,10,20,30))+
+  theme_base()
+options(warn=0)
 ```
 
 Lastly, the effect of delta-MELD on waiting list mortality depends on the number of previous MELD measurements.^42^ This causes bias for survival prediction on the LT waiting list, as the severity of disease determines the number of measurements. For example, a clinician could increase the frequency of measurement after a patient’s disease worsens, or vice versa. Thus, measuring MELD and delta-MELD in sick patients corresponds with death, but an improvement would likely be less easily observed. Therefore, Delta-MELD depends on the number of measurements, which causes bias that will increase its apparent usefulness.^26^ Despite this bias, the concept of delta-MELD is used often.^5,28,43–48^ In our view, this stipulates the need to adequately incorporate MELD’s rate of change in survival prediction. The JM is not biased by the number of measurements, as it estimates a continuous underlying trajectory. Still, with increasing measurements available, the trajectory of the patient will be more accurately reflected.
@@ -125,7 +176,97 @@ We used sequential stratification and IPCW to predict counterfactual waiting lis
 
 ```{r disc-fig3, warning=F, message=F, fig.cap='An illustration of IPCW. Note the change from w=1 to w=2 for patient 3. D: death, T: transplantation.'}
 
-knitr::include_graphics(c("figures/figure-html/disc-fig3-1.png"), auto_pdf=T)
+df <- data.frame()
+ggplot(df) + geom_point() +  theme_base() +
+  # geom_vline(xintercept = 5, lwd = 0.1, linetype = "longdash",
+  #            color = "grey") +
+  geom_segment(aes(x = 5, y = 5, xend = 5, yend = 1),lwd = 0.1, linetype = "longdash",
+                           color = "grey")+
+  theme(axis.text.x = element_blank(), axis.ticks = element_blank(),
+        axis.title.x=element_blank(),axis.title.y=element_blank())+
+  theme(axis.text = element_blank()) +
+  geom_vline(xintercept = 2.5, lwd = 0.1, linetype = "longdash",
+             color = "grey") +
+  geom_hline(yintercept = 1, lwd = 0.1, linetype = "longdash",
+             color = "grey") +
+  geom_hline(yintercept = 5, lwd = 0.1, linetype = "longdash",
+             color = "grey") +
+  geom_hline(yintercept = 3, lwd = 0.1, linetype = "longdash",
+             color = "grey") +
+  geom_hline(yintercept = 7, lwd = 0.1, linetype = "longdash",
+             color = "grey") +
+  # arrows
+  annotate(geom = "text", label="cross-section", x = 2.5, y = 9,
+           size=5) +
+  geom_segment(aes(x = 2.5, y = 8.5, xend = 2.5, yend = 7.5),
+               arrow = arrow(length = unit(0.5, "cm")),
+               lwd = 1.5) +
+  annotate(geom = "text", label="transplantation", x = 5, y = 9,
+           size=5) +
+  geom_segment(aes(x = 5, y = 8.5, xend = 5, yend = 7.5),
+               arrow = arrow(length = unit(0.5, "cm")),
+               lwd = 1.5) +
+  # points and lines
+  geom_point(aes(x=1, y = 7), lwd = 4, color = "blue") +
+  annotate(geom = "text", label="t0", x = 1, y = 7.5, size=5) +
+  geom_segment(aes(x = 1, y = 7, xend = 2.5, yend = 7),
+               lwd = 1, col = "blue") +
+  geom_point(aes(x=2.5, y = 7), lwd = 4, color = "blue") +
+  geom_segment(aes(x = 2.75, y = 7, xend = 3.25, yend = 7),
+               lwd = 1, col = "darkgreen", linetype = "longdash") +
+  geom_point(aes(x=3.25, y = 7), lwd = 4, 
+             color = "darkgreen") +
+  annotate(geom = "text", label="D", x = 3.25, y = 7.7, size=6) +
+  annotate(geom = "text", label="W = 1", x = 2.9, y = 6.75, size=4) +
+  
+  
+  geom_point(aes(x=0, y = 5), lwd = 4, color = "blue") +
+  annotate(geom = "text", label="t0", x = 0, y = 5.5, size=5) +
+  geom_segment(aes(x = 0, y = 5, xend = 2.5, yend = 5),
+               lwd = 1, col = "blue") +
+  geom_point(aes(x=2.5, y = 5), lwd = 4, color = "blue") +
+  geom_segment(aes(x = 2.75, y = 5, xend = 4.8, yend = 5),
+               lwd = 1, col = "darkgreen", linetype = "longdash") +
+  geom_point(aes(x=5, y = 5), shape = 21, lwd = 4, 
+             color = "darkgreen", fill = "white") +
+  annotate(geom = "text", label="T", x = 5, y = 5.8, size=6) +
+  annotate(geom = "text", label="W = 1", x = 3.75, y = 4.75, size=4) +
+  # geom_curve(aes(x = 5.1, y = 7, xend = 6.5, yend = 8),
+  #            arrow = arrow(length = unit(0.03, "npc"))) +
+  annotate(geom = "text", label="High MELD", x = -1.3, y = 7, size=5) +
+  
+  geom_point(aes(x=0.5, y = 3), lwd = 4, color = "blue") +
+  annotate(geom = "text", label="t0", x = 0.5, y = 3.5, size=5) +
+  
+  geom_segment(aes(x = 0.5, y = 3, xend = 2.5, yend = 3),
+               lwd = 1, col = "blue") +
+  geom_point(aes(x=2.5, y = 3), lwd = 4, color = "blue") +
+  geom_segment(aes(x = 2.75, y = 3, xend = 6.25, yend = 3),
+               lwd = 1, col = "darkgreen", linetype = "longdash") +
+  geom_point(aes(x=6.25, y = 3), lwd = 4,
+             color = "darkgreen") +
+  annotate(geom = "text", label="D", x = 6.25, y = 3.75, size=6) +
+  annotate(geom = "text", label="W = 1", x = 3.75, y = 0.8, size=4) +
+  annotate(geom = "text", label="W = 1", x = 5.85, y = 0.8, size=4) +
+  annotate(geom = "text", label="High MELD", x = -1.3, y = 3, size=5) +
+  geom_point(aes(x=2, y = 1), lwd = 4, color = "blue") +
+  annotate(geom = "text", label="t0", x = 2, y = 1.5, size=5) +
+
+  geom_segment(aes(x = 2, y = 1, xend = 2.5, yend = 1),
+               lwd = 1, col = "blue") +
+  geom_point(aes(x=2.5, y = 1), lwd = 4, color = "blue") +
+  geom_segment(aes(x = 2.75, y = 1, xend = 6.75, yend = 1),
+               lwd = 1, col = "darkgreen", linetype = "longdash") +
+  geom_point(aes(x=7, y = 1), lwd = 4, 
+             color = "darkgreen") +
+  annotate(geom = "text", label="D", x = 7, y = 1.75, size=6) +
+  annotate(geom = "text", label="W = 1", x = 3.75, y = 2.75, size=4) +
+  annotate(geom = "text", label="W = 2", x = 5.85, y = 2.75, size=4) +
+  annotate(geom = "text", label="High MELD", x = -1.3, y = 5, size=5) +
+  # geom_curve(aes(x = 5, y = 3, xend = 8.5, yend = 4),
+  #            arrow = arrow(length = unit(0.03, "npc"))) +
+  annotate(geom = "text", label="Medium MELD", x = -1.3, y = 1, size=5) +
+  scale_x_continuous(limits=c(-2,7))+ scale_y_continuous(limits=c(0,10))
 ```
 
 #### Validity {.unnumbered}
@@ -139,7 +280,7 @@ Careful consideration argues against using competing risks (CR) analyses to appr
 By correctly modeling waiting list survival without LT in the last part of this thesis, we must acknowledge, due to progressive insight, that the reliability of the previous survival prediction models in **Part I** and **II** could have been improved further. We modeled survival in a censorship framework but did not adjust dependent censoring bias through IPCW. This should have been done, as the priority for LT depends on MELD and the Cox model assumes that censored patients have the same chance of dying as patients who remain on the waiting list, which is not the case for transplanted patients. Since transplantation chances increase with MELD, the sickest patients typically spend the least time on the waiting list, because they are transplanted (and censored) more frequently and faster. Through IPCW, after a (high MELD) patient is transplanted, more weight is given to the remaining and comparable (high MELD) patients, who can survive some more time on the waiting list. Censoring without weights, which MELD(-Na) does, therefore leads to an increasing underestimation of mortality for patients with increasing disease severity, as death is more frequently prevented through transplantation (and after censoring outcomes and survival times are unknown). In other words, by using the unweighted MELD(-Na), current liver allocation is biased where it matters most, as it underestimates mortality in the sickest patients.
 
 #### Logical continuation {.unnumbered}
-Although the clinical relevance of causal models is evident, a problem is that their prediction performance cannot be assessed (yet).^57^ Consider for example calibration, where predicted and observed risks are compared. This comparison cannot be done, as counterfactual waiting list survival is not observed. We are however confident about the obtained estimates. Firstly, because simulation studies showed that the used methods are valid.^49,58^ Secondly, the future waiting list survival estimates of transplanted patients are a logical continuation of observed and corrected waiting list survival. An illustrative analogous example from mathematics is analytic continuation, where the domain of a function is extended in the only way possible that is preserving certain requirements. Consider Figure \@ref(fig:disc-fig2)A below, where the lines in the right half of the plot represent a certain function (Riemann Zeta function, source: https://www.3blue1brown.com/lessons/zeta). Only the right half is shown, as only this side can be defined by the function. The left half of the plot in Figure \@ref(fig:disc-fig2)B shows the analytically continued right half, which is continued from the right based on requirements such as line angles. However, the left half cannot be defined by the function that plots the right half, even though its continuation is logical and can be visualized. This is analogous to estimating without LT survival (left half) based on observed waiting list survival (right half), which is a logical continuation based on available data, but by definition cannot be observed nor validated.
+Although the clinical relevance of causal models is evident, a problem is that their prediction performance cannot be assessed (yet).^57^ Consider for example calibration, where predicted and observed risks are compared. This comparison cannot be done, as counterfactual waiting list survival is not observed. We are however confident about the obtained estimates. Firstly, because simulation studies showed that the used methods are valid.^49,58^ Secondly, the future waiting list survival estimates of transplanted patients are a logical continuation of observed and corrected waiting list survival. An illustrative analogous example from mathematics is analytic continuation, where the domain of a function is extended in the only way possible that is preserving certain requirements. Consider Figure \@ref(fig:disc-fig4)A below, where the lines in the right half of the plot represent a certain function (Riemann Zeta function, source: https://www.3blue1brown.com/lessons/zeta). Only the right half is shown, as only this side can be defined by the function. The left half of the plot in Figure \@ref(fig:disc-fig4)B shows the analytically continued right half, which is continued from the right based on requirements such as line angles. However, the left half cannot be defined by the function that plots the right half, even though its continuation is logical and can be visualized. This is analogous to estimating without LT survival (left half) based on observed waiting list survival (right half), which is a logical continuation based on available data, but by definition cannot be observed nor validated.
 
 ```{r disc-fig4, echo=F,fig.align='center',fig.cap='Analytic continuation of the Riemann zeta function.',out.width="50%", fig.subcap=c('Right half can be defined','Left half cannot be defined, but it can be continued.')}
 knitr::include_graphics(c("figures/discussion/riemann right.png","figures/discussion/riemann left and right.png"), auto_pdf=T)
@@ -155,15 +296,21 @@ We compared LT survival benefit of patients with and without HCC. This compariso
 However, if physicians and policy makers do not endorse benefit as metric, at least (non-)HCC waiting list survival should be estimated by a single pre-transplant survival model, which could be similar to our proposed weighted waiting list model. The use of actual patient characteristics to estimate both waiting list and post-transplant survival removes the need for the inherently flawed exception points. With the availability of HCC waiting list survival prediction models, there is no need for arbitrary and artificial inadequacy through exception points, as these are solely needed to compensate MELD(-Na)’s inability to predict waiting list survival in patients with preserved liver function. Policy and research should focus on collecting data and establishing models that adequately predict survival. This would remove the ongoing time-consuming arbitrary changes required for the exception point system. Survival prediction and liver graft allocation should be based on actual patient characteristics, not arbitrary points.
 
 \newpage
+\pagecolor{black}
+\color{white}
 
-## Future perspectives
+# Future perspectives
+
+\newpage
+\nopagecolor
+\color{black}
 
 ### Simulation {.unnumbered}
 Throughout this thesis, several methods were applied to estimate new model impact on the LT waiting list. We used reclassification tables, new-to-old score differences, or estimated changes in waiting list priority. These methods were used because reviewers and policymakers requested evidence of possible model impact on current waiting list outcomes. Although understandable, it is difficult and likely impossible to reliably estimate the impact of a new model on the allocation system. The best way to evaluate the effects of a new model is to implement it. The next best option is evaluation through simulation. For the Eurotransplant region, a simulation program is currently missing. An important future direction of research could therefore be the construction of what could be called the Simulation of the Eurotransplant Liver Allocation System (SELAS). SELAS would improve both Eurotransplant allocation research and policy. It would also help Eurotransplant regain its leading role in organ allocation and development. Realization of SELAS seems feasible given the existing collaboration between Eurotransplant International Foundation and the Technical University Eindhoven, as the latter has considerable experience with simulation models. The longstanding cooperation between Eurotransplant and the Leiden University Medical Center would then ensure integration of allocation, statistical methodology, and clinical knowledge.
 
 In the U.S.A., a liver simulation program is available, that is the Liver Simulated Allocation Model (LSAM). LSAM lets users change existing allocation rules and simulate the effects in historical US data. Indeed, US allocation research is often complemented by simulation evidence. Still, simulated results should be interpreted with care. Evaluation of LSAM showed that although trends were adequately estimated, exact numbers of waiting list deaths and transplants were over- and underestimated, respectively.^68^ Also, simulation performance was significantly worse for pediatric patients,^69^ which indicates that simulations might be unreliable for yet undefined subgroups.
 
-Even simulation programs have limitations. Therefore, researchers should rely on their methodology and clinical experience. Consider for example the refit coefficients in **Chapter \@ref(chap-refit)**. We presented significant improvements in fit, discrimination, and accuracy. Although these metrics are important evidence, improvement was most intuitively shown through visual representation of new and old coefficients Figure \@ref(fig:refit-fig3) ). These clearly showed that reMELD(-Na) better represents the Eurotransplant population and therefore will likely better predict risk in future LT candidates. Simulation of evidence therefore has a role in the path of implementation, but sound methods and reasoning should be considered most important.
+Even simulation programs have limitations. Therefore, researchers should rely on their methodology and clinical experience. Consider for example the refit coefficients in **Chapter \@ref(chap-refit)**. We presented significant improvements in fit, discrimination, and accuracy. Although these metrics are important evidence, improvement was most intuitively shown through visual representation of new and old coefficients Figure \@ref(fig:refit-fig3). These clearly showed that reMELD(-Na) better represents the Eurotransplant population and therefore will likely better predict risk in future LT candidates. Simulation of evidence therefore has a role in the path of implementation, but sound methods and reasoning should be considered most important.
 
 ### New model implementation {.unnumbered}
 Possibilities are investigated to alleviate the shortage of available donor organs, such as more liberal donor criteria, living donation, machine perfusion, organoids, and xenotransplantation. Whatever improvements might be made, survival prediction will remain paramount to decide which patient should be treated. For example, with machine perfusion techniques, a larger number of liver grafts will likely become available and will be preserved longer outside the donor. This could imply more widespread allocation of organs to find the best match with the recipient. Also, with more time available, more complex calculations could be done to estimate outcomes of possible donor-recipient combinations. These calculations could be based on causal inference models, JMs, or ideally a combination of both.
@@ -183,15 +330,17 @@ We devised methods that predict survival benefit from LT. This opens the possibi
 
 Another possible solution for the advancement of liver allocation, despite the missing data across Eurotransplant, could be detailed national allocation based on more detailed hospital data. This allocation could be either benefit- or urgency-based, as long as one model is used to calculate future waiting list survival, preferably corrected for dependent censoring. Most organs are allocated nationally, that is 83.4% of MELD-allocated liver grafts in Belgium, Germany, and The Netherlands ( _data not published_ ), which also ignores possibly sicker recipients abroad. Therefore, it seems feasible to abandon the sickest-first principle and to implement benefit-based allocation on a national level. This way, each country would be responsible for the method and accuracy of its survival prediction and subsequent allocation. International organ exchange would then be based on Eurotransplant standards.
 
-## Conclusion
+## Conclusion {.unnumbered}
 
 In conclusion, this thesis investigated survival prediction models in the setting of LT, where organ scarcity and allocation necessitates continuous development of such methods. Statistically significant and clinically relevant advancements were demonstrated that could improve liver allocation through better survival prediction for patients on the waiting list.  
 
 \newpage
+\linespread{1}
+\small
 
 \chaptermark{References}
 
-## References
+## References {.unnumbered}
 1. Alukal JJ, John S, Thuluvath PJ. Hyponatremia in Cirrhosis: An Update. Am J Gastroenterol. 2020;115(11):1775-1785. doi:10.14309/ajg.0000000000000786
 2. Londoño MC, Guevara M, Rimola A, et al. Hyponatremia Impairs Early Posttransplantation Outcome in Patients With Cirrhosis Undergoing Liver Transplantation. Gastroenterology. 2006;130(4):1135-1143. doi:10.1053/j.gastro.2006.02.017
 3. Dawwas MF, Lewsey JD, Neuberger JM, Gimson AE. The Impact of Serum Sodium Concentration on Mortality After Liver Transplantation: A Cohort Multicenter Study. Liver Transplant. 2007;13(5):767-768. doi:10.1002/lt
@@ -266,3 +415,8 @@ In conclusion, this thesis investigated survival prediction models in the settin
 72. FMS. Draaiboek Triage Op Basis van Niet-Medische Overwegingen Voor IC-Opname Ten Tijde van Fase 3 in de COVID-19 Pandemie Criteria Voor Fase 3 Stap C Aansluitend Op Het NVIC Draaiboek Pandemie Versie 2.0-November 2020.; 2020.
 73. de Boer J, Braat A, Putter H, et al. Outcome of Liver Transplant Patients with High Urgent Priority. Are We Doing the Right Thing? Transplantation; 2018. doi:10.1097/tp.0000000000002526
 
+\newpage
+\linespread{1.213}
+\normalsize
+\thispagestyle{plain}
+\mbox{}

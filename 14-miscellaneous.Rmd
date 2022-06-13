@@ -1,13 +1,30 @@
+\pagecolor{black}
+\color{white}
+
 # Curriculum vitae {-}
-\chaptermark{Miscellaneous}
+\chaptermark{Curriculum vitae}
+\newpage
+\nopagecolor
+\color{black}
 
 Ben Goudsmit was born in Geleen on January 2^nd^, 1993. He grew up in Maastricht, where he graduated from gymnasium. From 2012 on, he studied medicine in Leiden.
 
 During his studies, he gained an interest in research. In 2018, he graduated from medical school and started a combined function of PhD student at the Leiden University Medical Center and medical staff member at Eurotransplant International Foundation.
 
-Ben currently lives in Den Haag and works as resident internal medicine at the Haaglanden Medisch Centrum.
+Ben currently lives and works in Den Haag.
 
+\newpage
+\thispagestyle{plain}
+\mbox{}
+
+\pagecolor{black}
+\color{white}
 # List of publications {-}
+\chaptermark{List of publications}
+\newpage
+\nopagecolor
+\color{black}
+\linespread{1.1}
 
 1. Alons IME, Goudsmit BFJ, Jellema K, van Walderveen MAA, Wermer MJH, Algra A. Response to Letter to the Editor Regarding" Yield of Computed Tomography (CT) Angiography in Patients with Acute Headache, Normal Neurological Examination, and Normal Non Contrast CT: A Meta-Analysis.". J Stroke Cerebrovasc Dis. 2018;27(7):2044-2045.
 

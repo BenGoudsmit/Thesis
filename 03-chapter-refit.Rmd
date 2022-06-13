@@ -3,6 +3,8 @@ output:
   pdf_document:
     extra_dependencies: "subfig"
 ---
+\pagecolor{black}
+\color{white}
 
 # Refitting the Model for End-stage Liver Disease for the Eurotransplant region {#chap-refit}
 
@@ -16,8 +18,10 @@ output:
 ------------------------------------------------------------------------
 
 \newpage
-
-\noindent   
+\noindent
+\nopagecolor
+\color{black}
+\small
 
 **Abstract**
 
@@ -30,26 +34,31 @@ output:
 **Conclusion**: Refitting MELD resulted in new lower and upper bounds for each parameter. The predictive power of reMELD-Na was significantly higher than UNOS-MELD. Refit MELD prioritized patients with higher 90-day mortality rates. Thus, reMELD(-Na) should replace UNOS-MELD for liver graft allocation in the ET region.
 
 \newpage
+\normalsize
 
 ## Introduction {.unnumbered}
-The number of patients in need of a liver transplantation (LT) in the Eurotransplant region exceeds the available donor grafts.^1^ Therefore, patients with end-stage liver disease are placed on a waiting list (WL) which prioritizes the patients with the most severe liver disease, i.e. most in need of transplantation. The Model of End-stage Liver Disease (MELD) estimates disease severity in LT candidates, based on three parameters: serum creatinine, bilirubin and the international normalized ratio (INR) for prothrombin time.^2^ The MELD was weighed, i.e. the relative importance of each parameter, based on a cohort from 1991-1995.^3^ For clinical use, the lower boundaries for the parameters were set to one, to prevent negative MELD scores after natural logarithm ($ln$) transformation. Creatinine levels were maximized to four for regular patients and set to four for patients who received dialysis. According to some of the proposers of MELD, these boundaries were “based entirely on the clinical intuition of the policy-making body when the MELD score was implemented”.^4^ Others also noted that “arbitrary changes not based on mortality risk evidence were incorporated into the form of MELD” and that these lower and upper limits were “set without any particular objective rationale”.^5^ 
+The number of patients in need of a liver transplantation (LT) in the Eurotransplant region exceeds the available donor grafts.^1^ Therefore, patients with end-stage liver disease are placed on a waiting list (WL) which prioritizes the patients with the most severe liver disease, i.e. most in need of transplantation. The Model of End-stage Liver Disease (MELD) estimates disease severity in LT candidates, based on three parameters: serum creatinine, bilirubin and the international normalized ratio (INR) for prothrombin time.^2^ Since 2016, the UNOS regions also added serum sodium through the MELD-Na score,^3^ but the Eurotransplant region remains MELD-based. The MELD was weighed, i.e. the relative importance of each parameter, based on a cohort from 1991-1995.^4^ For clinical use, the lower boundaries for the parameters were set to one, to prevent negative MELD scores after natural logarithm ($ln$) transformation. Creatinine levels were capped at four mg/dL for patients not receiving dialysis. According to some of the proposers of MELD, these boundaries were “based entirely on the clinical intuition of the policy-making body when the MELD score was implemented”.^5^ Others also noted that “arbitrary changes not based on mortality risk evidence were incorporated into the form of MELD” and that these lower and upper limits were “set without any particular objective rationale”.^6^ 
 
-On another continent and almost 20 years later, the original UNOS-MELD equation is still being used for the allocation of liver grafts in the Eurotransplant region and elsewhere. Due to changing population characteristics, the predictive power of UNOS MELD has declined significantly in the last years.^6^ However, an update of the MELD coefficients in UNOS data showed that performance could still be further improved.^4^ As the Eurotransplant population differs from the original MELD cohort,^3,7^ improvement of the Eurotransplant liver allocation is very well possible by refitting MELD to the Eurotransplant population. Refitting is the reweighing of predictors and establishment of lower and upper bounds of each parameter, based on the best fit to the current data. It was hypothesized that the UNOS-MELD is not optimally fit for the Eurotransplant patients, as it was fit on the UNOS population. This could diminish MELDs predictive power and discrimination ability between survival and death. It is the optimization of this discrimination that gives the most effective sickest-first allocation.
+On another continent and almost 20 years later, the original UNOS-MELD equation is still being used for the allocation of liver grafts in the Eurotransplant region and elsewhere. Due to changing population characteristics, the predictive power of UNOS MELD has declined significantly in the last years.^7^ However, an update of the MELD coefficients in UNOS data showed that performance could still be further improved.^5^ As the Eurotransplant population differs from the original MELD cohort,^4,8^ improvement of the Eurotransplant liver allocation is very well possible by refitting MELD to the Eurotransplant population. Refitting is the reweighing of predictors and establishment of lower and upper bounds of each parameter, based on the best fit to the current data. It was hypothesized that the UNOS-MELD is not optimally fit for the Eurotransplant patients, as it was fit on the UNOS population. This could diminish MELDs predictive power and discrimination ability between survival and death. It is the optimization of this discrimination that gives the most effective sickest-first allocation.
 
-Therefore, this study constructs a refit MELD score for the Eurotransplant region, by reweighing the MELD coefficients and re-evaluating the boundaries for the three parameters based on recent Eurotransplant data. The refitting methods presented here could be used to improve prediction models for any region. Also, the added value of the serum sodium (Na) levels at listing in an Eurotransplant refit MELD-Na score will be evaluated. The performance of the constructed refit Eurotransplant models will be compared to the currently used UNOS-MELD.
+
+Therefore, this study constructs a refit MELD score for the Eurotransplant region, by reweighing the MELD coefficients and re-evaluating the boundaries for the three parameters based on recent Eurotransplant data. The refitting methods presented here could be used to improve prediction models for any region. Also, the added value of the serum sodium (Na) levels at listing in an Eurotransplant refit MELD-Na score will be evaluated. The performance of the constructed refit Eurotransplant models will be compared to the UNOS-MELD.
+
 
 ## Methods {.unnumbered}
 
 ### Patient data {.unnumbered}
-The TRIPOD statement was used to report the development of the multivariate prediction models in this study.^8^ Data was requested from the Eurotransplant Database. All adult patients actively listed for a first liver transplantation between January 1^st, 2007 - December 31^st, 2018 were included. The starting point of inclusion was chosen after the start of MELD-based allocation in 2006. Patients were excluded if they received (non)standard exception points (NSE), a high urgency (HU) status (i.e. UNOS status 1), living donor grafts or multi-organ transplantations (other than kidney).^9^ Patient data was collected from the date of active listing until delisting or the end of 90-day follow-up. Reasons for delisting were death, transplantation, removal because of clinical condition or other reasons. The primary outcome was death within 90 days of first active listing. The predictors used for the multivariate models were both the bound and continuous levels of serum creatinine, bilirubin, INR and sodium at first active listing. For the survival analysis, patients were censored at transplantation, removal from the list, end of follow-up at 31.12.2018 or after receiving NSE points or a HU status during active waiting. The sample size for this study was set by the retrospective design. Missing data (in <0.01%) was not imputed. 
+The TRIPOD statement was used to report the development of the multivariate prediction models in this study.^9^ Data was requested from the Eurotransplant Database. All adult patients actively listed for a first liver transplantation between January 1^st^, 2007 - December 31^st^, 2018 were included. The starting point of inclusion was chosen after the start of MELD-based allocation in 2006. Patients were excluded if they received (non)standard exception points (NSE), a high urgency (HU) status (i.e. UNOS status 1), living donor grafts or multi-organ transplantations (other than kidney).^10^ Patient data was collected from the date of active listing until delisting or the end of 90-day follow-up. Reasons for delisting were death, transplantation, removal because of clinical condition or other reasons. The primary outcome was death within 90 days of first active listing. The predictors used for the multivariate models were both the bound and continuous levels of serum creatinine, bilirubin, INR and sodium at first active listing. For the survival analysis, patients were censored at transplantation, removal from the list, end of follow-up at 31.12.2018 or after receiving NSE points or a HU status during active waiting. The sample size for this study was set by the retrospective design. Missing data (in <0.01%) was not imputed. 
 
 ### Statistical methods {.unnumbered}
-The data was randomly split into a training (70%) and validation (30%) set. For each recipient, the UNOS-MELD and MELD-Na score at first active listing were calculated.^10,11^ Then, the ET refit MELD (reMELD) score was constructed in the training data. For each MELD parameter, a multivariate generalized additive Cox model (GAM) with smoothing splines was plotted. The GAM showed the (non-)linear effect of the specific parameter on 90-day mortality, corrected for the other uncapped MELD parameters. By visual inspection it was assessed whether upper and lower boundaries for the parameter were necessary, i.e. if there was any violation of the linearity relation between studied parameter and the 90-day mortality and at which time point. Then, the best boundaries for the parameter were sought within the visually apparent range by calculating the maximum log-likelihood and the concordance statistic (c-index) for each possible combination of upper and lower bounds. The combination with the maximum log-likelihood was chosen as the lower and upper bound for that MELD parameter. The impact of deviations from the maximum log-likelihood and c-index were visualized through heatmaps to facilitate discussion of weighing the maximum calculated values against clinically relevant cut-offs. After establishing the best boundaries for the parameter, a multivariate Cox model with the capped parameter was compared to a Cox model with the unbounded values through likelihood ratio tests. To visualize the fit of the studied reMELD parameter, the obtained bounds and coefficient were plotted in the training data. The abovementioned steps were repeated for all three MELD parameters. 
+The data was randomly split into a training (70%) and validation (30%) set. For each recipient, the UNOS-MELD and MELD-Na score at first active listing were calculated.^11,12^ Then, the ET refit MELD (reMELD) score was constructed in the training data. For each MELD parameter, a multivariate generalized additive Cox model (GAM) with smoothing splines was plotted. The GAM showed the (non-)linear effect of the specific parameter on 90-day mortality, corrected for the other uncapped MELD parameters. By visual inspection it was assessed whether upper and lower boundaries for the parameter were necessary, i.e. if there was any violation of the linearity relation between studied parameter and the 90-day mortality and at which point. Then, the best boundaries for the parameter were sought within the visually apparent range by calculating the maximum log-likelihood and the concordance statistic (c-index) for each possible combination of upper and lower bounds. The combination with the maximum log-likelihood was chosen as the lower and upper bound for that MELD parameter. The impact of deviations from the maximum log-likelihood and c-index were visualized through heatmaps to facilitate discussion of weighing the maximum calculated values against clinically relevant cut-offs. After establishing the best boundaries for the parameter, a multivariate Cox model with the capped parameter was compared to a Cox model with the unbounded values through likelihood ratio tests. To visualize the fit of the studied reMELD parameter, the obtained bounds and coefficient were plotted in the training data. The abovementioned steps were repeated for all three MELD parameters. 
+
+
 The three obtained capped parameters were then combined into a multivariate Cox model, thus forming the Eurotransplant refit MELD. To ensure equal distributions of the traditional UNOS-MELD and ET refit MELD scores in our data, the 25th and 75th quantiles were matched. Also, reMELD scores below 6 and above 40 were set to that value. 
-Then, the addition of serum sodium to the reMELD was investigated in the training set as described above for the MELD parameters. In short: based on the GAM inspection, the optimal Na bounds were sought, i.e. calculating log-likelihood values and c-indices, and compared with likelihood ratio tests to uncapped Na levels. Interactions between Na and each refit MELD parameter were assessed and deemed relevant if p<0.01. Thus, the final reMELD-Na model comprised of reMELD parameters, newly bound sodium and relevant interactions between the terms. Again, the 25th and 75th quantiles were matched and the final scores of the refit MELD-Na were set between 6 to 40. Finally, the refit ET models were compared with likelihood ratio tests to UNOS-MELD. For each model, the c-index was calculated to calculate discriminative ability in the validation data. Brier scores were calculated as a measure of error reduction in prediction estimates.^12^ The fit of the models to the validation data was visualized by plotting the coefficients for each MELD parameter. The correlation between the currently used UNOS-MELD and constructed reMELD-Na was investigated by plotting both scores. To assess whether reMELD-Na would give more effective sickest-first allocation, survival estimates were calculated for patients prioritized by UNOS-MELD and reMELD-Na. All statistical analyses were performed using R v3.6.1(R Foundation for Statistical Computing, Vienna, Austria).
+Then, the addition of serum sodium to the reMELD was investigated in the training set as described above for the MELD parameters. In short: based on the GAM inspection, the optimal Na bounds were sought, i.e. calculating log-likelihood values and c-indices, and compared with likelihood ratio tests to uncapped Na levels. Interactions between Na and each refit MELD parameter were assessed and deemed relevant if p<0.01. Thus, the final reMELD-Na model comprised of reMELD parameters, newly bound sodium and relevant interactions between the terms. Again, the 25th and 75th quantiles were matched and the final scores of the refit MELD-Na were set between 6 to 40. Finally, the refit ET models were compared with likelihood ratio tests to UNOS-MELD. For each model, the c-index was calculated to calculate discriminative ability in the validation data. Brier scores were calculated as a measure of error reduction in prediction estimates.^13^ The fit of the models to the validation data was visualized by plotting the coefficients for each MELD parameter. The correlation between the currently used UNOS-MELD and constructed reMELD-Na was investigated by plotting both scores. To assess whether reMELD-Na would give more effective sickest-first allocation, survival estimates were calculated for patients prioritized by UNOS-MELD and reMELD-Na. All statistical analyses were performed using R v3.6.1(R Foundation for Statistical Computing, Vienna, Austria).
 
 ## Results {.unnumbered}
-In this study, 6,944 patients were included, see Table \@ref(tab:refit-tab1). More male (68%) than female patients were included, and alcohol induced cirrhosis was the most frequent cause of liver disease. The median UNOS-MELD and serum sodium at listing were 14 (IQR 10-20) and 138 (IQR 134-140) respectively. After 90 days of follow-up, 35.7% of the patients were still waiting for LT, 23.8% were censored due to HU status or (N)SE points, 18.0% were transplanted, 12.6% were removed from the WL and 9.8% died on the WL. There were no relevant differences between the training and validation data.
+
 ```{r refit-tab1,message=FALSE, echo=F}
 options(warn=-1)
 tab1 <- read_excel("figures/refit/table 1.xlsx", 
@@ -71,14 +80,47 @@ kbl(tab1,booktabs=T, caption = "Characteristics of training and validation data"
 
 options(warn=0)
 ``` 
+
+In this study, 6,944 patients were included, see Table \@ref(tab:refit-tab1). More male (68%) than female patients were included, and alcohol induced cirrhosis was the most frequent cause of liver disease. The median UNOS-MELD and serum sodium at listing were 14 (IQR 10-20) and 138 (IQR 134-140) respectively. After 90 days of follow-up, 35.7% of the patients were still waiting for LT, 23.8% were censored due to HU status or (N)SE points, 18.0% were transplanted, 12.6% were removed from the WL and 9.8% died on the WL. There were no relevant differences between the training and validation data.
  
 ### Model development {.unnumbered}
 The GAM plots for each parameter are shown below. For creatinine, the S-shaped curve displayed clear lower and upper boundaries in Figure \@ref(fig:refit-fig1)A, the maximum log-likelihood was calculated for the bounds of 0.7 and 2.5 mg/dL. Clinically, it seemed logical to include values of creatinine below 1.0 mg/dL, mainly because many patients (55%) had creatinine levels \<=1 mg/dL. Through refitting, the serum creatinine was decreased in weight and its upper bound was lowered. Therefore, the influence of renal failure on the chances for LT was reduced. 
 
 ```{r refit-fig1, warning=F, fig.align="center", echo=F, fig.ncol=1, fig.cap='For each parameter, the relation to 90-day mortality is shown based on the training data', out.height="27%", fig.subcap=c('Creatinine','Bilirubin','INR')}
-knitr::include_graphics(c("figures/figure-html/refit-fig1-1.png",
-                          "figures/figure-html/refit-fig1-2.png",
-                          "figures/figure-html/refit-fig1-3.png"))
+options(warn=-1)
+load("figures/refit/creatplain data.RData")
+dfcreat <- cbind(creatterm,ytemp)
+dfcreat$y_centered <- dfcreat$y-center
+dfcreat %>% ggplot(aes(exp(x),exp(y_centered)))+
+  geom_line(lwd=1.2)+
+  geom_line(aes(x = exp(x), y = exp((y + 1.96 * se - center))), linetype = 2)+
+  geom_line(aes(x = exp(x), y = exp((y - 1.96 * se - center))), linetype = 2)+
+  scale_x_continuous("Serum creatinine (mg/dL)", limits=c(0.4,6), trans='log10')+
+  scale_y_continuous("Relative Risk of 90-day death", trans='log10', limits=c(0.4,7))+
+  theme_base()
+
+load("figures/refit/biliplain data.RData")
+dfbili <- cbind(biliterm,ytemp)
+dfbili$y_centered <- dfbili$y-center
+dfbili %>% ggplot(aes(exp(x),exp(y_centered)))+
+  geom_line(lwd=1.2)+
+  geom_line(aes(x = exp(x), y = exp((y + 1.96 * se - center))), linetype = 2)+
+  geom_line(aes(x = exp(x), y = exp((y - 1.96 * se - center))), linetype = 2)+
+  scale_x_continuous("Serum bilirubin (mg/dL)", limits=c(0.4,100), breaks = c(0.5,1,3,5,10,20,50,100), trans='log10')+
+  scale_y_continuous("Relative Risk of 90-day death", trans='log10', limits=c(0.4,16))+
+  theme_base()
+
+load("figures/refit/inrplain data.RData")
+dfinr <- cbind(INRterm,ytemp)
+dfinr$y_centered <- dfinr$y-center
+dfinr %>% ggplot(aes(exp(x),exp(y_centered)))+
+  geom_line(lwd=1.2)+
+  geom_line(aes(x = exp(x), y = exp((y + 1.96 * se - center))), linetype = 2)+
+  geom_line(aes(x = exp(x), y = exp((y - 1.96 * se - center))), linetype = 2)+
+  scale_x_continuous("Serum INR", limits=c(0.7,10), breaks = c(0.5,1,3,5,10,20,50,100), trans='log10')+
+  scale_y_continuous("Relative Risk of 90-day death", trans='log10', limits=c(0.1,50))+
+  theme_base()
+options(warn=0)
 ```
 
 For bilirubin, in Figure \@ref(fig:refit-fig1)B, the lower bound was found at 0.3 and the upper at 27 mg/dL. Varying of the lower bound between 0.1 and 0.5 did not alter the log-likelihood significantly, i.e. would still be an acceptable fit to the data. Also, 23.7% of our population would no longer be capped at listing. The upper bound of 27 mg/dL could be altered to a clinically more relevant value, roughly between 20 and 40, without affecting the optimal fit to the data too much (supplement heatmap bilirubin).
@@ -89,9 +131,65 @@ Overall, the reMELD and reMELD-Na models capped less patients at assumed values 
 In Figure \@ref(fig:refit-fig2), lines were plotted for respectively creatinine, bilirubin, and the INR to represent the refit coefficient (slope of the diagonal) and the boundaries (horizontal lines).
 
 ```{r refit-fig2, echo=F, fig.align="center", fig.ncol=1,fig.cap='For each parameter, the diagonal line represent the coefficient (slope of the diagonal) and lower and upper boundaries (horizontal segments) in refit MELD', out.height="27%", fig.subcap=c('Creatinine','Bilirubin','INR')}
-knitr::include_graphics(c("figures/figure-html/refit-fig2-1.png",
-                          "figures/figure-html/refit-fig2-2.png",
-                          "figures/figure-html/refit-fig2-3.png"))
+options(warn=-1)
+load("figures/refit/creatplain data.RData")
+dfcreat <- cbind(creatterm,ytemp)
+dfcreat$y_centered <- dfcreat$y-center
+dfcreat$x_exp <- exp(dfcreat$x)
+dfcreat$y_centered_exp <- exp(dfcreat$y_centered)
+
+creatbet <- 1.285655
+xlow <- log(0.8) 
+xhigh <- log(2.5)
+ylow <- creatbet * xlow
+yhigh <- creatbet * xhigh
+
+dfcreat %>% ggplot(aes(exp(x),exp(y_centered)))+
+  geom_line(lwd=1)+
+  geom_line(aes(x = exp(x), y = exp((y + 1.96 * se - center))), linetype = 2)+
+  geom_line(aes(x = exp(x), y = exp((y - 1.96 * se - center))), linetype = 2)+
+  scale_x_continuous("Serum creatinine (mg/dL)", limits=c(0.4,6), trans='log10')+
+  scale_y_continuous("Relative Risk of 90-day death", trans='log10', limits=c(0.4,7))+
+  theme_base()+
+  geom_segment(aes(x = 0.8, y = exp(creatbet * xlow), xend = 2.5, yend = exp(yhigh)+0.6),colour = "red", lwd=1.2)+
+  geom_segment(aes(x = 0.4, y = exp(creatbet * xlow), xend = 0.8, yend = exp(creatbet * xlow)),colour = "red", lwd=1.2)+
+  geom_segment(aes(x = 2.5, y = exp(yhigh)+0.6, xend = 6, yend = exp(yhigh)+0.6),colour = "red", lwd=1.2)
+  
+load("figures/refit/tmpbili.RData")
+bet <- 0.7655996
+xlow <- log(0.3)
+xhigh <- log(26.9)
+ylow <- bet * xlow
+yhigh <- bet * xhigh
+
+tmpbili %>% ggplot(aes(bili1,HR))+
+  geom_line(lwd=1)+
+  geom_line(aes(x = bili1, y = HRlow95), linetype = 2)+
+  geom_line(aes(x = bili1, y = HRupp95), linetype = 2)+
+  scale_x_continuous("Serum bilirubin (mg/dL)", limits=c(0.3,100), trans='log10')+
+  scale_y_continuous("Relative Risk of 90-day death", trans='log10', limits=c(0.3,20))+
+  theme_base()+
+  geom_segment(aes(x = 0.3, y = exp(ylow), xend = 26.9, yend =exp(yhigh)-3),colour = "red", lwd=1.2)+
+  geom_segment(aes(x = 26.9, y = exp(yhigh)-3, xend = 100, yend =exp(yhigh)-3),colour = "red", lwd=1.2)
+
+load("figures/refit/tmpinr.RData")
+bet <- 2.293092
+xlow <- log(0.1)
+xhigh <- log(2.6)
+ylow <- bet * xlow
+yhigh <- bet * xhigh
+
+tmpINR %>% ggplot(aes(INR1,HR))+
+  geom_line(lwd=1)+
+  geom_line(aes(x = INR1, y = HRlow95), linetype = 2)+
+  geom_line(aes(x = INR1, y = HRupp95), linetype = 2)+
+  scale_x_continuous("Serum INR", limits=c(0.85,10), trans='log10')+
+  scale_y_continuous("Relative Risk of 90-day death", trans='log10', limits=c(0.5,50))+
+  theme_base()+
+  geom_segment(aes(x = 0.85, y = 0.8, xend = 2.6, yend =10),colour = "red", lwd=1.2)+
+  geom_segment(aes(x = 2.6, y = 10, xend = 10, yend =10),colour = "red", lwd=1.2)
+
+options(warn=0)
 ```
 
 The heatmaps of the calculated log-likelihoods and c-indices per combination of boundaries are attached in the (online) supplement. After checking for interactions and matching the 25th and 75th quantiles of the reMELD to the UNOS-MELD in the training data, the reMELD equation was: $$7.728*ln(creatinine) + 3.446*ln(bilirubin) + 10.597*ln(INR) + 8.422$$ In this equation the abovementioned boundaries were used for the parameters.
@@ -100,7 +198,6 @@ The maximum log-likelihood for Na levels was found between 120 and 139 mmol/L. C
 \ 9.025\times ln(creatinine) + 2.969\times ln(bilirubin) + 9.518\times ln(INR) -\\ 
 \ 0.392\times (139-Na) - 0.351\times ln(139-Na)\times ln(creatinine)
 \end{align*} 
-For the parameters in the reMELD-Na score, the abovementioned boundaries were used. Compared to the UNOS-MELD, re-MELD and reMELD-Na used respectively 149% (n=4815) and 42% (n=2748) more patient measurements, i.e. less true patient measurements were capped, at listing with the boundaries as shown in Table \@ref(tab:refit-tab2). 
 
 ```{r refit-tab2,message=FALSE, echo=F}
 options(warn=-1)
@@ -108,31 +205,116 @@ library(kableExtra)
 library(readxl)
 library(tidyverse)
 tab2 <- read_excel("figures/refit/table 2.xlsx")
-colnames(tab2) <- c("Parameter","Bounds","UNOS MELD","capped (%)","included (%)","Refit MELD(-Na)","capped (%)","included (%)")
+# colnames(tab2) <- c("Parameter","Bounds","UNOS MELD","capped (%)","included (%)","Refit MELD(-Na)","capped (%)","included (%)")
+colnames(tab2) <- c("","","bounds","capped (%)","included (%)","bounds","capped (%)","included (%)")
 options(knitr.kable.NA = '')
-kbl(tab2, booktabs=T, caption = "Number of patient measurements included in UNOS and refit models",
+kbl(tab2, booktabs=T, caption = "Parameter bounds and number of patient measurements included in UNOS and refit models",
     linesep= "")%>%
-  kable_styling(latex_options = c("scale_down","striped")) %>%
+  kable_styling(latex_options = c("scale_down","striped")) %>% #"scale_down",
   kable_classic() %>%
-  # pack_rows("Creatinine", 1, 2) %>% pack_rows("Bilirubin", 3, 4) %>% pack_rows("INR", 5, 6) %>%
-  # pack_rows("Sodium", 7, 8) %>%
-  # kable_styling(latex_options = c("scale_down")) %>% 
-  #column_spec(1:8, width = "5em") %>%   
-  footnote(threeparttable=T, general= "For each parameter the lower and upper bounds are shown. 'Patients capped' shows the percentage of the cohort that either lies under or above the chosen bounds. 'Patients included' shows the percentage of patients whose measurements are included in the model.") 
+  add_header_above(c(" " = 2, "UNOS MELD(-Na)" = 3, "refit MELD(-Na)" = 3)) %>% 
+  footnote(threeparttable=T, general= "For each parameter the lower and upper bounds are shown. 'capped' shows the percentage of the cohort that either lies under or above the chosen bounds. 'included' shows the percentage of patients whose measurements are included in the model.") 
 
 options(warn=0)
 ``` 
 
-### Model performance {.unnumbered}
-Figure \@ref(fig:refit-fig3) shows the effect of each MELD parameter, corrected for the others, on 90-day mortality in the validation data. The red and blue lines represent the coefficients of the reMELD and UNOS-MELD respectively. It was visually apparent that refit MELD showed a better fit to the data for all three parameters. 
+For the parameters in the reMELD-Na score, the abovementioned boundaries were used. Compared to the UNOS-MELD, re-MELD and reMELD-Na used respectively 149% (n=4815) and 42% (n=2748) more patient measurements, i.e. less true patient measurements were capped, at listing with the boundaries as shown in Table \@ref(tab:refit-tab2). 
 
 ```{r refit-fig3, fig.align="center", echo=F, fig.ncol=1,fig.cap='In the validation data, the relation with 90-day mortality is shown. The coefficients and boundaries of creatinine in reMELD (red) and UNOS-MELD (blue) illustrate model fit.',  fig.subcap=c('Creatinine', 'Bilirubin', 'INR'), out.height="27%"}
-knitr::include_graphics(c("figures/figure-html/refit-fig3-1.png",
-                          "figures/figure-html/refit-fig3-2.png",
-                          "figures/figure-html/refit-fig3-3.png"))
+options(warn=-1)
+load("figures/refit/validation_parameters.RData")
+
+betreMELDcreat <- 1.547263
+xlow <- log(0.8)
+xhigh <-log(2.5)
+ylow_re <- exp(betreMELDcreat * xlow)
+yhigh_re <- exp(betreMELDcreat * xhigh)
+
+# add UNOS MELD coef
+betMELDcreat <- 0.957
+xlow <- log(1)
+xhigh <-log(4)
+ylow_meld <- exp(betMELDcreat * xlow)
+yhigh_meld <- exp(betMELDcreat * xhigh)
+
+tmpcreat %>% ggplot(aes(creat1,HR))+
+  geom_line(lwd=1)+
+  geom_line(aes(x = creat1, y = HRlow95), linetype = 2)+
+  geom_line(aes(x = creat1, y = HRupp95), linetype = 2)+
+  scale_x_continuous("Serum creatinine (mg/dL)", limits=c(0.4,10), trans='log10')+ # , trans='log10'
+  scale_y_continuous("Relative Risk of 90-day death",  limits=c(0.3,10), trans='log10')+ # trans='log10',
+  theme_base()+
+  geom_segment(aes(x = 0.8, y = ylow_re, xend = 2.5, yend = yhigh_re),colour = "red", lwd=1.2)+
+  geom_segment(aes(x = 0.4, y = ylow_re, xend = 0.8, yend = ylow_re),colour = "red", lwd=1.2)+
+  geom_segment(aes(x = 2.5, y = yhigh_re, xend = 10, yend = yhigh_re),colour = "red", lwd=1.2)+
+  geom_segment(aes(x=1,y=ylow_meld,xend=4,yend=yhigh_meld), colour = "blue", lwd=1.2)+
+  geom_segment(aes(x=0.4,y=ylow_meld,xend=1,yend=ylow_meld), colour = "blue", lwd=1.2)+
+  geom_segment(aes(x=4,y=yhigh_meld,xend=10,yend=yhigh_meld), colour = "blue", lwd=1.2)
+
+# bili
+betreMELDbili <- 0.6899988
+xlow <- log(0.3)
+xhigh <-log(26.9)
+ylow_re <- exp(betreMELDbili * xlow)
+yhigh_re <- exp(betreMELDbili * xhigh)
+
+# add UNOS MELD coef
+betMELDbili <- 0.378
+tmpbili$y_bili <- tmpbili$bili1*betMELDbili
+xlow <- log(1)
+xhigh <-log(100)
+ylow_meld <- exp(betMELDbili * xlow)
+yhigh_meld <- exp(betMELDbili * xhigh)
+
+tmpbili %>% ggplot(aes(bili1,HR))+
+  geom_line(lwd=1)+
+  geom_line(aes(x = bili1, y = HRlow95), linetype = 2)+
+  geom_line(aes(x = bili1, y = HRupp95), linetype = 2)+
+  scale_x_continuous("Serum bilirubin (mg/dL)", limits=c(0.2,100), trans='log10')+ # , trans='log10'
+  scale_y_continuous("Relative Risk of 90-day death",  limits=c(0.3,20), trans='log10')+ # trans='log10',
+  theme_base()+
+  geom_segment(aes(x = 0.3, y = ylow_re, xend = 26.9, yend = yhigh_re),colour = "red", lwd=1.2)+
+  geom_segment(aes(x = 0.2, y = ylow_re, xend = 0.3, yend = ylow_re),colour = "red", lwd=1.2)+
+  geom_segment(aes(x = 26.9, y = yhigh_re, xend = 100, yend = yhigh_re),colour = "red", lwd=1.2)+
+  #geom_line(aes(tmpbili$bili1,tmpbili$bili_meld), colour="blue")
+  geom_segment(aes(x=1,y=ylow_meld,xend=20,yend=20), colour = "blue", lwd=1.2)+
+  geom_segment(aes(x=0.2,y=ylow_meld,xend=1,yend=ylow_meld), colour = "blue", lwd=1.2)
+
+# INR
+betreMELDinr <- 2.121545
+xlow <- log(0.1)
+xhigh <-log(2.6)
+ylow_re <- exp(betreMELDinr * xlow)
+yhigh_re <- exp(betreMELDinr * xhigh)
+
+# add UNOS MELD coef
+betMELDinr <- 0.112
+tmpinr <- tmpINR
+tmpinr$inr1 <- tmpinr$INR1
+tmpinr$y_inr <- tmpinr$inr1*betMELDinr
+xlow <- log(1)
+xhigh <-log(100)
+ylow <- betMELDinr * xlow
+
+tmpinr %>% ggplot(aes(inr1,HR))+
+  geom_line(lwd=1)+
+  geom_line(aes(x = inr1, y = HRlow95), linetype = 2)+
+  geom_line(aes(x = inr1, y = HRupp95), linetype = 2)+
+  scale_x_continuous("Serum INR", limits=c(0.85,10), trans='log10')+ # , trans='log10'
+  scale_y_continuous("Relative Risk of 90-day death",  limits=c(0.5,80), trans='log10')+ # trans='log10',
+  theme_base()+
+  geom_segment(aes(x = 0.85, y = 0.7, xend = 2.6, yend = yhigh_re+0.6),colour = "red", lwd=1.2)+
+  #geom_segment(aes(x = 0.2, y = ylow_re, xend = 0.3, yend = ylow_re),colour = "red", lwd=1.2)+
+  geom_segment(aes(x = 2.6, y = yhigh_re+0.6, xend = 10, yend = yhigh_re+0.6),colour = "red", lwd=1.2)+
+  geom_segment(aes(x=1,y=1,xend=10,yend=9), colour = "blue", lwd=1.2)+
+  geom_segment(aes(x=0.85,y=1,xend=1,yend=1), colour = "blue", lwd=1.2)
+
+options(warn=0)
 ```
 
-The calculated chi-square values confirmed significant (p<0.001) improvements in the refit models compared to the UNOS-MELD, shown in Table \@ref(tab:refit-tab3). The reMELD and reMELD-Na models showed c-indices of 0.866 and 0.869 respectively, which were significantly (p<0.001) higher than 0.849 of the UNOS-MELD, see Table \@ref(tab:refit-tab3). Furthermore, the reMELD-Na showed a 8% reduction in prediction error as compared to UNOS-MELD with Brier scores of 0.053 (reMELD-Na) and 0.057 (UNOS-MELD) respectively. 
+### Model performance {.unnumbered}
+Figure \@ref(fig:refit-fig3) shows the effect of each MELD parameter, corrected for the others, on 90-day mortality in the validation data. The red and blue lines represent the coefficients of the reMELD and UNOS-MELD respectively. It was visually apparent that refit MELD showed a better fit to the data for all three parameters. The calculated chi-square values confirmed significant (p<0.001) improvements in the refit models compared to the UNOS-MELD, shown in Table \@ref(tab:refit-tab3). The reMELD and reMELD-Na models showed c-indices of 0.866 and 0.869 respectively, which were significantly (p<0.001) higher than 0.849 of the UNOS-MELD, see Table \@ref(tab:refit-tab3). Furthermore, the reMELD-Na showed a 8% reduction in prediction error as compared to UNOS-MELD with Brier scores of 0.053 (reMELD-Na) and 0.057 (UNOS-MELD) respectively. 
+
 ```{r refit-tab3,message=FALSE, echo=F}
 options(warn=-1)
 library(kableExtra)
@@ -152,7 +334,11 @@ options(warn=0)
 ``` 
 
 ### Impact on the waiting list {.unnumbered}
-After 90 days of follow-up, 1,248 patients of our cohort were transplanted. By using the reMELD-Na compared to the UNOS-MELD to allocate the 1,248 available liver grafts, 134/1,248 (11.5%) of the transplanted patients would have been within the top 1,248 candidates under one of these models but not under the other; i.e., prioritization would differ. Table \@ref(tab:refit-tab4) shows the characteristics of these differently prioritized patients. 
+After 90 days of follow-up, 1,248 patients of our cohort were transplanted. By using the reMELD-Na compared to the UNOS-MELD to allocate the 1,248 available liver grafts, 134/1,248 (11.5%) of the transplanted patients would have been within the top 1,248 candidates under one of these models but not under the other; i.e., prioritization would differ. Table \@ref(tab:refit-tab4) shows the characteristics of these differently prioritized patients. Most notably, reMELD-Na-prioritized patients were slightly older, were more often male, and had a higher prevalence of cirrhosis. Unsurprisingly, these patients had significantly lower serum sodium levels (138 vs. 127 mmol/L). As hyponatremia is most often seen in alcohol-associated cirrhosis,^14^ the sex and age differences are largely explained.
+The correlation plot Figure \@ref(fig:refit-fig4) shows which patients would be prioritized according to either UNOS-MELD or re-MELD-Na allocation. 
+
+\linespread{1}
+
 ```{r refit-tab4,message=FALSE, echo=F}
 options(warn=-1)
 library(kableExtra)
@@ -164,20 +350,34 @@ kbl(tab4, booktabs=T, caption = "Characteristics of Prioritized Patients",
     linesep= "")%>%
   kable_styling(latex_options = c("scale_down","striped")) %>%
   kable_classic() %>%
-  column_spec(2:5, width = "7em") %>% 
-  #kable_styling(latex_options="scale_down") %>%
+  #column_spec(2:5, width = "7em") %>% 
   pack_rows("Disease (%)", 6, 11) %>%
   pack_rows("Status after 90 days", 12, 16)%>%
-  pack_rows("Serum measurement at listing (mean (SD))", 18, 21) %>%
+  pack_rows("Measurement at listing (mean (SD))", 18, 21) %>%
 landscape()
 
 options(warn=0)
 ``` 
-Most notably, reMELD-Na-prioritized patients were slightly older, were more often male, and had a higher prevalence of cirrhosis. Unsurprisingly, these patients had significantly lower serum sodium levels (138 vs. 127 mmol/L). As hyponatremia is most often seen in alcohol-associated cirrhosis,^14^ the sex and age differences are largely explained.
-The correlation plot Figure \@ref(fig:refit-fig4) shows which patients would be prioritized according to either UNOS-MELD or re-MELD-Na allocation. 
 
-```{r refit-fig4, echo=F,  fig.align = "center", fig.cap='Correlation plot of UNOS- MELD and reMELD- Na. Based on the number of transplanted patients after the first 90 days (n = 1,248), the highest- ranked patients according to both scores separately were assigned a liver graft, as represented by the horizontal (graft granted by reMELD- Na) and vertical (by UNOS- MELD) lines. Patients in the top left quadrant (reMELD- Na- prioritized) had a 1.58 times higher risk of 90- day death compared to patients in the lower right quadrant (UNOS- MELD- prioritized).'}
-knitr::include_graphics("figures/figure-html/refit-fig4-1.png")
+\linespread{1.213}
+
+```{r refit-fig4, echo=F,  fig.align = "center", fig.cap='Correlation plot of UNOS- MELD and reMELD- Na. Based on the number of transplanted patients after the first 90 days (n = 1,248), the highest- ranked patients according to both scores separately were assigned a liver graft, as represented by the horizontal (graft granted by reMELD- Na) and vertical (by UNOS- MELD) lines. Patients in the top left quadrant (reMELD- Na- prioritized) had a 1.58 times higher risk of 90- day death compared to patients in the lower right quadrant (UNOS- MELD- prioritized).', fig.pos="!h"}
+options(warn=-1)
+load("figures/refit/totaldata.Rdata")
+ggplot(totaldata2) +
+ aes(x = UNOSMELD_nonround, y = REFITMELDNA, colour = transplanted) +
+ geom_point(size = 1L) +
+  #scale_color_manual(values=c("#D55E00", "#E69F00","#0072B2","#009E73"))+
+  scale_color_brewer(palette = "RdYlBu", direction=-1) +
+ labs(x = "UNOS MELD", y = "reMELD-Na", 
+      #title = "Correlation plot UNOS MELD and reMELD-Na ", 
+      color = "Transplanted") +
+  geom_hline(yintercept=22.49)+ #manual lookup
+  geom_vline(xintercept=23.30)+
+  scale_x_continuous(breaks=c(10,20,30,40,50,60), labels=c(10,20,30,40,50,60))+
+  scale_y_continuous(breaks=c(10,20,30,40), labels=c(10,20,30,40), limits= c(6,40))+
+  ggthemes::theme_base()+ theme(legend.position = c(0.75, 0.2))
+options(warn=0)
 ```
 
 The patients in the top left quadrant would have been prioritized by reMELD-Na allocation but not by UNOS-MELD. They had estimated 90-day survival probabilities of 52.4% (95CI 41.3 – 66.5), as compared to 70.0% (95CI 58.9 – 83.1) for patients prioritized by UNOS-MELD, but not by reMELD-Na (bottom right quadrant), Thus, re-MELD-Na would have prioritized patients with a 90-day WL mortality HR of 1.6 as compared to currently prioritized patients. Figure \@ref(fig:refit-fig4) also illustrated that after refitting, no scores above 40 were calculated and thus that all high MELD scores were acknowledged correctly. By using more recent data and the true 90-day mortality rates of our population, reMELD-Na showed that very few patients actually approached 100% 90-day WL mortality, i.e. MELD 40. Thus, the refit models restored the clinical meaning of the 6-40-point range.
@@ -198,15 +398,21 @@ High bilirubin levels led to unreliable measurements of UNOS-MELD due to interac
 The UNOS regions have used MELD-Na for liver allocation since 2016.^3^ Despite the proven impact of serum sodium levels on LT candidate survival,^12,14^ Na is not used (yet) for the Eurotransplant liver allocation. The addition of Na to the reMELD gave a small but significant improvement in discriminative ability (c-index 0.866 to 0.869). Although the largest improvement in c-index was achieved by reMELD alone (0.849 to 0.866), the additional smaller gain still represented important changes for hyponatremic patients. The c-index measures the proportion of patient pairs whose ranking is correctly ordered. Hence, a difference in c-index can be thought of as the proportion of patients whose ranking change. It however does not measure the degree of change within ranks, i.e. for each patient. Thus, a small difference for many patients will give a high c-index increase, whereas a large change for a smaller number of (hyponatremic) patients gives little improvement.^12,14^ Based on the current findings, reMELD-Na performed slightly but significantly better than reMELD. Also, it seems just to consider the proven effect of Na levels on mortality. Therefore, use of reMELD-Na is preferred.
 
 ### Impact on the WL {.unnumbered}
-Despite the seemingly small performance differences between UNOS and refit models, the refit models were very different at their bases, which was the goal of this study. Refitting established new parameter bounds, notably different coefficients and a superior fit to the data, see Figure \@ref(fig:refit-fig3) and Table \@ref(tab:refit-tab3). This improved both model discrimination (c-index) and calibration (prediction errors). The increase in c-index from 0.849 to 0.869 may seem small, but is both statistically and clinically very significant. Recent study showed that switching from UNOS MELD to MELD-Na would significantly reduce waiting list mortality in the Eurotransplant region, although the difference in c-index was 0.015 (0.832 vs 0.847).^14^ The study that formed the basis of the US switch from MELD to MELD-Na, showed a similar increase in c-index (i.e. 0.868 to 0.883),^12^ which was considered an important increase and convincing evidence for possible MELD-Na implementation. Another large UNOS cohort study on improving MELD showed a c-index increase from 0.75 to 0.77.^16^ This illustrates that improving an already-high c-index is very difficult, as it increases in an asymptotic fashion when approaching its maximum. The highest obtainable baseline c-index is probably around 0.9 or lower because of possible imperfections and biological variation in the data.^5,12,14^ Moreover, compared to respectively UNOS MELD and MELD-Na, refitting reduced prediction errors by 8% and 5%, which is a major improvement considering the already-high accuracy of the scores. To estimate the possible clinical impact of refitting, differences in prioritization were assessed, see Table \@ref(tab:refit-tab4). As the 90-day mortality of the reMELD-Na-prioritized patients (Figure \@ref(fig:refit-fig4) ) was 1.6 times higher than the currently prioritized patients, reMELD-Na could possibly better effectuate the sickest-first principle. Figure \@ref(fig:refit-fig4) also shows patients with MELD\>=40, which were rescaled below 40 after refitting. An UNOS-MELD score of 40 originally corresponded to a 100% 90-day WL mortality.^11^ However, over the past decades, the waitlist population and the risks of death per MELD score have changed,^7^ which also shows through the increasing number and survival of MELD\>=40 patients.^19^ This has important implications for the Eurotransplant exception point system, which is based on MELD mortality rates dating from 2006 (supplement 3) and allocates 25-30% of the LT candidates.^10,20^ Regardless of possible refit score implementation, the Eurotransplant exception point system would benefit from an accurate rescaling. Still, by quantile matching and refitting specifically in the 6 to 40 range, the refit scores restored their old mortality equivalents, i.e. MELD 40 represented a 100% 90-day mortality risk.  
+Despite the seemingly small performance differences between UNOS and refit models, the refit models were very different at their bases, which was the goal of this study. Refitting established new parameter bounds, notably different coefficients and a superior fit to the data, see Figure \@ref(fig:refit-fig3) and Table \@ref(tab:refit-tab3). This improved both model discrimination (c-index) and calibration (prediction errors). The increase in c-index from 0.849 to 0.869 may seem small, but is both statistically and clinically very significant. Recent study showed that switching from UNOS MELD to MELD-Na would significantly reduce waiting list mortality in the Eurotransplant region, although the difference in c-index was 0.015 (0.832 vs 0.847).^14^ The study that formed the basis of the US switch from MELD to MELD-Na, showed a similar increase in c-index (i.e. 0.868 to 0.883),^12^ which was considered an important increase and convincing evidence for possible MELD-Na implementation. Another large UNOS cohort study on improving MELD showed a c-index increase from 0.75 to 0.77.^16^ This illustrates that improving an already-high c-index is very difficult, as it increases in an asymptotic fashion when approaching its maximum. The highest obtainable baseline c-index is probably around 0.9 or lower because of possible imperfections and biological variation in the data.^5,12,14^ Moreover, compared to respectively UNOS MELD and MELD-Na, refitting reduced prediction errors by 8% and 5%, which is a major improvement considering the already-high accuracy of the scores. 
+
+To estimate the possible clinical impact of refitting, differences in prioritization were assessed, see Table \@ref(tab:refit-tab4). As the 90-day mortality of the reMELD-Na-prioritized patients (Figure \@ref(fig:refit-fig4) ) was 1.6 times higher than the currently prioritized patients, reMELD-Na could possibly better effectuate the sickest-first principle. Figure \@ref(fig:refit-fig4) also shows patients with MELD\>=40, which were rescaled below 40 after refitting. An UNOS-MELD score of 40 originally corresponded to a 100% 90-day WL mortality.^11^ However, over the past decades, the waitlist population and the risks of death per MELD score have changed,^7^ which also shows through the increasing number and survival of MELD\>=40 patients.^19^ This has important implications for the Eurotransplant exception point system, which is based on MELD mortality rates dating from 2006 (supplement 3) and allocates 25-30% of the LT candidates.^10,20^ Regardless of possible refit score implementation, the Eurotransplant exception point system would benefit from an accurate rescaling. Still, by quantile matching and refitting specifically in the 6 to 40 range, the refit scores restored their old mortality equivalents, i.e. MELD 40 represented a 100% 90-day mortality risk.  
 
 ### Limitations {.unnumbered}
-Estimating the impact of a new allocation system based on another system’s data inadequately reflects the possible effects of new allocation. Before implementation, one aims to answer important questions concerning counterfactual outcomes in causal inference, e.g. what would have happened to patients had they not been transplanted. The best way to evaluate a new allocation system is to bring it in practice and measure the difference. Evaluating a new system through simulation is probably the next best option. One should be aware, however, that assessment through simulation is based on intrinsically unverifiable assumptions, namely that with changing the allocation priorities nothing else in the system will change. The Eurotransplant region does not yet have a simulation model of its liver allocation, like the Liver Simulation Allocation Model (LSAM) in the UNOS. Therefore, new allocation systems, e.g. refit models, cannot be formally evaluated before possible implementation. Instead, only a rough estimate of possible impact could be given by assessing differences in prioritized patients. Still, this was likely a less-biased method compared to proposed UNOS MELD-Na estimations of impact.^12^ Finally, the role of clinical intuition and logic of reasoning should not be underestimated. Optimizing MELD for our region makes clinical sense and the log-likelihood-based approach is statistically solid and logical. Regions without simulation programs cannot know for certain what the effect of new allocation systems will be. Still, evidence can form a strong suggestion of improvement, which can be confirmed after possible implementation.
+Estimating the impact of a new allocation system based on another system’s data inadequately reflects the possible effects of new allocation. Before implementation, one aims to answer important questions concerning counterfactual outcomes in causal inference, e.g. what would have happened to patients had they not been transplanted. The best way to evaluate a new allocation system is to bring it in practice and measure the difference. Evaluating a new system through simulation is probably the next best option. One should be aware, however, that assessment through simulation is based on intrinsically unverifiable assumptions, namely that with changing the allocation priorities nothing else in the system will change. The Eurotransplant region does not yet have a simulation model of its liver allocation, like the Liver Simulation Allocation Model (LSAM) in the UNOS. Therefore, new allocation systems, e.g. refit models, cannot be formally evaluated before possible implementation. Instead, only a rough estimate of possible impact could be given by assessing differences in prioritized patients. Still, this was likely a less-biased method compared to proposed UNOS MELD-Na estimations of impact.^12^ 
+
+Finally, the role of clinical intuition and logic of reasoning should not be underestimated. Optimizing MELD for our region makes clinical sense and the log-likelihood-based approach is statistically solid and logical. Regions without simulation programs cannot know for certain what the effect of new allocation systems will be. Still, evidence can form a strong suggestion of improvement, which can be confirmed after possible implementation.
 
 ## Conclusion {.unnumbered}
-This study showed that updating the boundaries and coefficients on more recent region-specific data increased the predictive power of MELD again. The discussion on the establishment of refit models should consider at least three aspects: the parameter boundaries, fit of the model to the data and the prediction performance of the model. With the increasing interest in more advanced computational possibilities, the transplant community should investigate alternative models to the current allocation system.21 However, as the MELD still is the basis of liver allocation in many regions, efforts should be made to keep the model as relevant as possible, and we believe the current study serves this purpose. In conclusion, refitting MELD acknowledged more patient measurements at listing and prioritized patients with higher 90-day mortality. The discriminative ability and accuracy of refit models was a significant and relevant improvement compared to the currently used UNOS-MELD. 
+This study showed that updating the boundaries and coefficients on more recent region-specific data increased the predictive power of MELD again. The discussion on the establishment of refit models should consider at least three aspects: the parameter boundaries, fit of the model to the data and the prediction performance of the model. With the increasing interest in more advanced computational possibilities, the transplant community should investigate alternative models to the current allocation system.^21^ However, as the MELD still is the basis of liver allocation in many regions, efforts should be made to keep the model as relevant as possible, and we believe the current study serves this purpose. In conclusion, refitting MELD acknowledged more patient measurements at listing and prioritized patients with higher 90-day mortality. The discriminative ability and accuracy of refit models was a significant and relevant improvement compared to the currently used UNOS-MELD. 
 
 \newpage
+\linespread{1}
+\small
 
 ## References {.unnumbered}
 1. 	Eurotransplant International Foundation. Statistics Library.
@@ -231,3 +437,8 @@ This study showed that updating the boundaries and coefficients on more recent r
 20. Eurotransplant. Chapter 5 - ET Liver Allocation System (ELAS).; 2019. https://www.eurotransplant.org/cms/index.php?page=et_manual.
 21. Spann A, Yasodhara A, Kang J, et al. Applying Machine Learning in Liver Disease & Transplantation: A Comprehensive Review. Hepatology. 2020:0-3. doi:10.1002/hep.31103
 
+\newpage
+\linespread{1.213}
+\normalsize
+\thispagestyle{plain}
+\mbox{}

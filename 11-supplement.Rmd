@@ -1,6 +1,12 @@
+\addtocontents{toc}{\setcounter{tocdepth}{1}}
+<!-- \addtocontents{toc}{\setcounter{tocdepth}{0}} -->
+\pagecolor{black}
+\color{white}
 
 # Appendix
 \newpage
+\nopagecolor
+\color{black}
 
 ## Supplement Chapter: The Model for End-stage Liver Disease 3.0: an update without proven accuracy {#chap-meld3}
 
@@ -8,13 +14,14 @@
 
 \vspace*{\fill}
 
-\noindent  *Goudsmit BFJ, Putter H, van Hoek B. The Model for End-stage Liver Disease 3.0: an update without proven accuracy. Gastroenterology, 2021; doi: [10.1053/j.gastro.2021.09.047](https://doi.org/10.1053/j.gastro.2021.09047). \*
+\noindent  Goudsmit BFJ, Putter H, van Hoek B. The Model for End-stage Liver Disease 3.0: an update without proven accuracy. _Gastroenterology_, 2021; doi: 10.1053/j.gastro.2021.09.047.
+
 
 ------------------------------------------------------------------------
 
 \newpage
 
-### Letter 
+### Letter {.unnumbered}
 
 With great interest we read the study by Kim et al.^1^ In this work, the authors showed that MELD-Na performance is improved by including serum albumin levels, LT candidate sex, a creatinine cap set to 3 mg/dL, and significant interactions. Most notably, the MELD 3.0 concordance statistic (c-index) was 0.869, versus a MELD-Na c-index of 0.862. However, we have some concerns regarding this study.
 
@@ -27,8 +34,10 @@ Third, the authors keep the lower borders of bilirubin, creatinine, and INR set 
 
 In conclusion, MELD 3.0’s accuracy must be proven before it can be considered as new allocation model, e.g., with calibration plots and Brier scores. Reclassification cannot be used alone to prove clinical improvement. We agree with the authors that efforts should be made to continuously improve MELD and liver graft allocation, but appropriate evidence must be presented.
 
+\linespread{1}
+\small
 
-### References
+### References {.unnumbered}
 1. 	Kim WR, Mannalithara A, Heimbach JK, et al. MELD 3.0: The Model for End-stage Liver Disease Updated for the Modern Era. Gastroenterology. Published online 2021. doi:10.1053/j.gastro.2021.08.050
 2. 	Van Calster B, McLernon DJ, Van Smeden M, et al. Calibration: The Achilles heel of predictive analytics. BMC Med. 2019;17(1):1-7. doi:10.1186/s12916-019-1466-7
 3. 	Kim WR, Biggins SW, Kremers WK, et al. Hyponatremia and Mortality among Patients on the Liver-Transplant Waiting List. N Engl J Med. 2008;359(10):1018-1026. doi:10.1007/s11250-017-1262-3
@@ -39,6 +48,8 @@ In conclusion, MELD 3.0’s accuracy must be proven before it can be considered 
 8. 	Goudsmit BFJ, Putter H, Tushuizen ME, et al. Refitting the Model for End-Stage Liver Disease for the Eurotransplant Region. Hepatology. 2021;74(1):351-363. doi:10.1002/hep.31677
 
 \newpage
+\linespread{1.213}
+\normalsize
 
 ## Supplement Chapter: The role of the model for end-stage liver disease-sodium score and joint models for 90-day mortality prediction in patients with acute-on-chronic liver failure. {#chap-rolejm}
 
@@ -46,13 +57,13 @@ In conclusion, MELD 3.0’s accuracy must be proven before it can be considered 
 
 \vspace*{\fill}
 
-\noindent *Goudsmit BFJ, Tushuizen ME, Putter H, Braat AE, van Hoek B. The role of the model for end-stage liver disease-sodium score and joint models for 90-day mortality prediction in patients with acute-on-chronic liver failure. J Hepatol. 2021;74(2):475-476. doi: [10.1016/j.jhep.2020.08.032](https://www.journal-of-hepatology.eu/article/S0168-8278(20)33606-0/fulltext).* 
+\noindent Goudsmit BFJ, Tushuizen ME, Putter H, Braat AE, van Hoek B. The role of the model for end-stage liver disease-sodium score and joint models for 90-day mortality prediction in patients with acute-on-chronic liver failure. _Journal of Hepatology_. 2021;74(2):475-476. doi: 10.1016/j.jhep.2020.08.032. 
 
 ------------------------------------------------------------------------
 
 \newpage
 
-### Letter 
+### Letter {.unnumbered}
 
 With great interest we read the article by Hernaez et al.^1^ The authors showed that predicted survival by the Model for End-stage Liver Disease sodium (MELD-Na) score underestimated the observed survival in acute-on-chronic liver failure (ACLF) patients. As a result, ACLF patients might be underserved in the MELD-Na-based allocation of donor livers.
 We agree with the authors that the MELD-Na score is not optimal for ACLF patients. However, we suggest several considerations for this paper. 
@@ -67,7 +78,9 @@ Finally, Hernaez et al. note that “future research should also focus on develo
 
 In conclusion, the MELD-Na underestimates survival in ACLF patients because it uses only some of the relevant prognostic factors for ACLF patient survival. Joint models should be considered to dynamically predict patient-specific survival based on repeated measurements.
 
-### References
+\linespread{1}
+\small
+### References {.unnumbered}
 1. 	Hernaez R, Liu Y, Kramer JR, Rana A, El-serag HB, Kanwal F. Model for end-stage liver disease-sodium underestimates 90-day mortality risk in patients with acute-on-chronic liver failuare. J Hepatol. 2020. doi:10.1016/j.jhep.2020.06.005
 2. 	Sundaram V, Jalan R, Wu T, et al. Factors Associated with Survival of Patients With Severe Acute-On-Chronic Liver Failure Before and After Liver Transplantation. Gastroenterology. 2019;156(5):1381-1391.e3. doi:10.1053/j.gastro.2018.12.007
 3. 	Jalan R, Saliba F, Pavesi M, et al. Development and validation of a prognostic score to predict mortality in patients with acute-on-chronic liver failure. J Hepatol. 2014;61(5):1038-1047. doi:10.1016/j.jhep.2014.06.012
@@ -79,7 +92,11 @@ In conclusion, the MELD-Na underestimates survival in ACLF patients because it u
 9. 	Papageorgiou G, Mokhles MM, Takkenberg JJM, Rizopoulos D. Individualized dynamic prediction of survival with the presence of intermediate events. Stat Med. 2019;38(30):5623-5640. doi:10.1002/sim.8387
 10. Campbell KR, Juarez-Colunga E, Grunwald GK, Cooper J, Davis S, Gralla J. Comparison of a time-varying covariate model and a joint model of time-to-event outcomes in the presence of measurement error and interval censoring: Application to kidney transplantation. BMC Med Res Methodol. 2019;19(1):1-12. doi:10.1186/s12874-019-0773-1
 
-
+\newpage
+\linespread{1.213}
+\normalsize
+\thispagestyle{plain}
+\mbox{}
 
 
 
